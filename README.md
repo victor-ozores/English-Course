@@ -7,7 +7,7 @@
 # 🎧 Estudo de Inglês
 
 **App de estudo de inglês feito para o celular, centrado em falar: o microfone confere cada palavra que eu digo e a linha fica verde ou vermelha.**
-Um arquivo só, sem servidor e sem instalar nada. Conteúdo do livro *Hey, Ho, Let's Go!* (Book 1), em 40 unidades, com o porquê de cada regra explicado.
+Um arquivo só, sem servidor e sem instalar nada. Conteúdo do livro *Hey, Ho, Let's Go!* (Book 1), em 46 unidades, com o porquê de cada regra explicado.
 
 [![Abrir o app](docs/img/botoes/abrir-app.svg)](https://victor-ozores.github.io/English-Course/)&nbsp;&nbsp;&nbsp;![Acesso com senha](docs/img/botoes/privado.svg)
 
@@ -27,7 +27,7 @@ Um arquivo só, sem servidor e sem instalar nada. Conteúdo do livro *Hey, Ho, L
 
 Eu só aprendo um verbo de verdade quando consigo **falar** o verbo do jeito certo. Por isso construí este app em volta do microfone: cada palavra, verbo e frase tem um botão de ouvir e um botão de falar, o app escreve o que entendeu e compara **palavra por palavra** com a frase certa. Acertou, a linha fica verde. Errou, fica vermelha e mostra o que ele entendeu.
 
-O conteúdo vem do livro que estou estudando: 25 módulos e 15 unidades de gramática (do, does, did, will, used to...) que aparecem antes do módulo que precisa delas. Cada unidade segue a mesma ordem, a que eu aprendo melhor: **palavras, verbos, expressões, regras, frases, conversa e revisão**. As regras trazem o professor explicando o porquê (por que o *do* vem antes do verbo, por que o *did* leva o passado e o verbo volta ao normal), a comparação com o português e as pegadinhas que eu mais erro.
+O conteúdo vem do livro que estou estudando: 25 módulos e 21 unidades de gramática (do, does, did, will, used to, e também at/in/on/to, artigos, plural, make/do/take...) que aparecem antes do módulo que precisa delas. Eu acrescentei o que o livro não explica, mas que quem fala português precisa saber, e mais de 400 frases novas, sempre dentro do assunto de cada módulo. Cada unidade segue a mesma ordem, a que eu aprendo melhor: **palavras, verbos, expressões, regras, frases, conversa e revisão**. As regras trazem o professor explicando o porquê (por que o *do* vem antes do verbo, por que o *did* leva o passado e o verbo volta ao normal), a comparação com o português e as pegadinhas que eu mais erro.
 
 Estudo no celular, então o app é uma página só, em tela cheia, com botões grandes, modo escuro e **sem depender de internet para tudo, menos a conferência da fala** (o Chrome precisa de internet para entender a voz). O progresso fica no navegador, em duas cópias, e eu salvo uma terceira em arquivo ou em código, porque o navegador do celular pode apagar os dados sem avisar.
 
@@ -76,7 +76,7 @@ Abre no Chrome do celular ou do computador. Na primeira vez pede a senha de aces
 
 | Tela | O que mostra |
 |---|---|
-| **Início** | Progresso do livro, o botão Continuar, o treino de fala, o reforço do que errei e a trilha das 40 unidades (gramáticas em âmbar) |
+| **Início** | Progresso do livro, o botão Continuar, o treino de fala, o reforço do que errei e a trilha das 46 unidades (gramáticas em âmbar) |
 | **Unidade** | As etapas na ordem (**comece por aqui, palavras, verbos, expressões, regras, frases, conversa, revisão**), com a próxima destacada |
 | **Palavras e verbos** | Uma linha por item com ouvir e falar; o placar de certas, erradas e faltam; e a rodada de treino |
 | **Exercícios** | Falar, falar sem ler, arrastar e montar a frase, completar arrastando, ligar os pares, escrever, ouvir e escrever, escolher e "qual está certa?" |
@@ -139,7 +139,9 @@ flowchart TD
 ## 📚 De Onde Vem o Conteúdo
 
 * **O livro.** *Hey, Ho, Let's Go!* Book 1: palavras, verbos, expressões, frases e conversas dos 25 módulos.
-* **O porquê das regras.** As explicações, os exemplos e as pegadinhas das 40 unidades foram escritas para eu entender de verdade, em português simples. As 15 gramáticas (do/don't, have to, to be, does, would like, can, present continuous, did, was/were, passado irregular, if, going to, will, used to) vêm antes do módulo que usa cada uma.
+* **O porquê das regras.** As explicações, os exemplos e as pegadinhas das 46 unidades foram escritas para eu entender de verdade, em português simples. As 21 gramáticas vêm antes do módulo que usa cada uma: do/don't, plural, at/in/on/to (lugar), at/in/on (tempo), have to, artigos (a, an, the ou nada), to be, he/she/it, make/do/take/get/have/go, does, would like, preposições fixas (listen to, good at...), can, present continuous, did, was/were, passado irregular, if, going to, will e used to.
+* **O que o livro não explica e eu acrescentei.** Quando usar **at, in, on e to** (at the store, go to the store, at home), as preposições de tempo, quando usar **a, an, the ou nada**, o plural e as palavras que mudam por inteiro (child, children), os pares de verbos que o português chama tudo de "fazer", e as preposições que andam sempre juntas (listen **to**, good **at**).
+* **Lembrete das formas dos verbos.** Do Módulo 8 em diante, cada módulo que usa verbos com outra cara ganha uma lição de lembrete: **needed, took, bought, sold, has, making**, cada uma com o verbo básico. O script `lembretes.py` monta a lista a partir das frases de cada módulo.
 * **O que eu corrigi no livro.** Revisei todas as frases em inglês e corrigi **115** que estavam erradas ou pouco naturais (por exemplo, *in the movies* virou *at the movies*, *fight judo* virou *do judo*, *make a tour* virou *take a tour*). A lista com o antes e o depois fica no meu computador, junto com o conteúdo.
 
 ## 🧮 Como a Fala é Conferida
@@ -159,11 +161,12 @@ O navegador entende a minha voz e devolve um texto; a comparação com a frase c
 | O quê | Como | Resultado |
 |---|---|---|
 | **A conferência da fala e da escrita ao vivo** | [`testes/fala.test.js`](testes/fala.test.js): frases que têm de passar e frases que não podem passar (*he work*, *can't* no lugar de *can*, verbo errado, falta de *did*, ordem trocada) | 50 testes, todos passando |
-| **O formato do conteúdo** | `python montar.py` confere cada linha dos 40 arquivos (colunas, tipos de lição, seções) antes de montar | 0 avisos |
-| **As telas e os exercícios** | Rodadas completas dos 10 tipos de exercício num navegador de 375 x 812, em claro e escuro, com um robô que responde certo e errado e um microfone simulado | sem erro no console; 40 unidades e todas as etapas abrem sem texto quebrado |
+| **O formato do conteúdo** | `python montar.py` confere cada linha dos 46 arquivos (colunas, tipos de lição, seções) antes de montar | 0 avisos |
+| **As telas e os exercícios** | Rodadas completas dos 10 tipos de exercício num navegador de 375 x 812, em claro e escuro, com um robô que responde certo e errado e um microfone simulado | sem erro no console; as 46 unidades e as 414 telas de etapas abrem sem texto quebrado |
 | **Salvar e importar** | Salvei o código, apaguei o progresso, importei pelo código e pelo arquivo, tentei um código quebrado e um arquivo que não era do app; apaguei só o `localStorage` e conferi que o espelho do navegador devolve o progresso | todos os caminhos funcionaram; o inválido é recusado com aviso |
-| **A trava com senha** | Abri a versão cifrada com senha errada (recusa) e certa (abre as 40 unidades); conferi que o arquivo publicado não tem nenhuma frase do livro em texto aberto | 0 frases do livro no arquivo cifrado |
-| **As frases do livro** | Li as cerca de 2.500 linhas em inglês e as explicações das 40 unidades | 115 frases corrigidas, mais acentos e termos padronizados numa segunda revisão (13/11/2026) |
+| **A trava com senha** | Abri a versão cifrada com senha errada (recusa) e certa (abre as 46 unidades); conferi que o arquivo publicado não tem nenhuma frase do livro em texto aberto | 0 frases do livro no arquivo cifrado |
+| **As frases e as explicações** | Li as linhas em inglês e as explicações das unidades; rodei checagens automáticas (quiz ambíguo, "errado" que é frase válida, traduções que se contradizem, palavra rara que pode ser erro de digitação, erro comum de gramática em cada frase) | 115 frases do livro corrigidas e mais acentos e termos padronizados numa segunda revisão (13/11/2026) |
+| **As frases novas** | Um verificador confere que cada frase nova só usa palavras já ensinadas até aquele módulo (ou listadas na própria unidade) | 0 palavras fora do vocabulário nas mais de 400 frases novas e nas 6 unidades novas |
 
 ## 🧱 Tecnologias
 
@@ -183,6 +186,7 @@ dados/_modelo.txt    o formato de um arquivo de unidade (o conteúdo do livro, e
 src/                 index.html, style.css, app.js (telas e exercícios), fala.js (conferência da fala)
 testes/              fala.test.js
 montar.py            confere o conteúdo e gera estudo.html (local) e docs/index.html (cifrado)
+lembretes.py         monta a lição "Lembrete: as formas dos verbos" de cada módulo
 cifrar.js            cifra o conteúdo para a versão publicada
 docs/                index.html cifrado (é o que o GitHub Pages serve) e as imagens deste README
 CLAUDE.md, LEIA-ME.md  mapa do código para manter com pouco esforço e guia de uso

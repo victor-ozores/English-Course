@@ -6,6 +6,7 @@ App de estudo de inglês em 1 arquivo (`estudo.html`), para o celular. Conteúdo
 - **NÃO leia `estudo.html` nem `docs/index.html`** (são gerados, ~420 e ~540 KB). Nunca edite eles.
 - Conteúdo = `dados/livro1/NN-L-chave.txt` (um arquivo por unidade, 3-8 KB). Leia SÓ o arquivo da unidade mexida. Formato: `dados/_modelo.txt`.
 - Código: `src/fala.js` (comparação da fala, sem tela), `src/app.js` (telas e exercícios), `src/style.css`, `src/index.html`. Use Grep para achar a função e Edit pontual; não releia o arquivo inteiro.
+- Frases novas de um módulo: acrescente linhas ` en | pt ` no `[extras]` do `NN-z-mNN.txt`, usando só palavras já ensinadas até ali. Mudou frases de módulos que têm verbos no passado/-ing? Rode `python lembretes.py` (refaz a lição "Lembrete: as formas dos verbos" de cada módulo) e depois `python montar.py`.
 - Depois de qualquer mudança: `python montar.py` (confere o formato dos .txt, gera `estudo.html` local e, se existir `senha.txt`, o `docs/index.html` cifrado para o site). Mexeu em `fala.js`: `node testes/fala.test.js`.
 - **Publicação:** branch `estudo-simples` do repo público `victor-ozores/English-Course`; o GitHub Pages serve só a pasta `docs/` dessa branch (https://victor-ozores.github.io/English-Course/). Mudou o app ou o conteúdo = `python montar.py`, commitar `docs/index.html` e subir (só com o OK dele).
 - **`senha.txt` (local, no .gitignore) nunca sobe nem é repetido em texto.** Ela cifra o conteúdo do site; o app pede a senha na 1ª vez.
