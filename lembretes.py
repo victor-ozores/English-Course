@@ -67,7 +67,7 @@ def main():
                 if re.fullmatch(r'[a-z]+', v): bases.add(v)
     mapa = {}  # forma -> (verbo, tipo, rotulo)
     for v in sorted(bases):
-        if v in ('be', 'do', 'call'): continue  # was/were e did/does têm gramática própria; called é só adjetivo aqui
+        if v in ('be', 'do', 'call', 'use'): continue  # was/were e did/does têm gramática própria; called é só adjetivo aqui
         p = forma_passado(v)
         for pp in p.split('/'):
             if pp != v and pp not in bases: mapa.setdefault(pp, (v, 'passado', pp))
@@ -107,7 +107,11 @@ def main():
                 if w in mapa and w not in bases:
                     v, tipo, rot = mapa[w]
                     achadas.setdefault((tipo, v, rot), []).append((en, pt))
-        if sum(1 for k in achadas) < 3: continue
+        if sum(1 for k in achadas) < 3:
+            if i is not None:
+                with open(f, 'w', encoding='utf-8', newline='\n') as arq:
+                    arq.write('\n'.join(linhas))
+            continue
         irregulares = lambda k: (0 if (k[0] == 'passado' and k[1] in IRREG) else 1, k[1])
         por_tipo = {'passado': [], 's': [], 'ing': []}
         for k in sorted(achadas, key=irregulares): por_tipo[k[0]].append(k)
