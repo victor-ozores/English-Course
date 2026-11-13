@@ -110,30 +110,94 @@ var Fala = (function () {
   }
   function every(list, ok) { for (var i = 0; i < list.length; i++) if (!ok(list[i])) return false; return true; }
 
+  /* "som aproximado" de uma palavra: mantém as consoantes e marca onde há vogal (V), sem dizer qual vogal.
+     bread, brad, bred => brVd | ham, him, hem => hVm | cheese, chase => CVs.
+     O microfone erra mais a vogal de uma palavra solta do que a consoante. */
+  function pkey(w) {
+    w = String(w).toLowerCase().replace(/[^a-z]/g, '');
+    if (!w) return '';
+    w = w.replace(/^kn/, 'n').replace(/^wr/, 'r').replace(/^wh/, 'w').replace(/^ps/, 's').replace(/mb$/, 'm');
+    w = w.replace(/ph/g, 'f').replace(/tch/g, 'C').replace(/ck/g, 'k').replace(/dge/g, 'j').replace(/qu/g, 'kw').replace(/x/g, 'ks');
+    w = w.replace(/sh/g, 'S').replace(/ch/g, 'C').replace(/th/g, 'T').replace(/gh/g, '');
+    w = w.replace(/c(?=[eiy])/g, 's').replace(/c/g, 'k');
+    w = w.replace(/(.)\1+/g, '$1');
+    if (w.length > 3 && /[^aeiouy]e$/.test(w)) w = w.slice(0, -1);
+    w = w.replace(/^y/, 'j').replace(/[aeiouy]+/g, 'V');
+    return w;
+  }
+  /* mesma consoante e mesmo desenho de vogais, só a vogal muda (ex.: bread / brad) */
+  function softEq(a, b) {
+    if (!a || !b || a === b || a.length < 3 || b.length < 2) return false;
+    var k = pkey(a);
+    return k.length >= 2 && k === pkey(b);
+  }
+  /* palavras que NUNCA recebem esse perdão: trocar a vogal muda a gramática (went/want, can/can't, has/his...) */
+  var STRICT = {};
+  ('to do does did not no can will would is am are was were be been have has had a an the i you he she it we they me my your his her ' +
+    'its our their this that these those and or but of in on at for from with by went want see say said than then them they\'re').split(' ')
+    .forEach(function (w) { STRICT[w] = 1; });
+  function setOf(list) {
+    var o = {};
+    [].concat(list || []).forEach(function (x) { toks(x).forEach(function (t) { o[t] = 1; }); });
+    return o;
+  }
+  /* correções pessoais: { palavraCerta: ['o que o microfone ouviu', ...] } */
+  function applyCal(H, T, cal) {
+    if (!cal) return H;
+    var rev = {}, inT = {};
+    T.forEach(function (t) { inT[t] = 1; });
+    Object.keys(cal).forEach(function (t) { if (inT[t]) cal[t].forEach(function (h) { if (!inT[h]) rev[h] = t; }); });
+    return H.map(function (h) { return rev[h] || h; });
+  }
+
   /* target = frase certa; alts = o que o microfone entendeu (uma ou mais opções).
-     nível 2 = perfeito, 1 = bom (só um artigo de diferença), 0 = ainda não */
+     opt.lax  = palavras que podem faltar (ex.: ['to'] num verbo solto)
+     opt.soft = true (palavra solta) ou lista de palavras que aceitam vogal duvidosa (ex.: o vocabulário do módulo)
+     opt.cal  = correções pessoais { palavraCerta: [ouvido, ...] }
+     nível 2 = perfeito, 1 = bom (só um artigo, ou uma vogal duvidosa), 0 = ainda não */
   function check(target, alts, opt) {
-    var lax = (opt && opt.lax) || [];
+    opt = opt || {};
+    var lax = opt.lax || [];
     var W = words(target), T = flat(target), best = null;
+    var softAll = opt.soft === false ? false : (opt.soft === true || T.length === 1 || (T.length === 2 && T[0] === 'to' && lax.indexOf('to') >= 0)), softSet = Array.isArray(opt.soft) ? setOf(opt.soft) : null;
+    function elig(t) { return !STRICT[t] && (softAll || (softSet && softSet[t])); }
     [].concat(alts || []).forEach(function (alt) {
-      var H = stutter(compounds(flat(alt), T), T), d = align(H, T);
-      var miss = T.filter(function (x, i) { return !d.mb[i]; }), extra = H.filter(function (x, i) { return !d.ma[i]; });
+      var H = stutter(compounds(applyCal(flat(alt), T, opt.cal), T), T), d = align(H, T), i, j;
+      var missI = [], extraI = [], used = {}, softIdx = {}, nSoft = 0;
+      for (i = 0; i < T.length; i++) if (!d.mb[i]) missI.push(i);
+      for (j = 0; j < H.length; j++) if (!d.ma[j]) extraI.push(j);
+      missI.forEach(function (ti) {
+        if (!elig(T[ti])) return;
+        for (var k = 0; k < extraI.length; k++) {
+          var hj = extraI[k];
+          if (!used[hj] && softEq(T[ti], H[hj])) { used[hj] = 1; softIdx[ti] = H[hj]; nSoft++; break; }
+        }
+      });
+      var miss = missI.filter(function (ti) { return !softIdx[ti]; }).map(function (ti) { return T[ti]; });
+      var extra = extraI.filter(function (hj) { return !used[hj]; }).map(function (hj) { return H[hj]; });
       var level = 0;
       if (!T.length || !H.length) level = 0;
-      else if (!miss.length && !extra.length) level = 2;
+      else if (!miss.length && !extra.length) level = nSoft ? 1 : 2;
       else if (miss.length <= 1 && extra.length <= 1 &&
         every(miss, function (x) { return lax.indexOf(x) >= 0 || (WEAK[x] && T.length >= 4); }) &&
         every(extra, function (x) { return WEAK[x] || FILL[x] || lax.indexOf(x) >= 0; })) level = 1;
-      var pct = T.length && H.length ? d.lcs / Math.max(T.length, H.length) : 0;
-      if (!best || level > best.level || (level === best.level && pct > best.pct)) best = { level: level, pct: pct, heard: alt, mb: d.mb };
+      var pct = T.length && H.length ? (d.lcs + nSoft) / Math.max(T.length, H.length) : 0;
+      if (!best || level > best.level || (level === best.level && pct > best.pct)) {
+        var pairs = [];
+        for (var z = 0; z < Math.min(miss.length, extra.length); z++) pairs.push([miss[z], extra[z]]);
+        best = { level: level, pct: pct, heard: alt, mb: d.mb, softIdx: softIdx, nSoft: nSoft, pairs: pairs };
+      }
     });
-    if (!best) best = { level: 0, pct: 0, heard: '', mb: [] };
+    if (!best) best = { level: 0, pct: 0, heard: '', mb: [], softIdx: {}, nSoft: 0, pairs: [] };
     var k = 0, marks = W.map(function (o) {
-      var ok = true;
-      o.t.forEach(function () { if (!best.mb[k]) ok = false; k++; });
-      return { w: o.w, ok: ok };
+      var ok = true, soft = false;
+      o.t.forEach(function () { if (best.softIdx[k]) soft = true; else if (!best.mb[k]) ok = false; k++; });
+      if (!ok && best.level > 0) { ok = true; soft = true; }  // faltou só uma palavrinha aceita (a, an, the, to): fica amarela
+      return { w: o.w, ok: ok, soft: ok && soft };
     });
-    return { ok: best.level > 0, level: best.level, pct: best.pct, heard: best.heard, marks: marks };
+    var softList = [];
+    Object.keys(best.softIdx).forEach(function (ti) { softList.push({ target: T[ti], heard: best.softIdx[ti] }); });
+    return { ok: best.level > 0, level: best.level, pct: best.pct, heard: best.heard, marks: marks, soft: softList, pairs: best.pairs };
   }
   /* escrita: aceita "do not" por "don't" e "15" por "fifteen", mas a grafia tem de estar certa */
   function sameWritten(a, b) { return flat(a, true).join(' ') === flat(b, true).join(' '); }
@@ -161,6 +225,6 @@ var Fala = (function () {
     return { marks: marks, full: !!F.length && sameWritten(typed, target) };
   }
 
-  return { check: check, flat: flat, sameWritten: sameWritten, live: live };
+  return { check: check, flat: flat, sameWritten: sameWritten, live: live, pkey: pkey, softEq: softEq };
 })();
 if (typeof module !== 'undefined') module.exports = Fala;

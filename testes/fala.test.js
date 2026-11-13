@@ -72,5 +72,33 @@ lv('parte errada no fim', 'He plays soccer.', 'He plays footb', 'ok,ok,bad', fal
 lv('maiúscula e pontuação', 'Good evening!', 'good evening', 'ok,ok', true);
 lv('vazio', 'Good evening!', '', '', false);
 
+// palavra solta: a vogal duvidosa não derruba (o microfone erra mais a vogal que a consoante)
+function sf(nome, alvo, ouvido, nivel, opt) { total++; var r = Fala.check(alvo, [].concat(ouvido), opt); if (r.level !== nivel) { falhas++; console.log('FALHOU: ' + nome + ' | esperado ' + nivel + ', veio ' + r.level + ' | ' + alvo + ' <- ' + ouvido); } return r; }
+sf('bread ouvido brad', 'bread', 'brad', 1);
+sf('ham ouvido him', 'ham', 'him', 1);
+sf('cheese ouvido chase', 'cheese', 'chase', 1);
+sf('rice ouvido race', 'rice', 'race', 1);
+sf('palavra igual continua perfeita', 'bread', 'bread', 2);
+sf('consoante diferente não passa', 'bread', 'bed', 0);
+sf('consoante diferente 2', 'milk', 'mock', 0);
+sf('went não aceita want (gramática)', 'went', 'want', 0);
+sf('can não aceita can\'t', 'can', "can't", 0);
+sf('to eat, ouvido it', 'to eat', 'it', 1, { lax: ['to'] });
+sf('to talk, ouvido tack', 'to talk', 'tack', 0, { lax: ['to'] });
+sf('verbo com -s não vira sem -s', 'works', 'work', 0);
+sf('frase: bread ouvido brad, só com a lista', 'I eat bread', 'I eat brad', 1, { soft: ['bread'] });
+sf('frase sem a lista continua exigente', 'I eat bread', 'I eat brad', 0);
+sf('frase: went nunca vira want', 'We went to the movies', 'we want to the movies', 0, { soft: ['movies', 'went'] });
+sf('frase: he work continua errado', 'He works at the mall', 'he work at the mall', 0, { soft: ['mall'] });
+var rs = Fala.check('bread', ['brad']);
+total++; if (!(rs.marks[0].ok && rs.marks[0].soft && rs.soft[0].target === 'bread' && rs.soft[0].heard === 'brad')) { falhas++; console.log('FALHOU: marca soft'); }
+var rl = Fala.check('to talk', ['talk'], { lax: ['to'] });
+total++; if (!(rl.ok && rl.marks[0].ok && rl.marks[0].soft && rl.marks[1].ok && !rl.marks[1].soft)) { falhas++; console.log('FALHOU: o to que faltou fica amarelo e o verbo verde'); }
+// calibração pessoal
+sf('calibração: brod passa a valer bread', 'I eat bread', 'I eat brod', 2, { cal: { bread: ['brod'] } });
+sf('calibração não vale para outra palavra', 'I eat cheese', 'I eat brod', 0, { cal: { bread: ['brod'] } });
+eq('pares para calibrar', Fala.check('I like ham', ['I like hum']).pairs, [['ham', 'hum']]);
+eq('pkey', [Fala.pkey('bread'), Fala.pkey('brad'), Fala.pkey('ham'), Fala.pkey('him'), Fala.pkey('talk')], ['brVd', 'brVd', 'hVm', 'hVm', 'tVlk']);
+
 console.log(falhas ? falhas + ' de ' + total + ' FALHARAM' : 'ok: ' + total + ' testes da fala passaram');
 process.exit(falhas ? 1 : 0);

@@ -77,7 +77,7 @@ function rich(s, tag) {
 
 /* ===== dados ===== */
 var KEYS = { objetivo: 1, porque: 1, historia: 1, dica: 1, cena: 1, gancho: 1, resumo: 1, formula: 1, compare: 1, ex: 1, erro: 1, cuidado: 1, quiz: 1 };
-var BOOKS = [], UNITS = {}, GL = { w: [], s: [], v: [] }, PT = {};
+var BOOKS = [], UNITS = {}, GL = { w: [], s: [], v: [] }, PT = {}, SOFTW = [];
 function parseUnit(book, fname, text) {
   var u = { id: book + ':' + fname.replace(/^\d+-[a-z]-/, ''), file: fname, book: book, titulo: '', tipo: 'modulo', num: 0, notas: {}, secs: {}, lessons: [] };
   var cur = u, cs = null, last = null;
@@ -118,6 +118,7 @@ function loadBooks() {
         if (!PT[p[0]]) PT[p[0]] = p[1];
         (words(p[0]).length >= 3 ? GL.s : GL.w).push([p[0], p[1]]);
         if (s === 'verbos') { var b = p[0].replace(/^to /, ''); if (single(b)) GL.v.push([b, p[1]]); }
+        if ((s === 'palavras' || s === 'apoio') && single(p[0].toLowerCase())) SOFTW.push(p[0].toLowerCase());
       });
     });
   });
@@ -141,7 +142,7 @@ function verbItem(u, v) {
 
 /* ===== estado e salvamento ===== */
 var SK = 'estudo_v1', NOSTORE = false, S;
-function fresh() { return { v: 1, prog: {}, dif: {}, bk: 0, cfg: { vel: 0.85, livro: BOOKS[0] ? BOOKS[0].id : '' } }; }
+function fresh() { return { v: 1, prog: {}, dif: {}, cal: {}, bk: 0, cfg: { vel: 0.85, livro: BOOKS[0] ? BOOKS[0].id : '' } }; }
 function clean(o) {
   var f = fresh();
   if (!o || o.v !== 1 || typeof o.prog !== 'object' || !o.prog) return null;
@@ -152,6 +153,7 @@ function clean(o) {
   });
   if (o.dif && typeof o.dif === 'object') Object.keys(o.dif).forEach(function (k) { var n = +o.dif[k]; if (n > 0) f.dif[k] = Math.min(n, 9); });
   f.bk = +o.bk || 0;
+  if (o.cal && typeof o.cal === 'object') Object.keys(o.cal).forEach(function (t) { var a = [].concat(o.cal[t]).filter(function (x) { return typeof x === 'string' && /^[a-z0-9]{1,24}$/.test(x); }).slice(0, 6); if (a.length && /^[a-z0-9]{1,24}$/.test(t)) f.cal[t] = a; });
   if (o.cfg) { if (+o.cfg.vel >= 0.4 && +o.cfg.vel <= 1.2) f.cfg.vel = +o.cfg.vel; if (o.cfg.livro && BOOKS.some(function (b) { return b.id === o.cfg.livro; })) f.cfg.livro = o.cfg.livro; }
   return f;
 }
@@ -164,6 +166,16 @@ function save() { S.ts = Date.now(); var t = JSON.stringify(S); try { localStora
 function P(u) { return S.prog[u.id] || (S.prog[u.id] = { steps: {} }); }
 function done(u, s) { return !!(S.prog[u.id] && S.prog[u.id].steps[s]); }
 function mark(u, s) { P(u).steps[s] = 1; save(); }
+function calCount() { var n = 0; Object.keys(S.cal || {}).forEach(function (t) { n += S.cal[t].length; }); return n; }
+function calAdd(pairs) {
+  S.cal = S.cal || {}; var n = 0;
+  (pairs || []).forEach(function (p) {
+    var t = p[0], hd = p[1]; if (!t || !hd || t === hd) return;
+    var a = S.cal[t] || (S.cal[t] = []); if (a.indexOf(hd) < 0) { a.push(hd); n++; if (a.length > 6) a.shift(); }
+  });
+  if (n) save(); return n;
+}
+function fopt(extra) { var o = { cal: S.cal, soft: SOFTW }; for (var k in extra) o[k] = extra[k]; return o; }
 function hardAdd(en) { if (en) { S.dif[en] = Math.min((S.dif[en] || 0) + 1, 9); } }
 function hardOk(en) { if (en && S.dif[en]) { S.dif[en]--; if (S.dif[en] <= 0) delete S.dif[en]; } }
 function doneCount() { var n = 0; Object.keys(S.prog).forEach(function (k) { n += Object.keys(S.prog[k].steps).length; }); return n; }
@@ -225,18 +237,22 @@ function SRC() { return window.SpeechRecognition || window.webkitSpeechRecogniti
 function canRecord() { return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder); }
 /* ouve uma frase; onText mostra o que vai entendendo; fim(listaDeOpções | null, erro) */
 function listen(onText, fim) {
-  var C = SRC(), r = new C(), finals = [], last = '', err = null, ended = false;
-  r.lang = 'en-US'; r.maxAlternatives = 5; r.interimResults = true; r.continuous = false;
+  var C = SRC(), r = new C(), finals = [], others = [], last = '', err = null, ended = false;
+  r.lang = 'en-US'; r.maxAlternatives = 10; r.interimResults = true; r.continuous = false;
   r.onresult = function (e) {
     for (var i = e.resultIndex || 0; i < e.results.length; i++) {
       var res = e.results[i];
-      if (res.isFinal) { for (var k = 0; k < res.length; k++) finals.push(res[k].transcript); }
+      for (var k = 0; k < res.length; k++) { if (res.isFinal) finals.push(res[k].transcript); else others.push(res[k].transcript); }
       last = res[0].transcript;
     }
     if (onText) onText(last);
   };
   r.onerror = function (e) { err = e.error || 'erro'; };
-  r.onend = function () { if (ended) return; ended = true; if (finals.length) fim(finals, null); else if (last) fim([last], null); else fim(null, err || 'no-speech'); };
+  r.onend = function () {
+    if (ended) return; ended = true;
+    var all = [], seen = {}; finals.concat(others, last ? [last] : []).forEach(function (t) { var k = String(t).toLowerCase().trim(); if (k && !seen[k] && all.length < 16) { seen[k] = 1; all.push(t); } });
+    if (all.length) fim(all, null); else fim(null, err || 'no-speech');
+  };
   quiet();
   try { r.start(); } catch (e) { ended = true; fim(null, 'erro'); }
   return { stop: function () { try { r.stop(); } catch (e) {} } };
@@ -435,15 +451,20 @@ function speakRow(o) {
   function idle() { live = false; mic.classList.remove('live'); mic.replaceChildren(ico('mic', 22)); }
   mic.onclick = function () {
     if (live) { if (rec) rec.stop(); return; }
-    quiet(); setState(null, '');
+    quiet(); setState(null, ''); row.classList.remove('soft'); [].forEach.call(info.querySelectorAll('.acts'), function (x) { x.remove(); });
     if (SRC()) {
       live = true; mic.classList.add('live'); mic.replaceChildren(ico('stop', 22)); msg.textContent = 'Ouvindo... fale agora';
       rec = listen(function (t) { msg.textContent = t; }, function (alts, err) {
         idle();
         if (!alts) { msg.textContent = err === 'not-allowed' || err === 'service-not-allowed' ? 'Microfone bloqueado. Libere o microfone para este site.' : err === 'network' ? 'Sem internet para conferir a fala.' : 'Não ouvi. Toque no microfone e fale.'; return; }
-        var r = Fala.check(target, alts, { lax: o.lax });
-        if (r.ok) setState(true, 'Certo! Eu entendi: ' + r.heard);
-        else setState(false, 'Eu entendi: "' + r.heard + '". Ouça e tente de novo.');
+        var r = Fala.check(target, alts, fopt({ lax: o.lax, soft: o.soft === false ? false : SOFTW }));
+        if (r.ok) {
+          setState(true, r.soft.length ? 'Quase: entendi "' + r.soft[0].heard + '" e não "' + r.soft[0].target + '". As consoantes batem; confira a vogal ouvindo de novo.' : 'Certo! Eu entendi: ' + r.heard);
+          row.classList.toggle('soft', !!r.soft.length);
+        } else {
+          setState(false, 'Eu entendi: "' + r.heard + '". Ouça e tente de novo.'); row.classList.remove('soft');
+          if (r.pairs.length) { var cb = btn('O microfone errou, eu falei certo', function () { calAdd(r.pairs); cb.remove(); setState(true, 'Calibrado: "' + r.pairs[0][1] + '" agora vale como "' + r.pairs[0][0] + '" neste aparelho.'); }); cb.className = 'cal'; info.append(h('div', { class: 'acts' }, cb)); }
+        }
       });
     } else if (canRecord()) {
       live = true; mic.classList.add('live'); mic.replaceChildren(ico('stop', 22)); msg.textContent = 'Gravando... toque para parar';
@@ -480,7 +501,7 @@ function stepVerbs(u, s, back) {
   vs.forEach(function (v) {
     var it = verbItem(u, v), past = v[2] && v[2] !== v[0].replace(/^to /, '') ? v[2] : '';
     rows.push({ en: v[0], pt: v[1], lax: ['to'], example: it.sent ? it.en : '', seq: it.sent ? [v[0], it.en] : null });
-    if (past) rows.push({ en: past, pt: 'passado de ' + v[0], target: past });
+    if (past) rows.push({ en: past, pt: 'passado de ' + v[0], target: past, soft: false });
   });
   var sb = scoreBar(rows.length), c = card(h('p', { class: 'small' }, 'Aprenda falando o verbo, não a frase. Toque no alto-falante, ouça o verbo (e depois a frase de exemplo) e fale no microfone. Todos verdes = etapa concluída.'), sb.el), msg = h('div');
   rows.forEach(function (r, i) {
@@ -820,7 +841,7 @@ QV.pairs = function (q, c) {
   for (var i = 0; i < left.length; i++) grid.append(L[i], Rg[i]);
   c.box.append(h('p', { class: 'small' }, 'Toque no inglês e depois na tradução:'), grid);
 };
-function marksEl(r) { var e = h('div', { class: 'wm' }); r.marks.forEach(function (m) { e.append(h('span', { class: m.ok ? 'y' : 'n' }, m.w)); }); return e; }
+function marksEl(r) { var e = h('div', { class: 'wm' }); r.marks.forEach(function (m) { e.append(h('span', { class: m.ok ? (m.soft ? 's' : 'y') : 'n' }, m.w)); }); return e; }
 function speakLike(q, c, hidden) {
   var tries = 0, hinted = false, live = false, rec = null, shown = !hidden, ended = false;
   var enEl = h('p', { class: 'en' }, hidden ? '' : q.en), res = h('div'), heard = h('div', { class: 'heard' });
@@ -847,15 +868,15 @@ function speakLike(q, c, hidden) {
       return;
     }
     tries++;
-    var r = Fala.check(q.en, alts, { lax: q.lax });
+    var r = Fala.check(q.en, alts, fopt({ lax: q.lax }));
     heard.textContent = 'Eu entendi: ' + r.heard;
-    if (r.ok) { reveal(); return pass([marksEl(r), h('div', { class: 'small' }, r.level === 2 ? 'Todas as palavras foram entendidas.' : 'Quase perfeito: só uma palavrinha (a, an, the ou to) ficou diferente.')]); }
+    if (r.ok) { reveal(); return pass([marksEl(r), h('div', { class: 'small' }, r.soft.length ? 'Quase: entendi "' + r.soft[0].heard + '" no lugar de "' + r.soft[0].target + '". As consoantes batem; só a vogal ficou diferente. Ouça o modelo e repita devagar para acertar a vogal.' : r.level === 2 ? 'Todas as palavras foram entendidas.' : 'Quase perfeito: só uma palavrinha (a, an, the ou to) ficou diferente.')]); }
     idle();
     if (hidden && tries >= 2) reveal();
     var falt = r.marks.filter(function (m) { return !m.ok; }).length;
     res.replaceChildren(h('div', { class: 'msg bad' }, h('strong', null, 'Ainda não. '),
       shown ? 'Repita com atenção as palavras em vermelho.' : falt + ' palavra(s) não bateram. Tente de novo, ou use a dica para ouvir.', shown ? marksEl(r) : null),
-      tries >= 2 ? h('div', { class: 'actions' }, skip()) : '');
+      h('div', { class: 'actions' }, r.pairs.length ? btn('O microfone errou, eu falei certo', function () { calAdd(r.pairs); reveal(); pass([marksEl(Fala.check(q.en, alts, fopt({ lax: q.lax }))), h('div', { class: 'small' }, 'Calibrado: "' + r.pairs[0][1] + '" agora vale como "' + r.pairs[0][0] + '" neste aparelho.')]); }) : null, tries >= 2 ? skip() : null));
   }
   function onRec(url, err) {
     if (ended) return;
@@ -956,6 +977,7 @@ function viewPerfil() {
     card(h('h3', null, 'Voz e microfone'), h('p', { class: 'small' }, 'Velocidade da voz em inglês:'), vel,
       !('speechSynthesis' in window) ? h('div', { class: 'msg warn' }, 'Este navegador não tem voz. Use o Chrome.') : !voice ? h('div', { class: 'msg warn' }, 'Não achei uma voz em inglês. No Android, instale o "Reconhecimento e síntese de fala" do Google; no Windows, adicione o idioma inglês.') : h('p', { class: 'small', style: 'margin:10px 0 0' }, 'Voz em uso: ' + voice.name + '.'),
       h('p', { class: 'small', style: 'margin:8px 0 0' }, SRC() ? 'Conferência da fala: automática (precisa de internet e do microfone liberado).' : canRecord() ? 'Conferência da fala: por gravação (você compara com o modelo). No Chrome ela é automática.' : 'Conferência da fala: indisponível neste navegador. Use o Chrome.')),
+    card(h('h3', null, 'Calibração do microfone'), h('p', { class: 'small' }, 'O microfone do navegador erra mais a vogal de uma palavra solta (bread vira brad, ham vira him). O app já aceita isso como "quase". Quando ele errar outra coisa e você tiver certeza de que falou certo, toque em "O microfone errou, eu falei certo": o app aprende e passa a aceitar.'), h('p', null, calCount() ? calCount() + ' correção(ões) aprendida(s) neste aparelho.' : 'Nenhuma correção aprendida ainda.'), calCount() ? btn('Apagar as correções', function () { if (confirm('Apagar as correções do microfone?')) { S.cal = {}; save(); viewPerfil(); } }) : null),
     card(h('h3', null, 'Reforço'), h('p', null, nd ? nd + ' item(ns) que você errou e ainda não acertou de novo.' : 'Nada para reforçar agora.'), nd ? btn('Treinar o que errei', playHard, 'primary') : null),
     card(h('h3', null, 'Zerar tudo'), h('p', { class: 'small' }, 'Apaga o progresso deste aparelho. Salve uma cópia antes.'), btn('Apagar progresso', function () { if (confirm('Apagar TODO o progresso deste aparelho? Isso não dá para desfazer.')) { S = fresh(); save(); go('#'); } })));
 }
