@@ -7,8 +7,9 @@ App de estudo de inglês em 1 arquivo (`estudo.html`), para o celular. Conteúdo
 - Conteúdo = `dados/livro1/NN-L-chave.txt` (um arquivo por unidade, 3-8 KB). Leia SÓ o arquivo da unidade mexida. Formato: `dados/_modelo.txt`.
 - Código: `src/fala.js` (comparação da fala, sem tela), `src/app.js` (telas e exercícios), `src/style.css`, `src/index.html`. Use Grep para achar a função e Edit pontual; não releia o arquivo inteiro.
 - Depois de qualquer mudança: `python montar.py` (confere o formato dos .txt, gera `estudo.html` local e, se existir `senha.txt`, o `docs/index.html` cifrado para o site). Mexeu em `fala.js`: `node testes/fala.test.js`.
-- **Publicação:** branch `estudo-simples` do repo privado `victor-ozores/English-Course`; o GitHub Pages serve só a pasta `docs/` dessa branch (https://victor-ozores.github.io/English-Course/). Mudou o app ou o conteúdo = `python montar.py`, commitar `docs/index.html` e subir (só com o OK dele).
-- **`senha.txt` (local, no .gitignore) nunca sobe nem é repetido em texto.** Ela cifra o conteúdo do site; o app pede a senha na 1ª vez. O repo tem de continuar PRIVADO (`dados/` tem o texto do livro em claro).
+- **Publicação:** branch `estudo-simples` do repo público `victor-ozores/English-Course`; o GitHub Pages serve só a pasta `docs/` dessa branch (https://victor-ozores.github.io/English-Course/). Mudou o app ou o conteúdo = `python montar.py`, commitar `docs/index.html` e subir (só com o OK dele).
+- **`senha.txt` (local, no .gitignore) nunca sobe nem é repetido em texto.** Ela cifra o conteúdo do site; o app pede a senha na 1ª vez.
+- **O repo é PÚBLICO (desde 13/11/2026, decisão dele para ter o Pages grátis).** Por isso o texto do livro em claro NUNCA entra nos commits: `dados/livro*/` está no `.gitignore`. Antes de todo `git add`, conferir que nada de `dados/livro*` entrou. O 1º commit (`a286852`, 12/11) ainda tem o texto no histórico.
 
 ## Onde fica cada coisa no app.js (procure pelo nome)
 - Telas: `viewHome`, `viewUnit`, `viewFalar` (aba Falar), `viewPerfil`. Etapas: `stepIntro`, `stepList` (palavras e expressões, com `speakRow` = linha com ouvir + falar verde/vermelho), `stepVerbs` (pede o VERBO, `lax:['to']`), `stepRules`, `stepPhrases`, `stepDialog`, `stepReview`.
@@ -22,7 +23,7 @@ App de estudo de inglês em 1 arquivo (`estudo.html`), para o celular. Conteúdo
 - Livro novo = pasta nova `dados/livro2/`; o app mostra um seletor de livro sozinho.
 - Texto: `**negrito**`, `{{inglês|português}}` (toque = ouve e mostra a tradução). Separador de colunas é ` | ` e não pode aparecer dentro do texto. Linha começando com 2 espaços continua o campo anterior.
 - `erro:` vira pergunta "qual frase está certa?": use só frases de verdade (dica de pronúncia vai no `porque:`).
-- `dados/CORRECOES.md` lista as frases do livro que foram corrigidas (11/11/2026). Não desfazer sem ele pedir.
+- `dados/CORRECOES.md` lista as frases do livro que foram corrigidas (11/11/2026). Não desfazer sem ele pedir. **`dados/livro*/` e `CORRECOES.md` estão no .gitignore: só existem neste computador** (faça cópia de segurança da pasta `dados/`).
 
 ## Decisões (não desfazer)
 - Etapas por unidade: intro > palavras > verbos > expressões > regras > frases > conversa > revisão. Só aparecem as que têm dados. Rodada conclui com 70% certas de primeira. Sem trava.

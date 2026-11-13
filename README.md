@@ -31,7 +31,7 @@ O conteúdo vem do livro que estou estudando: 25 módulos e 15 unidades de gram�
 
 Estudo no celular, então o app é uma página só, em tela cheia, com botões grandes, modo escuro e **sem depender de internet para tudo, menos a conferência da fala** (o Chrome precisa de internet para entender a voz). O progresso fica no navegador, em duas cópias, e eu salvo uma terceira em arquivo ou em código, porque o navegador do celular pode apagar os dados sem avisar.
 
-> **É um projeto pessoal de estudo.** O texto do livro é do autor (© Alan Carlos Neves Pereira): por isso o repositório é privado e o site publicado entrega o conteúdo **cifrado**, que só abre com a senha.
+> **É um projeto pessoal de estudo.** O texto do livro é do autor (© Alan Carlos Neves Pereira): por isso o texto do livro **não está neste repositório** (fica só no meu computador) e o site publicado entrega o conteúdo **cifrado**, que só abre com a senha.
 
 ## 🔗 Abrir o App
 
@@ -89,7 +89,7 @@ O conteúdo mora em arquivos de texto simples, um por unidade. Um script junta t
 
 ```mermaid
 flowchart TD
-    D["1. dados/livro1/*.txt<br/>uma unidade por arquivo, em texto simples"] --> M["2. montar.py<br/>confere o formato de cada linha"]
+    D["1. dados/livro1/*.txt<br/>uma unidade por arquivo, em texto simples<br/>só no meu computador"] --> M["2. montar.py<br/>confere o formato de cada linha"]
     M --> L["estudo.html<br/>versão local, aberta direto"]
     M --> C["cifrar.js<br/>AES-256-GCM com a senha"]
     C --> S["docs/index.html<br/>conteúdo cifrado"]
@@ -140,7 +140,7 @@ flowchart TD
 
 * **O livro.** *Hey, Ho, Let's Go!* Book 1: palavras, verbos, expressões, frases e conversas dos 25 módulos.
 * **O porquê das regras.** As explicações, os exemplos e as pegadinhas das 40 unidades foram escritas para eu entender de verdade, em português simples. As 15 gramáticas (do/don't, have to, to be, does, would like, can, present continuous, did, was/were, passado irregular, if, going to, will, used to) vêm antes do módulo que usa cada uma.
-* **O que eu corrigi no livro.** Revisei todas as frases em inglês e corrigi **115** que estavam erradas ou pouco naturais (por exemplo, *in the movies* virou *at the movies*, *fight judo* virou *do judo*, *make a tour* virou *take a tour*). A lista com o antes e o depois está em [`dados/CORRECOES.md`](dados/CORRECOES.md).
+* **O que eu corrigi no livro.** Revisei todas as frases em inglês e corrigi **115** que estavam erradas ou pouco naturais (por exemplo, *in the movies* virou *at the movies*, *fight judo* virou *do judo*, *make a tour* virou *take a tour*). A lista com o antes e o depois fica no meu computador, junto com o conteúdo.
 
 ## 🧮 Como a Fala é Conferida
 
@@ -163,7 +163,7 @@ O navegador entende a minha voz e devolve um texto; a comparação com a frase c
 | **As telas e os exercícios** | Rodadas completas dos 10 tipos de exercício num navegador de 375 x 812, em claro e escuro, com um robô que responde certo e errado e um microfone simulado | sem erro no console; 40 unidades e todas as etapas abrem sem texto quebrado |
 | **Salvar e importar** | Salvei o código, apaguei o progresso, importei pelo código e pelo arquivo, tentei um código quebrado e um arquivo que não era do app; apaguei só o `localStorage` e conferi que o espelho do navegador devolve o progresso | todos os caminhos funcionaram; o inválido é recusado com aviso |
 | **A trava com senha** | Abri a versão cifrada com senha errada (recusa) e certa (abre as 40 unidades); conferi que o arquivo publicado não tem nenhuma frase do livro em texto aberto | 0 frases do livro no arquivo cifrado |
-| **As frases do livro** | Li as cerca de 2.500 linhas em inglês e as explicações das 40 unidades | 115 frases corrigidas (lista em `dados/CORRECOES.md`) |
+| **As frases do livro** | Li as cerca de 2.500 linhas em inglês e as explicações das 40 unidades | 115 frases corrigidas, mais acentos e termos padronizados numa segunda revisão (13/11/2026) |
 
 ## 🧱 Tecnologias
 
@@ -179,9 +179,7 @@ O navegador entende a minha voz e devolve um texto; a comparação com a frase c
 ## 🗂️ Estrutura
 
 ```
-dados/livro1/        o conteúdo: 40 arquivos de texto, um por unidade (NN-L-chave.txt)
-dados/_modelo.txt    o formato de um arquivo de unidade
-dados/CORRECOES.md   as frases do livro que corrigi, com o antes e o agora
+dados/_modelo.txt    o formato de um arquivo de unidade (o conteúdo do livro, em dados/livro1/, fica só no meu computador e não sobe)
 src/                 index.html, style.css, app.js (telas e exercícios), fala.js (conferência da fala)
 testes/              fala.test.js
 montar.py            confere o conteúdo e gera estudo.html (local) e docs/index.html (cifrado)
@@ -192,7 +190,7 @@ CLAUDE.md, LEIA-ME.md  mapa do código para manter com pouco esforço e guia de 
 
 ## ▶️ Rodar No Seu Computador
 
-Precisa de Python 3 e, para o site cifrado e os testes, de Node.
+Precisa de Python 3 e, para o site cifrado e os testes, de Node. O conteúdo do livro (pasta `dados/livro1/`) não está no repositório: sem ele, o `montar.py` não tem o que montar.
 
 ```bash
 python montar.py                 # confere o conteúdo e gera estudo.html (abre direto no navegador)
@@ -206,7 +204,7 @@ Para mudar uma frase, edito o `.txt` da unidade (o formato está em `dados/_mode
 
 ## ⚠️ Limitações
 
-* **A senha protege contra leitura casual, não é um cofre.** O conteúdo vai cifrado no site e só abre com a senha, que fica guardada no aparelho depois da primeira vez. Quem tiver a senha lê tudo. E o repositório precisa continuar **privado**: a pasta `dados/` tem o texto do livro em claro.
+* **A senha protege contra leitura casual, não é um cofre.** O conteúdo vai cifrado no site e só abre com a senha, que fica guardada no aparelho depois da primeira vez. Quem tiver a senha lê tudo. O texto do livro em claro (`dados/livro1/`) está no `.gitignore`: **se um dia ele for commitado, vira público**, porque este repositório é público.
 * **O reconhecimento de voz é do navegador.** Funciona no Chrome e no Edge, precisa de internet e de permissão do microfone. Ele confirma que cada palavra foi entendida, mas **não mede sotaque fino**. Na primeira vez, o Chrome pede a permissão; aberto como arquivo local ele pergunta a cada toque, e pelo link do site (https) costuma guardar a resposta (ainda não confirmei no meu celular).
 * **Testei com um microfone simulado.** Os testes de tela rodaram num navegador Chromium simulando um celular de 375 x 812, em claro e escuro, com respostas de voz simuladas. **Não testei com a minha voz de verdade, nem em celular de verdade**, nem no Safari ou no Firefox.
 * **O navegador do celular pode apagar os dados.** O app guarda duas cópias, mas só o arquivo ou o código que eu salvo é seguro de verdade. A tela inicial avisa quando faz mais de 2 dias sem uma cópia.
@@ -221,4 +219,4 @@ Para mudar uma frase, edito o `.txt` da unidade (o formato está em `dados/_mode
 
 ## 📄 Autoria
 
-Projeto pessoal de estudo, feito por [Victor Ozores](https://github.com/victor-ozores) ([LinkedIn](https://www.linkedin.com/in/profissional-victor-ozores/)). O texto do livro *Hey, Ho, Let's Go!* é de Alan Carlos Neves Pereira (© 2017, revisão de agosto de 2022) e não é redistribuído: o repositório é privado e o site entrega o conteúdo cifrado. Usei o Claude Code como ferramenta de desenvolvimento; as decisões, as conferências e o que está escrito aqui são minhas.
+Projeto pessoal de estudo, feito por [Victor Ozores](https://github.com/victor-ozores) ([LinkedIn](https://www.linkedin.com/in/profissional-victor-ozores/)). O texto do livro *Hey, Ho, Let's Go!* é de Alan Carlos Neves Pereira (© 2017, revisão de agosto de 2022) e não é redistribuído: o texto não está no repositório e o site entrega o conteúdo cifrado. Usei o Claude Code como ferramenta de desenvolvimento; as decisões, as conferências e o que está escrito aqui são minhas.

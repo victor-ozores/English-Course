@@ -1,5 +1,8 @@
 # segredo local e arquivos gerados que não sobem
 senha.txt
+# texto do livro (protegido por direitos autorais): fica só no computador
+dados/livro*/
+dados/CORRECOES.md
 estudo.html
 __pycache__/
 *.pyc

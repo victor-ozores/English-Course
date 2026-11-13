@@ -40,7 +40,7 @@ python montar.py
 
 Isso confere o formato e gera `estudo.html` (local) e `docs/index.html` (o que vai para o site, cifrado). Para o site mudar, é preciso subir o `docs/index.html` novo para o GitHub. Livro 2: crie a pasta `dados/livro2/`.
 
-As frases do livro que foram corrigidas estão em `dados/CORRECOES.md`.
+As frases do livro que foram corrigidas estão em `dados/CORRECOES.md` (só neste computador: a pasta `dados/livro1/` não vai para o GitHub, então guarde uma cópia dela).
 
 ## Para pedir ao Claude sem gastar token
 Diga só a unidade e o que mudar. Exemplo: "no `dados/livro1/07-z-m07.txt` troque a frase X por Y e rode `python montar.py`". O Claude lê o `CLAUDE.md` desta pasta (curto) e o arquivo da unidade, nunca o `estudo.html` nem o `docs/index.html`.
