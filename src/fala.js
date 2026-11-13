@@ -195,9 +195,16 @@ var Fala = (function () {
       if (!ok && best.level > 0) { ok = true; soft = true; }  // faltou só uma palavrinha aceita (a, an, the, to): fica amarela
       return { w: o.w, ok: ok, soft: ok && soft };
     });
+    /* palavras que soam iguais (meat/meet): o microfone não separa; avisa em vez de parecer erro do app */
+    var Ts = flat(target, true), Hs = flat(best.heard, true), inT = {}, homo = [], seenH = {};
+    Ts.forEach(function (t) { inT[t] = 1; });
+    Hs.forEach(function (hh) {
+      if (inT[hh] || !CANON[hh] || seenH[hh]) return;
+      for (var q = 0; q < Ts.length; q++) if (Ts[q] !== hh && !STRICT[Ts[q]] && CANON[Ts[q]] === CANON[hh]) { homo.push({ target: Ts[q], heard: hh }); seenH[hh] = 1; break; }
+    });
     var softList = [];
     Object.keys(best.softIdx).forEach(function (ti) { softList.push({ target: T[ti], heard: best.softIdx[ti] }); });
-    return { ok: best.level > 0, level: best.level, pct: best.pct, heard: best.heard, marks: marks, soft: softList, pairs: best.pairs };
+    return { ok: best.level > 0, level: best.level, pct: best.pct, heard: best.heard, marks: marks, soft: softList, pairs: best.pairs, homo: best.level > 0 ? homo : [] };
   }
   /* escrita: aceita "do not" por "don't" e "15" por "fifteen", mas a grafia tem de estar certa */
   function sameWritten(a, b) { return flat(a, true).join(' ') === flat(b, true).join(' '); }

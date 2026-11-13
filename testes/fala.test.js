@@ -94,6 +94,10 @@ var rs = Fala.check('bread', ['brad']);
 total++; if (!(rs.marks[0].ok && rs.marks[0].soft && rs.soft[0].target === 'bread' && rs.soft[0].heard === 'brad')) { falhas++; console.log('FALHOU: marca soft'); }
 var rl = Fala.check('to talk', ['talk'], { lax: ['to'] });
 total++; if (!(rl.ok && rl.marks[0].ok && rl.marks[0].soft && rl.marks[1].ok && !rl.marks[1].soft)) { falhas++; console.log('FALHOU: o to que faltou fica amarelo e o verbo verde'); }
+var rh = Fala.check('meat', ['meet']);
+total++; if (!(rh.level === 2 && rh.homo.length === 1 && rh.homo[0].target === 'meat' && rh.homo[0].heard === 'meet')) { falhas++; console.log('FALHOU: aviso de mesmo som (meat/meet)'); }
+total++; if (Fala.check('I want to eat', ['I want too eat']).homo.length) { falhas++; console.log('FALHOU: to/too não deve gerar aviso'); }
+total++; if (Fala.check('meat', ['meat']).homo.length) { falhas++; console.log('FALHOU: palavra igual não gera aviso'); }
 // calibração pessoal
 sf('calibração: brod passa a valer bread', 'I eat bread', 'I eat brod', 2, { cal: { bread: ['brod'] } });
 sf('calibração não vale para outra palavra', 'I eat cheese', 'I eat brod', 0, { cal: { bread: ['brod'] } });

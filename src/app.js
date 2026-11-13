@@ -236,9 +236,11 @@ function speakSeq(list, i, tok) {
 function SRC() { return window.SpeechRecognition || window.webkitSpeechRecognition; }
 function canRecord() { return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder); }
 /* ouve uma frase; onText mostra o que vai entendendo; fim(listaDeOpções | null, erro) */
-function listen(onText, fim) {
-  var C = SRC(), r = new C(), finals = [], others = [], last = '', err = null, ended = false;
+function listen(onText, fim, hints) {
+  var C = SRC(), r = new C(), finals = [], others = [], last = '', err = null, ended = false, usedHints = false, handle = null;
   r.lang = 'en-US'; r.maxAlternatives = 10; r.interimResults = true; r.continuous = false;
+  /* o Chrome mais novo aceita uma lista de palavras esperadas (SpeechRecognitionPhrase): ajuda palavra solta */
+  try { if (hints && hints.length && window.SpeechRecognitionPhrase && 'phrases' in r) { r.phrases = hints.slice(0, 40).map(function (x) { return new window.SpeechRecognitionPhrase(String(x), 6.0); }); usedHints = true; } } catch (e) { usedHints = false; }
   r.onresult = function (e) {
     for (var i = e.resultIndex || 0; i < e.results.length; i++) {
       var res = e.results[i];
@@ -250,12 +252,14 @@ function listen(onText, fim) {
   r.onerror = function (e) { err = e.error || 'erro'; };
   r.onend = function () {
     if (ended) return; ended = true;
+    if (usedHints && err === 'phrases-not-supported') { handle.inner = listen(onText, fim); return; }
     var all = [], seen = {}; finals.concat(others, last ? [last] : []).forEach(function (t) { var k = String(t).toLowerCase().trim(); if (k && !seen[k] && all.length < 16) { seen[k] = 1; all.push(t); } });
     if (all.length) fim(all, null); else fim(null, err || 'no-speech');
   };
   quiet();
   try { r.start(); } catch (e) { ended = true; fim(null, 'erro'); }
-  return { stop: function () { try { r.stop(); } catch (e) {} } };
+  handle = { inner: null, stop: function () { if (handle.inner) handle.inner.stop(); else { try { r.stop(); } catch (e) {} } } };
+  return handle;
 }
 function record(fim) {
   var chunks = [], rec = null, stopped = false;
@@ -459,13 +463,13 @@ function speakRow(o) {
         if (!alts) { msg.textContent = err === 'not-allowed' || err === 'service-not-allowed' ? 'Microfone bloqueado. Libere o microfone para este site.' : err === 'network' ? 'Sem internet para conferir a fala.' : 'Não ouvi. Toque no microfone e fale.'; return; }
         var r = Fala.check(target, alts, fopt({ lax: o.lax, soft: o.soft === false ? false : SOFTW }));
         if (r.ok) {
-          setState(true, r.soft.length ? 'Quase: entendi "' + r.soft[0].heard + '" e não "' + r.soft[0].target + '". As consoantes batem; confira a vogal ouvindo de novo.' : 'Certo! Eu entendi: ' + r.heard);
+          setState(true, r.soft.length ? 'Quase: entendi "' + r.soft[0].heard + '" e não "' + r.soft[0].target + '". As consoantes batem; confira a vogal ouvindo de novo.' : 'Certo! Eu entendi: ' + r.heard + (r.homo.length ? '. "' + r.homo[0].heard + '" e "' + r.homo[0].target + '" têm o mesmo som: a diferença só aparece na escrita.' : ''));
           row.classList.toggle('soft', !!r.soft.length);
         } else {
           setState(false, 'Eu entendi: "' + r.heard + '". Ouça e tente de novo.'); row.classList.remove('soft');
           if (r.pairs.length) { var cb = btn('O microfone errou, eu falei certo', function () { calAdd(r.pairs); cb.remove(); setState(true, 'Calibrado: "' + r.pairs[0][1] + '" agora vale como "' + r.pairs[0][0] + '" neste aparelho.'); }); cb.className = 'cal'; info.append(h('div', { class: 'acts' }, cb)); }
         }
-      });
+      }, [target]);
     } else if (canRecord()) {
       live = true; mic.classList.add('live'); mic.replaceChildren(ico('stop', 22)); msg.textContent = 'Gravando... toque para parar';
       rec = record(function (url, err) {
@@ -870,7 +874,7 @@ function speakLike(q, c, hidden) {
     tries++;
     var r = Fala.check(q.en, alts, fopt({ lax: q.lax }));
     heard.textContent = 'Eu entendi: ' + r.heard;
-    if (r.ok) { reveal(); return pass([marksEl(r), h('div', { class: 'small' }, r.soft.length ? 'Quase: entendi "' + r.soft[0].heard + '" no lugar de "' + r.soft[0].target + '". As consoantes batem; só a vogal ficou diferente. Ouça o modelo e repita devagar para acertar a vogal.' : r.level === 2 ? 'Todas as palavras foram entendidas.' : 'Quase perfeito: só uma palavrinha (a, an, the ou to) ficou diferente.')]); }
+    if (r.ok) { reveal(); return pass([marksEl(r), h('div', { class: 'small' }, r.soft.length ? 'Quase: entendi "' + r.soft[0].heard + '" no lugar de "' + r.soft[0].target + '". As consoantes batem; só a vogal ficou diferente. Ouça o modelo e repita devagar para acertar a vogal.' : r.homo.length ? 'Entendi "' + r.homo[0].heard + '", que tem o mesmo som de "' + r.homo[0].target + '". O microfone não separa as duas; a diferença só aparece na escrita.' : r.level === 2 ? 'Todas as palavras foram entendidas.' : 'Quase perfeito: só uma palavrinha (a, an, the ou to) ficou diferente.')]); }
     idle();
     if (hidden && tries >= 2) reveal();
     var falt = r.marks.filter(function (m) { return !m.ok; }).length;
@@ -891,7 +895,7 @@ function speakLike(q, c, hidden) {
   mic.onclick = function () {
     if (live) { if (rec) rec.stop(); return; }
     res.replaceChildren(); heard.textContent = '';
-    if (SRC()) { live = true; mic.classList.add('live'); mic.replaceChildren(ico('stop', 40)); lab.textContent = 'Ouvindo... fale agora'; rec = listen(function (t) { heard.textContent = t; }, onSR); }
+    if (SRC()) { live = true; mic.classList.add('live'); mic.replaceChildren(ico('stop', 40)); lab.textContent = 'Ouvindo... fale agora'; rec = listen(function (t) { heard.textContent = t; }, onSR, [q.en]); }
     else if (canRecord()) { live = true; mic.classList.add('live'); mic.replaceChildren(ico('stop', 40)); lab.textContent = 'Gravando... toque para parar'; rec = record(onRec); }
     else {
       reveal(); lab.textContent = 'Fale em voz alta';
