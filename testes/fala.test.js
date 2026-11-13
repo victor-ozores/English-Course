@@ -98,6 +98,14 @@ var rh = Fala.check('meat', ['meet']);
 total++; if (!(rh.level === 2 && rh.homo.length === 1 && rh.homo[0].target === 'meat' && rh.homo[0].heard === 'meet')) { falhas++; console.log('FALHOU: aviso de mesmo som (meat/meet)'); }
 total++; if (Fala.check('I want to eat', ['I want too eat']).homo.length) { falhas++; console.log('FALHOU: to/too não deve gerar aviso'); }
 total++; if (Fala.check('meat', ['meat']).homo.length) { falhas++; console.log('FALHOU: palavra igual não gera aviso'); }
+sf('ham ouvido hmm', 'ham', 'hmm', 1);
+sf('ham ouvido hem', 'ham', 'hem', 1);
+sf('ham ouvido home', 'ham', 'home', 1);
+sf('to eat ouvido it', 'to eat', 'it', 1, { lax: ['to'] });
+sf('palavra solta com consoante errada não passa', 'ham', 'hat', 0);
+sf('cheese não aceita cheers', 'cheese', 'cheers', 0);
+sf('went continua estrito', 'went', 'wnt', 0);
+sf('na frase o perdão de consoantes NÃO vale', 'I like ham', 'I like hmm', 0);
 // calibração pessoal
 sf('calibração: brod passa a valer bread', 'I eat bread', 'I eat brod', 2, { cal: { bread: ['brod'] } });
 sf('calibração não vale para outra palavra', 'I eat cheese', 'I eat brod', 0, { cal: { bread: ['brod'] } });

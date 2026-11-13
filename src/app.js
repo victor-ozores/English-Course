@@ -463,8 +463,7 @@ function speakRow(o) {
         if (!alts) { msg.textContent = err === 'not-allowed' || err === 'service-not-allowed' ? 'Microfone bloqueado. Libere o microfone para este site.' : err === 'network' ? 'Sem internet para conferir a fala.' : 'Não ouvi. Toque no microfone e fale.'; return; }
         var r = Fala.check(target, alts, fopt({ lax: o.lax, soft: o.soft === false ? false : SOFTW }));
         if (r.ok) {
-          setState(true, r.soft.length ? 'Quase: entendi "' + r.soft[0].heard + '" e não "' + r.soft[0].target + '". As consoantes batem; confira a vogal ouvindo de novo.' : 'Certo! Eu entendi: ' + r.heard + (r.homo.length ? '. "' + r.homo[0].heard + '" e "' + r.homo[0].target + '" têm o mesmo som: a diferença só aparece na escrita.' : ''));
-          row.classList.toggle('soft', !!r.soft.length);
+          setState(true, r.soft.length ? 'Certo! O microfone entendeu "' + r.soft[0].heard + '" (ele confunde a vogal de "' + r.soft[0].target + '"). Aceito.' : 'Certo! Eu entendi: ' + r.heard + (r.homo.length ? '. "' + r.homo[0].heard + '" e "' + r.homo[0].target + '" têm o mesmo som: a diferença só aparece na escrita.' : ''));
         } else {
           setState(false, 'Eu entendi: "' + r.heard + '". Ouça e tente de novo.'); row.classList.remove('soft');
           if (r.pairs.length) { var cb = btn('O microfone errou, eu falei certo', function () { calAdd(r.pairs); cb.remove(); setState(true, 'Calibrado: "' + r.pairs[0][1] + '" agora vale como "' + r.pairs[0][0] + '" neste aparelho.'); }); cb.className = 'cal'; info.append(h('div', { class: 'acts' }, cb)); }
@@ -504,10 +503,10 @@ function stepVerbs(u, s, back) {
   var vs = sec(u, 'verbos'), mic = !!SRC() || canRecord(), rows = [];
   vs.forEach(function (v) {
     var it = verbItem(u, v), past = v[2] && v[2] !== v[0].replace(/^to /, '') ? v[2] : '';
-    rows.push({ en: v[0], pt: v[1], lax: ['to'], example: it.sent ? it.en : '', seq: it.sent ? [v[0], it.en] : null });
+    rows.push({ en: v[0], pt: v[1], lax: ['to'], example: it.sent ? it.en : '' });
     if (past) rows.push({ en: past, pt: 'passado de ' + v[0], target: past, soft: false });
   });
-  var sb = scoreBar(rows.length), c = card(h('p', { class: 'small' }, 'Aprenda falando o verbo, não a frase. Toque no alto-falante, ouça o verbo (e depois a frase de exemplo) e fale no microfone. Todos verdes = etapa concluída.'), sb.el), msg = h('div');
+  var sb = scoreBar(rows.length), c = card(h('p', { class: 'small' }, 'Aprenda falando o verbo, não a frase. Toque no alto-falante, ouça só o verbo e fale o verbo no microfone. Todos verdes = etapa concluída.'), sb.el), msg = h('div');
   rows.forEach(function (r, i) {
     r.onResult = function (ok) { var t = sb.set(i, ok); if (ok && t[0] === rows.length) { mark(u, s); msg.replaceChildren(h('div', { class: 'msg ok' }, 'Você falou todos os verbos certo. Etapa concluída!')); } };
     c.append(speakRow(r));
@@ -517,7 +516,6 @@ function stepVerbs(u, s, back) {
     pick4.forEach(function (v) { qs.push({ t: 'speak', en: v[0], pt: v[1], lax: ['to'], verb: true }); });
     shuffle(pick4).forEach(function (v) { qs.push({ t: 'say', en: v[0], pt: v[1], lax: ['to'], verb: true }); });
     pastQ.forEach(function (v) { qs.push({ t: 'say', en: v[2], pt: 'passado de ' + v[0] + ' (' + v[1] + ')', verb: true }); });
-    pick(pick4.map(function (v) { return verbItem(u, v); }).filter(function (i) { return i.sent; }), 2).forEach(function (i) { qs.push({ t: 'say', en: i.en, pt: i.pt }); });
     play(qs, { title: 'Verbos: falar', back: back, again: falar, thr: 0.7, fim: function (ok) { if (ok) mark(u, s); } });
   }
   function calado() {
@@ -845,7 +843,7 @@ QV.pairs = function (q, c) {
   for (var i = 0; i < left.length; i++) grid.append(L[i], Rg[i]);
   c.box.append(h('p', { class: 'small' }, 'Toque no inglês e depois na tradução:'), grid);
 };
-function marksEl(r) { var e = h('div', { class: 'wm' }); r.marks.forEach(function (m) { e.append(h('span', { class: m.ok ? (m.soft ? 's' : 'y') : 'n' }, m.w)); }); return e; }
+function marksEl(r) { var e = h('div', { class: 'wm' }); r.marks.forEach(function (m) { e.append(h('span', { class: m.ok ? 'y' : 'n' }, m.w)); }); return e; }
 function speakLike(q, c, hidden) {
   var tries = 0, hinted = false, live = false, rec = null, shown = !hidden, ended = false;
   var enEl = h('p', { class: 'en' }, hidden ? '' : q.en), res = h('div'), heard = h('div', { class: 'heard' });
@@ -874,7 +872,7 @@ function speakLike(q, c, hidden) {
     tries++;
     var r = Fala.check(q.en, alts, fopt({ lax: q.lax }));
     heard.textContent = 'Eu entendi: ' + r.heard;
-    if (r.ok) { reveal(); return pass([marksEl(r), h('div', { class: 'small' }, r.soft.length ? 'Quase: entendi "' + r.soft[0].heard + '" no lugar de "' + r.soft[0].target + '". As consoantes batem; só a vogal ficou diferente. Ouça o modelo e repita devagar para acertar a vogal.' : r.homo.length ? 'Entendi "' + r.homo[0].heard + '", que tem o mesmo som de "' + r.homo[0].target + '". O microfone não separa as duas; a diferença só aparece na escrita.' : r.level === 2 ? 'Todas as palavras foram entendidas.' : 'Quase perfeito: só uma palavrinha (a, an, the ou to) ficou diferente.')]); }
+    if (r.ok) { reveal(); return pass([marksEl(r), h('div', { class: 'small' }, r.soft.length ? 'O microfone entendeu "' + r.soft[0].heard + '" no lugar de "' + r.soft[0].target + '". Ele confunde a vogal; as consoantes batem, então aceitei.' : r.homo.length ? 'Entendi "' + r.homo[0].heard + '", que tem o mesmo som de "' + r.homo[0].target + '". O microfone não separa as duas; a diferença só aparece na escrita.' : r.level === 2 ? 'Todas as palavras foram entendidas.' : 'Quase perfeito: só uma palavrinha (a, an, the ou to) ficou diferente.')]); }
     idle();
     if (hidden && tries >= 2) reveal();
     var falt = r.marks.filter(function (m) { return !m.ok; }).length;

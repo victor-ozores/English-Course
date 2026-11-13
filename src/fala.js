@@ -126,10 +126,14 @@ var Fala = (function () {
     return w;
   }
   /* mesma consoante e mesmo desenho de vogais, só a vogal muda (ex.: bread / brad) */
-  function softEq(a, b) {
+  /* loose = palavra/verbo solto: compara só as consoantes (o microfone às vezes devolve "hmm" para "ham") */
+  function softEq(a, b, loose) {
     if (!a || !b || a === b || a.length < 3 || b.length < 2) return false;
-    var k = pkey(a);
-    return k.length >= 2 && k === pkey(b);
+    var k = pkey(a), j = pkey(b);
+    if (k.length >= 2 && k === j) return true;
+    if (!loose) return false;
+    var ka = k.replace(/V/g, ''), kb = j.replace(/V/g, '');
+    return ka.length >= 2 && ka === kb && a[0] === b[0];
   }
   /* palavras que NUNCA recebem esse perdão: trocar a vogal muda a gramática (went/want, can/can't, has/his...) */
   var STRICT = {};
@@ -160,6 +164,7 @@ var Fala = (function () {
     var lax = opt.lax || [];
     var W = words(target), T = flat(target), best = null;
     var softAll = opt.soft === false ? false : (opt.soft === true || T.length === 1 || (T.length === 2 && T[0] === 'to' && lax.indexOf('to') >= 0)), softSet = Array.isArray(opt.soft) ? setOf(opt.soft) : null;
+    var isolated = opt.soft !== false && (T.length === 1 || (T.length === 2 && T[0] === 'to' && lax.indexOf('to') >= 0));
     function elig(t) { return !STRICT[t] && (softAll || (softSet && softSet[t])); }
     [].concat(alts || []).forEach(function (alt) {
       var H = stutter(compounds(applyCal(flat(alt), T, opt.cal), T), T), d = align(H, T), i, j;
@@ -170,7 +175,7 @@ var Fala = (function () {
         if (!elig(T[ti])) return;
         for (var k = 0; k < extraI.length; k++) {
           var hj = extraI[k];
-          if (!used[hj] && softEq(T[ti], H[hj])) { used[hj] = 1; softIdx[ti] = H[hj]; nSoft++; break; }
+          if (!used[hj] && softEq(T[ti], H[hj], isolated)) { used[hj] = 1; softIdx[ti] = H[hj]; nSoft++; break; }
         }
       });
       var miss = missI.filter(function (ti) { return !softIdx[ti]; }).map(function (ti) { return T[ti]; });

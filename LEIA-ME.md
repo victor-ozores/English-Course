@@ -13,13 +13,13 @@ Duas formas de abrir, sempre no **Chrome** (é nele que a voz e a conferência d
 
 ## Falar (o centro do app)
 - **Palavras, verbos e expressões**: cada linha tem o alto-falante (ouvir) e o microfone (falar). Verde = você falou certo; vermelho = tente de novo. Verbos: todos verdes = etapa concluída.
-- **Verbos**: o app pede o **verbo** ("to talk"), não a frase. O "to" do começo pode faltar; o verbo não.
+- **Verbos**: o app pede e toca **só o verbo** ("to talk"), nunca a frase de exemplo (ela aparece escrita, só para ler). O "to" do começo pode faltar; o verbo não.
 - Aba **Falar**: repetir vendo a frase, falar sem ler (português para inglês) ou só verbos.
 - Toda palavra importante precisa sair, na ordem. "He work" não passa por "He works". Só um artigo (a, an, the) pode faltar. "Don't" = "do not"; "15" = "fifteen".
 - Precisou de 3 tentativas ou usou a dica? A frase passa, mas **volta no fim** da rodada.
 - Sem fone ou sem poder falar: toque em **Escrever esta frase**. As palavras ficam verdes ou vermelhas **enquanto você digita**.
 - Limite: o microfone confirma que cada palavra foi entendida; não mede sotaque fino.
-- **Palavra solta (bread, ham, to eat):** o microfone do Chrome erra mais a vogal que a consoante (bread vira brad, ham vira him). Se as consoantes batem, a linha fica **amarela** ("quase") e conta como feita. Palavras que mudam a gramática (went/want, can/can't, do/does) continuam exigentes.
+- **Palavra solta (bread, ham, to eat):** o microfone do Chrome erra mais a vogal que a consoante (bread vira brad, ham vira him). Se as consoantes batem (ham ouvido como him, hmm ou hem), a linha fica **verde**, com um aviso do que o microfone entendeu, e conta como feita. Ouvir outra palavra de verdade (ex.: hat) continua vermelho. Palavras que mudam a gramática (went/want, can/can't, do/does) continuam exigentes.
 - **meat e meet (mesmo som):** o microfone não separa. As duas valem na fala, e o app avisa. Na escrita a grafia certa é exigida.
 - **"O microfone errou, eu falei certo":** toque nesse botão quando tiver certeza. O app aprende o som (neste aparelho) e passa a aceitar. Na aba Progresso você vê e apaga essas correções.
 - Dica para o microfone entender melhor: fale a palavra inteira, sem pressa, com o celular perto e sem barulho; para uma palavra solta, diga-a duas vezes seguidas ("bread, bread") se ele insistir em errar.
