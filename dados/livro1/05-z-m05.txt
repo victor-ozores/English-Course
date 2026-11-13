@@ -1,0 +1,132 @@
+# Internet | modulo 5
+objetivo: Falar de internet e tecnologia: **acessar**, **baixar**, **entrar** e **sair** de contas.
+dica: Com a inclusão digital universal, alguns produtos famosos se tornaram verbos que definem suas principais atividades, como to google, to tweet, to photoshop, etc.
+cena: Você pede ajuda a uma amiga com o smartphone.
+
+[aquecimento]
+I want to download this new game. | Eu quero baixar esse novo jogo.
+Do you have a wireless connection here? | Vocês têm conexão sem fio aqui?
+I like your new smartphone. | Eu gosto do seu celular novo.
+Do you like this app? | Você gosta desse aplicativo?
+Access my Facebook profile. | Acesse o meu perfil do Facebook.
+I don't have your password. | Eu não tenho sua senha.
+My smartphone has a virus. | Meu celular tem um vírus.
+Do you have a desktop computer? | Você tem um computador de mesa?
+Do you like this gadget for smartphones? | Você gosta deste dispositivo para celulares?
+I have a lot of spam in my email. | Eu tenho um monte de spams no meu email.
+I like to photoshop my pictures. | Eu gosto de editar minhas fotos.
+
+[palavras]
+laptop | notebook
+desktop | computador de mesa
+smartphone | celular
+app | aplicativo
+profile | perfil
+website | site
+device | aparelho
+gadget | dispositivo
+wireless | sem fio
+browser | navegador
+spam | spam
+username | nome de usuário
+download | download
+virus | vírus
+wi-fi | wi-fi
+connection | conexão
+email | email
+password | senha
+tablet | tablet
+account | conta
+
+[apoio]
+new | novo
+game | jogo
+here | aqui
+picture | foto
+film | filme
+internet | internet
+it | isto, ele, ela (para coisas)
+every day | todos os dias
+favorite | favorito
+social media | redes sociais
+always | sempre
+
+[verbos]
+to access | acessar
+to log in | logar
+to log out | deslogar
+to download | baixar
+
+[expressoes]
+to google | pesquisar
+to photoshop | editar fotos
+WhatsApp me! | me mande mensagem no WhatsApp!
+to zoom call | ligar via Zoom
+to tweet | tuitar
+
+[frases]
+I access this website every day. | Eu acesso este site todos os dias.
+I have to log out of my Facebook. | Eu tenho que sair do meu Facebook.
+I want to download this. | Eu quero baixar isto.
+Do you want to log in to your Facebook? | Você quer entrar no seu Facebook?
+I download this browser. | Eu baixo este navegador.
+I access my Instagram on the laptop. | Eu acesso o meu Instagram no notebook.
+Do you log out on your laptop? | Você sai da sua conta no notebook?
+I download this on my device. | Eu baixo isto no meu dispositivo.
+
+[perguntas]
+What browser do you prefer, Firefox or Chrome? | Que navegador você prefere, Firefox ou Chrome?
+Do you photoshop your pictures? | Você edita as suas fotos no Photoshop?
+Do you like to tweet every day? | Você gosta de tuitar todos os dias?
+Do you google your homework from school? | Você pesquisa no Google a tarefa da escola?
+Do you have an email account? | Você tem uma conta de e-mail?
+Do you download films? | Você baixa filmes?
+What is your favorite social media? | Qual é a sua rede social favorita?
+Do you have a Skype account? | Você tem uma conta no Skype?
+Do you always log out of your social media on desktop computers? | Você sempre sai da sua rede social em computadores de mesa?
+What is your favorite app? | Qual é o seu aplicativo favorito?
+
+[modelo]
+Do you want to log in now? | No, I don't want to log in now. | Você quer entrar agora? | Não, eu não quero entrar agora.
+Do you want to zoom call now? | Yes, I want to zoom call now. | Você quer fazer uma chamada de vídeo agora? | Sim, eu quero fazer uma chamada de vídeo agora.
+
+[extras]
+I download an app on my smartphone. | Eu baixo um aplicativo no meu celular.
+I have a tablet and a smartphone. | Eu tenho um tablet e um celular.
+Do you have wi-fi here? | Você tem wi-fi aqui?
+I don't have a username. | Eu não tenho nome de usuário.
+I want to log in to my account. | Eu quero entrar na minha conta.
+Do you want to download this browser? | Você quer baixar este navegador?
+I have to access my email now. | Eu preciso acessar o meu email agora.
+I don't like spam in my email. | Eu não gosto de spam no meu email.
+Do you have a password? | Você tem uma senha?
+I log out of my account at night. | Eu saio da minha conta à noite.
+You have a virus on your laptop. | Você tem um vírus no seu notebook.
+I want to download a new app. | Eu quero baixar um aplicativo novo.
+
+[resumo]
+I want to access the internet at night. | Eu quero acessar a internet à noite.
+Google it! | Pesquisa no google!
+Do you want to photoshop this picture? | Você quer editar essa foto?
+I have to log out of my Facebook account. | Eu tenho que deslogar minha conta do Facebook.
+Do you want to download this game? | Você quer baixar esse jogo?
+
+[dialogo]
+Julia | What is your favorite app? | Qual é o seu aplicativo favorito?
+Você | My favorite app is WhatsApp. I access it every day. | O meu aplicativo favorito é o WhatsApp. Eu acesso todos os dias.
+Julia | Do you have a new smartphone? | Você tem um smartphone novo?
+Você | Yes, I have a new smartphone. I want to download a game. | Sim, eu tenho um smartphone novo. Eu quero baixar um jogo.
+Julia | The wi-fi here is good. | O wi-fi aqui é bom.
+Você | Thank you! | Obrigado!
+
+=dica Nomes que viram verbos
+porque: No inglês, coisas e marcas do dia a dia viram verbos: to google (pesquisar), to photoshop (editar fotos), to tweet (tuitar), to zoom call. Eles funcionam como qualquer verbo: Google it! I like to photoshop my pictures.
+ex: Google it! | Pesquisa no google!
+ex: I like to photoshop my pictures. | Eu gosto de editar minhas fotos.
+quiz: Você quer editar essa foto: Do you want to ___ this picture? | photoshop | photoshop; google; tweet
+
+=pegadinha Verbo + palavrinha muda o sentido
+porque: Log in (entrar na conta) e log out (sair da conta) são verbos de duas partes. A segunda palavra muda o sentido: in = entrar, out = sair. Não dá para traduzir cada pedaço sozinho. Decore o par inteiro.
+ex: I have to log out of my Facebook account. | Eu tenho que deslogar minha conta do Facebook.
+ex: Do you want to log in now? | Você quer logar agora?
+quiz: Eu quero sair da minha conta: I want to log ___. | out | out; in; up

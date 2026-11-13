@@ -1,0 +1,134 @@
+# Routine | modulo 9
+objetivo: Falar da **rotina**, de feriados e refeições, e **convidar** com educação usando would like.
+dica: Feriados e datas especiais começam com letra **maiúscula** em inglês: Christmas, Easter.
+cena: Um amigo convida você para a festa de aniversário dele.
+
+[aquecimento]
+He wants to come to Brazil on Christmas. | Ele quer vir ao Brasil no Natal.
+Would you like to have lunch here? | Vocês gostariam de almoçar aqui?
+Do they need to open the windows in the morning? | Eles precisam abrir as janelas de manhã?
+Do we need to go now? | Nós precisamos ir agora?
+They don't like to stay home on Easter. | Eles não gostam de ficar em casa na Páscoa.
+I would not like to close the office at night. | Eu não gostaria de fechar o escritório à noite.
+She would like to have dinner at the mall. | Ela gostaria de jantar no shopping.
+They prefer to have breakfast at home. | Eles preferem tomar café da manhã em casa.
+
+[palavras]
+he | ele
+she | ela
+it | ele, ela (neutro)
+we | nós
+they | eles
+you | vocês
+Christmas | natal
+Easter | páscoa
+party | festa
+door | porta
+window | janela
+house | casa
+birthday | aniversário
+office | escritório
+lunch | almoço
+dinner | jantar
+breakfast | café da manhã
+
+[apoio]
+today | hoje
+hamburger | hambúrguer
+
+[verbos]
+to come | vir
+to stay | ficar
+to open | abrir
+to close | fechar
+
+[expressoes]
+would | (ajuda a dizer 'gostaria': would like)
+to have breakfast | tomar café da manhã
+to have lunch | almoçar
+to have dinner | jantar
+to have | comer; beber
+
+[frases]
+I come home every day. | Eu venho para casa todos os dias.
+He stays here on Easter. | Ele fica aqui na Páscoa.
+She doesn't open the office on Christmas. | Ela não abre o escritório no Natal.
+Does she close the office on her birthday? | Ela fecha o escritório no aniversário dela?
+She likes to stay home on Christmas. | Ela gosta de ficar em casa no Natal.
+My father closes the doors every day. | O meu pai fecha as portas todos os dias.
+She opens the windows every morning. | Ela abre as janelas toda manhã.
+Does he like to come to Brazil? | Ele gosta de vir ao Brasil?
+Do you like to stay home on Easter? | Você gosta de ficar em casa na Páscoa?
+
+[perguntas]
+Does your wife or husband like to stay home on Christmas? | O seu marido ou a sua esposa gosta de ficar em casa no Natal?
+Would you like to go to the birthday party with your son? | Você gostaria de ir à festa de aniversário com o seu filho?
+Does he prefer to come home on Christmas or on Easter? | Ele prefere voltar para casa no Natal ou na Páscoa?
+Where does your brother prefer to have lunch? | Onde o seu irmão prefere almoçar?
+When does your husband or wife have dinner at home? | Quando o seu marido ou a sua esposa janta em casa?
+Would you like to travel every vacation? | Você gostaria de viajar em todas as férias?
+Would you prefer to stay home or to go to London? | Você preferiria ficar em casa ou ir a Londres?
+Does your daughter eat a lot of chocolate? | A sua filha come muito chocolate?
+Do we need to go to the mall today? | Nós precisamos ir ao shopping hoje?
+Would you like to buy a hamburger? | Você gostaria de comprar um hambúrguer?
+
+[modelo]
+Would you like to go to Orlando? | Yes, I would like to go to Orlando. | Você gostaria de ir a Orlando? | Sim, eu gostaria de ir a Orlando.
+Do your children like chocolate? | Yes, my children love chocolate. | Os seus filhos gostam de chocolate? | Sim, os meus filhos adoram chocolate.
+
+[extras]
+We open the windows every morning. | Nós abrimos as janelas toda manhã.
+They stay at the hotel on Christmas. | Eles ficam no hotel no Natal.
+Do you come to the party? | Você vem à festa?
+We would like to have lunch at home. | Nós gostaríamos de almoçar em casa.
+Would you like to come to my birthday party? | Você gostaria de vir à minha festa de aniversário?
+I would like to stay home on Easter. | Eu gostaria de ficar em casa na Páscoa.
+They don't close the door at night. | Eles não fecham a porta à noite.
+She doesn't open the window in the morning. | Ela não abre a janela de manhã.
+Does he come to the office on weekends? | Ele vem ao escritório nos fins de semana?
+We have breakfast at home. | Nós tomamos café da manhã em casa.
+Would they like to have dinner with you? | Eles gostariam de jantar com você?
+I would like to open the window, please. | Eu gostaria de abrir a janela, por favor.
+
+[resumo]
+He would like to stay for the Christmas party. | Ele gostaria de ficar para a festa de Natal.
+Would you come to my house? | Você viria para a minha casa?
+They would not like to have lunch at the restaurant. | Eles não gostariam de almoçar no restaurante.
+Do we need to stay for Easter? | Nós precisamos ficar para a Páscoa?
+You have to close the doors and the windows. | Vocês têm que fechar as portas e as janelas.
+I have bread and milk for breakfast. | Eu como pão e bebo leite no café da manhã.
+
+[dialogo]
+Leo | Would you like to come to my birthday party? | Você gostaria de vir à minha festa de aniversário?
+Você | Yes, I would like to come. When is the party? | Sim, eu gostaria de ir. Quando é a festa?
+Leo | It is today. We have dinner at my house. | É hoje. Nós jantamos na minha casa.
+Você | Thank you! I want to come. | Obrigado! Eu quero ir.
+Leo | Good! Please, come at night. | Bom! Por favor, venha à noite.
+
+=regra Quem usa do e quem usa does
+porque: Resumo: I, you, we e they usam do e don't. He, she e it usam does e doesn't. Na dúvida, olhe o pronome. We é nós, they é eles ou elas, e you serve para você e para vocês.
+ex: Do we need to go now? | Nós precisamos ir agora?
+ex: Do they need to open the windows in the morning? | Eles precisam abrir as janelas de manhã?
+ex: Does she close the office on her birthday? | Ela fecha o escritório no aniversário dela?
+cuidado: 'They does' e 'he do' são erros comuns.
+quiz: ___ they like to stay home on Easter? | Do | Do; Does; Don't
+
+=regra Would like: querer com educação
+porque: Would like é o jeito educado de querer: Would you like to have lunch here? (Vocês gostariam de almoçar aqui?). Would é um auxiliar: não usa do, não ganha S e o verbo depois fica no básico (she would like, nunca would likes). Para negar: would not.
+ex: She would like to have dinner at the mall. | Ela gostaria de jantar no shopping.
+ex: I would not like to close the office at night. | Eu não gostaria de fechar o escritório à noite.
+cuidado: 'Do you would like' está errado: would já é o auxiliar.
+quiz: Você gostaria de almoçar aqui?: ___ you like to have lunch here? | Would | Would; Don't; Does
+
+=dica Have também é comer e beber
+porque: Nas refeições, have vale por comer ou tomar: have breakfast (tomar café da manhã), have lunch (almoçar), have dinner (jantar). Você não precisa de eat nem de drink.
+ex: They prefer to have breakfast at home. | Eles preferem tomar café da manhã em casa.
+ex: She would like to have dinner at the mall. | Ela gostaria de jantar no shopping.
+quiz: Eu gostaria de almoçar aqui: I would like to ___ lunch here. | have | have; make; get
+
+=regra ON com feriados e férias
+porque: Feriados e datas especiais usam on: on Christmas (no Natal), on Easter (na Páscoa). Férias também: on vacation (de férias). Nomes de feriado começam com maiúscula: Christmas, Easter.
+ex: He wants to come to Brazil on Christmas. | Ele quer vir ao Brasil no Natal.
+ex: I like to travel to Miami on vacation. | Eu gosto de viajar para Miami nas férias.
+cuidado: Evite 'in Christmas'.
+quiz: Ele quer vir ao Brasil no Natal: He wants to come to Brazil ___ Christmas. | on | on; in; at

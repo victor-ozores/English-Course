@@ -1,0 +1,138 @@
+# Directions | modulo 13
+objetivo: **Perguntar** e **dar direções**: onde fica um lugar e como chegar.
+dica: **Right** quer dizer 'direita' e também 'certo'. O contexto mostra qual: **turn right** é 'vire à direita'.
+cena: Você está perdido na cidade e pede ajuda a um homem na rua.
+
+[aquecimento]
+Do you see the supermarket? | Você vê o supermercado?
+Can you tell me how to go to the airport? | Você pode me dizer como ir para o aeroporto?
+Go straight ahead, and turn right in two blocks. | Siga em frente, e vire à direita em dois quarteirões.
+I know how to go to school. | Eu sei ir à escola.
+The store is by the side of the supermarket. | A loja fica ao lado do supermercado.
+Can you see the mall? Turn left, and go straight ahead. | Você consegue ver o shopping? Vire à esquerda e siga em frente.
+The school is in front of the hotel. | A escola fica em frente ao hotel.
+Do you know how to go downtown? | Você sabe ir ao centro?
+Do you know how to go home? | Você sabe ir para casa?
+
+[palavras]
+right | direita
+left | esquerda
+behind | atrás de
+in front of | na frente de
+ahead | em frente
+side | lado
+but | mas
+how | como
+downtown | centro da cidade
+mall | shopping
+store | loja
+supermarket | supermercado
+hotel | hotel
+airport | aeroporto
+home | casa
+school | escola
+where | onde
+block | quarteirão
+
+[apoio]
+two | dois
+look | olhar
+
+[verbos]
+to know | saber, conhecer
+to go | ir
+to turn | virar
+to see | ver
+
+[expressoes]
+where is...? | onde fica? / onde está?
+can you tell me...? | você pode me dizer...?
+go straight ahead | siga em frente
+by the side | ao lado
+can you see...? | você consegue ver...?
+
+[frases]
+I know your father. | Eu conheço o seu pai.
+I don't know how to go downtown. | Eu não sei como ir ao centro.
+She doesn't see the supermarket. | Ela não vê o supermercado.
+Turn right, and go ahead. | Vire à direita e siga em frente.
+Where is the mall? | Onde fica o shopping?
+Do you know how to go to the airport? | Você sabe como ir ao aeroporto?
+I don't know how to go to the hotel, but I know how to go to the mall. | Eu não sei como ir ao hotel, mas sei como ir ao shopping.
+
+[perguntas]
+Can you tell me how to go downtown? | Você pode me dizer como ir ao centro?
+Where is the school? | Onde fica a escola?
+Do you know how to go home? | Você sabe como ir para casa?
+Do you know how to speak Chinese? | Você sabe falar chinês?
+Do you know how to write in French? | Você sabe escrever em francês?
+Do you know how to read in Spanish? | Você sabe ler em espanhol?
+Do you know how to cook German food? | Você sabe cozinhar comida alemã?
+Do you know my mother? | Você conhece a minha mãe?
+Can you tell me how to go to the supermarket? | Você pode me dizer como ir ao supermercado?
+Can you see the airport? | Você consegue ver o aeroporto?
+
+[modelo]
+Where is the mall? | The mall is in front of my home. | Onde fica o shopping? | O shopping fica em frente à minha casa.
+Do you know how to go downtown? | No, I don't know how to go downtown. | Você sabe como ir ao centro? | Não, eu não sei como ir ao centro.
+
+[extras]
+Can you see the school? | Você consegue ver a escola?
+Turn left in two blocks. | Vire à esquerda em dois quarteirões.
+Where is the airport? | Onde fica o aeroporto?
+The hotel is in front of the mall. | O hotel fica na frente do shopping.
+The bank is behind the supermarket. | O banco fica atrás do supermercado.
+Can you tell me how to go to the bank? | Você pode me dizer como ir ao banco?
+Go straight ahead and turn left. | Siga em frente e vire à esquerda.
+I don't know where the school is. | Eu não sei onde fica a escola.
+Do you know where the store is? | Você sabe onde fica a loja?
+Can you see the hotel? It is by the side of the mall. | Você consegue ver o hotel? Ele fica ao lado do shopping.
+The supermarket is on the right. | O supermercado fica à direita.
+I can see the airport. | Eu consigo ver o aeroporto.
+
+[resumo]
+Go straight ahead, look by the side. | Siga em frente, olhe para o lado.
+Turn right in two blocks. | Vire à direita em dois quarteirões.
+Do you know where the mall is? | Você sabe onde é o shopping?
+Do you know how to go to the supermarket? | Você sabe como ir ao supermercado?
+Can you tell me how to go downtown? | Você pode me dizer como ir ao centro da cidade?
+Where is the school? | Onde fica a escola?
+
+[dialogo]
+Você | Excuse me! Can you tell me how to go to the supermarket? | Com licença! Você pode me dizer como ir ao supermercado?
+Homem | Yes, I know. Go straight ahead and turn left. | Sim, eu sei. Siga em frente e vire à esquerda.
+Você | Where is the bank? | Onde fica o banco?
+Homem | The bank is in front of the hotel, by the side of the school. | O banco fica em frente ao hotel, ao lado da escola.
+Você | Thank you! | Obrigado!
+
+=regra Where is...? Onde fica?
+porque: Para perguntar onde algo fica, use Where is...?: Where is the mall? A palavra is vem do to be (ser, estar, ficar). Aqui não usamos do. Por enquanto, guarde: where is + a coisa.
+ex: Where is the school? | Onde fica a escola?
+ex: Where is the mall? | Onde fica o shopping?
+cuidado: 'Where the mall?' (sem is) e 'Where the mall is?' (is no fim) estão errados. O is vem logo depois de where.
+quiz: Onde fica o shopping?: ___ the mall? | Where is | Where is; Where do; Where does
+
+=regra Can: poder e conseguir
+porque: Can you tell me...? é 'você pode me dizer...?'. Can you see...? é 'você consegue ver...?'. Can também é auxiliar: sem do, sem S, e o verbo depois fica no básico.
+ex: Can you tell me how to go to the airport? | Você pode me dizer como ir para o aeroporto?
+ex: Can you see the mall? | Você consegue ver o shopping?
+cuidado: 'Do you can' não existe.
+quiz: Você pode me dizer como ir ao centro?: ___ you tell me how to go downtown? | Can | Can; Do; Does
+
+=regra Saber fazer: know how to
+porque: Saber + verbo (saber cozinhar) vira know how to + verbo: I know how to go to school. She doesn't know how to cook. Sem o how, know serve para conhecer pessoas e lugares: I know your father.
+ex: I know how to go to school. | Eu sei ir à escola.
+ex: I know your father. | Eu conheço o seu pai.
+cuidado: 'I know cook' fica sem o how to.
+quiz: Você sabe falar chinês?: Do you know ___ to speak Chinese? | how | how; what; when
+
+=pegadinha Dar ordem: comece pelo verbo
+porque: Para dar direções, comece direto pelo verbo, sem I nem you: Turn right. Go straight ahead. É a exceção da regra do sujeito: em ordens o 'você' fica escondido. Turn right in two blocks = vire à direita daqui a dois quarteirões.
+ex: Go straight ahead, and turn right in two blocks. | Siga em frente, e vire à direita em dois quarteirões.
+quiz: Vire à direita: ___ right. | Turn | Turn; You turn; Turns
+
+=regra Posição: in front of, behind, by the side
+porque: In front of = na frente de. Behind = atrás de. By the side (of) = ao lado de (você também vai ouvir next to, que quer dizer o mesmo). Atenção: in front of tem três palavras e usa in, não at.
+ex: The school is in front of the hotel. | A escola fica em frente ao hotel.
+ex: The store is by the side of the supermarket. | A loja fica ao lado do supermercado.
+quiz: A escola fica em frente ao hotel: The school is ___ front of the hotel. | in | in; on; at

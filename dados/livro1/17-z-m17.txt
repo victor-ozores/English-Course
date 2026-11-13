@@ -1,0 +1,135 @@
+# Pop Culture | modulo 17
+objetivo: Contar o que você **fez** ou **assistiu** no passado: filmes, séries e música.
+nota verbos: Agora os verbos têm o **passado**. Os regulares ganham **-ed** ({{I watched.|Eu assisti.}}) e alguns são especiais: **go** vira **went**.
+cena: Dois amigos falam do que fizeram no fim de semana.
+
+[aquecimento]
+I love Stranger Things, I binge-watched this series. | Eu amo Stranger Things, eu maratonei essa série.
+Beverly Hills 90210? Never heard of it! | Barrados no baile? Nunca ouvi falar!
+I liked this TV host when I was a child. | Eu gostava desse apresentador de TV quando eu era criança.
+My father listened to this singer and didn't like him. | Meu pai ouviu esse cantor e não gostou.
+My mother loves soap operas. | Minha mãe ama novelas.
+Did your sister like this novel? | Sua irmã gostou desse romance?
+I love "So Will I". That's my song! | Eu amo "So Will I". Essa é minha música favorita!
+I loved girlbands when I was a child. | Eu amava girlbands quando eu era criança.
+
+[palavras]
+series | séries
+soap opera | novela
+novel | romance (livro)
+movie | filme
+movies | cinema
+band | banda
+singer | cantor(a)
+actor | ator
+actress | atriz
+TV host | apresentador de TV
+boyband | banda de garotos
+girlband | banda de garotas
+TV show | programa de TV
+character | personagem
+sitcom | série de comédia
+comedy | comédia
+drama | drama
+horror | terror
+
+[apoio]
+yesterday | ontem
+last | último, passado
+
+[verbos]
+to go | ir | went
+to like | gostar | liked
+to watch | assistir | watched
+to listen | ouvir | listened
+
+[expressoes]
+I binge-watched this series | eu maratonei essa série
+that's my song! | essa é minha música favorita!
+never heard of it! | nunca ouvi falar!
+
+[frases]
+We went to the movies. | Nós fomos ao cinema.
+He liked that new series. | Ele gostou daquela série nova.
+We watched the new horror movie. | Nós assistimos ao novo filme de terror.
+I listened to your favorite singer. | Eu escutei o seu cantor favorito.
+I liked that girlband. | Eu gostei daquele grupo feminino.
+I watched this soap opera. | Eu assisti a esta novela.
+I like this character. | Eu gosto deste personagem.
+
+[perguntas]
+Did your grandma like to watch soap operas? | A sua avó gostava de assistir a novelas?
+Were you at the movies yesterday? | Você estava no cinema ontem?
+What bands do you like to listen to? | Que bandas você gosta de escutar?
+Do you prefer horror movies or comedy movies? | Você prefere filmes de terror ou de comédia?
+Do you like to watch series? | Você gosta de assistir a séries?
+Did you like the new It movie? | Você gostou do novo filme It?
+Did you watch the last Avengers movie? | Você assistiu ao último filme dos Vingadores?
+Who is your favorite actor or actress? | Quem é o seu ator ou a sua atriz favorita?
+Did you like to watch sitcoms when you were a child? | Você gostava de assistir a sitcoms quando era criança?
+Did you like boybands or girlbands when you were a child? | Você gostava de boybands ou girlbands quando era criança?
+
+[modelo]
+Were you at the movies yesterday? | Yes, I was at the movies yesterday. | Você estava no cinema ontem? | Sim, eu estava no cinema ontem.
+Did you watch the sitcom? | No, I didn't watch the sitcom. | Você assistiu à sitcom? | Não, eu não assisti à sitcom.
+
+[extras]
+I watched a comedy yesterday. | Eu assisti a uma comédia ontem.
+She liked that sitcom. | Ela gostou daquela série de comédia.
+We went to the movies yesterday. | Nós fomos ao cinema ontem.
+Did you watch that TV show? | Você assistiu àquele programa de TV?
+I listened to a new band yesterday. | Eu ouvi uma banda nova ontem.
+My mother didn't like that actor. | A minha mãe não gostou daquele ator.
+Did your father go to the movies yesterday? | O seu pai foi ao cinema ontem?
+I loved that boyband when I was a child. | Eu amava aquela banda de garotos quando eu era criança.
+The actress was very good in that drama. | A atriz foi muito boa naquele drama.
+They were at the movies yesterday. | Eles estavam no cinema ontem.
+Were you at home yesterday? | Você estava em casa ontem?
+He didn't watch the horror movie. | Ele não assistiu ao filme de terror.
+
+[resumo]
+I was at the movies yesterday. | Eu estava no cinema ontem.
+She was listening to that band. | Ela estava ouvindo aquela banda.
+You were a good actress when you were a child. | Você era uma boa atriz quando era criança.
+When we were in England, we went to Big Ben. | Quando nós estávamos na Inglaterra, nós fomos ao Big Ben.
+When they were children, they liked to watch movies. | Quando eles eram crianças, eles gostavam de assistir filmes.
+Did you like to listen to Switchfoot? | Você gostou de ouvir Switchfoot?
+Yes, I didn't know this band! | Sim, eu não conhecia essa banda!
+
+[dialogo]
+Dan | Did you watch that new series yesterday? | Você assistiu àquela série nova ontem?
+Você | Yes, I watched it. I liked the characters. | Sim, eu assisti. Eu gostei dos personagens.
+Dan | Were you at the movies last night? | Você estava no cinema ontem à noite?
+Você | No, I was at home. I listened to my favorite singer. | Não, eu estava em casa. Eu escutei o meu cantor favorito.
+
+=regra Passado: coloque -ED
+porque: Para falar do passado com verbos regulares, acrescente -ed: watch → watched, listen → listened. Se o verbo já termina em e, só -d: like → liked. A forma é a mesma para todas as pessoas: I watched, she watched, we watched.
+ex: We watched the new horror movie. | Nós assistimos ao novo filme de terror.
+ex: He liked that new series. | Ele gostou daquela série nova.
+quiz: Eu ouvi seu cantor favorito: I ___ to your favorite singer. | listened | listened; listen; listens
+
+=regra Alguns verbos não usam -ED: go → went
+porque: Certos verbos mudam de forma em vez de ganhar -ed. Go vira went: We went to the movies. Cada um precisa ser decorado, e a lista cresce nos próximos módulos (make → made, give → gave, take → took).
+ex: We went to the movies. | Nós fomos ao cinema.
+cuidado: 'Goed' não existe.
+quiz: Nós fomos ao cinema: We ___ to the movies. | went | went; goed; go
+
+=regra Did e didn't: o -ED foi para o auxiliar
+porque: Na pergunta e na negativa do passado use did e didn't, para todos os pronomes. O -ed vai para o did, então o verbo volta ao básico: Did you like it? I didn't watch the sitcom. É a mesma ideia do does: o auxiliar leva o tempo e o verbo fica simples.
+ex: Did your sister like this novel? | Sua irmã gostou desse romance?
+ex: I didn't know this band! | Eu não conhecia essa banda!
+cuidado: 'Did you liked' está errado.
+quiz: Você assistiu à série de comédia?: Did you ___ the sitcom? | watch | watch; watched; watches
+quiz: Ela não gostou: She ___ like that parody. | didn't | didn't; doesn't; don't
+
+=regra Was e were: o passado de to be
+porque: O passado de am e is é was: I was, he/she/it was. O passado de are é were: you, we, they were. Pergunta e negativa continuam sem did: Were you at the movies yesterday? Quando eu era criança = when I was a child.
+ex: I was at the movies yesterday. | Eu estava no cinema ontem.
+ex: You were a good actress when you were a child. | Você era uma boa atriz quando era criança.
+cuidado: 'Did you were' não existe.
+quiz: Você estava no cinema ontem?: ___ you at the movies yesterday? | Were | Were; Was; Did
+
+=regra Estava fazendo: was/were + -ING
+porque: Assim como am/is/are + -ing é 'estou fazendo', was/were + -ing é 'estava fazendo': She was listening to that band (Ela estava ouvindo aquela banda).
+ex: She was listening to that band. | Ela estava ouvindo aquela banda.
+quiz: Ela estava ouvindo aquela banda: She ___ listening to that band. | was | was; were; did

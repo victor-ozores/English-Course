@@ -1,0 +1,129 @@
+# Animals | modulo 20
+objetivo: Falar de **animais** e contar o que você fez na **semana passada**.
+cena: Você conversa com uma colega sobre o cachorro novo dela.
+
+[aquecimento]
+I need to adopt a dog, I don't want to buy one. | Eu preciso adotar um cão, eu não quero comprar um.
+My father likes sea animals. | Meu pai gosta de animais marinhos.
+What is the breed of your dog? | Qual é a raça do seu cachorro?
+I have a ticket for the zoo. | Eu tenho um ingresso para o zoológico.
+The dog she gave me is male. | O cachorro que ela me deu é macho.
+My dog doesn't bark, it is very docile. | Meu cachorro não late, ele é muito dócil.
+My boyfriend likes farm animals, he loves horses. | Meu namorado gosta de animais da fazenda, ele ama cavalos.
+I know how to ride a horse. | Eu sei andar a cavalo.
+I don't like wild animals very much. | Eu não gosto muito de animais selvagens.
+My mother doesn't have pets. | Minha mãe não tem animais de estimação.
+
+[palavras]
+zoo | zoológico
+pet | animal de estimação
+wild | selvagem
+adoption | adoção
+ticket | ingresso
+dog | cachorro
+cat | gato
+male | macho
+female | fêmea
+sea | mar
+farm | fazenda
+horse | cavalo
+cow | vaca
+bird | pássaro
+breed | raça
+bark | latido
+docile | dócil
+aggressive | agressivo
+
+[apoio]
+animals | animais
+street | rua
+all | todo, tudo
+
+[verbos]
+to adopt | adotar | adopted
+to visit | visitar | visited
+to give | dar | gave
+to bark | latir | barked
+
+[expressoes]
+monkey see monkey do | alguém que imita os outros
+last week | semana passada
+last month | mês passado
+night owl | pessoa que dorme muito tarde
+early bird | pessoa que acorda cedo
+black sheep | ovelha negra
+
+[frases]
+My dog barked all night. | O meu cachorro latiu a noite toda.
+I adopted a pet. | Eu adotei um bichinho de estimação.
+She didn't visit the farm. | Ela não visitou o sítio.
+I visited the zoo last week. | Eu visitei o zoológico na semana passada.
+My sister wanted to visit the farm. | A minha irmã quis visitar o sítio.
+Does your brother like horses? | O seu irmão gosta de cavalos?
+What breed is your dog? | Qual é a raça do seu cachorro?
+
+[perguntas]
+Who is a monkey see monkey do? | Quem é um macaco que imita o outro?
+Are you the black sheep of the family? | Você é a ovelha negra da família?
+Did you adopt a pet? | Você adotou um bichinho de estimação?
+Does your mother prefer cats or dogs? | A sua mãe prefere gatos ou cachorros?
+Do you prefer wild animals or sea animals? | Você prefere animais selvagens ou animais marinhos?
+Do you like to go to the zoo? | Você gosta de ir ao zoológico?
+Does your dog bark a lot? | O seu cachorro late muito?
+Did you give a pet up for adoption? | Você doou um bichinho para adoção?
+Do you have a ticket for the zoo here with you? | Você tem um ingresso para o zoológico aqui com você?
+Are you going to visit the farm on the weekend? | Você vai visitar o sítio no fim de semana?
+
+[modelo]
+Did you visit the zoo last month? | Yes, I visited the zoo last month. | Você visitou o zoológico no mês passado? | Sim, eu visitei o zoológico no mês passado.
+Are you a night owl? | No, I'm an early bird. | Você é uma coruja da noite? | Não, eu sou madrugador.
+
+[extras]
+I adopted a cat last week. | Eu adotei um gato semana passada.
+My dog barked at the cat. | O meu cachorro latiu para o gato.
+We visited the farm last month. | Nós visitamos a fazenda mês passado.
+She gave me a bird. | Ela me deu um pássaro.
+I don't like aggressive dogs. | Eu não gosto de cachorros agressivos.
+If you want a pet, I can give you a cat. | Se você quer um animal de estimação, eu posso te dar um gato.
+What is the breed of your cat? | Qual é a raça do seu gato?
+My brother has a horse and a cow on the farm. | O meu irmão tem um cavalo e uma vaca na fazenda.
+Did you visit the zoo last month? | Você visitou o zoológico mês passado?
+The male dog and the female dog are docile. | O cachorro macho e a cachorra fêmea são dóceis.
+If you visit the zoo, you can see wild animals. | Se você visitar o zoológico, pode ver animais selvagens.
+My sister adopted a small dog. | A minha irmã adotou um cachorro pequeno.
+
+[resumo]
+I adopted a street dog last week. | Eu adotei um cão de rua semana passada.
+My father is an early bird. | Meu pai acorda cedo.
+If your girlfriend wants a cat, I can give her one. | Se a sua namorada quer um gato, eu posso dar um a ela.
+Don't give your dog up for adoption, please. | Não dê seu cachorro para adoção, por favor.
+My friends and I visited the zoo last month. | Meus amigos e eu visitamos o zoológico mês passado.
+
+[dialogo]
+Rita | I adopted a dog last week. | Eu adotei um cachorro na semana passada.
+Você | What breed is your dog? | Qual é a raça do seu cachorro?
+Rita | He is a docile dog. He doesn't bark a lot. | Ele é um cachorro dócil. Ele não late muito.
+Você | Did you adopt your dog from the street? | Você adotou o seu cachorro da rua?
+Rita | No, a friend gave me the dog. | Não, uma amiga me deu o cachorro.
+
+=regra Mais passados irregulares
+porque: Mais verbos que mudam de forma no passado: give → gave, take → took, buy → bought, sell → sold, drive → drove, make → made, go → went. Não existe regra: decore a lista. As famílias estão na gramática 'Passado irregular', antes do Módulo 18.
+ex: The dog she gave me is male. | O cachorro que ela me deu é macho.
+quiz: Ela me deu o cachorro: She ___ me the dog. | gave | gave; gived; give
+
+=regra Last week, yesterday: sem preposição
+porque: Marcadores de tempo como yesterday, last week, last month e next week não usam in nem on: I visited the zoo last week. Eles já indicam o tempo sozinhos.
+ex: I adopted a street dog last week. | Eu adotei um cão de rua semana passada.
+ex: My friends and I visited the zoo last month. | Meus amigos e eu visitamos o zoológico mês passado.
+cuidado: 'In last week' está errado.
+quiz: Eu visitei o zoológico semana passada: I visited the zoo ___ week. | last | last; in last; the last
+
+=idioma Expressões com animais
+porque: Early bird (quem acorda cedo), night owl (quem dorme tarde), monkey see monkey do (quem imita os outros) e black sheep (ovelha negra) são figuras de linguagem: o sentido não é literal.
+ex: My father is an early bird. | Meu pai acorda cedo.
+quiz: Meu pai acorda cedo: My father is an early ___. | bird | bird; owl; sheep
+
+=dica One no lugar da coisa repetida
+porque: Para não repetir a mesma palavra, use one: I don't want to buy one (um cachorro). If your girlfriend wants a cat, I can give her one.
+ex: I need to adopt a dog, I don't want to buy one. | Eu preciso adotar um cão, eu não quero comprar um.
+quiz: Eu preciso de um cachorro, não quero comprar ___. | one | one; it; a

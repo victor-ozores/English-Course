@@ -1,0 +1,162 @@
+# Education | modulo 3
+objetivo: Falar dos estudos e de lugares: **aonde você vai**, o que aprende e com quem estuda.
+dica: Teacher (professor) vem diretamente do verbo to teach, agora fica mais óbvio, não é? Teacher = Aquele que ensina.
+cena: Dois amigos conversam sobre a faculdade.
+
+[aquecimento]
+You study English. | Você estuda inglês.
+I don't study at school. | Eu não estudo na escola.
+Do you teach Spanish at the office? | Você ensina espanhol no escritório?
+I learn a lot from my teacher. | Eu aprendo muito com o meu professor.
+I don't learn Chinese at school. | Eu não aprendo chinês na escola.
+You go to a lot of schools. | Você vai a muitas escolas.
+I don't go to church on weekends. | Eu não vou à igreja aos fins de semana.
+I go home after college. | Eu vou para casa depois da faculdade.
+Do you go to the bank every day? | Você vai ao banco todos os dias?
+You don't study with your wife. | Você não estuda com a sua esposa.
+Do you like to study with your son? | Você gosta de estudar com o seu filho?
+Do you teach English to your daughter? | Você ensina inglês à sua filha?
+I learn French from my father. | Eu aprendo francês com o meu pai.
+
+[palavras]
+course | curso
+school | escola
+college | faculdade
+university | universidade
+teacher | professor
+principal | diretor
+student | aluno
+question | dúvida
+homework | tarefa
+notebook | caderno
+pencil | lápis
+pen | caneta
+wife | esposa
+husband | marido
+son | filho
+daughter | filha
+home | casa, lar
+downtown | centro da cidade
+bank | banco
+office | escritório
+at | em
+the | o, a
+
+[apoio]
+church | igreja
+have | ter
+
+[verbos]
+to study | estudar
+to teach | ensinar
+to learn | aprender
+to go | ir
+
+[expressoes]
+a lot | muito
+a lot of | muitos
+on weekends | aos fins de semana
+to learn from | aprender com
+after | depois
+before | antes
+every day | todos os dias
+
+[frases]
+I study at school. | Eu estudo na escola.
+I don't go to college. | Eu não vou para a faculdade.
+Do you learn from a teacher? | Você aprende com um professor?
+Do you teach Chinese? | Você ensina chinês?
+You go to college every day. | Você vai para a faculdade todos os dias.
+I have a lot of homework. | Eu tenho muita tarefa.
+Do you go to the bank? | Você vai ao banco?
+I study with my husband. | Eu estudo com o meu marido.
+I don't teach Chinese. | Eu não ensino chinês.
+The principal speaks with the teacher. | O diretor fala com o professor.
+The student studies at school. | O aluno estuda na escola.
+Do you have a question? | Você tem uma pergunta?
+I write with a pen. | Eu escrevo com uma caneta.
+
+[perguntas]
+Do you study English with your father? | Você estuda inglês com o seu pai?
+Do you learn a lot from your mother? | Você aprende muito com a sua mãe?
+Do you speak French with your wife? | Você fala francês com a sua esposa?
+Do you want to learn Spanish? | Você quer aprender espanhol?
+Do you go to church with your daughter on weekends? | Você vai à igreja com a sua filha nos fins de semana?
+When do you study English? | Quando você estuda inglês?
+Do you go to college every day? | Você vai para a faculdade todos os dias?
+Do you read a lot of books on weekends? | Você lê muitos livros nos fins de semana?
+Do you want to read a book in English? | Você quer ler um livro em inglês?
+When do you like to eat rice and beans? | Quando você gosta de comer arroz e feijão?
+
+[modelo]
+Do you want to learn German? | No, I don't want to learn German. | Você quer aprender alemão? | Não, eu não quero aprender alemão.
+Do you want to study French? | Yes, I want to study French. | Você quer estudar francês? | Sim, eu quero estudar francês.
+
+[extras]
+I study at the university. | Eu estudo na universidade.
+I go to the office on weekends. | Eu vou ao escritório nos fins de semana.
+You teach English at school. | Você ensina inglês na escola.
+I don't study at night. | Eu não estudo à noite.
+Do you study with your daughter? | Você estuda com a sua filha?
+When do you go to the bank? | Quando você vai ao banco?
+I learn English from my teacher. | Eu aprendo inglês com o meu professor.
+Do you teach French to your wife? | Você ensina francês para a sua esposa?
+I write with a pencil in my notebook. | Eu escrevo com um lápis no meu caderno.
+You don't go to the university. | Você não vai à universidade.
+Do you do your homework every day? | Você faz a sua tarefa todo dia?
+I go downtown after school. | Eu vou ao centro da cidade depois da escola.
+
+[resumo]
+I teach Portuguese to my sister. | Eu ensino português para a minha irmã.
+You go to the English course. | Você vai ao curso de inglês.
+Do you go to church on weekends? | Você vai à igreja aos fins de semana?
+I go downtown every day. | Eu vou ao centro da cidade todos os dias.
+I learn a lot from my father. | Eu aprendo muito com o meu pai.
+
+[dialogo]
+Ana | Do you go to college every day? | Você vai para a faculdade todos os dias?
+Lucas | Yes, I go to college every day. I study a lot. | Sim, eu vou para a faculdade todos os dias. Eu estudo muito.
+Ana | Do you learn from your teacher? | Você aprende com o seu professor?
+Lucas | Yes, I learn a lot from my teacher. I have a lot of homework. | Sim, eu aprendo muito com o meu professor. Eu tenho muita tarefa.
+Ana | Do you study on weekends? | Você estuda nos fins de semana?
+Lucas | No, I don't. I go to church with my wife. | Não. Eu vou à igreja com a minha esposa.
+
+=regra Ir a um lugar: go TO (menos home e downtown)
+resumo: Ir a um lugar: **go to** + lugar. Com **home** e **downtown**, sem to.
+formula: go to the + lugar (go to the bank)
+  go to + school / church / college / work
+  go home / go downtown
+porque: Para dizer ir ao, à ou para, use go to: I go to the bank. Alguns lugares do dia a dia vêm sem the: go to school, go to church, go to college, go to work. Com home (casa) e downtown (centro) não entra nem o to: go home, go downtown. É como se essas duas palavras já trouxessem o 'para' dentro delas.
+ex: I go to church on weekends. | Eu vou à igreja aos fins de semana.
+ex: I go home after college. | Eu vou para casa depois da faculdade.
+ex: I go downtown every day. | Eu vou ao centro da cidade todos os dias.
+erro: I go to home after college. | I go home after college. | Eu vou para casa depois da faculdade. | Home e downtown já trazem o 'para' dentro. Sem **to**.
+erro: I go the bank every day. | I go to the bank every day. | Eu vou ao banco todos os dias. | Faltou o **to** antes do lugar.
+quiz: Eu vou para casa: I go ___ home after college. | nada | to; nada; the
+quiz: Do you go ___ the bank every day? | to | to; at; in
+
+=pegadinha A lot of ou a lot?
+resumo: **A lot of** vem antes de uma coisa. **A lot** sozinho vem no fim.
+formula: a lot of + coisa
+  verbo + a lot
+porque: A lot of vem antes de uma coisa: a lot of homework (muita tarefa). A lot sozinho vem no fim, depois do verbo: I learn a lot (aprendo muito). Se tem um substantivo logo depois, precisa do of.
+ex: I have a lot of homework. | Eu tenho muita tarefa.
+ex: I learn a lot from my teacher. | Eu aprendo muito com o meu professor.
+erro: I have a lot homework. | I have a lot of homework. | Eu tenho muita tarefa. | Antes de uma coisa, precisa do **of**.
+quiz: Eu tenho muita tarefa: I have ___ homework. | a lot of | a lot of; a lot; lot of
+quiz: Eu aprendo muito: I learn ___. | a lot | a lot of; a lot; very
+
+=pegadinha Aprender COM alguém = learn FROM
+resumo: Aprender **com** alguém é **learn from**. **With** é para fazer algo junto.
+porque: Em português aprendemos com o professor. Em inglês, quem ensina é a fonte do conhecimento, então usamos from: I learn from my teacher. With fica para fazer algo junto: I study with my husband (estudamos juntos).
+ex: I learn French from my father. | Eu aprendo francês com o meu pai.
+ex: I study with my husband. | Eu estudo com o meu marido.
+erro: I learn a lot with my teacher. | I learn a lot from my teacher. | Eu aprendo muito com o meu professor. | Quem ensina é a fonte do conhecimento: use **from**.
+quiz: Eu aprendo muito com o meu professor: I learn a lot ___ my teacher. | from | from; with; to
+
+=regra Fins de semana pedem ON
+resumo: Fins de semana pedem **on**: on weekends.
+porque: Aos fins de semana = on weekends. Guarde como um bloco. Mais para frente você vai ver que on aparece também com feriados, férias e dias da semana.
+ex: I don't go to church on weekends. | Eu não vou à igreja aos fins de semana.
+erro: I go to church in weekends. | I go to church on weekends. | Eu vou à igreja nos fins de semana. | Com weekends use **on**.
+quiz: Eu vou à igreja aos fins de semana: I go to church ___ weekends. | on | on; in; at

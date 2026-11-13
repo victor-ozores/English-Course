@@ -1,0 +1,158 @@
+# Will: o futuro simples | gramatica
+porque: O Módulo 22 (Countries) fala de viagens e decisões: {{Will you travel to a different country?|Você viajará para um país diferente?}} e {{I will make a trip to Spain.|Eu farei uma viagem para a Espanha.}} O **will** é o futuro simples: promessa, decisão na hora e palpite.
+historia: O telefone toca e Léo grita: {{I'll get it!|Eu atendo!}} Ele **decidiu na hora**.
+  Mais tarde, Mia pergunta: 'Você vai ao dentista amanhã?' Léo: {{Yes, I'm going to go. I already booked it.|Sim, eu vou. Eu já marquei.}} Esse já estava **planejado**.
+  Decidiu agora? **Will**. Já tinha planejado? **Going to** (complemento anterior). Hoje você aprende o will.
+dica: Nos exercícios, o will aparece em português como 'ligarei' e o going to como 'vou ligar', só para cada frase ter uma resposta única. No dia a dia, em português, a gente fala 'vou ligar' nos dois casos. A diferença está na intenção: decidiu agora, ou já tinha planejado?
+
+[aquecimento]
+I will call you tomorrow. | Eu ligarei para você amanhã.
+She will arrive at six. | Ela chegará às seis.
+We will travel next month. | Nós viajaremos no mês que vem.
+They will help you. | Eles ajudarão você.
+It will rain tonight. | Choverá hoje à noite.
+I will make a trip to Spain. | Eu farei uma viagem para a Espanha.
+I won't be late. | Eu não chegarei atrasado.
+My girlfriend won't go to the USA. | Minha namorada não irá para os EUA.
+Will you help me? | Você me ajudará?
+Will you travel to a different country? | Você viajará para um país diferente?
+What will you do tomorrow? | O que você fará amanhã?
+I'll open the window. | Eu abrirei a janela.
+
+[palavras]
+six | seis
+tonight | hoje à noite
+late | tarde, atrasado
+different | diferente
+anyone | alguém, ninguém
+bag | mala, bolsa
+already | já
+later | mais tarde
+us | nós (depois do verbo)
+test | prova, teste
+phone | telefone
+trip | viagem
+
+[verbos]
+to arrive | chegar
+to forget | esquecer
+to pass | passar (numa prova)
+to carry | carregar
+to promise | prometer
+to rain | chover
+to answer | responder, atender
+to buy | comprar | bought
+
+[expressoes]
+I'll be right back. | Já volto.
+I promise. | Eu prometo.
+I'll think about it. | Vou pensar nisso.
+I'll let you know. | Eu te aviso.
+Maybe. | Talvez.
+Don't worry. | Não se preocupe.
+
+[extras]
+I will study tonight. | Eu estudarei hoje à noite.
+She will call you tomorrow. | Ela ligará para você amanhã.
+We will help you. | Nós ajudaremos você.
+They won't come to the party. | Eles não virão à festa.
+Will you open the window? | Você abre a janela?
+I think it will rain tomorrow. | Eu acho que vai chover amanhã.
+Where will you live next year? | Onde você morará ano que vem?
+I'll open the door. | Eu abro a porta.
+
+[resumo]
+Tomorrow I will work in the morning and I will study at night. | Amanhã eu trabalharei de manhã e estudarei à noite.
+I won't forget your birthday. | Eu não esquecerei o seu aniversário.
+I think she will pass the test. | Eu acho que ela passará na prova.
+
+=regra Will + verbo básico
+gancho: O will é como um **carimbo de futuro**: você carimba na frente do verbo e pronto, nada mais muda. Sem -s, sem -ed, sem to.
+resumo: Will + verbo na forma básica. Serve para todas as pessoas, sem mudar.
+formula: sujeito + will + verbo (forma básica)
+porque: {{I will work.|Eu trabalharei.}} {{She will work.|Ela trabalhará.}} {{They will work.|Eles trabalharão.}}
+  O **will** nunca muda: sem -s, sem -ed e sem **to**.
+  O verbo depois do will fica na forma básica, a do dicionário, sem o 'to'.
+  Formas curtas: **I'll**, **you'll**, **he'll**, **she'll**, **it'll**, **we'll**, **they'll**.
+compare: Em português o verbo muda no futuro: trabalharei, trabalhará, trabalharemos...
+  Em inglês o verbo fica **igual** e o will entra na frente.
+ex: I will call you tomorrow. | Eu ligarei para você amanhã.
+ex: I will make a trip to Spain. | Eu farei uma viagem para a Espanha.
+ex: We will travel next month. | Nós viajaremos no mês que vem.
+ex: It will rain tonight. | Choverá hoje à noite.
+erro: She wills work. | She will work. | Ela trabalhará. | O **will** nunca ganha -s.
+erro: I will to work. | I will work. | Eu trabalharei. | Sem **to** depois do will.
+erro: I will worked. | I will work. | Eu trabalharei. | Depois do will, verbo básico: sem -ed.
+quiz: Ela chegará às seis: She will ___ at six. | arrive | arrive; arrives; to arrive
+quiz: Nós viajaremos: We will ___. | travel | travel; travels; traveled
+
+=pegadinha Will: negativa e pergunta
+gancho: O will é um ajudante de nascença, então ele **dispensa o do**. Na pergunta ele vai para a frente; na negativa ele vira **won't** (um nome especial!).
+resumo: Negativa: won't. Pergunta: o will vai para o começo.
+formula: Negativa: sujeito + won't + verbo
+  Pergunta: Will + sujeito + verbo ?
+porque: Negativa: **will not**, na forma curta **won't**. {{I won't be late.|Eu não vou me atrasar.}}
+  Pergunta: o **will** vai para o começo. {{Will you help me?|Você me ajudará?}}
+  Resposta curta: {{Yes, I will.|Sim, eu ajudarei.}} ou {{No, I won't.|Não, eu não ajudarei.}}
+  Atenção: **won't** é uma forma especial. Não existe "willn't".
+ex: I won't be late. | Eu não chegarei atrasado.
+ex: My girlfriend won't go to the USA. | Minha namorada não irá para os EUA.
+ex: Will you travel to a different country? | Você viajará para um país diferente?
+ex: What will you do tomorrow? | O que você fará amanhã?
+erro: I willn't be late. | I won't be late. | Eu não vou me atrasar. | A forma curta de will not é **won't**. Não existe willn't.
+erro: Do you will help me? | Will you help me? | Você me ajudará? | O will já é o ajudante: ele mesmo vai para a frente, sem **do**.
+erro: She won't to come. | She won't come. | Ela não virá. | Sem **to** depois do won't.
+quiz: Eu não esquecerei: I ___ forget. | won't | won't; willn't; don't
+quiz: Você me ajudará?: ___ you help me? | Will | Will; Do; Are
+quiz: Sim, eu ajudarei: Yes, I ___. | will | will; do; help
+
+=regra Quando usar will
+gancho: O will é o **'que tal?' do futuro**: uma ideia que surgiu agora, uma promessa, uma oferta ou um palpite. Nada de plano antigo aqui.
+resumo: Will é para decisão tomada na hora, promessa, oferta e palpite.
+porque: **Decisão na hora** (você acabou de decidir): {{The phone is ringing. I'll answer it!|O telefone está tocando. Eu atendo!}}
+  **Promessa**: {{I won't tell anyone.|Eu não contarei a ninguém.}} {{I will always help you.|Eu sempre ajudarei você.}}
+  **Oferta**: {{I'll carry your bag.|Eu carrego a sua mala.}}
+  **Palpite ou opinião**: {{I think it will rain.|Eu acho que vai chover.}} {{She will pass the test.|Ela vai passar na prova.}}
+  Palavras que acompanham o palpite: **I think**, **maybe**, **probably**.
+ex: The phone is ringing. I'll answer it. | O telefone está tocando. Eu atendo.
+ex: I won't tell anyone. | Eu não contarei a ninguém.
+ex: I'll carry your bag. | Eu carrego a sua bolsa.
+ex: I think she will pass the test. | Eu acho que ela passará na prova.
+erro: The phone is ringing. I'm going to answer it! | The phone is ringing. I'll answer it! | O telefone está tocando. Eu atendo! | Decisão tomada agora, na hora, pede **will**.
+quiz: Alguém bate na porta (decido agora): Someone is at the door. I ___ open it. | will | will; am going to; going to
+quiz: Palpite: I think she ___ pass the test. | will | will; does; is
+
+=pegadinha Will ou going to? Como escolher
+gancho: Imagine um semáforo: **will** é o sinal que acabou de acender (decisão agora). **Going to** é o sinal que já estava verde há muito tempo (plano antigo).
+resumo: Decidiu agora: will. Já tinha decidido antes, ou tem prova: going to.
+formula: decisão na hora, promessa, oferta, palpite → will
+  plano antigo, prova na frente → going to
+porque: Veja o mesmo assunto de dois jeitos:
+  O telefone toca: {{I'll answer it!|Eu atendo!}} (decidi agora: **will**).
+  {{I'm going to call my mom tonight.|Eu vou ligar para a minha mãe hoje à noite.}} (já tinha planejado: **going to**).
+  Promessas e ofertas são sempre **will**.
+  Plano de viagem, festa ou compra é **going to**.
+  Na dúvida: plano é going to, palpite é will.
+ex: The phone is ringing. I'll answer it. | O telefone está tocando. Eu atendo.
+ex: I'm going to call my mom tonight. | Eu vou ligar para a minha mãe hoje à noite.
+ex: I promise I will help you. | Eu prometo que ajudarei você.
+erro: I'll visit my parents this weekend. I already bought the tickets. | I'm going to visit my parents this weekend. I already bought the tickets. | Eu vou visitar os meus pais neste fim de semana. Eu já comprei as passagens. | Plano que já existe pede **going to**.
+erro: I'm going to help you, I promise. | I will help you, I promise. | Eu ajudarei você, eu prometo. | Promessa é sempre **will**.
+quiz: O telefone está tocando (decido agora): The phone is ringing. I ___ answer it. | will | will; am going to; is going to
+quiz: Já comprei as passagens: I ___ travel to Rio next week. | am going to | am going to; will; go to
+quiz: Promessa: I ___ help you. | will | will; am going to; going to
+
+=dica Formas curtas: I'll e won't
+gancho: Os falantes de inglês **economizam fôlego**: I will vira I'll, will not vira won't. Se você ouvir 'ail', é o I will.
+resumo: Na fala e em mensagens, o inglês encurta: I will vira I'll.
+porque: **I will** → **I'll**. **you will** → **you'll**. **she will** → **she'll**. E assim por diante.
+  **will not** → **won't**.
+  O apóstrofo (') mostra que faltam letras: I'll = I wi(ll).
+  Você pode escrever a forma curta ou a completa. As duas estão certas.
+ex: I'll call you later. | Eu ligarei para você mais tarde.
+ex: She'll help us. | Ela ajudará a gente.
+ex: I won't forget. | Eu não esquecerei.
+erro: I willn't forget. | I won't forget. | Eu não esquecerei. | A forma curta de will not é **won't**.
+erro: Ill call you later. | I'll call you later. | Eu ligo para você mais tarde. | Sem o apóstrofo vira outra palavra: **ill** (doente).
+quiz: Qual é a forma curta de will not? | won't | won't; willn't; wouldn't
+quiz: O que significa I'll? | I will | I will; I would; I did

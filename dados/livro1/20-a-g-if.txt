@@ -1,0 +1,97 @@
+# If: o 'se' do inglês | gramatica
+porque: No Módulo 20 aparece {{If your girlfriend wants a cat, I can give her one.|Se a sua namorada quer um gato, eu posso dar um a ela.}} O **if** é o 'se'. Ele tem uma regra que pega todo brasileiro: depois do if o verbo fica no **presente**, mesmo quando a frase fala do futuro.
+historia: Léo diz: 'Se chover amanhã, eu **ficarei** em casa.' Quer traduzir: {{If it will rain tomorrow, I will stay home.|Se vai chover amanhã, eu ficarei em casa.}}
+  Mia faz que não com o dedo: 'Em inglês, depois do **if** o futuro não entra. É {{If it rains, I stay home.|Se chover, eu fico em casa.}}'
+  Por quê? Em português a gente fala 'se **chover**' (um jeito especial do verbo). Em inglês esse jeito especial é só o **presente**. Fica fácil!
+dica: Regra de ouro do if: depois dele, presente. Nunca will. {{If it rains|Se chover}} (certo), {{if it will rain|se vai chover}} (errado).
+
+[aquecimento]
+If your girlfriend wants a cat, I can give her one. | Se sua namorada quer um gato, eu posso dar um a ela.
+If it rains, I stay home. | Se chover, eu fico em casa.
+If you study, you pass the test. | Se você estudar, você passa na prova.
+If you are tired, go to bed. | Se você está cansado, vá dormir.
+I can help you if you want. | Eu posso ajudar você se você quiser.
+If she calls, I answer. | Se ela ligar, eu atendo.
+If I have time, I go to the gym. | Se eu tiver tempo, eu vou à academia.
+What do you do if you are hungry? | O que você faz se está com fome?
+
+[palavras]
+cat | gato
+test | prova, teste
+tired | cansado
+hungry | com fome
+tomorrow | amanhã
+
+[verbos]
+to give | dar
+to pass | passar (numa prova)
+to rain | chover
+to answer | responder, atender
+will | (marca o futuro)
+
+[expressoes]
+If you want. | Se você quiser.
+What if...? | E se...?
+If not, ... | Se não, ...
+
+[extras]
+If you are hungry, eat bread and cheese. | Se você está com fome, coma pão e queijo.
+If it rains, we stay at home. | Se chover, nós ficamos em casa.
+If he calls, I answer. | Se ele ligar, eu atendo.
+If you study, you learn a lot. | Se você estuda, você aprende muito.
+If I have money, I buy new shoes. | Se eu tenho dinheiro, eu compro sapatos novos.
+I go to the gym if I have time. | Eu vou à academia se eu tenho tempo.
+Can you help me if you have time? | Você pode me ajudar se tiver tempo?
+If the weather is hot, we go to the park. | Se o tempo está quente, nós vamos ao parque.
+
+[resumo]
+If it rains tomorrow, we stay home. | Se chover amanhã, nós ficamos em casa.
+I help you if you ask me. | Eu ajudo você se você me pedir.
+
+=regra If = se: uma condição possível
+gancho: O if é uma **porta de condição**: 'se isso acontecer, então aquilo'. E o verbo depois dele fica sempre no **presente**, como se a condição já estivesse aqui.
+resumo: If + presente, resultado. Depois do if o verbo fica no presente, mesmo falando do futuro.
+formula: If + sujeito + verbo no presente, + resultado
+porque: {{If it rains, I stay home.|Se chover, eu fico em casa.}}
+  {{If you study, you pass the test.|Se você estudar, você passa na prova.}}
+  O if tem duas partes: a **condição** ({{If it rains|Se chover}}) e o **resultado** ({{I stay home|eu fico em casa}}).
+  Na condição o verbo fica no **presente**. Nada de will depois do if.
+compare: Em português usamos um jeito especial do verbo: 'se **chover**', 'se você **estudar**'.
+  Em inglês esse jeito é simplesmente o **presente**: {{if it rains|se chover}}, {{if you study|se você estudar}}.
+ex: If it rains, I stay home. | Se chover, eu fico em casa.
+ex: If you study, you pass the test. | Se você estudar, você passa na prova.
+ex: If your girlfriend wants a cat, I can give her one. | Se sua namorada quer um gato, eu posso dar um a ela.
+erro: If it will rain, I stay home. | If it rains, I stay home. | Se chover, eu fico em casa. | Depois do **if**, presente. O will fica de fora.
+erro: If you will study, you pass. | If you study, you pass the test. | Se você estudar, você passa na prova. | Mesma regra: depois do **if**, presente simples.
+erro: If I will have time, I go to the gym. | If I have time, I go to the gym. | Se eu tiver tempo, eu vou à academia. | Presente depois do **if**, mesmo falando do futuro.
+quiz: Se chover, eu fico em casa: If it ___, I stay home. | rains | rains; will rain; rain
+quiz: Se ela ligar, eu atendo: If she ___, I answer. | calls | calls; will call; called
+
+=dica If no começo ou no fim: cuidado com a vírgula
+gancho: A frase com if é uma **gangorra**: dá para trocar os lados. Se o if abre a frase, vai uma **vírgula** no meio. Se o if fica no fim, não vai vírgula.
+resumo: A condição pode vir primeiro ou depois. A vírgula só aparece quando o if abre a frase.
+porque: {{If you want, I can help you.|Se você quiser, eu posso ajudar.}} (If no começo, **com** vírgula.)
+  {{I can help you if you want.|Eu posso ajudar se você quiser.}} (If no fim, **sem** vírgula.)
+  O sentido é o mesmo. Escolha o que soar melhor.
+  O verbo depois do if continua no presente nos dois casos.
+ex: If you want, I can help you. | Se você quiser, eu posso ajudar você.
+ex: I can help you if you want. | Eu posso ajudar você se você quiser.
+ex: I help you if you ask me. | Eu ajudo você se você me pedir.
+erro: If you want I can help you. | If you want, I can help you. | Se você quiser, eu posso ajudar. | Faltou a vírgula: o **if** abriu a frase.
+erro: I can help you, if you want. | I can help you if you want. | Eu posso ajudar se você quiser. | Com o **if** no fim, não vai vírgula.
+quiz: Qual frase está certa? | If you want, I can help you. | If you want, I can help you.; If you want I can help, you.; If, you want I can help you.
+
+=regra O que vem depois do if: presente, ordem ou can
+gancho: O resultado do if é flexível: pode ser um fato do dia a dia, uma **ordem** ou uma **possibilidade** com can.
+resumo: No resultado cabem o presente, uma ordem (verbo no começo) ou can.
+porque: **Hábito**: {{If I have time, I go to the gym.|Se eu tiver tempo, eu vou à academia.}}
+  **Ordem**: {{If you are tired, go to bed.|Se você está cansado, vá dormir.}}
+  **Possibilidade** com can: {{If you want a cat, I can give you one.|Se você quer um gato, eu posso te dar um.}}
+  Também aparece o futuro **will** no resultado: {{If it rains, I will stay home.|Se chover, eu ficarei em casa.}} Só nunca depois do if.
+ex: If I have time, I go to the gym. | Se eu tiver tempo, eu vou à academia.
+ex: If you are tired, go to bed. | Se você está cansado, vá dormir.
+ex: If it rains, I will stay home. | Se chover, eu vou ficar em casa.
+erro: If I will have time, I will go. | If I have time, I will go. | Se eu tiver tempo, eu irei. | O will pode ficar no resultado, nunca depois do **if**.
+erro: If you tired, go to bed. | If you are tired, go to bed. | Se você está cansado, vá dormir. | Faltou o to be: **are** tired.
+quiz: Se você está cansado, vá dormir: If you are tired, ___ to bed. | go | go; going; goes
+quiz: Se eu tiver tempo, eu vou à academia: If I ___ time, I go to the gym. | have | have; will have; having

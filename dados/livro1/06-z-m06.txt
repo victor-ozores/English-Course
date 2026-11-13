@@ -1,0 +1,149 @@
+# Traveling | modulo 6
+objetivo: Falar de viagens: **transportes**, hotel e o que **ele** ou **ela** faz (com o **-s** no verbo).
+dica: **Taxi** e **cab** são a mesma coisa. **Subway** é o metrô nos Estados Unidos; na Inglaterra ele se chama **underground** ou **tube**.
+nota verbos: A partir daqui o verbo muda com **he**, **she** e **it**: ganha um **-s**. {{I travel.|Eu viajo.}} {{She travels.|Ela viaja.}} A regra completa está nas lições.
+cena: No saguão de um hotel, você fala com a recepcionista.
+
+[aquecimento]
+I like to travel to Miami on vacation. | Eu gosto de viajar para Miami nas férias.
+She buys a lot of clothes when she visits Los Angeles. | Ela compra muitas roupas quando ela visita Los Angeles.
+My boss has a reservation at a hotel in the city. | Meu chefe tem uma reserva em um hotel na cidade.
+My sister goes to school by bicycle. | Minha irmã vai para a escola de bicicleta.
+The tourist has a rented car. | O turista tem um carro alugado.
+She wants to buy a postcard for me. | Ela quer comprar um cartão postal para mim.
+The tour guide likes to go to work by motorcycle. | O guia turístico gosta de ir para o trabalho de motocicleta.
+I don't have a reservation at the hotel. | Eu não tenho uma reserva no hotel.
+
+[palavras]
+he | ele
+she | ela
+it | ele, ela (neutro)
+hotel | hotel
+ticket | passagem, ingresso
+reservation | reserva
+cab | táxi
+taxi | táxi
+bus | ônibus
+subway | metrô
+car | carro
+motorcycle | motocicleta
+bicycle | bicicleta
+rented | alugado
+tourist | turista
+tour guide | guia turístico
+amusement park | parque de diversões
+postcard | cartão postal
+
+[apoio]
+vacation | férias
+clothes | roupas
+boss | chefe
+city | cidade
+very | muito
+well | bem
+dog | cachorro
+black | preto
+house | casa
+family | família
+need | precisar
+take | pegar, levar
+where | onde
+
+[verbos]
+to travel | viajar
+to visit | visitar
+to buy | comprar
+to sell | vender
+
+[expressoes]
+to check in | fazer check-in
+to take a tour | fazer um tour
+to get a visa | conseguir um visto
+to come back home | voltar para casa
+
+[frases]
+I want to travel to England. | Eu quero viajar para a Inglaterra.
+Do you visit your family? | Você visita a sua família?
+I don't want to buy a bus. | Eu não quero comprar um ônibus.
+You don't need to sell your motorcycle. | Você não precisa vender a sua moto.
+He travels to the USA. | Ele viaja para os Estados Unidos.
+She likes to buy bicycles. | Ela gosta de comprar bicicletas.
+He wants to sell this. | Ele quer vender isto.
+He takes the subway every day. | Ele pega o metrô todos os dias.
+She takes a cab on weekends. | Ela pega um táxi nos fins de semana.
+
+[perguntas]
+Do you like to travel? | Você gosta de viajar?
+Where do you like to go when you travel? | Aonde você gosta de ir quando viaja?
+Do you visit your mother on weekends? | Você visita a sua mãe nos fins de semana?
+What do you buy when you travel? | O que você compra quando viaja?
+Do you want to get a tourist visa in Italy? | Você quer tirar um visto de turista na Itália?
+Do you want to take a tour in Paris? | Você quer fazer um passeio em Paris?
+When you travel, do you want to come back home? | Quando você viaja, você quer voltar para casa?
+Do you go to work by car or by motorcycle? | Você vai trabalhar de carro ou de moto?
+Do you have a ticket for the amusement park? | Você tem um ingresso para o parque de diversões?
+Do you have a ticket to travel to London? | Você tem uma passagem para viajar para Londres?
+
+[modelo]
+Do you travel to New York on vacation? | No, I travel to New Zealand on vacation. | Você viaja para Nova York nas férias? | Não, eu viajo para a Nova Zelândia nas férias.
+
+[extras]
+He travels by bus. | Ele viaja de ônibus.
+She visits my mother on weekends. | Ela visita a minha mãe nos fins de semana.
+He buys a ticket for the subway. | Ele compra uma passagem de metrô.
+She sells postcards at the hotel. | Ela vende cartões postais no hotel.
+The tourist wants to visit the amusement park. | O turista quer visitar o parque de diversões.
+The tour guide has a bicycle. | O guia turístico tem uma bicicleta.
+She goes to work by subway. | Ela vai ao trabalho de metrô.
+I don't have a rented car. | Eu não tenho um carro alugado.
+Do you travel by car? | Você viaja de carro?
+He needs a reservation at a hotel. | Ele precisa de uma reserva em um hotel.
+She has a cab. | Ela tem um táxi.
+I want to sell my bicycle. | Eu quero vender a minha bicicleta.
+
+[resumo]
+She travels to New York by car on vacation. | Ela viaja para Nova York de carro nas férias.
+He visits my mother when he goes to Albuquerque. | Ele visita minha mãe quando ele vai para Albuquerque.
+It works very well. | Funciona muito bem.
+The dog has a black dog house. | O cachorro tem uma casinha de cachorro preta.
+My father wants to take a tour by taxi in the city. | Meu pai quer fazer um tour de táxi na cidade.
+My sister needs to get a student visa. | Minha irmã precisa conseguir um visto de estudante.
+
+[dialogo]
+Recepção | Good afternoon! Do you have a reservation? | Boa tarde! Você tem uma reserva?
+Você | Good afternoon. Yes, I have a reservation. I want to check in. | Boa tarde. Sim, eu tenho uma reserva. Eu quero fazer o check-in.
+Recepção | Very well. Do you want a tour guide? | Muito bem. Você quer um guia turístico?
+Você | Yes, please. I want to take a tour. | Sim, por favor. Eu quero fazer um passeio.
+Recepção | The tour guide takes tourists to the city every day. | O guia leva turistas à cidade todos os dias.
+Você | Thank you! | Obrigado!
+
+=regra He, she, it: o verbo ganha S
+resumo: Com **he**, **she** e **it**, o verbo ganha **-s**.
+formula: he / she / it + verbo + S
+porque: Com I e you o verbo fica no básico: I travel, you travel. Com he (ele), she (ela) e it (ele ou ela para coisas e bichos) o verbo ganha um S: he travels, she buys, it works. É só o final que muda; o significado é o mesmo.
+ex: He travels to the USA. | Ele viaja para os EUA.
+ex: She likes to buy bicycles. | Ela gosta de comprar bicicletas.
+ex: It works very well. | Funciona muito bem.
+erro: She travel to the USA. | She travels to the USA. | Ela viaja para os Estados Unidos. | Com **she** o verbo ganha **-s**.
+quiz: Ela compra muitas roupas: She ___ a lot of clothes. | buys | buys; buy; to buy
+
+=regra Meio de transporte: by
+resumo: Meio de transporte: **by**, sem artigo. By bus, by car.
+porque: Para dizer como você vai, use by + transporte, sem artigo: by car, by bicycle, by motorcycle, by taxi. Para pegar um transporte público, use take: he takes the subway, she takes a cab.
+ex: She travels to New York by car on vacation. | Ela viaja para Nova York de carro nas férias.
+ex: He takes the subway every day. | Ele pega o metrô todos os dias.
+erro: I go to work by the bus. | I go to work by bus. | Eu vou trabalhar de ônibus. | Com **by** não entra **the**.
+quiz: Minha irmã vai para a escola de bicicleta: My sister goes to school ___ bicycle. | by | by; with; in
+
+=pegadinha Palavras compostas: a principal vem por último
+porque: Em português dizemos 'guia de turismo'. Em inglês as duas palavras ficam juntas, sem 'de', e a principal vem por último: tour guide (guia turístico), postcard (cartão postal), amusement park (parque de diversões), gas station (posto de gasolina). A primeira palavra descreve a segunda.
+ex: The tour guide likes to go to work by motorcycle. | O guia turístico gosta de ir para o trabalho de motocicleta.
+ex: She wants to buy a postcard for me. | Ela quer comprar um cartão postal para mim.
+cuidado: A ordem é o contrário do português.
+quiz: Guia turístico: | tour guide | tour guide; guide tour; guide of tour
+
+=dica Verbos que combinam: take a tour, get a visa
+porque: Alguns verbos combinam com certas palavras e não dá para trocar: take a tour (fazer um tour), get a visa (conseguir um visto), check in (fazer check-in). Em português 'fazer' serve para tudo, mas em inglês cada expressão tem seu verbo: o tour você 'pega' (take), o visto você 'consegue' (get). Decore o pacote.
+ex: My father wants to take a tour by taxi in the city. | Meu pai quer fazer um tour de táxi na cidade.
+ex: My sister needs to get a student visa. | Minha irmã precisa conseguir um visto de estudante.
+quiz: Minha irmã precisa conseguir um visto: My sister needs to ___ a student visa. | get | get; make; do

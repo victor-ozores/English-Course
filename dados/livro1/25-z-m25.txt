@@ -1,0 +1,142 @@
+# Religion | modulo 25
+objetivo: Falar de **religião** e de crenças, e dizer de quem é cada coisa com **his**, **her**, **its** e **their**.
+cena: Dois colegas falam das religiões das famílias.
+
+[aquecimento]
+He doesn't have a religion, but he believes in a god. | Ele não tem uma religião, mas acredita em um deus.
+African religions are very popular in Brazil. | Religiões africanas são muito populares no Brasil.
+My cousin is an atheist, and I am Jewish. | Minha prima é atéia, e eu sou judeu.
+Their religion is small in Brazil, but very big in Europe. | A religião deles é pequena no Brasil, mas muito grande na Europa.
+She is agnostic, but she believes in heaven and hell. | Ela é agnóstica, mas ela acredita em céu e inferno.
+I intend to go to the morning service. | Eu pretendo ir ao culto da manhã.
+I would like to pray for you. | Eu gostaria de orar por você.
+
+[palavras]
+priest | sacerdote
+father | padre
+mother | madre
+pastor | pastor
+rabbi | rabino
+big | grande
+small | pequeno
+bible | bíblia
+holy | santo, sagrado
+Catholic | católico
+Evangelical | evangélico
+Muslim | muçulmano
+Jew | judeu
+atheist | ateu
+agnostic | agnóstico
+heaven | céu, paraíso
+hell | inferno
+service | culto, missa
+
+[apoio]
+popular | popular
+color | cor
+true | verdade, verdadeiro
+guy | cara
+thing | coisa
+Jewish | judeu
+
+[verbos]
+to believe | acreditar | believed
+to pray | orar, rezar | prayed
+to intend | pretender | intended
+
+[expressoes]
+his | dele
+her | dela
+its | dele, dela (neutro)
+their | deles
+our | nosso
+your | seus
+
+[frases]
+I intended to go to church. | Eu pretendia ir à igreja.
+She prayed for me. | Ela orou por mim.
+They believed it was true. | Eles acreditaram que era verdade.
+We believe in this. | Nós acreditamos nisto.
+Do you have a bible at home? | Você tem uma bíblia em casa?
+Is your friend Muslim? | O seu amigo é muçulmano?
+Her priest is a nice guy. | O padre dela é um cara legal.
+They don't know a rabbi. | Eles não conhecem um rabino.
+I never went to a Catholic service. | Eu nunca fui a um culto católico.
+My mother believes in God. | A minha mãe acredita em Deus.
+The Bible is a holy book. | A Bíblia é um livro sagrado.
+My friend is Evangelical. | O meu amigo é evangélico.
+He is Jewish. | Ele é judeu.
+
+[perguntas]
+Do you believe in God? | Você acredita em Deus?
+Do you have a religion? | Você tem uma religião?
+What is a big church in your city? | Qual é uma igreja grande na sua cidade?
+Do you intend to go to church on Sunday? | Você pretende ir à igreja no domingo?
+Will your mother go to church this weekend? | A sua mãe vai à igreja neste fim de semana?
+Do you like it when people pray for you? | Você gosta quando as pessoas rezam por você?
+What is a religion that you admire? | Qual é uma religião que você admira?
+What do you think when people believe in different things from you? | O que você pensa quando as pessoas acreditam em coisas diferentes das suas?
+What is a religion that you don't know? | Qual é uma religião que você não conhece?
+
+[modelo]
+Do you know her religion? | No, I don't know her religion. | Você conhece a religião dela? | Não, eu não conheço a religião dela.
+Do you like their rabbi? | Yes, he is a nice man. | Você gosta do rabino deles? | Sim, ele é um homem simpático.
+
+[extras]
+Their church is big. | A igreja deles é grande.
+Our pastor is very nice. | O nosso pastor é muito legal.
+His bible is on the table. | A bíblia dele está na mesa.
+Her father is a rabbi. | O pai dela é rabino.
+I believe in heaven. | Eu acredito no céu.
+She prays every day. | Ela reza todo dia.
+They believe in their religion. | Eles acreditam na religião deles.
+Do you pray in your church? | Você reza na sua igreja?
+My cousin is Muslim, and his wife is Catholic. | O meu primo é muçulmano, e a esposa dele é católica.
+I intend to go to church with my family. | Eu pretendo ir à igreja com a minha família.
+The service is at night. | O culto é à noite.
+Is your friend an atheist or an agnostic? | O seu amigo é ateu ou agnóstico?
+
+[resumo]
+Her pastor is very funny. | O pastor dela é muito engraçado.
+His religion is different from my religion. | A religião dele é diferente da minha religião.
+I go to a church, its color is black. | Eu vou a uma igreja, a cor dela é preta.
+Their priest is called a rabbi. | O sacerdote deles é chamado de rabino.
+Our father is a nice man. | Nosso padre é um homem legal.
+Where is your church? | Onde é a igreja de vocês?
+
+[dialogo]
+Nina | Do you have a religion? | Você tem uma religião?
+Você | Yes, I am Catholic. I go to church on weekends. | Sim, eu sou católico. Eu vou à igreja nos fins de semana.
+Nina | My family is Evangelical. We pray every day. | A minha família é evangélica. Nós rezamos todos os dias.
+Você | Do you believe in God? | Você acredita em Deus?
+Nina | Yes, I believe in God. Our pastor is a nice guy. | Sim, eu acredito em Deus. O nosso pastor é um cara legal.
+
+=regra Possessivo: segue o dono
+porque: Em português 'seu' e 'sua' dependem da coisa (seu pai, sua mãe). Em inglês depende de quem é o dono: his (dele), her (dela), its (de coisa ou bicho), their (deles), our (nosso). Her pastor = o pastor DELA, seja o pastor homem ou mulher.
+ex: Her pastor is very funny. | O pastor dela é muito engraçado.
+ex: His religion is different from my religion. | A religião dele é diferente da minha religião.
+ex: Our father is a nice man. | Nosso padre é um homem legal.
+quiz: O sacerdote deles se chama rabino: ___ priest is called a rabbi. | Their | Their; Her; Our
+
+=pegadinha Its não tem apóstrofo
+porque: Its (sem apóstrofo) = dele ou dela, de uma coisa: its color is black. It's (com apóstrofo) = it is. A pegadinha é comum até entre nativos.
+ex: I go to a church, its color is black. | Eu vou a uma igreja, a cor dela é preta.
+cuidado: Its e it's têm sentidos diferentes.
+quiz: Eu tenho um carro, a cor dele é vermelha: I have a car, ___ color is red. | its | its; it's; it is
+
+=pegadinha Believe IN, pray FOR, intend TO
+porque: Combinações fixas: believe in (acreditar em), pray for (orar por), intend to + verbo (pretender). Intend não é 'entender' (que é understand).
+ex: He doesn't have a religion, but he believes in a god. | Ele não tem uma religião, mas acredita em um deus.
+ex: I would like to pray for you. | Eu gostaria de orar por você.
+ex: I intend to go to the morning service. | Eu pretendo ir ao culto da manhã.
+cuidado: Intend ≠ entender.
+quiz: Eu gostaria de orar por você: I would like to pray ___ you. | for | for; to; at
+
+=resumo Resumão dos auxiliares
+porque: Um auxiliar para cada situação, e o verbo principal fica no básico. Do e does = presente. Did = passado. Will = futuro. Would = vontade educada. Can = poder. Am/is/are e was/were = to be (sem do). Going to e used to fazem o futuro planejado e o hábito do passado. O auxiliar leva a pessoa e o tempo; o verbo fica simples.
+ex: Do you speak English? | Você fala inglês?
+ex: Does he like tennis? | Ele gosta de tênis?
+ex: Did you improve your stamina? | Você melhorou sua resistência?
+ex: Will you have a culture shock in Germany? | Você terá um choque cultural na Alemanha?
+quiz: Ela se exercitou ontem?: ___ she exercise yesterday? | Did | Did; Does; Will
+quiz: Você terá um choque cultural?: ___ you have a culture shock? | Will | Will; Did; Does

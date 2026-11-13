@@ -1,0 +1,92 @@
+# Used to: eu costumava | gramatica
+porque: O Módulo 24 (Vintage) é pura nostalgia: {{I used to have a walkman when I was a kid.|Eu tinha um walkman quando era criança.}} O **used to** fala de hábitos e situações do passado que **não existem mais**. É o 'eu costumava' do inglês.
+historia: Léo encontra uma fita cassete na gaveta e fica emocionado.
+  {{I used to have a walkman when I was a kid!|Eu tinha um walkman quando era criança!}} Mia sorri: 'Used to? Quer dizer que **não tem mais**?'
+  'Exatamente! O **used to** é a máquina do tempo das lembranças: ele só fala do que existia ou acontecia antes e **hoje não é mais assim**.'
+dica: Used to é só para o passado. Para falar do presente, use o Simple Present: {{I have a smartphone.|Eu tenho um celular.}} (hoje). {{I used to have a walkman.|Eu tinha um walkman.}} (antes).
+
+[aquecimento]
+I used to have a walkman when I was a kid. | Eu costumava ter um walkman quando eu era criança.
+My sister used to jump rope when she was little. | Minha irmã costumava pular corda quando era pequena.
+I used to have a lot of toys. | Eu costumava ter muitos brinquedos.
+I used to play cowboys and Indians when I was a kid. | Eu costumava brincar de mocinho e bandido quando era criança.
+We used to live in Recife. | Nós costumávamos morar em Recife.
+They used to travel every summer. | Eles costumavam viajar todo verão.
+She didn't use to have a discman. | Ela não costumava ter um discman.
+Did you use to type? | Você costumava digitar?
+
+[palavras]
+walkman | walkman
+discman | discman
+toy | brinquedo
+skipping rope | corda de pular
+when I was a kid | quando eu era criança
+when she was little | quando ela era pequena
+cassette tape | fita cassete
+summer | verão
+cowboys and Indians | mocinho e bandido
+
+[verbos]
+to use | usar
+
+[extras]
+I used to listen to cassette tapes. | Eu costumava ouvir fitas cassete.
+She used to live near the park. | Ela morava perto do parque.
+We used to go to the farm on weekends. | Nós íamos à fazenda nos fins de semana.
+They didn't use to have a computer. | Eles não tinham um computador.
+Did you use to read comic books? | Você costumava ler HQs?
+My grandpa used to work at a bank. | O meu avô trabalhava em um banco.
+He used to play the guitar. | Ele tocava violão.
+Did she use to watch movies? | Ela costumava assistir filmes?
+
+[resumo]
+I used to have a lot of toys. | Eu costumava ter muitos brinquedos.
+Did you use to listen to cassette tapes? | Você costumava ouvir fitas cassete?
+
+=regra Used to + verbo: o que eu fazia antigamente
+gancho: Pense em **fotos amareladas**. O used to só fala de coisas que estão naquelas fotos, e que hoje não existem mais.
+resumo: Used to + verbo básico fala de um hábito ou situação do passado que acabou.
+formula: sujeito + used to + verbo (forma básica)
+porque: {{I used to have a walkman.|Eu tinha / costumava ter um walkman.}}
+  {{My sister used to jump rope.|Minha irmã costumava pular corda.}}
+  Vale para **todos os pronomes**, sem mudar: I, you, he, she, we, they.
+  O verbo depois fica na forma básica. E já avisa: **hoje não é mais assim**.
+compare: Em português dizemos 'eu costumava' ou só 'eu tinha'.
+  Em inglês o **used to** carrega essa ideia de 'antes era, agora não é'.
+ex: I used to have a walkman when I was a kid. | Eu tinha um walkman quando eu era criança.
+ex: My sister used to jump rope when she was little. | Minha irmã costumava pular corda quando era pequena.
+ex: We used to live in Recife. | Nós costumávamos morar em Recife.
+erro: I used to having a walkman. | I used to have a walkman. | Eu tinha um walkman. | Depois de **used to**, verbo básico: sem -ing.
+erro: I used to had a walkman. | I used to have a walkman. | Eu tinha um walkman. | O **used** já é o passado. O verbo fica básico.
+erro: She used to jumps rope. | She used to jump rope. | Ela pulava corda. | O used to não muda com she. O verbo fica sem -s.
+quiz: Eu costumava ter um walkman: I ___ to have a walkman. | used | used; use; using
+quiz: Nós costumávamos morar em Recife: We used to ___ in Recife. | live | live; lived; living
+
+=pegadinha Negativa e pergunta: did + use to
+gancho: O did leva o passado, então o 'used' **perde o d** e volta a ser 'use'. É a mesma regra do didn't que você já viu: o passado fica em **um lugar só**.
+resumo: Na negativa e na pergunta, o did leva o passado e o verbo volta a use (sem o d).
+formula: sujeito + didn't use to + verbo
+  Did + sujeito + use to + verbo ?
+porque: Afirmativa: {{I used to have a discman.|Eu tinha um discman.}}
+  Negativa: {{She didn't use to have a discman.|Ela não tinha um discman.}}
+  Pergunta: {{Did you use to type?|Você costumava digitar?}}
+  O passado fica no **did**. Por isso 'used' volta a ser **use**.
+  É a mesma regra de 'worked' que vira 'didn't work'.
+ex: She didn't use to have a discman. | Ela não costumava ter um discman.
+ex: Did you use to type? | Você costumava digitar?
+ex: Did you use to listen to cassette tapes? | Você costumava ouvir fitas cassete?
+erro: She didn't used to have a discman. | She didn't use to have a discman. | Ela não tinha um discman. | O passado já está no **didn't**. Por isso o **use** perde o d.
+erro: Did you used to type? | Did you use to type? | Você costumava digitar? | O passado já está no **Did**. Por isso o **use** perde o d.
+quiz: Ela não costumava ter: She didn't ___ to have it. | use | use; used; using
+quiz: Você costumava digitar?: Did you ___ to type? | use | use; used; uses
+
+=dica Used to e o som: 'iúst tu'
+gancho: Escreve 'used to' mas fala **'iúst tu'**. O 'd' de used quase some, e o to vira um 'tu' fraquinho: 'iústa'.
+resumo: Used to se fala 'iúst tu', quase junto: 'iústa'. Não é 'iúzd tu'.
+porque: **used to** se fala quase como uma palavra só: 'iúst-tu' (guia aproximado: 'iústa').
+  O s do used soa como **S** (não como Z) quando vem antes de to.
+  Não confunda com o verbo **use** ('iúz'), que é usar.
+  Na fala rápida você ouve {{I used to have a walkman|Eu tinha um walkman}} como 'I iústa have a walkman'.
+ex: I used to play cowboys and Indians. | Eu costumava brincar de mocinho e bandido.
+ex: We used to live in Recife. | Nós costumávamos morar em Recife.
+quiz: O s de 'used to' soa como: | S (de sapo) | S (de sapo); Z (de zebra); X (de xícara)

@@ -1,0 +1,46 @@
+# Título da unidade | modulo 26
+objetivo: Uma frase dizendo o que a pessoa vai conseguir fazer no fim.
+dica: Dica do professor. Pode ter **negrito** e {{I eat bread.|Eu como pão.}} (toque = ouvir + tradução).
+nota palavras: Texto do professor que aparece no topo da etapa Palavras (opcional; sem ele vale o texto padrão).
+cena: Onde acontece a conversa (só se houver [dialogo]).
+
+[palavras]
+bread | pão
+
+[verbos]
+to go | ir | went
+
+[expressoes]
+please | por favor
+
+[aquecimento]
+I eat bread. | Eu como pão.
+
+[frases]
+I want to drink water. | Eu quero beber água.
+
+[perguntas]
+Do you like tea? | Você gosta de chá?
+
+[modelo]
+Do you like tea? | Yes, I like tea. | Você gosta de chá? | Sim, eu gosto de chá.
+
+[extras]
+She drinks coffee. | Ela bebe café.
+
+[dialogo]
+Garçom | Good evening! | Boa noite!
+Você | Good evening. I want rice, please. | Boa noite. Eu quero arroz, por favor.
+
+=regra Título da regra
+gancho: Uma imagem ou comparação que prende a atenção.
+resumo: A ideia da regra em uma frase.
+formula: sujeito + verbo + o quê
+porque: Explicação do porquê, passo a passo.
+  Linhas que começam com 2 espaços continuam o texto de cima.
+compare: Em português é assim. Em inglês é assado.
+ex: I eat bread. | Eu como pão.
+erro: I eating bread. | I eat bread. | Eu como pão. | Por que está errado.
+quiz: Eu como pão: I ___ bread. | eat | eat; eats; eating
+
+=pegadinha Título da pegadinha (mesmos campos de =regra)

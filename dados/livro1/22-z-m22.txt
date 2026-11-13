@@ -1,0 +1,128 @@
+# Countries | modulo 22
+objetivo: Falar de **países e viagens**: o que vai acontecer e **por que** (why e because).
+cena: Você conta a um amigo sobre uma viagem.
+
+[aquecimento]
+Why is he going to travel to New Zealand? | Por que ele vai viajar para a Nova Zelândia?
+Because he likes the Maori culture. | Porque ele gosta da cultura Maori.
+Are you going to leave Brazil? | Você vai ir embora do Brasil?
+Actually, I am going to do an exchange program. | Na verdade, eu vou fazer um programa de intercâmbio.
+My girlfriend won't go to the USA. | Minha namorada não irá para os EUA.
+Will you travel to a different country? | Você viajará para um país diferente?
+Yes, I will travel abroad. | Sim, eu vou viajar para fora do país.
+My mother is going to make a trip to Germany. | Minha mãe vai fazer uma viagem para a Alemanha.
+I wish I could live in New Zealand. | Eu queria poder morar na Nova Zelândia.
+
+[palavras]
+trip | viagem
+why | por que
+because | porque
+actually | na verdade
+different | diferente
+country | país
+abroad | fora do país
+overseas | fora do continente
+England | Inglaterra
+USA | EUA
+United States | Estados Unidos
+Brazil | Brasil
+New Zealand | Nova Zelândia
+China | China
+Germany | Alemanha
+Spain | Espanha
+France | França
+Canada | Canadá
+
+[verbos]
+to travel | viajar | traveled
+to live | morar | lived
+to leave | ir embora | left
+will | (marca o futuro)
+
+[expressoes]
+this is why | esse é o porquê; é por isso
+homestay family | família anfitriã (intercâmbio)
+exchange program | programa de intercâmbio
+culture shock | choque cultural
+I wish I could | eu queria poder
+
+[frases]
+I will travel to America. | Eu vou viajar para a América.
+They traveled to Germany. | Eles viajaram para a Alemanha.
+He lived in France. | Ele morou na França.
+She left China last year. | Ela saiu da China no ano passado.
+She will make a trip to Canada. | Ela vai fazer uma viagem ao Canadá.
+He will not travel overseas. | Ele não vai viajar para o exterior.
+I want to live abroad. | Eu quero morar no exterior.
+I want to leave Brazil. | Eu quero deixar o Brasil.
+I want to travel to the United States. | Eu quero viajar para os Estados Unidos.
+
+[perguntas]
+Are you going to make a trip on your vacation? | Você vai fazer uma viagem nas suas férias?
+Is your mother going to travel abroad? | A sua mãe vai viajar para o exterior?
+Do you want to live in another country? Why? | Você quer morar em outro país? Por quê?
+Is your family a homestay family? | A sua família é uma família anfitriã?
+Will you have a culture shock in China? | Você vai ter um choque cultural na China?
+Will your cousin travel to England? | O seu primo vai viajar para a Inglaterra?
+Why do you want to go to a different country? | Por que você quer ir para um país diferente?
+What country do you want to visit? | Que país você quer visitar?
+Will you do an exchange program in Canada? | Você vai fazer um intercâmbio para o Canadá?
+Will he make a trip to France? | Ele vai fazer uma viagem à França?
+
+[modelo]
+Will he make a trip to France? | No, he won't make a trip to France. | Ele vai fazer uma viagem à França? | Não, ele não vai fazer uma viagem à França.
+Are you going to leave Brazil? | No, I am not going to leave my country. | Você vai deixar o Brasil? | Não, eu não vou deixar o meu país.
+
+[extras]
+I will travel to Canada next month. | Eu viajarei para o Canadá mês que vem.
+She will live in France. | Ela morará na França.
+They won't leave Brazil. | Eles não deixarão o Brasil.
+Will you travel to China? | Você viajará para a China?
+I will not live in England. | Eu não morarei na Inglaterra.
+Will he make a trip to the USA? | Ele fará uma viagem para os EUA?
+We will visit Spain next week. | Nós visitaremos a Espanha semana que vem.
+She will have a culture shock in Canada. | Ela terá um choque cultural no Canadá.
+I won't go to Germany because I don't speak German. | Eu não irei à Alemanha porque não falo alemão.
+Why will you leave your country? | Por que você deixará o seu país?
+Actually, I will live in New Zealand. | Na verdade, eu morarei na Nova Zelândia.
+My friend will travel overseas. | O meu amigo viajará para fora do continente.
+
+[resumo]
+I am going to travel to New Zealand. | Eu vou viajar para a Nova Zelândia.
+This is why he is not going to leave Brazil. | É por isso que ele não vai deixar o Brasil.
+I will make a trip to Spain. | Eu farei uma viagem para a Espanha.
+He will not live overseas. | Ele não viverá em outro continente.
+She won't like the homestay family in China. | Ela não gostará da família anfitriã na China.
+Will he have a culture shock in Germany? | Ele terá um choque cultural na Alemanha?
+
+[dialogo]
+Teo | Where are you going to travel next year? | Aonde você vai viajar no ano que vem?
+Você | I will travel to Canada. I want to live abroad. | Eu vou viajar para o Canadá. Eu quero morar no exterior.
+Teo | Why do you want to go to Canada? | Por que você quer ir para o Canadá?
+Você | Because I want to learn English. It is an exchange program. | Porque eu quero aprender inglês. É um programa de intercâmbio.
+Teo | You will have a culture shock! | Você vai ter um choque cultural!
+
+=regra Will: futuro simples
+porque: Will + verbo básico = vou ou irei. Serve para todas as pessoas, sem S. Pergunta: Will you travel abroad? Negativa: will not, que vira won't. I will pode virar I'll. Will é auxiliar: não usa do. Going to costuma ser plano já feito; will costuma ser decisão na hora ou previsão.
+ex: I will make a trip to Spain. | Eu farei uma viagem para a Espanha.
+ex: She won't like the homestay family in China. | Ela não gostará da família anfitriã na China.
+cuidado: 'Do you will' não existe.
+quiz: Ele terá um choque cultural?: ___ he have a culture shock in Germany? | Will | Will; Does; Is
+
+=regra Why e because
+porque: Why pergunta o motivo: Why is he going to travel? Because responde: Because he likes the Maori culture. Em português existem 'por que', 'porque' e 'por quê'; em inglês são duas palavras: why (pergunta) e because (resposta). This is why = é por isso.
+ex: Why is he going to travel to New Zealand? | Por que ele vai viajar para a Nova Zelândia?
+ex: Because he likes the Maori culture. | Porque ele gosta da cultura Maori.
+quiz: Por que ele vai viajar? ___ is he going to travel? | Why | Why; Because; What
+
+=pegadinha Países: maiúscula e, às vezes, the
+porque: Países começam com maiúscula: Brazil, Germany, Spain. A maioria não leva the; só os que têm um nome de união ou plural: the USA, the United States. Compare: travel to Brazil, travel to the USA.
+ex: My girlfriend won't go to the USA. | Minha namorada não irá para os EUA.
+ex: My mother is going to make a trip to Germany. | Minha mãe vai fazer uma viagem para a Alemanha.
+quiz: Minha namorada não irá para os EUA: My girlfriend won't go to ___ USA. | the | the; a; nada
+
+=pegadinha Actually não é atualmente
+porque: Actually quer dizer 'na verdade', usado para corrigir ou contrapor: Actually, I am going to do an exchange program. Para dizer 'atualmente' use now.
+ex: Actually, I am going to do an exchange program. | Na verdade, eu vou fazer um programa de intercâmbio.
+cuidado: Actually ≠ atualmente.
+quiz: Na verdade, eu vou fazer um intercâmbio: ___, I am going to do an exchange program. | Actually | Actually; Now; Because

@@ -1,0 +1,177 @@
+# Communication | modulo 2
+objetivo: Conversar sobre idiomas e hábitos: **perguntar** com do, **negar** com don't e dizer **quando** você faz as coisas (de manhã, à noite).
+dica: Criança em inglês é **child**. Só o plural (crianças) é **children**.
+nota verbos: Com **I** e **you** o verbo fica sempre igual: {{I speak.|Eu falo.}} {{You speak.|Você fala.}} Ele só vai mudar com he, she e it, que chegam no Módulo 6.
+cena: Você conhece o Sam numa aula de idiomas e começa a conversar.
+
+[aquecimento]
+I speak English with my father. | Eu falo inglês com o meu pai.
+You don't understand when I speak in English. | Você não entende quando eu falo em inglês.
+Do you read books in the morning? | Você lê livros de manhã?
+Do you write letters to your mother? | Você escreve cartas para a sua mãe?
+I don't read books to my children at night. | Eu não leio livros para os meus filhos à noite.
+When do you speak Spanish with your sister? | Quando você fala espanhol com a sua irmã?
+Excuse me, I understand German. | Com licença, eu entendo alemão.
+I'm sorry, I don't write in English. | Me desculpe, eu não escrevo em inglês.
+Do you want to speak German? | Você quer falar alemão?
+When do you speak with your father? | Quando você fala com o seu pai?
+When do you want to read this book? | Quando você quer ler este livro?
+
+[palavras]
+book | livro
+newspaper | jornal
+magazine | revista
+with | com
+when | quando
+comic book | HQ
+English | inglês
+Spanish | espanhol
+German | alemão
+Chinese | chinês
+French | francês
+letter | carta
+email | email
+my | meu
+your | seu
+father | pai
+mother | mãe
+child | filho, criança
+children | filhos, crianças
+brother | irmão
+sister | irmã
+
+[apoio]
+this | este, esta, isto
+what | o que
+Portuguese | português
+
+[verbos]
+to speak | falar
+to write | escrever
+to understand | entender
+to read | ler
+
+[expressoes]
+in the morning | de manhã
+in the afternoon | à tarde
+in the evening | à noite
+at night | à noite
+I'm sorry | me desculpe
+excuse me | com licença
+you're welcome | de nada
+nice to meet you | prazer em conhecê-lo
+nice to meet you, too | o prazer é meu
+
+[frases]
+I speak German. | Eu falo alemão.
+I don't understand French. | Eu não entendo francês.
+Do you write in Chinese? | Você escreve em chinês?
+Do you read books? | Você lê livros?
+When do you eat bread? | Quando você come pão?
+When do you read books? | Quando você lê livros?
+Do you like to read newspapers? | Você gosta de ler jornais?
+Do you understand Chinese? | Você entende chinês?
+I read magazines at night. | Eu leio revistas à noite.
+I read comic books at night. | Eu leio gibis à noite.
+My child reads books. | O meu filho lê livros.
+
+[perguntas]
+Do you like to eat meat? | Você gosta de comer carne?
+What do you want to drink at night? | O que você quer beber à noite?
+Do you speak German? | Você fala alemão?
+Do you understand Spanish? | Você entende espanhol?
+Do you write letters to your mother? | Você escreve cartas para a sua mãe?
+When do you eat bread? | Quando você come pão?
+Do you like to speak Spanish with your father? | Você gosta de falar espanhol com o seu pai?
+Do you eat chicken and potato in the morning? | Você come frango e batata de manhã?
+Do you eat fish at night? | Você come peixe à noite?
+When do you like to eat ham? | Quando você gosta de comer presunto?
+
+[modelo]
+Do you like to eat bread? | Yes, I like to eat bread. | Você gosta de comer pão? | Sim, eu gosto de comer pão.
+
+[extras]
+I speak French with my sister. | Eu falo francês com minha irmã.
+I write emails to my brother. | Eu escrevo emails para o meu irmão.
+I read a magazine in the afternoon. | Eu leio uma revista à tarde.
+I don't read newspapers. | Eu não leio jornais.
+You don't speak Chinese. | Você não fala chinês.
+Do you understand English? | Você entende inglês?
+Do you write to your mother? | Você escreve para a sua mãe?
+When do you read the newspaper? | Quando você lê o jornal?
+When do you write letters? | Quando você escreve cartas?
+Do you speak Spanish with your children? | Você fala espanhol com os seus filhos?
+I don't understand German, I'm sorry. | Eu não entendo alemão, desculpe.
+Excuse me, do you speak English? | Com licença, você fala inglês?
+
+[resumo]
+I speak Portuguese with my father. | Eu falo português com o meu pai.
+You don't understand German. | Você não entende alemão.
+Do you read books in English? | Você lê livros em inglês?
+When do you write to your brother? | Quando você escreve para o seu irmão?
+I'm sorry, I don't speak French. | Me desculpe, eu não falo francês.
+
+[dialogo]
+Sam | Hello! Nice to meet you. | Olá! Muito prazer.
+Você | Nice to meet you, too. Do you speak English? | Muito prazer também. Você fala inglês?
+Sam | Yes, I speak English and Spanish. Do you speak French? | Sim, eu falo inglês e espanhol. Você fala francês?
+Você | No, I don't speak French. I speak German. | Não, eu não falo francês. Eu falo alemão.
+Sam | Do you read books in the morning? | Você lê livros de manhã?
+Você | Yes, I read books in the morning and magazines at night. | Sim, eu leio livros de manhã e revistas à noite.
+
+=regra Pergunta em inglês pede o DO
+resumo: Para perguntar, ponha **do** antes de you. O verbo fica igual.
+formula: Do + you + verbo ?
+porque: Em português basta mudar a entonação: 'Você fala inglês?'. Em inglês a pergunta precisa de um ajudante antes do pronome: o do. Do you speak English? Esse ajudante se chama auxiliar. Ele não tem tradução, só avisa que é pergunta. O verbo principal continua igual.
+ex: Do you speak English? | Você fala inglês?
+ex: Do you read books in the morning? | Você lê livros de manhã?
+erro: You speak English? | Do you speak English? | Você fala inglês? | Em conversa solta até se ouve, mas a pergunta certa pede o **do** na frente.
+erro: Do you speaking English? | Do you speak English? | Você fala inglês? | Depois do **do** o verbo fica puro, na forma do dicionário.
+quiz: ___ you write letters to your mother? | Do | Do; Don't; To
+
+=regra Negativa: DON'T
+resumo: Para negar, use **don't** antes do verbo: I don't understand.
+formula: I / you + don't + verbo
+porque: Para negar, o mesmo auxiliar entra com not: do + not = don't. I don't understand French. O verbo continua sem mudar. Em português dizemos 'não entendo'; em inglês o não vem junto do auxiliar, antes do verbo.
+ex: I don't understand French. | Eu não entendo francês.
+ex: You don't understand when I speak in English. | Você não entende quando eu falo em inglês.
+erro: I no understand French. | I don't understand French. | Eu não entendo francês. | O **no** não nega o verbo. Quem nega é o **don't**.
+erro: I don't understanding French. | I don't understand French. | Eu não entendo francês. | Depois do **don't** o verbo fica puro.
+quiz: I ___ read books to my children at night. | don't | don't; no; not do
+
+=regra Pergunta com when e what: palavra + do + pronome + verbo
+resumo: A palavra de pergunta vai na frente. Depois vem o mesmo molde: do + you + verbo.
+formula: When / What + do + you + verbo ?
+porque: Quando a pergunta começa com uma palavra de pergunta (when = quando, what = o que), a ordem é: palavra de pergunta, depois do, depois o pronome e por fim o verbo. When do you eat bread? What do you want to drink?
+ex: When do you speak with your father? | Quando você fala com o seu pai?
+ex: What do you want to drink at night? | O que você quer beber à noite?
+erro: When you eat bread? | When do you eat bread? | Quando você come pão? | Sem o **do** a pergunta quebra.
+erro: What you want to drink? | What do you want to drink? | O que você quer beber? | Mesma regra: What + **do** + you + verbo.
+quiz: When ___ you read books? | do | do; don't; to
+
+=regra De manhã, à tarde, à noite: IN ou AT?
+resumo: De manhã, à tarde e no começo da noite usam **in the**. Só **at night** usa at.
+formula: in the morning / in the afternoon / in the evening
+  at night
+porque: Partes do dia usam in: in the morning (de manhã), in the afternoon (à tarde), in the evening (no começo da noite). A exceção é at night (de noite, com a noite já escura). Repare: só night usa at e não leva the.
+ex: Do you read books in the morning? | Você lê livros de manhã?
+ex: I read magazines at night. | Eu leio revistas à noite.
+erro: I read magazines in the night. | I read magazines at night. | Eu leio revistas à noite. | Só **night** usa **at**, e sem **the**.
+quiz: I read magazines ___ night. | at | at; in; to
+quiz: Do you read books ___ the morning? | in | in; at; to
+
+=pegadinha My e your vêm sem 'the'
+resumo: My e your ocupam o lugar do artigo: nunca junto com the.
+formula: my / your + pessoa
+porque: Em português dizemos 'o meu pai'. Em inglês o possessivo ocupa o lugar do artigo: my father (meu pai), your mother (sua mãe). Nunca 'the my father'. E your serve para 'seu' e para 'de vocês'.
+ex: I speak English with my father. | Eu falo inglês com o meu pai.
+ex: Do you write letters to your mother? | Você escreve cartas para a sua mãe?
+erro: I speak English with the my father. | I speak English with my father. | Eu falo inglês com o meu pai. | O possessivo já faz o papel do **the**.
+quiz: Eu falo inglês com o meu pai: I speak English with ___ father. | my | my; the my; me
+
+=pegadinha Idiomas começam com maiúscula
+resumo: Nomes de idiomas sempre começam com letra maiúscula.
+porque: Em português escrevemos inglês, alemão e chinês com letra minúscula. Em inglês, nomes de idiomas sempre começam com maiúscula: English, Spanish, German, Chinese, French. Mais para frente você verá que dias, países e religiões seguem a mesma regra.
+ex: Do you want to speak German? | Você quer falar alemão?
+erro: I speak german. | I speak German. | Eu falo alemão. | Em inglês o idioma tem **maiúscula**: German, English, French.
+quiz: Qual está escrito certo? | I speak German. | I speak German.; I speak german.

@@ -1,0 +1,111 @@
+# He, she, it: o selinho -s | gramatica
+porque: No Módulo 6 aparece {{She buys a lot of clothes when she visits Los Angeles.|Ela compra muitas roupas quando visita Los Angeles.}} Repare nos dois **-s**: buy**s** e visit**s**. Eles surgem só quando falamos de **ele, ela ou isso**.
+historia: Dona Rosa é uma vizinha muito organizada.
+  Léo ouve ela contando a rotina: {{She wakes up at six. She drinks coffee. She works until noon.|Ela acorda às seis. Ela bebe café. Ela trabalha até o meio-dia.}}
+  Léo pergunta: 'Por que todo verbo dela tem um **S** no final?' Mia explica: 'É o selinho da terceira pessoa. Só **ele, ela e isso** ganham o selinho.'
+dica: Com I, you, we e they o verbo fica puro. Só he, she e it ganham o -s (e o have vira has).
+
+[aquecimento]
+She works in a hospital. | Ela trabalha em um hospital.
+He plays soccer on weekends. | Ele joga futebol nos fins de semana.
+My mother cooks very well. | Minha mãe cozinha muito bem.
+It rains a lot here. | Chove muito aqui.
+She buys a lot of clothes. | Ela compra muitas roupas.
+He watches TV at night. | Ele assiste TV à noite.
+She studies English. | Ela estuda inglês.
+She has two dogs. | Ela tem dois cachorros.
+My brother lives in Rio. | Meu irmão mora no Rio.
+He washes the car on Sundays. | Ele lava o carro aos domingos.
+
+[palavras]
+they | eles, elas
+hospital | hospital
+soccer | futebol
+very | muito
+well | bem
+clothes | roupas
+vacation | férias
+math | matemática
+bus | ônibus
+car | carro
+dog | cachorro
+TV | TV
+Sunday | domingo
+two | dois
+
+[verbos]
+to cook | cozinhar
+to buy | comprar
+to watch | assistir
+to wash | lavar
+to live | morar
+to travel | viajar
+to rain | chover
+
+[extras]
+He works at the mall. | Ele trabalha no shopping.
+She plays the piano at church. | Ela toca piano na igreja.
+My brother studies English at school. | O meu irmão estuda inglês na escola.
+The teacher teaches French. | O professor ensina francês.
+My father watches soccer at night. | O meu pai assiste futebol à noite.
+She goes to school by bus. | Ela vai à escola de ônibus.
+He washes the car on weekends. | Ele lava o carro nos fins de semana.
+She has a laptop and a smartphone. | Ela tem um notebook e um celular.
+
+[resumo]
+She travels to New York by car on vacation. | Ela viaja para Nova York de carro nas férias.
+My father teaches math and my mother cooks. | Meu pai ensina matemática e minha mãe cozinha.
+
+=regra O selinho -s: só he, she e it
+gancho: Imagine um clube com uma regra boba: só **ele, ela e isso** ganham uma etiqueta no verbo. Quem é da turma I, you, we e they não ganha nada.
+resumo: Só com he, she e it o verbo ganha um -s no final.
+formula: he / she / it + verbo + s
+porque: **He** works. **She** works. **It** works.
+  He, she e it falam de UMA pessoa ou coisa só. Isso se chama **terceira pessoa**.
+  {{I work, you work, we work, they work.|Eu trabalho, você trabalha, nós trabalhamos, eles trabalham.}} Aqui **nunca** tem -s.
+  Nomes também são terceira pessoa: {{My mother works.|A minha mãe trabalha.}} {{The shop opens.|A loja abre.}}
+compare: Em português mudamos o final do verbo para todas as pessoas: trabalho, trabalha, trabalhamos.
+  Em inglês **só uma pessoa muda**: a terceira.
+ex: She works in a hospital. | Ela trabalha em um hospital.
+ex: He plays soccer on weekends. | Ele joga futebol nos fins de semana.
+ex: My mother cooks very well. | Minha mãe cozinha muito bem.
+ex: It rains a lot here. | Chove muito aqui.
+erro: She work in a hospital. | She works in a hospital. | Ela trabalha em um hospital. | Com **she**, **he** e **it**, o verbo ganha o **-s**.
+erro: They works in a hospital. | They work in a hospital. | Eles trabalham em um hospital. | O **-s** é só para he, she e it. Com **they**, o verbo fica puro.
+erro: My mother work at school. | My mother works at school. | A minha mãe trabalha na escola. | "My mother" é uma pessoa só, igual a **she**. Leva **-s**.
+quiz: Ela trabalha em um hospital: She ___ in a hospital. | works | works; work; working
+quiz: Eu trabalho em um banco: I ___ in a bank. | work | work; works; am work
+quiz: Minha mãe cozinha bem: My mother ___ well. | cooks | cooks; cook; cooking
+
+=regra -s, -es ou -ies? Olhe para o final
+gancho: O selinho tem três tamanhos: **-s** (o normal), **-es** (para verbos que chiam) e **-ies** (para o y que muda). Basta olhar o final do verbo.
+resumo: Nem todo verbo leva só -s. Olhe para o final do verbo.
+porque: A maioria: só **-s**. work → **works**, eat → **eats**.
+  Termina em **s, sh, ch, x, z** ou **o**: **-es**. watch → **watches**, wash → **washes**, fix → **fixes**, go → **goes**.
+  Consoante + **y**: o y vira **-ies**. study → **studies**, try → **tries**.
+  Vogal + **y**: só **-s**. play → **plays**, stay → **stays**.
+  O verbo **have** é diferente: vira **has**. O verbo **do** vira **does**.
+ex: He watches TV at night. | Ele assiste TV à noite.
+ex: She studies English. | Ela estuda inglês.
+ex: My brother plays the guitar. | Meu irmão toca violão.
+ex: She has two dogs. | Ela tem dois cachorros.
+erro: She studys English. | She studies English. | Ela estuda inglês. | Consoante + **y**: o y vira **-ies**.
+erro: He watchs TV. | He watches TV. | Ele assiste TV. | Terminou em **ch**: use **-es**.
+erro: She haves two dogs. | She has two dogs. | Ela tem dois cachorros. | O verbo **have** é diferente: vira **has**.
+erro: He plaies the guitar. | He plays the guitar. | Ele toca violão. | Vogal + **y**: só **-s**.
+quiz: Ele assiste TV: He ___ TV. | watches | watches; watchs; watch
+quiz: Ela estuda inglês: She ___ English. | studies | studies; studys; study
+quiz: Ela tem dois cachorros: She ___ two dogs. | has | has; haves; have
+
+=dica Como falar o -s do final
+gancho: O -s tem um truque de som: às vezes é **S** (como em 'sapo'), às vezes é **Z** (como em 'zebra'), e às vezes vira uma sílaba a mais ('iz').
+resumo: O -s final tem 3 sons: /s/, /z/ e /iz/. Só o último vira uma sílaba a mais.
+porque: **/s/**: depois de sons duros (p, t, k, f). works, eats, stops. Soa como um S curtinho (guia aproximado: 'uôrks').
+  **/z/**: depois de sons suaves e de vogais. plays, lives, goes. Soa como um Z (guia aproximado: 'pleiz').
+  **/iz/**: depois de s, sh, ch, x, z (o -es). watches, washes, fixes. Entra uma sílaba a mais (guia aproximado: 'uó-chiz').
+  O erro mais comum é falar sempre com S. Quando o som anterior é suave, troque por Z.
+ex: She works here. | Ela trabalha aqui.
+ex: He plays the piano. | Ele toca piano.
+ex: She watches TV every night. | Ela assiste TV toda noite.
+quiz: Qual destas palavras termina com a sílaba extra /iz/? | watches | watches; works; plays
+quiz: Quantas sílabas tem a palavra 'works'? | 1 | 1; 2; 3

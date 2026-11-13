@@ -1,0 +1,115 @@
+# Feelings | modulo 7
+objetivo: Dizer o que **ele** ou **ela** gosta, ama e odeia, e **perguntar** com does.
+cena: Você encontra uma amiga e conversa sobre o que vocês gostam.
+
+[aquecimento]
+He loves to eat pasta. | Ele ama comer macarrão.
+He doesn't love to eat lasagna. | Ele não ama comer lasanha.
+She likes to drink hot chocolate. | Ela gosta de beber chocolate quente.
+She doesn't like to drink juice. | Ela não gosta de beber suco.
+He hates cold weather. | Ele odeia tempo frio.
+He doesn't hate hot weather. | Ele não odeia tempo quente.
+My mother loves fruits and vegetables. | Minha mãe ama frutas e legumes.
+My father doesn't like pasta. | Meu pai não gosta de macarrão.
+My daughter loves ice cream and candies. | Minha filha ama sorvete e doces.
+My son doesn't like to drink soda. | Meu filho não gosta de beber refrigerante.
+He hates vegetables, and she doesn't like fruits. | Ele odeia legumes, e ela não gosta de frutas.
+
+[palavras]
+he | ele
+she | ela
+it | ele, ela (neutro)
+hot | quente
+heat | calor
+cold | frio
+weather | tempo
+pasta | macarrão
+lasagna | lasanha
+fruit | fruta
+vegetables | vegetais, legumes
+ice cream | sorvete
+popsicle | picolé
+hot chocolate | chocolate quente
+juice | suco
+soda | refrigerante
+candy | doce
+
+[apoio]
+food | comida
+instrument | instrumento
+
+[verbos]
+to like | gostar
+to love | amar
+to hate | odiar
+
+[expressoes]
+how are you? | como você está?
+I'm feeling good | eu estou me sentindo bem
+I'm fine, thanks | estou bem, obrigado
+how are you doing? | como você está?
+
+[frases]
+I like to eat meat. | Eu gosto de comer carne.
+I love chocolate. | Eu amo chocolate.
+I hate vegetables. | Eu odeio legumes.
+Do you like ice cream? | Você gosta de sorvete?
+You don't hate your mother. | Você não odeia a sua mãe.
+She loves cold weather. | Ela ama tempo frio.
+He doesn't like lasagna. | Ele não gosta de lasanha.
+My father hates popsicles. | O meu pai odeia picolé.
+Do you like hot weather? | Você gosta de tempo quente?
+
+[perguntas]
+What do you love to eat on weekends? | O que você ama comer nos fins de semana?
+What instrument do you want to play? | Que instrumento você quer tocar?
+Does he like to eat ice cream or popsicles? | Ele gosta de comer sorvete ou picolé?
+What does she hate? | O que ela odeia?
+Does your wife or husband like it when you speak French? | O seu marido ou a sua esposa gosta quando você fala francês?
+Does your mother like hot weather? | A sua mãe gosta de tempo quente?
+Does your father love to eat vegetables? | O seu pai ama comer legumes?
+Does your son like to drink soda or juice? | O seu filho gosta de beber refrigerante ou suco?
+Does your daughter like to eat candies on weekends? | A sua filha gosta de comer doces nos fins de semana?
+What does your brother love to eat on weekends? | O que o seu irmão ama comer nos fins de semana?
+
+[modelo]
+Does he like to eat pasta? | Yes, he likes to eat pasta. | Ele gosta de comer macarrão? | Sim, ele gosta de comer macarrão.
+Does he love cold weather? | No, he doesn't love cold weather. | Ele ama tempo frio? | Não, ele não ama tempo frio.
+
+[extras]
+He likes ice cream. | Ele gosta de sorvete.
+She doesn't like popsicles. | Ela não gosta de picolé.
+Does he like pasta? | Ele gosta de macarrão?
+My mother doesn't hate the cold weather. | A minha mãe não odeia o tempo frio.
+He loves candy, but he doesn't like vegetables. | Ele ama doce, mas não gosta de vegetais.
+Does your father love lasagna? | O seu pai ama lasanha?
+It doesn't like hot weather. | Ele não gosta de tempo quente.
+Does she hate the heat? | Ela odeia o calor?
+I love ice cream, but I don't love popsicles. | Eu amo sorvete, mas não amo picolé.
+How are you? I'm fine, thanks. | Como você está? Estou bem, obrigado.
+My daughter doesn't like fruit. | A minha filha não gosta de fruta.
+Does she like to drink hot chocolate? | Ela gosta de beber chocolate quente?
+
+[resumo]
+She loves cold weather. | Ela ama tempo frio.
+She doesn't love hot weather. | Ela não ama tempo quente.
+He hates the heat. | Ele odeia o calor.
+He doesn't hate the heat. | Ele não odeia o calor.
+It likes the dog food. | Ele/Ela (cachorro) gosta da ração.
+It doesn't like the dog food. | Ele/Ela (cachorro) não gosta da ração.
+
+[dialogo]
+Bia | Hi! How are you? | Oi! Como você está?
+Você | I'm fine, thanks. How are you doing? | Estou bem, obrigado. E você, como está?
+Bia | I'm feeling good. Do you like cold weather? | Estou me sentindo bem. Você gosta de tempo frio?
+Você | No, I hate cold weather. I love hot weather and ice cream! | Não, eu odeio tempo frio. Eu amo tempo quente e sorvete!
+Bia | Does your brother like pasta? | O seu irmão gosta de macarrão?
+Você | Yes, he loves pasta and lasagna. | Sim, ele ama macarrão e lasanha.
+
+=regra Does e doesn't: o S mudou de lugar
+porque: Na pergunta e na negativa com he, she e it o auxiliar é does (e doesn't = does not). O S que estava no verbo foi para o does, então o verbo volta ao básico: She likes pasta. → Does she like pasta? / She doesn't like pasta. Regra de ouro: o auxiliar carrega a pessoa; o verbo principal fica simples.
+ex: Does he like to eat pasta? | Ele gosta de comer macarrão?
+ex: She doesn't like to drink juice. | Ela não gosta de beber suco.
+cuidado: 'Does he likes' está errado: o S já está no does.
+quiz: ___ she like to drink hot chocolate? | Does | Does; Do; Don't
+quiz: He doesn't ___ lasagna. | like | like; likes; to like

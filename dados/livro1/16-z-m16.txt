@@ -1,0 +1,120 @@
+# Fast Food | modulo 16
+objetivo: **Pedir comida** num restaurante de fast food e dizer o que você prefere.
+cena: Você pede comida no drive-thru.
+
+[aquecimento]
+I want to drive to the fast food restaurant now. | Eu quero dirigir para o restaurante fast food agora.
+I prefer to go to the drive-thru. | Eu prefiro ir ao drive-thru.
+My mother hates sesame seeds. | Minha mãe odeia sementes de gergelim.
+My sister doesn't like fast food, she hates calories. | Minha irmã não gosta de fast food, ela odeia calorias.
+I enjoy eating fried chicken on Saturday nights very much. | Eu curto muito comer frango frito nas noites de sábado.
+I don't like the snacks of "the clown". | Eu não gosto dos lanches do "palhaço".
+I'd like a coke and French fries, please. | Eu gostaria de uma Coca-Cola e batatas fritas, por favor.
+Please, I'd like a big soda. | Por favor, eu gostaria de um refrigerante grande.
+
+[palavras]
+calorie | caloria
+fat | gordura, gordo
+healthy | saudável
+coke | Coca-Cola
+fried chicken | frango frito
+cheeseburger | x-burger
+onion | cebola
+sauce | molho
+spicy | apimentado
+french fries | batata frita
+lettuce | alface
+sesame seed | semente de gergelim
+big | grande
+small | pequeno
+milkshake | milkshake
+sandwich | sanduíche
+snack | lanche
+
+[apoio]
+fast | rápido
+clown | palhaço
+honest | sincero
+king | rei
+local | local
+
+[verbos]
+to drive | dirigir
+to hate | odiar
+to enjoy | curtir, gostar
+to prefer | preferir
+
+[expressoes]
+drive-thru | drive-thru
+junk food | besteiras
+to have a snack | fazer um lanche
+I'd like | eu gostaria...
+very much | muito
+
+[frases]
+I want to drive to the fast food restaurant. | Eu quero ir de carro ao restaurante de fast food.
+She hates fast food. | Ela odeia fast food.
+Does he enjoy eating fast food? | Ele gosta de comer fast food?
+My father prefers fried chicken. | O meu pai prefere frango frito.
+My mother hates sesame seeds. | A minha mãe odeia gergelim.
+I enjoy going to the fast food restaurant. | Eu gosto de ir ao restaurante de fast food.
+I prefer healthy food. | Eu prefiro comida saudável.
+
+[perguntas]
+Do you eat junk food on Sundays? | Você come junk food aos domingos?
+When do you eat fast food? | Quando você come fast food?
+Do you prefer to eat in the restaurant or at the drive-thru? | Você prefere comer no restaurante ou no drive-thru?
+Do you like snacks with a lot of fat? | Você gosta de lanches com muita gordura?
+Do you prefer junk food or healthy food? Be honest. | Você prefere junk food ou comida saudável? Seja sincero.
+Do you enjoy eating fried chicken with onion rings? | Você gosta de comer frango frito com anéis de cebola?
+Do you like lettuce in your cheeseburgers? | Você gosta de alface nos seus cheeseburgers?
+Where do you like to have a snack? | Onde você gosta de fazer um lanche?
+Do you prefer the snacks of "the clown" or "the king"? | Você prefere os lanches do "palhaço" ou do "rei"?
+What is your favorite local junk food restaurant? | Qual é o seu restaurante local de junk food favorito?
+
+[modelo]
+Does your girlfriend like junk food? | No, she doesn't like junk food. | A sua namorada gosta de junk food? | Não, ela não gosta de junk food.
+Do you prefer the drive-thru? | Yes, I prefer the drive-thru. | Você prefere o drive-thru? | Sim, eu prefiro o drive-thru.
+
+[extras]
+I'd like a cheeseburger and a milkshake, please. | Eu gostaria de um x-burger e um milkshake, por favor.
+I prefer spicy sauce. | Eu prefiro molho apimentado.
+I don't like onion. | Eu não gosto de cebola.
+She enjoys eating a sandwich with lettuce. | Ela gosta de comer um sanduíche com alface.
+My brother hates fried chicken. | O meu irmão odeia frango frito.
+Do you prefer french fries or a snack? | Você prefere batata frita ou um lanche?
+I'd like a small coke, please. | Eu gostaria de uma Coca-Cola pequena, por favor.
+I drive to the fast food restaurant on weekends. | Eu dirijo até o restaurante de fast food nos fins de semana.
+Does she drive to work? | Ela dirige para o trabalho?
+I enjoy going to the drive-thru. | Eu gosto de ir ao drive-thru.
+Fast food has a lot of calories and fat. | Fast food tem muitas calorias e gordura.
+I don't want a big sandwich. | Eu não quero um sanduíche grande.
+
+[resumo]
+I eat fast food on Saturdays. | Eu como fast food aos sábados.
+
+[dialogo]
+Atendente | Hello! What would you like? | Olá! O que você gostaria?
+Você | I'd like a cheeseburger and french fries, please. | Eu gostaria de um cheeseburger e batata frita, por favor.
+Atendente | Do you want a big or a small milkshake? | Você quer um milkshake grande ou pequeno?
+Você | A small milkshake, please. I don't want sauce. | Um milkshake pequeno, por favor. Eu não quero molho.
+Atendente | Thank you very much! | Muito obrigado!
+
+=regra I'd like: pedir com educação
+porque: I'd like é I would like encurtado. É o jeito educado de pedir comida: I'd like a coke and French fries, please. Quanto mais educado, mais natural. É o mesmo would que você viu no módulo 9.
+ex: I'd like a coke and French fries, please. | Eu gostaria de uma Coca-Cola e batatas fritas, por favor.
+ex: Please, I'd like a big soda. | Por favor, eu gostaria de um refrigerante grande.
+quiz: Eu gostaria de um refrigerante grande: ___ like a big soda, please. | I'd | I'd; I; Id
+
+=regra Dias da semana: maiúscula e ON
+porque: Dias da semana começam sempre com maiúscula: Saturday, Sunday. Para falar de um dia use on: on Saturdays (aos sábados, todo sábado). O S no final mostra que acontece sempre.
+ex: I eat fast food on Saturdays. | Eu como fast food aos sábados.
+ex: Do you eat junk food on Sundays? | Você come besteiras aos domingos?
+cuidado: Dia da semana com minúscula é erro de ortografia.
+quiz: Eu como fast food aos sábados: I eat fast food ___ Saturdays. | on | on; in; at
+
+=pegadinha Very much vai no final
+porque: Para reforçar o 'gosto muito', coloque very much no fim da frase: I like French fries very much. Não coloque no meio, entre o verbo e a coisa.
+ex: I enjoy eating fried chicken on Saturday nights very much. | Eu curto muito comer frango frito nas noites de sábado.
+cuidado: 'I like very much French fries' fica fora de ordem.
+quiz: Eu gosto muito de batata frita: I like French fries ___. | very much | very much; much very; very

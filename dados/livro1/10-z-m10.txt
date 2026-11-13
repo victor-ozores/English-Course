@@ -1,0 +1,135 @@
+# Hobbies | modulo 10
+objetivo: Falar dos seus **hobbies**: esportes, música e séries, e do que você gosta de fazer no tempo livre.
+nota verbos: Depois de **enjoy**, o verbo seguinte ganha **-ing**: {{I enjoy watching series.|Eu gosto de assistir a séries.}} Isso é diferente de want e like, que usam **to**.
+cena: Você conversa com uma colega sobre hobbies.
+
+[aquecimento]
+He enjoys swimming on weekends. | Ele curte nadar aos finais de semana.
+I enjoy listening to music in my free time. | Eu curto ouvir música no meu tempo livre.
+I always go to the ranch in my free time. | Eu sempre vou para o rancho no meu tempo livre.
+She doesn't like to play tennis. | Ela não gosta de jogar tênis.
+Do they enjoy playing soccer on weekends? | Eles curtem jogar futebol aos finais de semana?
+My sister enjoys swimming. | Minha irmã curte natação.
+I'm really good at basketball. | Eu sou muito bom no basquete.
+
+[palavras]
+he | ele
+she | ela
+it | ele, ela (neutro)
+we | nós
+they | eles, elas
+you | vocês
+soccer | futebol
+football | futebol americano
+volleyball | vôlei
+basketball | basquete
+tennis | tênis
+swimming | natação
+bike | bicicleta
+ranch | rancho
+farm | fazenda
+music | música
+song | canção
+series | séries
+
+[apoio]
+friend | amigo, amiga
+rock n' roll | rock and roll
+pop | pop
+hobby | hobby, passatempo
+professional | profissional
+
+[verbos]
+to enjoy | gostar, curtir
+to listen | escutar
+to play | jogar, tocar, brincar
+to watch | assistir
+
+[expressoes]
+to hang out | sair (com os amigos)
+to throw a party | dar uma festa
+I really like | eu gosto pra caramba
+I'm really good at... | eu sou muito bom em...
+on weekends | aos finais de semana
+in my free time | no meu tempo livre
+
+[frases]
+He enjoys playing soccer. | Ele gosta de jogar futebol.
+Does she listen to pop music? | Ela escuta música pop?
+Do you play basketball? | Você joga basquete?
+He doesn't watch series. | Ele não assiste a séries.
+She enjoys going to the farm. | Ela gosta de ir ao sítio.
+They like to play volleyball. | Eles gostam de jogar vôlei.
+Do you like to play tennis? | Você gosta de jogar tênis?
+I don't watch series. | Eu não assisto a séries.
+We listen to rock n' roll music. | Nós escutamos rock n' roll.
+She doesn't enjoy playing soccer. | Ela não gosta de jogar futebol.
+I have a bike. | Eu tenho uma bicicleta.
+I like this song. | Eu gosto desta música.
+
+[perguntas]
+Does your father like to watch soccer? | O seu pai gosta de assistir a futebol?
+Do you enjoy going to the ranch or watching Netflix on weekends? | Você gosta de ir ao sítio ou de assistir à Netflix nos fins de semana?
+Do you like to listen to music in your free time? | Você gosta de escutar música no seu tempo livre?
+Do you prefer to hang out with friends or to watch series? | Você prefere sair com os amigos ou assistir a séries?
+Do you play tennis? | Você joga tênis?
+Does your sister like to listen to music? | A sua irmã gosta de escutar música?
+What is your favorite hobby? | Qual é o seu hobby favorito?
+Would you like to be a professional in your hobby? | Você gostaria de ser um profissional no seu hobby?
+Is she good at volleyball? | Ela é boa em vôlei?
+Do you prefer to go to a party or to throw a party? | Você prefere ir a uma festa ou dar uma festa?
+
+[modelo]
+Does he enjoy playing volleyball? | No, he doesn't. | Ele gosta de jogar vôlei? | Não, ele não gosta.
+Do you watch series on weekends? | Yes, I watch series on weekends. | Você assiste a séries nos fins de semana? | Sim, eu assisto a séries nos fins de semana.
+
+[extras]
+I enjoy listening to rock music. | Eu gosto de ouvir rock.
+She enjoys playing tennis on weekends. | Ela gosta de jogar tênis nos fins de semana.
+They enjoy watching series. | Eles gostam de assistir séries.
+Do you enjoy swimming? | Você gosta de nadar?
+He doesn't enjoy playing football. | Ele não gosta de jogar futebol americano.
+In my free time, I listen to music. | No meu tempo livre, eu escuto música.
+I really like to watch soccer with my father. | Eu gosto muito de assistir futebol com o meu pai.
+My sister enjoys playing volleyball. | A minha irmã gosta de jogar vôlei.
+Do they listen to pop music on weekends? | Eles escutam música pop nos fins de semana?
+I'm really good at tennis. | Eu sou muito bom em tênis.
+We would like to hang out on weekends. | Nós gostaríamos de sair juntos nos fins de semana.
+He goes to the farm on weekends. | Ele vai à fazenda nos fins de semana.
+
+[resumo]
+I enjoy playing basketball in my free time. | Eu curto jogar basquete no meu tempo livre.
+She enjoys watching Netflix on weekends. | Ela curte assistir Netflix aos finais de semana.
+He is really good at soccer. | Ele é muito bom no futebol.
+I really like to go to the farm in my free time. | Eu gosto pra caramba de ir para a fazenda no meu tempo livre.
+I like to hang out with my friends. | Eu gosto de sair com os meus amigos.
+We would like to throw a party. | Nós gostaríamos de dar uma festa.
+Does she enjoy playing volleyball? | Ela curte jogar vôlei?
+
+[dialogo]
+Carla | What is your favorite hobby? | Qual é o seu hobby favorito?
+Você | I enjoy watching series in my free time. | Eu gosto de assistir a séries no meu tempo livre.
+Carla | Do you play soccer? | Você joga futebol?
+Você | No, I don't. I really like to listen to music. | Não. Eu gosto muito de escutar música.
+Carla | My friends and I play volleyball on weekends. | Os meus amigos e eu jogamos vôlei nos fins de semana.
+
+=regra Enjoy pede verbo com -ING
+porque: Depois de want, like e need usamos to + verbo. Mas depois de enjoy (curtir) o próximo verbo termina em -ing: I enjoy playing soccer, she enjoys watching series. Enjoy nunca leva to. Aqui o -ing vale pelo nosso verbo no infinitivo: enjoy playing = curtir jogar.
+ex: I enjoy playing basketball in my free time. | Eu curto jogar basquete no meu tempo livre.
+ex: He enjoys cooking. | Ele curte cozinhar.
+cuidado: 'I enjoy to play' é erro comum.
+quiz: Ela curte assistir séries: She enjoys ___ series on weekends. | watching | watching; to watch; watch
+
+=pegadinha Bom EM algo = good AT
+porque: Para dizer que alguém é bom em algo, use good at: I'm really good at basketball. Em português usamos 'em', mas em inglês a combinação é good at. Really dá mais força: muito bom.
+ex: I'm really good at basketball. | Eu sou muito bom no basquete.
+ex: He is really good at soccer. | Ele é muito bom no futebol.
+cuidado: 'Good in basketball' não é natural.
+quiz: Eu sou muito bom no basquete: I'm really good ___ basketball. | at | at; in; on
+
+=pegadinha Escutar: listen TO. Assistir: sem to
+porque: Listen sempre pede to antes do que você escuta: listen to music. Watch (assistir) não pede nada: watch series. Em português 'escutar música' não tem preposição, mas em inglês tem.
+ex: I enjoy listening to music in my free time. | Eu curto ouvir música no meu tempo livre.
+ex: She enjoys watching Netflix on weekends. | Ela curte assistir Netflix aos finais de semana.
+cuidado: 'Listen music' fica sem o to.
+quiz: Nós ouvimos rock: We listen ___ rock n' roll music. | to | to; at; nada

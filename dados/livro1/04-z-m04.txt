@@ -1,0 +1,152 @@
+# Daily Life | modulo 4
+objetivo: Falar do que você **toca**, onde **trabalha**, o que **tem que** fazer e contar números de 13 a 30.
+cena: Dois colegas combinam o que fazer depois do trabalho.
+
+[aquecimento]
+I have an apple. | Eu tenho uma maçã.
+You don't have a laptop. | Você não tem um notebook.
+Do you go to the mall with your son on weekends? | Você vai ao shopping com o seu filho aos fins de semana?
+I work at a school. | Eu trabalho em uma escola.
+Do you work at the movies? | Você trabalha no cinema?
+I play volleyball with my sister. | Eu jogo vôlei com a minha irmã.
+I play the guitar every day. | Eu toco violão todos os dias.
+I play with my daughter at the park. | Eu brinco com a minha filha no parque.
+I want to read thirteen books. | Eu quero ler treze livros.
+Do you have thirty books at home? | Você tem trinta livros em casa?
+You have fourteen teachers. | Você tem catorze professores.
+I learn how to play the piano from my brother. | Eu aprendo a tocar piano com o meu irmão.
+
+[palavras]
+what | o que, qual
+guitar | violão, guitarra
+piano | piano
+drums | bateria (instrumento)
+violin | violino
+keyboard | teclado
+computer | computador
+laptop | notebook
+mall | shopping
+park | parque
+movies | cinema
+restaurant | restaurante
+snack bar | lanchonete
+pizza | pizza
+french fries | batata frita
+apple | maçã
+orange | laranja
+gas station | posto de gasolina
+to | para, ao, à
+the | o, a
+a, an | um
+
+[apoio]
+volleyball | vôlei
+thirteen | treze
+fourteen | catorze
+thirty | trinta
+how | como
+now | agora
+prefer | preferir
+
+[verbos]
+to have | ter
+to play | brincar, jogar, tocar
+to work | trabalhar
+to go | ir
+
+[frases]
+I have to go now. | Eu tenho que ir agora.
+I don't work at the mall. | Eu não trabalho no shopping.
+Do you play the violin? | Você toca violino?
+Do you go to the snack bar? | Você vai à lanchonete?
+I work at the movies. | Eu trabalho no cinema.
+I have to go to the restaurant. | Eu tenho que ir ao restaurante.
+I don't play the guitar. | Eu não toco violão.
+You don't play the drums. | Você não toca bateria.
+I have a violin at home. | Eu tenho um violino em casa.
+Do you go to the mall with your son? | Você vai ao shopping com o seu filho?
+Do you like orange juice? | Você gosta de suco de laranja?
+
+[perguntas]
+Do you have 15 books at home? | Você tem 15 livros em casa?
+Do you play the drums on weekends? | Você toca bateria nos fins de semana?
+Do you teach your brother how to play the piano? | Você ensina o seu irmão a tocar piano?
+Do you want to go to the restaurant or to the snack bar? | Você quer ir ao restaurante ou à lanchonete?
+Do you play the violin or the guitar? | Você toca violino ou violão?
+When do you play the drums? | Quando você toca bateria?
+Do you go to the gas station every day? | Você vai ao posto de gasolina todos os dias?
+Do you like to go to the movies with your wife? | Você gosta de ir ao cinema com a sua esposa?
+Do you prefer apple juice or orange juice? | Você prefere suco de maçã ou suco de laranja?
+Do you have 25 pens at the office? | Você tem 25 canetas no escritório?
+
+[modelo]
+Do you play the guitar? | No, I don't play the guitar. | Você toca violão? | Não, eu não toco violão.
+Do you have books at home? | Yes, I have thirty books at home. | Você tem livros em casa? | Sim, eu tenho trinta livros em casa.
+
+[extras]
+I have a laptop at work. | Eu tenho um notebook no trabalho.
+I have a computer and a guitar. | Eu tenho um computador e um violão.
+I don't have a piano at home. | Eu não tenho um piano em casa.
+Do you have a violin? | Você tem um violino?
+I play the keyboard at church. | Eu toco teclado na igreja.
+I work at the mall on weekends. | Eu trabalho no shopping nos fins de semana.
+You don't work at the gas station. | Você não trabalha no posto de gasolina.
+I go to the park with my children. | Eu vou ao parque com os meus filhos.
+Do you go to the restaurant with your wife? | Você vai ao restaurante com a sua esposa?
+I have to work now. | Eu tenho que trabalhar agora.
+I want to eat pizza and french fries at the snack bar. | Eu quero comer pizza e batata frita na lanchonete.
+What do you play? | O que você toca?
+
+[resumo]
+I play the drums at church. | Eu toco bateria na igreja.
+Do you play with your daughter on weekends? | Você brinca com a sua filha aos fins de semana?
+I don't play volleyball. | Eu não jogo vôlei.
+I have an apple. | Eu tenho uma maçã.
+You don't have a guitar. | Você não tem um violão.
+I go to the mall with my son every day. | Eu vou ao shopping com o meu filho todos os dias.
+
+[dialogo]
+Pedro | What do you play? | O que você toca?
+Você | I play the guitar and the piano. | Eu toco violão e piano.
+Pedro | Do you work at the mall? | Você trabalha no shopping?
+Você | No, I work at the movies. I have to go now. | Não, eu trabalho no cinema. Eu tenho que ir agora.
+Pedro | Do you want to go to the snack bar? I want pizza. | Você quer ir à lanchonete? Eu quero pizza.
+Você | Yes, I want french fries! | Sim, eu quero batata frita!
+
+=regra Play: instrumento tem THE, esporte não
+resumo: Instrumento leva **the**. Esporte não leva.
+formula: play the + instrumento
+  play + esporte
+porque: Play tem três sentidos: tocar, jogar e brincar. Com instrumento use the: play the guitar, play the drums. Com esporte não use the: play volleyball. Para brincar com alguém use with: play with my daughter. No inglês americano falado você também ouve play guitar, sem the. Com the está sempre certo, e é assim que o livro ensina.
+ex: I play the guitar every day. | Eu toco violão todos os dias.
+ex: I play volleyball with my sister. | Eu jogo vôlei com a minha irmã.
+ex: I play with my daughter at the park. | Eu brinco com a minha filha no parque.
+erro: I play the volleyball with my sister. | I play volleyball with my sister. | Eu jogo vôlei com a minha irmã. | Esporte não leva **the**.
+quiz: Eu toco piano: I play ___ piano. | the | the; a; an
+quiz: Eu jogo vôlei: I play ___ volleyball. | nada | the; a; nada
+
+=pegadinha Have é ter; have to é ter que
+resumo: **Have** é ter. **Have to** é ter que (obrigação).
+formula: have + coisa
+  have to + verbo
+porque: Have = ter: I have an apple. Have to = ter que, obrigação: I have to go now. O to muda o sentido, e o verbo seguinte fica no básico. Na pergunta com have de posse, use do: Do you have thirty books at home?
+ex: I have an apple. | Eu tenho uma maçã.
+ex: I have to go now. | Eu tenho que ir agora.
+ex: Do you have thirty books at home? | Você tem trinta livros em casa?
+erro: I have go now. | I have to go now. | Eu tenho que ir agora. | Para obrigação, precisa do **to**.
+quiz: Eu tenho que ir agora: I ___ go now. | have to | have to; have; want
+
+=regra A ou an?
+resumo: **An** antes de som de vogal. **A** antes de som de consoante.
+porque: A e an querem dizer um ou uma. Use an quando a palavra seguinte começa com som de vogal: an apple, an orange. Use a quando começa com som de consoante: a guitar, a violin.
+ex: I have an apple. | Eu tenho uma maçã.
+ex: I have a violin at home. | Eu tenho um violino em casa.
+erro: I have a apple. | I have an apple. | Eu tenho uma maçã. | Apple começa com som de vogal: use **an**.
+quiz: Eu tenho uma laranja: I have ___ orange. | an | a; an; the
+
+=pegadinha Treze ou trinta? Teen e ty
+porque: Os números de 13 a 19 terminam em -teen (thirteen, fourteen) e a força da voz fica no final: thirTEEN. As dezenas terminam em -ty (thirty, forty) e a força fica no começo: THIRty. Na escrita, fourteen tem U, mas forty não tem.
+ex: I want to read thirteen books. | Eu quero ler treze livros.
+ex: Do you have thirty books at home? | Você tem trinta livros em casa?
+cuidado: Escreva forty sem o U.
+quiz: Como se escreve 40? | forty | forty; fourty; fortie

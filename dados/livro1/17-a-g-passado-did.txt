@@ -1,0 +1,192 @@
+# Passado: -ed, did e didn't | gramatica
+porque: O Módulo 17 (Pop Culture) fala do que você assistiu e ouviu: {{Did your sister like this novel?|A sua irmã gostou deste romance?}} e {{My father listened to this singer and didn't like him.|O meu pai ouviu este cantor e não gostou.}} Para contar o que já aconteceu, o verbo **envelhece** (-ed) e a pergunta e a negativa chamam o ajudante **did**.
+historia: Léo chega do cinema e Mia pergunta: {{Did you like the movie?|Você gostou do filme?}}
+  Léo, todo orgulhoso: {{Yes! I like it!|Sim! Eu gosto!}} Mia: 'Hmm... foi ontem. O verbo precisa **envelhecer** junto: {{I liked it.|Eu gostei.}}'
+  Em inglês, para contar o que já passou, o verbo ganha **-ed**. E na pergunta e na negativa entra um ajudante, o **did**, que **carrega o passado** para o verbo não precisar envelhecer duas vezes.
+dica: O passado fica em UM lugar só. Na afirmativa está no verbo (worked). Na negativa e na pergunta está no did, e o verbo volta ao básico. Alguns verbos mudam de forma em vez de ganhar -ed (go vira went): eles estão no complemento do Módulo 18.
+
+[aquecimento]
+I worked yesterday. | Eu trabalhei ontem.
+She talked to me last night. | Ela conversou comigo ontem à noite.
+We walked to school. | Nós caminhamos até a escola.
+They loved the movie. | Eles amaram o filme.
+He studied English last week. | Ele estudou inglês semana passada.
+I listened to your favorite singer. | Eu ouvi seu cantor favorito.
+We watched the new horror movie. | Nós assistimos ao novo filme de terror.
+She stopped at the bakery. | Ela parou na padaria.
+I didn't work yesterday. | Eu não trabalhei ontem.
+She didn't talk to him. | Ela não conversou com ele.
+My father didn't like this singer. | Meu pai não gostou desse cantor.
+Did you work yesterday? | Você trabalhou ontem?
+Did your sister like this novel? | Sua irmã gostou desse romance?
+What did you watch last night? | O que você assistiu ontem à noite?
+
+[palavras]
+yesterday | ontem
+last night | ontem à noite
+last week | semana passada
+last year | ano passado
+two days ago | dois dias atrás
+in 2020 | em 2020
+when I was a child | quando eu era criança
+singer | cantor, cantora
+horror | terror
+bakery | padaria
+him | ele (depois do verbo)
+novel | romance
+that | aquele, aquela, isso
+hour | hora
+test | prova, teste
+all | todo, tudo
+
+[verbos]
+to talk | conversar, falar
+to stop | parar
+to arrive | chegar
+
+[expressoes]
+What did you do yesterday? | O que você fez ontem?
+Did you have a good time? | Você se divertiu?
+I didn't know that. | Eu não sabia disso.
+What happened? | O que aconteceu?
+
+[extras]
+She worked at the bank last year. | Ela trabalhou no banco ano passado.
+I studied English yesterday. | Eu estudei inglês ontem.
+They watched a movie last night. | Eles assistiram a um filme ontem à noite.
+We didn't call you yesterday. | Nós não ligamos para você ontem.
+Did she listen to that singer? | Ela ouviu aquele cantor?
+He didn't like the horror movie. | Ele não gostou do filme de terror.
+What did you study last week? | O que você estudou semana passada?
+Did your brother visit you last week? | O seu irmão visitou você semana passada?
+
+[resumo]
+He liked that new series. | Ele gostou daquela série nova.
+Did they arrive on time? | Eles chegaram no horário?
+We visited Rio last year and loved it. | Nós visitamos o Rio ano passado e amamos.
+
+=regra Quando usar o Simple Past
+gancho: O passado é uma **foto antiga**: o momento já aconteceu, acabou, e não volta. É para essas fotos que o inglês usa o Simple Past.
+resumo: Use o Simple Past para uma ação que aconteceu e já terminou no passado.
+porque: Pense assim: a ação **começou e acabou** lá atrás.
+  Geralmente vem uma palavra de tempo: **yesterday** (ontem), **last week** (semana passada), **two days ago** (dois dias atrás), **in 2020** (em 2020).
+  **ago** vem DEPOIS do tempo: {{two days ago|dois dias atrás}}.
+  Se a ação ainda está acontecendo, ou é rotina de hoje, não é Simple Past.
+compare: Em português o passado tem vários jeitos (trabalhei, trabalhava, tinha trabalhado).
+  O inglês usa **um só** para a maioria dos casos: **worked**.
+ex: I worked yesterday. | Eu trabalhei ontem.
+ex: We traveled last year. | Nós viajamos ano passado.
+ex: She called me two hours ago. | Ela ligou para mim duas horas atrás.
+erro: I work yesterday. | I worked yesterday. | Eu trabalhei ontem. | Com **yesterday** o verbo precisa envelhecer: **-ed**.
+erro: She called me ago two hours. | She called me two hours ago. | Ela me ligou há duas horas. | O **ago** vem depois do tempo: two hours **ago**.
+quiz: Eu estudei inglês ontem: I ___ English yesterday. | studied | studied; study; studying
+quiz: Ela ligou duas horas atrás: She called me two hours ___. | ago | ago; last; before
+
+=regra O verbo envelhece: ganha -ed
+gancho: No passado o verbo ganha uma **bengalinha**: o -ed. E a bengalinha é a mesma para todo mundo: I, you, she, they. Ninguém ganha uma bengalinha diferente.
+resumo: Verbo regular no passado é o verbo mais -ed. A forma é igual para todas as pessoas.
+formula: I / you / he / she / it / we / they + verbo-ed
+porque: work → **worked**
+  talk → **talked**
+  watch → **watched**
+  No passado não existe o -s do he / she / it. A forma é a mesma para todo mundo: {{I worked, she worked, they worked.|Eu trabalhei, ela trabalhou, eles trabalharam.}}
+  Alguns verbos **mudam de forma** em vez de ganhar -ed: go vira **went** ({{We went to the movies.|Nós fomos ao cinema.}}). Esses são o assunto do complemento do Módulo 18.
+compare: Em português mudamos o final do verbo para cada pessoa: trabalhei, trabalhou, trabalhamos.
+  Em inglês é **sempre igual**: worked.
+ex: I listened to your favorite singer. | Eu ouvi seu cantor favorito.
+ex: She talked to her boss. | Ela conversou com a chefe.
+ex: We watched the new horror movie. | Nós assistimos ao novo filme de terror.
+erro: She works yesterday. | She worked yesterday. | Ela trabalhou ontem. | Ontem pede passado: o verbo ganha **-ed**.
+erro: She workeds yesterday. | She worked yesterday. | Ela trabalhou ontem. | O -ed não leva -s. A forma é a mesma para todo mundo.
+quiz: Nós caminhamos até a escola: We ___ to school. | walked | walked; walk; walks
+quiz: Ela conversou comigo: She ___ to me. | talked | talked; talks; talkeds
+
+=regra Como escrever o -ed: -d, -ied e letra dobrada
+gancho: A bengalinha às vezes **se encaixa** no verbo: love + d (já tem e). Às vezes o y **troca de roupa** (study → studied). E às vezes o verbo **dobra a letra** para aguentar o peso (stop → stopped).
+resumo: Nem todo verbo ganha só -ed. Olhe para o final do verbo.
+porque: Termina em **e**: só **-d**. love → **loved**, like → **liked**.
+  Consoante + **y**: o y vira **-ied**. study → **studied**, try → **tried**.
+  Vogal + **y**: só **-ed**. play → **played**, stay → **stayed**.
+  Curto (consoante, vogal, consoante): **dobra a última letra**. stop → **stopped**, plan → **planned**.
+ex: She loved that song. | Ela amou aquela música.
+ex: He studied for the test. | Ele estudou para a prova.
+ex: We stopped at the bakery. | Nós paramos na padaria.
+ex: They played all night. | Eles jogaram a noite toda.
+erro: He studyed for the test. | He studied for the test. | Ele estudou para a prova. | Consoante + **y**: o y vira **-ied**.
+erro: They plaied all night. | They played all night. | Eles brincaram a noite toda. | Vogal + **y**: só **-ed**.
+erro: We stoped at the bakery. | We stopped at the bakery. | Nós paramos na padaria. | Verbo curto (consoante, vogal, consoante): dobra a última letra.
+quiz: Ela estudou muito: She ___ a lot. | studied | studied; studyed; studyd
+quiz: Nós paramos aqui: We ___ here. | stopped | stopped; stoped; stopted
+quiz: Ele amou o filme: He ___ the movie. | loved | loved; loveed; lovd
+
+=dica Como se fala o -ed
+gancho: O -ed é **enganoso**: está escrito 'e-d', mas quase nunca você fala 'é-dê'. Na maioria das vezes ele vira só um T ou um D curtinho no fim da palavra.
+resumo: O -ed tem 3 sons: /t/, /d/ e /id/. Quase sempre ele NÃO vira uma sílaba nova.
+porque: **/t/**: worked, talked, helped, watched. Um T bem curtinho no fim (guia aproximado: 'uôrkt').
+  **/d/**: loved, played, called, cleaned. Um D bem curtinho no fim (guia aproximado: 'lâvd').
+  **/id/**: só depois de T ou D, como em wanted, needed, visited, started. Aqui sim entra uma sílaba a mais (guia aproximado: 'uón-tid').
+  Por isso **worked** tem 1 sílaba e **wanted** tem 2.
+ex: I wanted to visit her. | Eu quis visitá-la.
+ex: We watched a movie. | Nós assistimos a um filme.
+ex: He called me and talked for an hour. | Ele me ligou e conversou por uma hora.
+quiz: Qual palavra termina com a sílaba extra /id/? | wanted | wanted; worked; talked
+quiz: Quantas sílabas tem a palavra 'worked'? | 1 | 1; 2; 3
+
+=pegadinha Negativa: didn't + verbo SEM -ed
+gancho: O passado é um **pacote** que só pode ser entregue **uma vez** na frase. Se o **didn't** já recebeu o pacote, o verbo não recebe de novo: ele volta ao básico.
+resumo: Na negativa, o passado fica no didn't. O verbo volta à forma básica.
+formula: sujeito + didn't + verbo (forma básica)
+porque: **didn't** = did not.
+  O didn't já avisa que é passado. Por isso o verbo **não leva -ed**.
+  {{I worked.|Eu trabalhei.}} vira {{I didn't work.|Eu não trabalhei.}}
+  Vale para todas as pessoas: I, you, he, she, it, we, they.
+compare: Em português o verbo continua no passado na negativa: 'eu **não trabalhei**'.
+  Em inglês o passado passa para o ajudante: {{I didn't work|Eu não trabalhei}}.
+ex: I didn't work yesterday. | Eu não trabalhei ontem.
+ex: She didn't talk to him. | Ela não conversou com ele.
+ex: My father didn't like this singer. | Meu pai não gostou desse cantor.
+erro: I didn't worked. | I didn't work. | Eu não trabalhei. | O passado já está no **didn't**. O verbo volta ao básico.
+erro: I no worked yesterday. | I didn't work yesterday. | Eu não trabalhei ontem. | Quem nega o passado é o **didn't**.
+erro: She didn't talked to him. | She didn't talk to him. | Ela não falou com ele. | Depois de didn't, verbo básico: sem -ed.
+quiz: Eu não trabalhei ontem: I didn't ___ yesterday. | work | work; worked; works
+quiz: Eles não gostaram: They ___ like it. | didn't | didn't; don't; weren't
+
+=pegadinha Pergunta: Did + sujeito + verbo SEM -ed
+gancho: Na pergunta o **Did** vai na frente, como um mensageiro que grita 'foi no passado!'. O verbo, aliviado, nem precisa envelhecer.
+resumo: Na pergunta, o Did vai para o começo e carrega o passado. O verbo fica básico.
+formula: Did + sujeito + verbo (forma básica) ?
+  What / Where / When + did + sujeito + verbo ?
+porque: {{Did you work yesterday?|Você trabalhou ontem?}}
+  O **Did** vem primeiro e já mostra o passado. O verbo **não leva -ed**.
+  Resposta curta: {{Yes, I did.|Sim, eu trabalhei.}} ou {{No, I didn't.|Não, eu não trabalhei.}} Não repita o verbo.
+  Com palavra de pergunta: {{What did you watch last night?|O que você assistiu ontem à noite?}} {{Where did she work?|Onde ela trabalhou?}}
+compare: Em português a pergunta é só a entonação: 'Você trabalhou ontem?'.
+  Em inglês a **ordem muda** e entra o Did na frente.
+ex: Did you work yesterday? | Você trabalhou ontem?
+ex: Did your sister like this novel? | Sua irmã gostou desse romance?
+ex: What did you watch last night? | O que você assistiu ontem à noite?
+erro: Did you worked yesterday? | Did you work yesterday? | Você trabalhou ontem? | O passado já está no **Did**. O verbo fica básico.
+erro: What you did watch? | What did you watch? | O que você assistiu? | A ordem é palavra de pergunta + **did** + sujeito + verbo.
+erro: Did she liked the movie? | Did she like the movie? | Ela gostou do filme? | Depois do **Did**, o verbo fica sem -ed.
+quiz: Você ligou para ela?: Did you ___ her? | call | call; called; calls
+quiz: Sim, eu liguei: Yes, I ___. | did | did; called; do
+quiz: O que você assistiu?: What ___ you watch? | did | did; do; does
+
+=resumo Resumo: os 3 moldes do passado
+gancho: Três moldes, uma regra de ouro: o passado mora em **um lugar só**.
+resumo: Afirmativa: verbo-ed. Negativa e pergunta: did ou didn't + verbo básico.
+formula: I worked.
+  I didn't work.
+  Did you work?
+porque: **Afirmativa**: {{I worked.|Eu trabalhei.}}
+  **Negativa**: {{I didn't work.|Eu não trabalhei.}}
+  **Pergunta**: {{Did you work?|Você trabalhou?}}
+  Regra de ouro: o passado fica em UM lugar só. Ou está no verbo (worked), ou está no did.
+  Se o verbo for to be (am, is, are), o passado é was / were: veja o próximo complemento.
+ex: She worked yesterday. | Ela trabalhou ontem.
+ex: She didn't work yesterday. | Ela não trabalhou ontem.
+ex: Did she work yesterday? | Ela trabalhou ontem?
+erro: She didn't liked the song. | She didn't like the song. | Ela não gostou da música. | Passado em um lugar só: no **didn't**.
+erro: Did they arrived on time? | Did they arrive on time? | Eles chegaram na hora? | O passado já está no **Did**.
+quiz: Ela não trabalhou ontem: She ___ work yesterday. | didn't | didn't; wasn't; doesn't
+quiz: Você trabalhou ontem?: ___ you work yesterday? | Did | Did; Were; Do

@@ -1,0 +1,104 @@
+# Was e were: o to be no passado | gramatica
+porque: Também no Módulo 17 aparecem {{When we were in England, we went to Big Ben.|Quando estávamos na Inglaterra, fomos ao Big Ben.}} e {{You were a good actress when you were a child.|Você era uma boa atriz quando era criança.}} O verbo to be (do complemento do Módulo 5) tem passado próprio: **was** e **were**. E ele dispensa o did.
+historia: Léo mostra uma foto antiga: {{This is me in 2010. I was a kid, and my sister was a baby.|Este sou eu em 2010. Eu era criança, e a minha irmã era um bebê.}}
+  Mia comenta: 'E vocês dois **were** muito fofos!'
+  O to be envelhece de um jeito especial: **am** e **is** viram **was**, e **are** vira **were**. E tem uma vantagem: no passado ele continua dispensando o ajudante did.
+dica: Am e is viram was. Are vira were. Na dúvida: I e he / she / it usam was; you, we e they usam were.
+
+[aquecimento]
+I was tired yesterday. | Eu estava cansado ontem.
+They were at the party. | Eles estavam na festa.
+I was born in Manchester. | Eu nasci em Manchester.
+You were a good actress when you were a child. | Você era uma boa atriz quando era criança.
+Were you at the movies yesterday? | Você estava no cinema ontem?
+Was he at home? | Ele estava em casa?
+We weren't hungry. | Nós não estávamos com fome.
+I wasn't at home. | Eu não estava em casa.
+Where were you yesterday? | Onde você estava ontem?
+She was listening to that band. | Ela estava ouvindo aquela banda.
+
+[palavras]
+tired | cansado
+hungry | com fome
+happy | feliz
+actress | atriz
+band | banda
+singer | cantor, cantora
+England | Inglaterra
+that | aquele, aquela, isso
+yesterday | ontem
+
+[verbos]
+to go | ir | went
+
+[extras]
+I was at school yesterday. | Eu estava na escola ontem.
+She was a teacher. | Ela era professora.
+We were students. | Nós éramos alunos.
+Were they at the party? | Eles estavam na festa?
+He wasn't at the office. | Ele não estava no escritório.
+My father was a singer. | O meu pai era cantor.
+Where was your sister yesterday? | Onde estava a sua irmã ontem?
+They weren't at the movies. | Eles não estavam no cinema.
+
+[resumo]
+When we were in England, we went to Big Ben. | Quando nós estávamos na Inglaterra, nós fomos ao Big Ben.
+When they were children, they liked to watch movies. | Quando eles eram crianças, eles gostavam de assistir filmes.
+
+=regra Was e were: o passado de am, is e are
+gancho: O to be é o único verbo que, no passado, tem **duas** formas. É como um gêmeo: **was** para o time do I / he / she / it, **were** para o time do you / we / they.
+resumo: O verbo to be tem duas formas no passado: was e were.
+formula: I / he / she / it + was
+  you / we / they + were
+porque: **was**: I, he, she, it.
+  **were**: you, we, they.
+  Significa 'era', 'estava', 'foi' ou 'esteve', conforme a frase.
+  {{I was born in Manchester.|Eu nasci em Manchester.}} Em inglês se diz 'eu **fui nascido**'. Por isso nascer usa **was born**.
+compare: Em português o passado do ser/estar tem várias formas: era, estava, fui, estive.
+  Em inglês é só **was** ou **were**.
+ex: I was tired yesterday. | Eu estava cansado ontem.
+ex: They were at the party. | Eles estavam na festa.
+ex: You were a good actress when you were a child. | Você era uma boa atriz quando era criança.
+ex: I was born in Manchester. | Eu nasci em Manchester.
+erro: You was tired. | You were tired. | Você estava cansado. | O **you** pede **were**.
+erro: I were at home. | I was at home. | Eu estava em casa. | O **I** pede **was**.
+erro: They was at the party. | They were at the party. | Eles estavam na festa. | O **they** pede **were**.
+quiz: Nós estávamos em casa: We ___ at home. | were | were; was; did
+quiz: Ele estava feliz: He ___ happy. | was | was; were; is
+
+=pegadinha Was e were não usam did
+gancho: O did é o ajudante do passado dos **outros** verbos. O was e o were já são ajudantes de nascença: dispensam o did, como o am / is / are dispensa o do.
+resumo: Com was e were, a negativa e a pergunta se fazem sem did.
+formula: Negativa: wasn't / weren't
+  Pergunta: Was / Were + sujeito ?
+porque: Negativa: **wasn't** (was not) e **weren't** (were not).
+  Pergunta: o was ou were vai para o começo. {{Was he at home?|Ele estava em casa?}} {{Were you at the movies yesterday?|Você estava no cinema ontem?}}
+  Resposta curta: {{Yes, I was.|Sim, eu estava.}} / {{No, we weren't.|Não, nós não estávamos.}}
+  Nada de did aqui.
+ex: I wasn't at home. | Eu não estava em casa.
+ex: Were you at the movies yesterday? | Você estava no cinema ontem?
+ex: We weren't hungry. | Nós não estávamos com fome.
+erro: Did you were tired? | Were you tired? | Você estava cansado? | Was e were já são ajudantes: vão para a frente, sem **did**.
+erro: I didn't was at home. | I wasn't at home. | Eu não estava em casa. | A negativa de was é **wasn't**, sem didn't.
+erro: She didn't were happy. | She wasn't happy. | Ela não estava feliz. | Com **she**, o certo é **wasn't**. O did não entra.
+quiz: Você estava cansado?: ___ you tired? | Were | Were; Did; Was
+quiz: Ela não estava em casa: She ___ at home. | wasn't | wasn't; didn't; weren't
+
+=regra Estava fazendo: was / were + -ing
+gancho: Lembra do 'estou fazendo' (am / is / are + -ing)? Faça o to be **envelhecer** e você tem o 'estava fazendo'. É só trocar o am / is / are por was / were.
+resumo: Was / were + -ing é o 'estava fazendo': uma ação que estava em andamento no passado.
+formula: I / he / she / it + was + verbo-ing
+  you / we / they + were + verbo-ing
+porque: {{She was listening to that band.|Ela estava ouvindo aquela banda.}}
+  É a mesma receita do 'estou fazendo' (complemento do Módulo 15), só que com was ou were.
+  O verbo continua com -ing.
+  Fala de uma ação **em andamento** em um momento do passado.
+compare: Em português: 'estava ouvindo' (estar no passado + gerúndio).
+  Em inglês: {{was listening|estava ouvindo}}. É praticamente a mesma ideia!
+ex: She was listening to that band. | Ela estava ouvindo aquela banda.
+ex: I was working when you called. | Eu estava trabalhando quando você ligou.
+ex: They were playing soccer. | Eles estavam jogando futebol.
+erro: She was listen to music. | She was listening to music. | Ela estava ouvindo música. | Falta o **-ing** depois do was.
+erro: She listening to that band. | She was listening to that band. | Ela estava ouvindo aquela banda. | Faltou o **was**. As duas peças são obrigatórias.
+quiz: Ela estava ouvindo: She ___ listening to that band. | was | was; were; is
+quiz: Eles estavam jogando: They ___ playing soccer. | were | were; was; are

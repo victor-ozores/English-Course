@@ -1,0 +1,108 @@
+# Have to: ter que | gramatica
+porque: No Módulo 4 aparece {{I have to go now.|Eu tenho que ir agora.}} É quase igual a {{I have an apple.|Eu tenho uma maçã.}}, mas com um **to** a mais que muda o sentido: de 'ter' para 'ter que'.
+historia: Léo chega atrasado ao trabalho e diz: {{I have a meeting!|Eu tenho uma reunião!}}
+  Mia, rindo: 'Você **tem** uma reunião ou você **tem que** ir para uma reunião?'
+  É uma letrinha só, o **to**, mas ela transforma 'ter' em 'ter que'. Vamos ver como.
+dica: Have to e need to quase sempre têm o mesmo sentido: {{I have to go|Eu tenho que ir}} e {{I need to go|Eu preciso ir}} querem dizer 'tenho que ir'.
+
+[aquecimento]
+I have an apple. | Eu tenho uma maçã.
+I have to go now. | Eu tenho que ir agora.
+I have to go to the restaurant. | Eu tenho que ir ao restaurante.
+I have to log out of my account. | Eu tenho que sair da minha conta.
+Do you have thirty books at home? | Você tem trinta livros em casa?
+Do you have to work today? | Você tem que trabalhar hoje?
+I don't have to go. | Eu não tenho que ir.
+We have to study tonight. | Nós temos que estudar hoje à noite.
+
+[palavras]
+we | nós
+they | eles, elas
+she | ela
+apple | maçã
+restaurant | restaurante
+account | conta
+thirty | trinta
+now | agora
+today | hoje
+tonight | hoje à noite
+early | cedo
+Sunday | domingo
+park | parque
+motorcycle | moto
+here | aqui
+
+[verbos]
+to work | trabalhar
+to need | precisar
+to sell | vender
+to wake up | acordar
+to log out | sair (de uma conta)
+
+[extras]
+I have to work on weekends. | Eu tenho que trabalhar nos fins de semana.
+You have to study every day. | Você tem que estudar todo dia.
+Do you have to go to school? | Você tem que ir à escola?
+I don't have to read this book. | Eu não tenho que ler este livro.
+They have to learn English. | Eles têm que aprender inglês.
+We have to eat now. | Nós temos que comer agora.
+Do you have to go to the bank today? | Você tem que ir ao banco hoje?
+I have to speak English at work. | Eu tenho que falar inglês no trabalho.
+
+[resumo]
+I have to wake up early. | Eu tenho que acordar cedo.
+They don't have to work on Sundays. | Eles não têm que trabalhar aos domingos.
+
+=regra Have é ter. Have to é ter que
+gancho: O **to** é o botão de 'obrigação'.
+  Sem o botão: eu **tenho** pão. Com o botão apertado: eu **tenho que** sair.
+resumo: Have = ter. Have to + verbo = ter que (obrigação).
+formula: I / you / we / they + have to + verbo (forma básica)
+porque: **Have** sozinho é ter: {{I have an apple.|Eu tenho uma maçã.}}
+  **Have to** é ter que: {{I have to go now.|Eu tenho que ir agora.}}
+  Depois do to, o verbo fica puro: have to go, have to study, have to work.
+  Vale para I, you, we e they. Com he, she e it, o have vira has: {{She has to go.|Ela tem que ir.}}
+compare: Em português 'tenho' e 'tenho que' são palavras diferentes.
+  Em inglês é a **mesma palavra (have)** com um **to** a mais.
+ex: I have an apple. | Eu tenho uma maçã.
+ex: I have to go now. | Eu tenho que ir agora.
+ex: We have to study tonight. | Nós temos que estudar hoje à noite.
+erro: I have go now. | I have to go now. | Eu tenho que ir agora. | Sem o **to**, o have volta a ser só "ter". Para obrigação, o **to** é obrigatório.
+erro: I have to going now. | I have to go now. | Eu tenho que ir agora. | Depois do **to**, o verbo fica puro: sem **-ing**.
+erro: She have to go. | She has to go. | Ela tem que ir. | Com **she**, **he** e **it**, o have vira **has**.
+quiz: Eu tenho que ir agora: I have ___ go now. | to | to; for; that
+quiz: Eu tenho uma maçã: I ___ an apple. | have | have; have to; has to
+
+=pegadinha Have to: negativa e pergunta
+gancho: Léo pergunta {{Do I have to go?|Eu tenho que ir?}} e Mia responde {{You don't have to, but it would be nice.|Você não precisa, mas seria legal.}} Repare: a pergunta e a negativa usam o ajudante **do**, igual ao que você viu no complemento do Módulo 2.
+resumo: Com have to, a pergunta e a negativa usam do / don't.
+formula: Do + you + have to + verbo ?
+  I + don't have to + verbo
+porque: Pergunta: {{Do you have to work today?|Você tem que trabalhar hoje?}}
+  Negativa: {{I don't have to go.|Eu não preciso ir.}}
+  O have to fica sempre junto e o verbo depois fica puro.
+  Atenção ao sentido: **don't have to** quer dizer "não precisa", e não "é proibido".
+ex: Do you have to work today? | Você tem que trabalhar hoje?
+ex: I don't have to go. | Eu não preciso ir.
+ex: They don't have to work on Sundays. | Eles não precisam trabalhar aos domingos.
+erro: I haven't to go. | I don't have to go. | Eu não preciso ir. | Para negar o have to, use **don't**.
+erro: Have you to go? | Do you have to go? | Você tem que ir? | A pergunta chama o **Do** na frente.
+erro: I no have to go. | I don't have to go. | Eu não preciso ir. | Para negar, use **don't** antes do **have to**. O **no** não serve aqui.
+quiz: Você tem que trabalhar?: ___ you have to work? | Do | Do; Are; Have
+quiz: Eu não preciso ir: I ___ have to go. | don't | don't; haven't; no
+
+=dica Need to: o primo do have to
+gancho: Have to e need to são primos: parecem diferentes, mas fazem quase a mesma coisa. Se você esquecer um, o outro salva.
+resumo: Need to também quer dizer 'precisar'. Na prática, é quase igual ao have to.
+formula: need to + verbo (forma básica)
+porque: {{I need to go|Eu preciso ir}} e {{I have to go|Eu tenho que ir}} querem dizer quase a mesma coisa.
+  Depois do to, o verbo fica puro.
+  Na negativa, **don't need to** é o mesmo que **don't have to**: não precisa.
+  No Módulo 6 você vai ver: {{You don't need to sell your motorcycle.|Você não precisa vender a sua moto.}}
+ex: I need to go now. | Eu preciso ir agora.
+ex: You don't need to sell your motorcycle. | Você não precisa vender sua moto.
+ex: Do you need to work today? | Você precisa trabalhar hoje?
+erro: I need go now. | I need to go now. | Eu preciso ir agora. | Depois de **need** vem o **to** antes do verbo.
+erro: She need to go. | She needs to go. | Ela precisa ir. | Com **she**, o **need** ganha o **-s**.
+quiz: Eu preciso ir: I need ___ go. | to | to; for; that
+quiz: Você não precisa ir: You don't ___ to go. | need | need; needs; needing

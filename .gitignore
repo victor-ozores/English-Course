@@ -1,0 +1,5 @@
+# segredo local e arquivos gerados que não sobem
+senha.txt
+estudo.html
+__pycache__/
+*.pyc

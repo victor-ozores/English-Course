@@ -1,0 +1,142 @@
+# Relationships | modulo 14
+objetivo: Falar de **relacionamentos** e casamento: namorar, casar e convidar.
+cena: Duas amigas falam do casamento de uma delas.
+
+[aquecimento]
+I love my girlfriend. | Eu amo minha namorada.
+Who is your crush? | Quem é sua paquera?
+I have a crush on Michael. | Eu tenho uma queda pelo Michael.
+I want to be your maid of honor. | Eu quero ser sua madrinha de casamento.
+I date Katheryn. | Eu namoro a Katheryn.
+I want to marry you in the church. | Eu quero me casar com você na igreja.
+He is the priest at my wedding. | Ele é o padre do meu casamento.
+She is a beautiful bride. | Ela é uma noiva bonita.
+Do you know where the wedding ring is? | Você sabe onde está a aliança?
+I want to go on a date with Jonas. | Eu quero ir a um encontro com Jonas.
+
+[palavras]
+ring | anel
+marriage | casamento
+wedding | casamento
+crush | paquera
+girlfriend | namorada
+boyfriend | namorado
+wife | esposa
+husband | marido
+ceremony | cerimônia
+church | igreja
+groom | noivo
+bride | noiva
+fiancé | noivo
+fiancée | noiva
+who | quem
+priest | padre
+pastor | pastor
+minister | ministrante (da cerimônia)
+
+[apoio]
+beautiful | bonita, bonito
+men | homens
+someone | alguém
+classroom | sala de aula
+year | ano
+
+[verbos]
+to love | amar
+to date | namorar
+to marry | se casar
+to invite | convidar
+
+[expressoes]
+best man | padrinho de casamento
+maid of honor | madrinha de casamento
+to get engaged | ficar noivo
+to go on a date | ir a um encontro
+wedding reception | festa de casamento
+to have a crush on... | ter uma queda por...
+
+[frases]
+I want to date my best friend. | Eu quero namorar a minha melhor amiga.
+Do you want to marry me? | Você quer se casar comigo?
+I want to invite my cousin. | Eu quero convidar o meu primo.
+I love my girlfriend. | Eu amo a minha namorada.
+The priest of the ceremony is very good. | O padre da cerimônia é muito bom.
+She is a beautiful bride. | Ela é uma noiva linda.
+I love my wife. | Eu amo a minha esposa.
+She loves her husband. | Ela ama o marido.
+I want a good marriage. | Eu quero um bom casamento.
+My fiancé loves my family. | O meu noivo ama a minha família.
+I love my fiancée. | Eu amo a minha noiva.
+The pastor of my church is very good. | O pastor da minha igreja é muito bom.
+
+[perguntas]
+Who is your best friend? | Quem é o seu melhor amigo?
+Who do you want to marry? | Com quem você quer se casar?
+Do you have a boyfriend or girlfriend? | Você tem namorado ou namorada?
+Do you want to get engaged this year? | Você quer ficar noivo este ano?
+Do you like to go to wedding receptions? | Você gosta de ir a recepções de casamento?
+Do you want to invite your friends to your wedding reception? | Você quer convidar os seus amigos para a recepção do seu casamento?
+Who do you want to date? | Quem você quer namorar?
+Who do you want to be your maid of honor or best man? | Quem você quer que seja a sua madrinha / o seu padrinho?
+Do you have a crush on someone in the classroom? | Você tem uma paixonite por alguém da sala de aula?
+Do you love someone who doesn't love you? | Você ama alguém que não ama você?
+
+[modelo]
+Who do you love? | I love my girlfriend, Beverly. | Quem você ama? | Eu amo a minha namorada, Beverly.
+Do you want to invite your aunt? | No, I don't want to. | Você quer convidar a sua tia? | Não, eu não quero.
+
+[extras]
+I love my husband. | Eu amo o meu marido.
+Who is your boyfriend? | Quem é o seu namorado?
+I want to invite my girlfriend to the party. | Eu quero convidar a minha namorada para a festa.
+The bride and the groom are in the church. | A noiva e o noivo estão na igreja.
+She loves her fiancé. | Ela ama o noivo dela.
+Does he love the bride? | Ele ama a noiva?
+They are at the wedding ceremony. | Eles estão na cerimônia de casamento.
+I have a crush on my teacher. | Eu tenho uma paquera pelo meu professor.
+My brother is engaged. | O meu irmão está noivo.
+I want to go on a date with my wife. | Eu quero sair em um encontro com a minha esposa.
+Who is the priest at the wedding? | Quem é o padre do casamento?
+You are a good girlfriend. | Você é uma boa namorada.
+
+[resumo]
+I am engaged to Susan. | Eu estou noivo da Susan.
+You are my maid of honor. | Você é minha madrinha de casamento.
+I know she is on a date. | Eu sei que ela está em um encontro.
+He is the minister at the wedding. | Ele é o ministrante do casamento.
+We are at the wedding reception. | Nós estamos na festa de casamento.
+They are engaged. | Eles estão noivos.
+
+[dialogo]
+Ana | I want to get engaged this year! | Eu quero ficar noiva este ano!
+Você | Do you have a boyfriend? | Você tem namorado?
+Ana | Yes! I love my fiancé. We want to get married in a church. | Sim! Eu amo o meu noivo. Nós queremos nos casar numa igreja.
+Você | Who do you want to invite to the wedding reception? | Quem você quer convidar para a recepção do casamento?
+Ana | I want to invite my family. You are my maid of honor! | Eu quero convidar a minha família. Você é a minha madrinha!
+
+=regra To be: ser e estar
+porque: To be é o único verbo que muda para cada pessoa: I am, you are, he/she/it is, we/you/they are. Ele quer dizer ser ou estar. Nas frases afirmativas não precisa de do nem de to: They are engaged (Eles estão noivos).
+ex: You are my maid of honor. | Você é minha madrinha de casamento.
+ex: We are at the wedding reception. | Nós estamos na festa de casamento.
+ex: He is the minister at the wedding. | Ele é o ministrante do casamento.
+cuidado: 'They engaged' sem are não existe.
+quiz: Eles estão noivos: They ___ engaged. | are | are; is; am
+quiz: Ela é uma noiva bonita: She ___ a beautiful bride. | is | is; are; am
+
+=pegadinha Marry não leva preposição
+porque: Em português nos casamos COM alguém. Em inglês marry vai direto: I want to marry you. Já get engaged leva to: I am engaged to Susan (noivo DA Susan).
+ex: I want to marry you in the church. | Eu quero me casar com você na igreja.
+ex: I am engaged to Susan. | Eu estou noivo da Susan.
+cuidado: 'Marry with you' está errado.
+quiz: Quero me casar com você: I want to marry ___. | you | you; with you; to you
+
+=vocabulario Date: namorar ou encontro
+porque: Date é verbo (namorar): I date Katheryn. E também substantivo (encontro): I want to go on a date with Jonas. Neste caso não tem a ver com a data do calendário.
+ex: I date Katheryn. | Eu namoro a Katheryn.
+ex: I want to go on a date with Jonas. | Eu quero ir a um encontro com Jonas.
+quiz: Eu quero ir a um encontro: I want to go on a ___ with Jonas. | date | date; crush; ring
+
+=pegadinha A preposição vem junto da expressão
+porque: Algumas expressões já vêm com a preposição certa, e ela nem sempre bate com o português: have a crush ON (ter uma queda por), be engaged TO (estar noivo de), be good AT. Aprenda a dupla junta.
+ex: I have a crush on Michael. | Eu tenho uma queda pelo Michael.
+quiz: Eu tenho uma queda pelo Michael: I have a crush ___ Michael. | on | on; by; with
