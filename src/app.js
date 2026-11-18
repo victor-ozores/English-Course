@@ -45,6 +45,8 @@ var ICO = {
   move: '<path d="M12 3v18M3 12h18M9 6l3-3 3 3M9 18l3 3 3-3M6 9l-3 3 3 3M18 9l3 3-3 3"/>',
   grid: '<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>',
   list: '<path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"/>',
+  moon: '<path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/>',
+  sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
   flame: '<path d="M12 3c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2 1-3 2-4 .3 1.2 1 1.7 1.8 1.8C10.5 8.5 10.8 5.5 12 3z"/>',
   off: '<path d="M4 9v6h4l5 4V5L8 9H4zM17 9l4 6M21 9l-4 6"/>',
   redo: '<path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/>', cap: '<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c2 2 10 2 12 0v-4.5"/>'
@@ -142,8 +144,24 @@ function boom(o) {
   if (reduced() || !window.confetti) return;
   confetti(Object.assign({ particleCount: 70, spread: 75, startVelocity: 38, ticks: 140, colors: ['#6B4EFF', '#FF9F1C', '#FFD23F', '#17B67A', '#3BB8FF'], disableForReducedMotion: true }, o || {}));
 }
+/* aviso curtinho (as dicas "title" não aparecem no toque) */
+var toastT = 0;
+function toastMsg(t) {
+  var e = document.getElementById('toastx');
+  if (!e) { e = h('div', { id: 'toastx', class: 'toastx', role: 'status' }); document.body.append(e); }
+  e.textContent = t; e.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(function () { e.classList.remove('on'); }, 2800);
+}
+/* tema: automático (segue o celular), claro ou escuro */
+function darkNow() { var t = S && S.cfg && S.cfg.tema; if (t === 'escuro') return true; if (t === 'claro') return false; return !!(window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches); }
+function applyTema() {
+  var t = S && S.cfg ? S.cfg.tema : '', el = document.documentElement;
+  if (t) el.setAttribute('data-tema', t); else el.removeAttribute('data-tema');
+  var m = document.querySelector('meta[name=theme-color]'); if (m) m.setAttribute('content', darkNow() ? '#0F0D26' : '#6B4EFF');
+}
+function temaIcon(b) { var d = darkNow(); b.replaceChildren(ico(d ? 'sun' : 'moon', 20)); b.setAttribute('aria-label', d ? 'Mudar para o tema claro' : 'Mudar para o tema escuro'); b.title = d ? 'Tema claro' : 'Tema escuro'; }
+function temaToggle(b) { S.cfg.tema = darkNow() ? 'claro' : 'escuro'; save(); applyTema(); temaIcon(b); toastMsg(S.cfg.tema === 'escuro' ? 'Tema escuro ligado.' : 'Tema claro ligado.'); }
 function sndIcon(b) { b.replaceChildren(ico(S && S.cfg && S.cfg.som ? 'spk' : 'off', 20)); b.setAttribute('aria-pressed', S && S.cfg && S.cfg.som ? 'true' : 'false'); }
-function sndToggle(b) { S.cfg.som = !S.cfg.som; save(); sndIcon(b); if (S.cfg.som) sfx('ok'); }
+function sndToggle(b) { S.cfg.som = !S.cfg.som; save(); sndIcon(b); if (S.cfg.som) sfx('ok'); toastMsg(S.cfg.som ? 'Sons ligados (baixinhos). Toque de novo para desligar.' : 'Sons desligados.'); }
 /* meta do dia, sequência e XP */
 var GOAL = 10;
 function dayKey(t) { var d = new Date(t || Date.now()); return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }
@@ -332,7 +350,7 @@ function verbItem(u, v) {
 
 /* ===== estado e salvamento ===== */
 var SK = 'estudo_v1', NOSTORE = false, S;
-function fresh() { return { v: 1, prog: {}, dif: {}, cal: {}, bk: 0, sn: 0, seen: {}, xp: 0, streak: 0, best: 0, last: '', today: null, cfg: { vel: 0.85, livro: BOOKS[0] ? BOOKS[0].id : '', som: true, vol: 0.5, toque: false, vib: true } }; }
+function fresh() { return { v: 1, prog: {}, dif: {}, cal: {}, bk: 0, sn: 0, seen: {}, xp: 0, streak: 0, best: 0, last: '', today: null, cfg: { vel: 0.85, livro: BOOKS[0] ? BOOKS[0].id : '', som: true, vol: 0.5, toque: false, vib: true, tema: '' } }; }
 function clean(o) {
   var f = fresh();
   if (!o || o.v !== 1 || typeof o.prog !== 'object' || !o.prog) return null;
@@ -349,6 +367,7 @@ function clean(o) {
   if (o.today && dk.test(o.today.d)) f.today = { d: o.today.d, n: Math.max(0, +o.today.n || 0), xp: Math.max(0, +o.today.xp || 0) };
   if (o.cal && typeof o.cal === 'object') Object.keys(o.cal).forEach(function (t) { var a = [].concat(o.cal[t]).filter(function (x) { return typeof x === 'string' && /^[a-z0-9]{1,24}$/.test(x); }).slice(0, 6); if (a.length && /^[a-z0-9]{1,24}$/.test(t)) f.cal[t] = a; });
   if (o.cfg) { if (+o.cfg.vel >= 0.4 && +o.cfg.vel <= 1.2) f.cfg.vel = +o.cfg.vel; if (o.cfg.livro && BOOKS.some(function (b) { return b.id === o.cfg.livro; })) f.cfg.livro = o.cfg.livro;
+    if (o.cfg.tema === 'claro' || o.cfg.tema === 'escuro') f.cfg.tema = o.cfg.tema;
     if (typeof o.cfg.som === 'boolean') f.cfg.som = o.cfg.som; if (typeof o.cfg.toque === 'boolean') f.cfg.toque = o.cfg.toque; if (typeof o.cfg.vib === 'boolean') f.cfg.vib = o.cfg.vib;
     if (+o.cfg.vol >= 0.1 && +o.cfg.vol <= 1) f.cfg.vol = +o.cfg.vol; }
   return f;
@@ -504,13 +523,14 @@ function dragify(el, o) {
 function inside(el, x, y, pad) { var r = el.getBoundingClientRect(); pad = pad || 0; return x >= r.left - pad && x <= r.right + pad && y >= r.top - pad && y <= r.bottom + pad; }
 
 /* ===== peças de tela ===== */
-var $app = document.getElementById('app'), $back = document.getElementById('back'), $ttl = document.getElementById('ttl'), $snd = document.getElementById('snd'),
+var $app = document.getElementById('app'), $back = document.getElementById('back'), $ttl = document.getElementById('ttl'), $snd = document.getElementById('snd'), $tema = document.getElementById('tema'),
   $tabH = document.getElementById('tabH'), $tabF = document.getElementById('tabF'), $tabP = document.getElementById('tabP');
 function show(title, backHash) {
   $ttl.textContent = title || ''; seq++; quiet();
   document.body.classList.remove('playing'); document.body.classList.toggle('home', title === null);
   $app.style.paddingBottom = '';
   $back.style.visibility = backHash ? 'visible' : 'hidden'; $back.onclick = function () { go(backHash); };
+  if ($tema && S && S.cfg) { temaIcon($tema); $tema.onclick = function () { temaToggle($tema); }; $tema.style.visibility = ''; } else if ($tema) $tema.style.visibility = 'hidden';
   if ($snd && S && S.cfg) { sndIcon($snd); $snd.onclick = function () { sndToggle($snd); }; $snd.style.visibility = ''; } else if ($snd) $snd.style.visibility = 'hidden';
   var hs = location.hash; $tabP.classList.toggle('on', hs === '#p'); $tabF.classList.toggle('on', hs === '#f'); $tabH.classList.toggle('on', hs !== '#p' && hs !== '#f');
   var kids = [].concat.apply([], [].slice.call(arguments, 2)).filter(function (k) { return k != null && k !== false; });
@@ -521,7 +541,7 @@ function card() { return h.apply(null, ['div', { class: 'card' }].concat([].slic
 function btn(label, fn, cls, ic) { return h('button', { type: 'button', class: cls || '', onclick: fn }, ic ? ico(ic, 20) : null, label); }
 function bar(n, t, ok) { return h('div', { class: 'bar' + (ok ? ' ok' : '') }, h('i', { style: 'width:' + (t ? Math.max(0, Math.round(100 * n / t)) : 0) + '%' })); }
 function say(text, label) { return h('button', { type: 'button', onclick: function () { if (!speak(text)) alert('Este navegador não tem voz em inglês.'); } }, ico('spk', 20), label || 'Ouvir'); }
-function slow(text) { return btn('Devagar', function () { speak(text, 0.55); }); }
+function slow(text) { return btn('Ouvir devagar', function () { speak(text, 0.55); }); }
 function enc(id) { return encodeURIComponent(id); }
 function book() { return BOOKS.filter(function (b) { return b.id === S.cfg.livro; })[0] || BOOKS[0]; }
 function teacher(t) { return t ? h('div', { class: 'note' }, h('span', { class: 'av' }, ico('cap', 20)), h('div', { class: 'tx' }, h('b', { class: 'k' }, 'Professor'), rich(t))) : null; }
@@ -573,8 +593,9 @@ function viewHome() {
   var b = book(), nu = nextUnit(), kids = [], st = 0, sd = 0, ud = 0, t = dayToday(), sk = streakNow();
   b.units.forEach(function (u) { var p = progOf(u); st += p[1]; sd += p[0]; if (p[0] === p[1]) ud++; });
   var snd = h('button', { type: 'button', class: 'snd', 'aria-label': 'Som ligado ou desligado', onclick: function () { sndToggle(snd); } }); sndIcon(snd);
+  var tm = h('button', { type: 'button', class: 'tbtn', onclick: function () { temaToggle(tm); } }); temaIcon(tm);
   kids.push(h('div', { class: 'hbar' }, h('div', { class: 'brand' }, h('span', { class: 'logo' }, ico('mic', 18)), 'Falô'),
-    h('div', { class: 'hchips' }, h('span', { class: 'chipx fire', title: 'Dias seguidos' }, ico('flame', 18, true), String(sk)), h('span', { class: 'chipx xp', title: 'Pontos de experiência' }, ico('bolt', 18, true), (S.xp || 0).toLocaleString('pt-BR')), snd)));
+    h('div', { class: 'hchips' }, h('button', { type: 'button', class: 'chipx fire', 'aria-label': 'Sequência de dias: ' + sk, onclick: function () { toastMsg(sk ? 'Sequência: ' + sk + (sk === 1 ? ' dia seguido' : ' dias seguidos') + ' estudando. Estude todo dia para não perdê-la.' : 'Sequência: estude um pouco hoje para começar a sua.'); } }, ico('flame', 18, true), String(sk)), h('button', { type: 'button', class: 'chipx xp', 'aria-label': 'Pontos: ' + (S.xp || 0), onclick: function () { toastMsg('Pontos: você ganha a cada exercício certo e a cada etapa concluída.'); } }, ico('bolt', 18, true), (S.xp || 0).toLocaleString('pt-BR')), tm, snd)));
   var m = mascot(88, 'happy'), msg;
   if (!sd) msg = 'Oi! Eu sou a Tuca. Vamos aprender inglês falando?';
   else if (t.n >= GOAL) msg = 'Meta de hoje batida! Quer treinar mais um pouco?';
@@ -660,7 +681,7 @@ function stepIntro(u, s, back) {
   if (u.objetivo) c.append(h('h3', null, 'O que você vai aprender'), h('p', null, rich(u.objetivo)));
   if (u.porque) c.append(h('h3', null, 'Por que agora'), h('p', null, rich(u.porque)));
   if (u.historia) c.append(h('h3', null, 'Uma historinha'), h('p', null, rich(u.historia)));
-  c.append(h('p', { class: 'small' }, 'Toque nas frases pontilhadas em azul para ouvir e ver a tradução.'));
+  c.append(h('p', { class: 'small' }, 'Toque nas frases pontilhadas em roxo para ouvir e ver a tradução.'));
   c.append(h('div', { class: 'actions' }, btn('Entendi, vamos começar', function () { mark(u, s); var n = nextStep(u); go(n ? stepHash(u, n) : back); }, 'primary')));
   show(INFO.intro[0], back, c, u.dica ? teacher(u.dica) : null);
 }
@@ -1025,7 +1046,7 @@ function writeLike(q, c, mode) {
   c.box.append(h('p', { class: 'small' }, listenOnly ? 'Ouça e escreva o que você ouviu:' : (auto ? 'Autocompletar: digite as primeiras letras e toque na palavra certa. ' : '') + (isVerb ? 'Escreva o verbo em inglês (pode ser com ou sem "to"):' : 'Escreva em inglês:')));
   if (listenOnly) c.box.append(h('div', { class: 'actions', style: 'margin:0 0 14px' }, say(q.en, 'Ouvir'), slow(q.en)));
   else c.box.append(h('p', { class: 'big' }, q.prompt), ctxChip(q));
-  var liveEl = h('div', { class: 'wm live', 'aria-live': 'polite' }), hintEl = h('div', { class: 'patt', 'aria-live': 'polite' }), sugEl = h('div', { class: 'sug' }), note = h('p', { class: 'livehint' });
+  var liveEl = h('div', { class: 'wm live', 'aria-live': 'polite' }), capEl = h('div', { class: 'pcap' }), hintEl = h('div', { class: 'patt', 'aria-live': 'polite' }), sugEl = h('div', { class: 'sug' }), note = h('p', { class: 'livehint' });
   var tw = []; targets.forEach(function (t) { words(t).forEach(function (w) { if (tw.indexOf(w) < 0) tw.push(w); }); });
   var HB = ['Dica: tamanho das palavras', 'Mais uma dica: 1ª letra', 'Mais uma dica: última letra', 'Dica: ouvir a frase', 'Ouvir de novo'];
   var hbtn = btn(HB[lvl], function () {
@@ -1036,6 +1057,7 @@ function writeLike(q, c, mode) {
   function paintHint() {
     var t = lvl >= 1 ? pattern(q.answer, Math.min(lvl, 3)) : [];
     hintEl.replaceChildren.apply(hintEl, t.map(function (w) { return h('span', { class: 'pw' }, w); })); hintEl.style.display = t.length ? '' : 'none';
+    capEl.textContent = lvl >= 3 ? 'Dica: mostrando a 1ª e a última letra de cada palavra. Cada traço é uma letra que falta.' : lvl === 2 ? 'Dica: mostrando a 1ª letra de cada palavra. Cada traço é uma letra que falta.' : lvl === 1 ? 'Dica: cada grupo de traços é uma palavra e cada traço é uma letra.' : ''; capEl.style.display = lvl >= 1 ? '' : 'none';
     hbtn.textContent = HB[Math.min(lvl, 4)];
     note.textContent = helped ? 'Com dica, a frase volta no fim da rodada para você treinar de novo.' : 'Enquanto você digita, a palavra fica verde se estiver certa e vermelha se estiver errada.';
     if (sbtn) sbtn.classList.toggle('on', sugOn);
@@ -1051,7 +1073,7 @@ function writeLike(q, c, mode) {
       sugEl.append(h('button', { type: 'button', class: 'chip2', onclick: function () { input.value = input.value.slice(0, input.value.length - pre.length) + w + ' '; input.dispatchEvent(new Event('input')); input.focus(); } }, w));
     });
   }
-  c.box.append(input, liveEl, hintEl, sugEl, note, h('div', { class: 'actions' }, chk, listenOnly ? null : hbtn, listenOnly ? null : sbtn));
+  c.box.append(input, liveEl, capEl, hintEl, sugEl, note, h('div', { class: 'actions' }, chk, listenOnly ? null : hbtn, listenOnly ? null : sbtn));
   input.addEventListener('input', function () {
     if (input.readOnly) return;
     var r = bestLive(input.value, targets); liveEl.replaceChildren();
@@ -1128,7 +1150,7 @@ QV.tiles = function (q, c) {
     c.done(ok, ok ? h('div', null, q.answer) : [h('div', { class: 'ln' }, 'Você montou: ' + mine), h('div', { class: 'ln' }, 'O certo é: ', h('strong', null, q.answer))], q.en);
   };
   c.box.append(h('p', { class: 'small' }, 'Arraste ou toque nas palavras para montar em inglês:'), h('p', { class: 'big' }, q.prompt), ctxChip(q), slot, bank, warn,
-    h('div', { class: 'actions' }, chk, btn('Dica: ouvir', function () { speak(q.en); }, '', 'spk')));
+    h('div', { class: 'actions' }, chk, btn('Dica: ouvir a frase', function () { speak(q.en); }, '', 'spk')));
   draw();
 };
 QV.gap = function (q, c) {
@@ -1232,7 +1254,7 @@ QV.spell = function (q, c) {
     var ix = order.filter(function (i) { return Lt[i].toLowerCase() === w.charAt(0).toLowerCase(); })[0]; helped = true; press(ix); first.disabled = true;
   });
   c.box.append(h('p', { class: 'small' }, q.prefix ? 'Monte o VERBO em inglês, letra por letra (sem o "to"):' : 'Monte a palavra em inglês, letra por letra:'), h('p', { class: 'big' }, q.prefix ? q.prompt + '  (verbo)' : q.prompt), ctxChip(q), slot, bank, warn,
-    h('div', { class: 'actions' }, chk, first, btn('Dica: ouvir', function () { helped = true; speak(q.en); }, '', 'spk'), btn('Limpar', function () { if (fin) return; flip([slot, bank], function () { placed = []; draw(); }); })));
+    h('div', { class: 'actions' }, chk, first, btn('Dica: ouvir a frase', function () { helped = true; speak(q.en); }, '', 'spk'), btn('Limpar', function () { if (fin) return; flip([slot, bank], function () { placed = []; draw(); }); })));
   draw();
 };
 function marksEl(r) { var e = h('div', { class: 'wm' }); r.marks.forEach(function (m) { e.append(h('span', { class: m.ok ? 'y' : 'n' }, m.w)); }); return e; }
@@ -1249,8 +1271,8 @@ function speakLike(q, c, hidden) {
   if (hidden) c.box.append(h('p', { class: 'small' }, q.verb ? 'Diga o verbo em inglês (com to):' : 'Diga em inglês, sem ler:'), h('p', { class: 'big' }, q.pt), ctxChip(q), enEl);
   else c.box.append(h('p', { class: 'small' }, q.ctx ? 'Agora você responde:' : 'Ouça e repita em voz alta:'), enEl, h('p', { class: 'mut' }, q.pt));
   c.box.append(h('div', { class: 'actions', style: 'margin-top:4px' },
-    h('button', { type: 'button', onclick: function () { if (hidden) hinted = true; speak(q.en); } }, ico('spk', 20), hidden ? 'Dica: ouvir' : 'Ouvir'),
-    btn('Devagar', function () { if (hidden) hinted = true; speak(q.en, 0.55); })));
+    h('button', { type: 'button', onclick: function () { if (hidden) hinted = true; speak(q.en); } }, ico('spk', 20), hidden ? 'Dica: ouvir a frase' : 'Ouvir'),
+    btn('Ouvir devagar', function () { if (hidden) hinted = true; speak(q.en, 0.55); })));
   c.box.append(h('div', { class: 'micwrap' }, mic, lab, heard), res);
 
   function onSR(alts, err) {
@@ -1386,6 +1408,8 @@ function viewPerfil() {
       h('p', { class: 'small' }, 'Se o arquivo não abrir no seu celular, use o código: é um texto só, que você manda para si mesmo e cola depois.'),
       code, h('div', { class: 'actions' }, btn('Copiar código', copiar), btn('Importar código', function () { importText(code.value, function (ok) { if (ok) viewPerfil(); }); })), cmsg,
       h('div', { class: 'actions' }, btn('Pedir ao navegador para guardar', persist)), file, info),
+    card(h('h3', null, 'Aparência'), h('p', { class: 'small' }, 'Automático segue o tema do seu celular. Você também troca no botão de sol ou lua, no topo.'),
+      (function () { var sel = h('select', { 'aria-label': 'Tema do app', onchange: function () { S.cfg.tema = sel.value; save(); applyTema(); if ($tema) temaIcon($tema); } }); [['', 'Automático'], ['claro', 'Claro'], ['escuro', 'Escuro']].forEach(function (o) { sel.append(h('option', { value: o[0] }, o[1])); }); sel.value = S.cfg.tema || ''; return sel; })()),
     card(h('h3', null, 'Sons e vibração'), h('p', { class: 'small' }, 'Os sons são curtinhos e baixos. Se preferir silêncio, desligue.'),
       swRow('Sons de acerto, erro e conclusão', 'som'),
       h('div', { class: 'row2s' }, h('span', null, 'Volume dos sons'), h('input', { type: 'range', class: 'range', min: '0.1', max: '1', step: '0.05', value: String(S.cfg.vol), 'aria-label': 'Volume dos sons', oninput: function (e) { S.cfg.vol = +e.target.value; }, onchange: function () { save(); sfx('ok'); } })),
@@ -1411,7 +1435,7 @@ function start() {
   document.body.classList.remove('locked');
   try { loadBooks(); } catch (e) { $app.textContent = 'Erro ao ler os dados: ' + e.message; return; }
   if (!BOOKS.length) { $app.textContent = 'Nenhum livro encontrado na pasta dados.'; return; }
-  S = loadState();
+  S = loadState(); applyTema();
   try { if (navigator.storage && navigator.storage.persist) navigator.storage.persist(); } catch (e) {}
   if (doneCount() === 0) { idbGet(function (t) { try { var o = t && clean(JSON.parse(t)), n = 0; if (o) { Object.keys(o.prog).forEach(function (k) { n += Object.keys(o.prog[k].steps).length; }); if (n > 0) { S = o; RESTORED = n; save(); route(); } } } catch (e) {} }); }
   save();

@@ -25,6 +25,9 @@ Duas formas de abrir, sempre no **Chrome** (é nele que a voz e a conferência d
 - **"O microfone errou, eu falei certo":** toque nesse botão quando tiver certeza. O app aprende o som (neste aparelho) e passa a aceitar. Na aba Progresso você vê e apaga essas correções.
 - Dica para o microfone entender melhor: fale a palavra inteira, sem pressa, com o celular perto e sem barulho; para uma palavra solta, diga-a duas vezes seguidas ("bread, bread") se ele insistir em errar.
 
+## Tema claro ou escuro
+O botão de **sol/lua** no topo troca na hora. Em **Progresso > Aparência** você escolhe Automático (segue o tema do celular), Claro ou Escuro. A escolha fica salva.
+
 ## Sons e vibração
 Os sons são curtos e baixos. No ícone de alto-falante (no topo) você liga e desliga. Na aba **Progresso > Sons e vibração**: volume, som a cada toque (vem desligado) e vibração.
 
