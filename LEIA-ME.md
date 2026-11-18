@@ -1,4 +1,4 @@
-# Estudo de inglês (Hey, Ho! Let's Go! - Book 1)
+# Falô English (Hey, Ho! Let's Go! - Book 1)
 
 Duas formas de abrir, sempre no **Chrome** (é nele que a voz e a conferência da fala funcionam; a conferência precisa de internet):
 
@@ -6,6 +6,7 @@ Duas formas de abrir, sempre no **Chrome** (é nele que a voz e a conferência d
 - **Pelo arquivo `estudo.html`** (não precisa de senha nem de internet, mas o Chrome pergunta a permissão do microfone a cada toque).
 
 ## Como estudar
+0. A **Tuca** (a tucana) mostra a próxima etapa. Cada exercício certo dá **pontos**; estudar todo dia aumenta a **sequência**; o anel mostra a **meta do dia** (10 exercícios). Nada trava: você pode estudar qualquer unidade.
 1. Toque em **Continuar**.
 2. Cada unidade segue a ordem: **Comece por aqui > Palavras > Verbos > Expressões > Regras (o porquê) > Frases > Conversa > Revisão final**.
 3. As unidades "Gramática" (do, does, did, will...) aparecem antes do módulo que precisa delas.
@@ -23,6 +24,9 @@ Duas formas de abrir, sempre no **Chrome** (é nele que a voz e a conferência d
 - **meat e meet (mesmo som):** o microfone não separa. As duas valem na fala, e o app avisa. Na escrita a grafia certa é exigida.
 - **"O microfone errou, eu falei certo":** toque nesse botão quando tiver certeza. O app aprende o som (neste aparelho) e passa a aceitar. Na aba Progresso você vê e apaga essas correções.
 - Dica para o microfone entender melhor: fale a palavra inteira, sem pressa, com o celular perto e sem barulho; para uma palavra solta, diga-a duas vezes seguidas ("bread, bread") se ele insistir em errar.
+
+## Sons e vibração
+Os sons são curtos e baixos. No ícone de alto-falante (no topo) você liga e desliga. Na aba **Progresso > Sons e vibração**: volume, som a cada toque (vem desligado) e vibração.
 
 ## Exercícios
 Falar, falar sem ler, arrastar para montar a frase, completar arrastando, ligar os pares, escrever, autocompletar, montar a palavra letra por letra, ouvir e escrever, escolher e "qual está certa?".

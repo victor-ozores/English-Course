@@ -67,7 +67,7 @@ def pagina(dados_js):
     html = ler('src', 'index.html')
     return (html.replace('{{CSS}}', ler('src', 'style.css'))
                 .replace('{{DADOS}}', dados_js)
-                .replace('{{JS}}', (ler('src', 'fala.js') + '\n' + ler('src', 'app.js')).replace('</script', '<\\/script')))
+                .replace('{{JS}}', '\n;'.join([ler('vendor', 'motion.js'), ler('vendor', 'confetti.js'), ler('src', 'fala.js'), ler('src', 'app.js')]).replace('</script', '<\\/script')))
 
 
 def argumento(nome):

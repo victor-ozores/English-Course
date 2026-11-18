@@ -4,9 +4,9 @@
 
 <div align="center">
 
-# 🎧 Estudo de Inglês
+# 🦜 Falô English
 
-**App de estudo de inglês feito para o celular, centrado em falar: o microfone confere cada palavra que eu digo e a linha fica verde ou vermelha.**
+**App de estudo de inglês feito para o celular, centrado em falar: o microfone confere cada palavra que eu digo e a linha fica verde ou vermelha. A Tuca, a tucana do app, comemora os acertos.**
 Um arquivo só, sem servidor e sem instalar nada. Conteúdo do livro *Hey, Ho, Let's Go!* (Book 1), em 46 unidades, com o porquê de cada regra explicado.
 
 [![Abrir o app](docs/img/botoes/abrir-app.svg)](https://victor-ozores.github.io/English-Course/)&nbsp;&nbsp;&nbsp;![Acesso com senha](docs/img/botoes/privado.svg)
@@ -76,7 +76,7 @@ Abre no Chrome do celular ou do computador. Na primeira vez pede a senha de aces
 
 | Tela | O que mostra |
 |---|---|
-| **Início** | Progresso do livro, o botão Continuar, o treino de fala, o reforço do que errei e a trilha das 46 unidades (gramáticas em âmbar) |
+| **Início** | A Tuca com a próxima etapa e o botão Continuar, os pontos (XP), a sequência de dias, a meta do dia (10 exercícios), o treino de fala, o reforço do que errei e a trilha em zigue-zague das 46 unidades (gramáticas em amarelo) |
 | **Unidade** | As etapas na ordem (**comece por aqui, palavras, verbos, expressões, regras, frases, conversa, revisão**), com a próxima destacada |
 | **Palavras e verbos** | Uma linha por item com ouvir e falar; o placar de certas, erradas e faltam; e a rodada de treino |
 | **Exercícios** | Falar, falar sem ler, arrastar e montar a frase, completar arrastando, ligar os pares (com linha verde ou vermelha e aviso de erro), escrever (com dica em níveis e autocompletar), autocompletar, montar a palavra letra por letra, ouvir e escrever, escolher e "qual está certa?" |
@@ -139,6 +139,7 @@ flowchart TD
 ## 📚 De Onde Vem o Conteúdo
 
 * **O livro.** *Hey, Ho, Let's Go!* Book 1: palavras, verbos, expressões, frases e conversas dos 25 módulos.
+* **Muitas frases, sem repetir.** São cerca de 2.800 frases no total (uns 80 por módulo e uns 38 por gramática), todas com vocabulário já ensinado. Um rodízio faz as rodadas passarem por todas as frases antes de repetir alguma.
 * **O porquê das regras.** As explicações, os exemplos e as pegadinhas das 46 unidades foram escritas para eu entender de verdade, em português simples. As 21 gramáticas vêm antes do módulo que usa cada uma: do/don't, plural, at/in/on/to (lugar), at/in/on (tempo), have to, artigos (a, an, the ou nada), to be, he/she/it, make/do/take/get/have/go, does, would like, preposições fixas (listen to, good at...), can, present continuous, did, was/were, passado irregular, if, going to, will e used to.
 * **O que o livro não explica e eu acrescentei.** Quando usar **at, in, on e to** (at the store, go to the store, at home), as preposições de tempo, quando usar **a, an, the ou nada**, o plural e as palavras que mudam por inteiro (child, children), os pares de verbos que o português chama tudo de "fazer", e as preposições que andam sempre juntas (listen **to**, good **at**).
 * **Lembrete das formas dos verbos.** Do Módulo 8 em diante, cada módulo que usa verbos com outra cara ganha uma lição de lembrete: **needed, took, bought, sold, has, making**, cada uma com o verbo básico. O script `lembretes.py` monta a lista a partir das frases de cada módulo.
@@ -158,6 +159,8 @@ O navegador entende a minha voz e devolve um texto; a comparação com a frase c
 * **Dica ao navegador.** Quando o Chrome aceita uma lista de palavras esperadas, o app avisa qual palavra eu devo falar; se ele recusar, o app ouve sem a dica.
 * **Calibração pessoal.** Se o microfone errar e eu tiver certeza de que falei certo, toco em "O microfone errou, eu falei certo": o app guarda a correção neste aparelho (e na cópia do progresso) e passa a aceitar aquele som.
 * **Dica ou 3 tentativas ou mais:** a frase passa, mas volta no fim da rodada.
+* **Sons suaves e opcionais.** Os sons de acerto, erro e conclusão são notas curtinhas e baixas geradas na hora (sem arquivo). Ficam ligados com volume baixo; na aba Progresso dá para desligar, mudar o volume, ligar o som de toque e a vibração.
+* **Situação nas perguntas ambíguas.** Quando o português serve para duas palavras (*boa noite*, *ouvir*, *noivo*), a pergunta mostra a situação ("ao chegar", "ao ir dormir") para o aluno saber o que está sendo pedido.
 * **Mais de uma resposta certa.** "Boa noite" é *good evening* ou *good night*, e a frase sozinha não diz qual. O app junta tudo o que o livro traduz do mesmo jeito em português, mais os grupos de `_alternativas.txt` (fica só no meu computador, junto do conteúdo) (*thanks* e *thank you*, *movie* e *film*, *I play guitar* e *I play the guitar*) e aceita qualquer um, na escrita, na fala sem ler e no arrastar. Nas perguntas de escolher, dois itens que querem dizer a mesma coisa nunca aparecem juntos.
 * **Escrita:** *do not* vale por *don't* e *15* por *fifteen*, mas a grafia tem de estar certa. Enquanto digito, cada palavra fica verde (certa), vermelha (errada) ou azul (ainda digitando).
 * **Sem o reconhecimento de voz** (navegador sem suporte), o app grava a minha voz e eu comparo com o modelo. Se também não houver microfone, ele pede para eu escrever a frase.
@@ -178,7 +181,7 @@ O navegador entende a minha voz e devolve um texto; a comparação com a frase c
 
 | Parte | O que usei |
 |---|---|
-| **App** | HTML, CSS e JavaScript simples, sem biblioteca e sem instalar nada (nem npm); uma página só |
+| **App** | HTML, CSS e JavaScript simples, uma página só, sem npm. Só duas bibliotecas pequenas, copiadas para a pasta `vendor/` e embutidas na página (funciona sem internet): **Motion** (animações com mola) e **canvas-confetti** (confete ao concluir). Fontes Fredoka e Nunito (Google Fonts, com fonte do sistema como reserva) |
 | **Voz** | Web Speech API do navegador: síntese (ouvir em inglês) e reconhecimento (entender o que eu digo); gravação com `MediaRecorder` quando não há reconhecimento |
 | **Montagem** | Python 3 (`montar.py`), só biblioteca padrão |
 | **Cifra** | Node (`cifrar.js`) e a Web Crypto do navegador: AES-256-GCM, chave derivada da senha com PBKDF2-SHA256 (250 mil voltas) |
@@ -193,6 +196,7 @@ dados/_modelo.txt    o formato de um arquivo de unidade (o conteúdo do livro, e
 src/                 index.html, style.css, app.js (telas e exercícios), fala.js (conferência da fala)
 testes/              fala.test.js
 montar.py            confere o conteúdo e gera estudo.html (local) e docs/index.html (cifrado)
+ferramentas/        vocab.py e addextras.py: acrescentam frases novas conferindo o vocabulário
 lembretes.py         monta a lição "Lembrete: as formas dos verbos" de cada módulo
 cifrar.js            cifra o conteúdo para a versão publicada
 docs/                index.html cifrado (é o que o GitHub Pages serve) e as imagens deste README

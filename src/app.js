@@ -45,11 +45,13 @@ var ICO = {
   move: '<path d="M12 3v18M3 12h18M9 6l3-3 3 3M9 18l3 3 3-3M6 9l-3 3 3 3M18 9l3 3-3 3"/>',
   grid: '<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>',
   list: '<path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"/>',
+  flame: '<path d="M12 3c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2 1-3 2-4 .3 1.2 1 1.7 1.8 1.8C10.5 8.5 10.8 5.5 12 3z"/>',
+  off: '<path d="M4 9v6h4l5 4V5L8 9H4zM17 9l4 6M21 9l-4 6"/>',
   redo: '<path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/>', cap: '<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c2 2 10 2 12 0v-4.5"/>'
 };
-function ico(n, size) {
+function ico(n, size, fill) {
   var s = document.createElement('span'); s.className = 'ico';
-  s.innerHTML = '<svg viewBox="0 0 24 24" width="' + (size || 22) + '" height="' + (size || 22) + '" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICO[n] + '</svg>';
+  s.innerHTML = '<svg viewBox="0 0 24 24" width="' + (size || 22) + '" height="' + (size || 22) + '" fill="' + (fill ? 'currentColor' : 'none') + '" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICO[n] + '</svg>';
   return s;
 }
 function ring(pct, o) {
@@ -75,9 +77,87 @@ function rich(s, tag) {
   return e;
 }
 
+/* ===== visual: mascote Tuca, sons suaves, vibração e confete ===== */
+var MO = window.Motion || null;
+function reduced() { return !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches); }
+function mascot(size, mood) {
+  var e = h('span', { class: 'mascot' });
+  e.style.width = e.style.height = size + 'px';
+  e.innerHTML = '<svg viewBox="0 0 120 120" width="' + size + '" height="' + size + '" aria-hidden="true">' +
+    '<g class="tuca"><ellipse cx="52" cy="114" rx="30" ry="4.5" fill="rgba(0,0,0,.16)"/>' +
+    '<path d="M24 92L5 112l27-3z" fill="#2A2060"/><path d="M20 100l-6 10 12-2z" fill="#E8453C"/>' +
+    '<ellipse cx="42" cy="108" rx="9" ry="4" fill="#FF9F1C"/><ellipse cx="60" cy="108" rx="9" ry="4" fill="#FF9F1C"/>' +
+    '<ellipse cx="48" cy="72" rx="33" ry="37" fill="#2A2060"/>' +
+    '<path d="M52 52C72 54 76 72 68 86C60 98 44 94 40 82C42 68 46 58 52 52z" fill="#FFF1A8"/>' +
+    '<path d="M25 68C16 84 22 102 40 106C43 92 41 78 35 64z" fill="#4636B8"/>' +
+    '<circle cx="54" cy="42" r="25" fill="#2A2060"/>' +
+    '<g class="eyes" style="transform-box:fill-box;transform-origin:center"><circle cx="60" cy="40" r="12" fill="#3BB8FF"/><circle cx="60" cy="40" r="9" fill="#fff"/>' +
+    '<g class="pup"><circle cx="62.5" cy="40.5" r="5" fill="#1B1740"/><circle cx="64.5" cy="38" r="1.8" fill="#fff"/></g></g>' +
+    '<path class="brow" d="M50 26L68 27" stroke="#fff" stroke-width="3.2" stroke-linecap="round" fill="none" opacity="0"/>' +
+    '<g class="beak"><path d="M70 33C90 26 112 32 117 54C100 52 84 52 70 52z" fill="#FFB020"/><path d="M70 33C90 26 112 32 117 54C111 44 92 37 70 40z" fill="#FFE066"/>' +
+    '<path d="M108 36C115 41 118 48 117 54C114 52 111 51 107 50z" fill="#2A2060"/>' +
+    '<g class="jaw"><path d="M70 52C88 52 106 54 115 57C108 70 88 70 72 62z" fill="#FF7A1A"/></g></g></g></svg>';
+  if (mood) setMood(e, mood);
+  return e;
+}
+function setMood(e, mood) {
+  var br = e.querySelector('.brow'), jaw = e.querySelector('.jaw'), pu = e.querySelector('.pup');
+  br.setAttribute('opacity', mood === 'sad' || mood === 'think' ? 1 : 0);
+  if (mood === 'sad') br.setAttribute('d', 'M48 30L66 24');
+  if (mood === 'think') br.setAttribute('d', 'M50 24L68 28');
+  jaw.setAttribute('transform', mood === 'cheer' ? 'translate(0 5)' : mood === 'happy' ? 'translate(0 2)' : '');
+  pu.setAttribute('transform', mood === 'think' ? 'translate(-3 -3)' : mood === 'sad' ? 'translate(-2 3)' : '');
+}
+function idle(e) {
+  if (!MO || reduced()) return;
+  MO.animate(e.querySelector('.tuca'), { y: [0, -3, 0] }, { duration: 2.6, repeat: Infinity, ease: 'easeInOut' });
+  (function blink() { var ey = e.querySelector('.eyes'); if (!ey || !ey.isConnected) return; MO.animate(ey, { scaleY: [1, .1, 1] }, { duration: .18 }); setTimeout(blink, 2400 + Math.random() * 2600); })();
+}
+function hop(e) { if (!MO || reduced()) return; MO.animate(e.querySelector('.tuca'), { y: [0, -14, 0], rotate: [0, -5, 5, 0] }, { duration: .55 }); }
+function wiggle(el) { if (!MO || reduced() || !el) return; MO.animate(el, { x: [0, -8, 8, -5, 5, 0] }, { duration: .4 }); }
+function countUp(el, to, fmt, delay) {
+  if (!MO || reduced()) { el.textContent = fmt ? fmt(to) : to; return; }
+  MO.animate(0, to, { duration: 1, delay: delay || 0, ease: [.2, .8, .2, 1], onUpdate: function (v) { el.textContent = fmt ? fmt(v) : Math.round(v); } });
+}
+/* sons: ondas suaves e baixinhas, geradas na hora (sem arquivo). Tudo pode ser desligado no Perfil. */
+var AC = null;
+function tone(seq, gain) {
+  try {
+    AC = AC || new (window.AudioContext || window.webkitAudioContext)();
+    if (AC.state === 'suspended') AC.resume();
+    var t = AC.currentTime, vol = (S && S.cfg ? +S.cfg.vol : .5), g0 = (gain || .1) * vol * vol * 2;
+    seq.forEach(function (n) {
+      var o = AC.createOscillator(), g = AC.createGain(), at = t + n[1], len = n[2] || .22;
+      o.type = 'sine'; o.frequency.setValueAtTime(n[0], at); if (n[3]) o.frequency.exponentialRampToValueAtTime(n[3], at + len);
+      o.connect(g); g.connect(AC.destination);
+      g.gain.setValueAtTime(.0001, at); g.gain.exponentialRampToValueAtTime(Math.max(g0, .0002), at + .02); g.gain.exponentialRampToValueAtTime(.0001, at + len);
+      o.start(at); o.stop(at + len + .05);
+    });
+  } catch (e) {}
+}
+var SN = { ok: [[587, 0, .16], [880, .09, .24]], bad: [[247, 0, .28, 175]], win: [[523, 0, .2], [659, .1, .2], [784, .2, .2], [1047, .3, .42]], tap: [[760, 0, .05]], hit: [[698, 0, .14]] };
+function sfx(n) { if (!S || !S.cfg || !S.cfg.som || !SN[n]) return; tone(SN[n], n === 'tap' ? .05 : n === 'bad' ? .09 : .1); }
+function buzz(ms) { try { if (S && S.cfg && S.cfg.vib && navigator.vibrate && (!navigator.userActivation || navigator.userActivation.hasBeenActive)) navigator.vibrate(ms); } catch (e) {} }
+function boom(o) {
+  if (reduced() || !window.confetti) return;
+  confetti(Object.assign({ particleCount: 70, spread: 75, startVelocity: 38, ticks: 140, colors: ['#6B4EFF', '#FF9F1C', '#FFD23F', '#17B67A', '#3BB8FF'], disableForReducedMotion: true }, o || {}));
+}
+function sndIcon(b) { b.replaceChildren(ico(S && S.cfg && S.cfg.som ? 'spk' : 'off', 20)); b.setAttribute('aria-pressed', S && S.cfg && S.cfg.som ? 'true' : 'false'); }
+function sndToggle(b) { S.cfg.som = !S.cfg.som; save(); sndIcon(b); if (S.cfg.som) sfx('ok'); }
+/* meta do dia, sequência e XP */
+var GOAL = 10;
+function dayKey(t) { var d = new Date(t || Date.now()); return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }
+function dayToday() { var k = dayKey(); if (!S.today || S.today.d !== k) S.today = { d: k, n: 0, xp: 0 }; return S.today; }
+function streakNow() { if (!S.last) return 0; return (S.last === dayKey() || S.last === dayKey(Date.now() - 864e5)) ? S.streak : 0; }
+function touchDay() {
+  var k = dayKey(); if (S.last === k) return false;
+  S.streak = S.last === dayKey(Date.now() - 864e5) ? (S.streak || 0) + 1 : 1; S.last = k; S.best = Math.max(S.best || 0, S.streak); return true;
+}
+function gain(n, counted) { var t = dayToday(); S.xp = (S.xp || 0) + n; t.xp += n; if (counted) t.n++; touchDay(); }
+
 /* ===== dados ===== */
 var KEYS = { objetivo: 1, porque: 1, historia: 1, dica: 1, cena: 1, gancho: 1, resumo: 1, formula: 1, compare: 1, ex: 1, erro: 1, cuidado: 1, quiz: 1 };
-var BOOKS = [], UNITS = {}, GL = { w: [], s: [], v: [] }, PT = {}, SOFTW = [], ALTG = [], ROWS = [], ROWALT = {}, PTX = {}, ACC = {}, ACCSET = {};
+var BOOKS = [], UNITS = {}, GL = { w: [], s: [], v: [] }, PT = {}, SOFTW = [], ALTG = [], ROWS = [], ROWALT = {}, PTX = {}, ACC = {}, ACCSET = {}, CTX = {};
 function parseUnit(book, fname, text) {
   var u = { id: book + ':' + fname.replace(/^\d+-[a-z]-/, ''), file: fname, book: book, titulo: '', tipo: 'modulo', num: 0, notas: {}, secs: {}, lessons: [] };
   var cur = u, cs = null, last = null;
@@ -109,7 +189,7 @@ function loadBooks() {
   Object.keys(D).forEach(function (id) {
     var b = { id: id, nome: D[id].nome, units: [] };
     Object.keys(D[id].files).sort().forEach(function (f) {
-      if (f.charAt(0) === '_') { if (f === '_alternativas') parseAlt(D[id].files[f]); return; }
+      if (f.charAt(0) === '_') { if (f === '_alternativas') parseAlt(D[id].files[f]); else if (f === '_contextos') parseCtx(D[id].files[f]); return; }
       var u = parseUnit(id, f, D[id].files[f]); b.units.push(u); UNITS[u.id] = u;
     });
     BOOKS.push(b);
@@ -131,6 +211,14 @@ function loadBooks() {
 }
 
 /* ===== respostas equivalentes (boa noite = good evening OU good night) ===== */
+function parseCtx(text) {
+  text.split('\n').forEach(function (raw) {
+    var l = raw.trim(); if (!l || l.charAt(0) === '#') return;
+    var c = l.split(' | '); if (c.length === 3) CTX[norm(c[0]) + '|' + c[1].toLowerCase().trim()] = c[2].trim();
+  });
+}
+function ctxOf(it) { return CTX[norm(it[0]) + '|' + String(it[1]).toLowerCase().replace(/[.!…]+$/, '').trim()] || ''; }
+function ctxChip(q) { return q && q.cx ? h('div', { class: 'ctxchip' }, ico('bulb', 20), h('span', null, h('b', null, 'Situação: '), q.cx)) : document.createDocumentFragment(); }
 function escRe(t) { return t.replace(/([.*+?^$|(){}\[\]\\])/g, '\\$1'); }
 function parseAlt(text) {
   text.split('\n').forEach(function (raw) {
@@ -244,7 +332,7 @@ function verbItem(u, v) {
 
 /* ===== estado e salvamento ===== */
 var SK = 'estudo_v1', NOSTORE = false, S;
-function fresh() { return { v: 1, prog: {}, dif: {}, cal: {}, bk: 0, cfg: { vel: 0.85, livro: BOOKS[0] ? BOOKS[0].id : '' } }; }
+function fresh() { return { v: 1, prog: {}, dif: {}, cal: {}, bk: 0, sn: 0, seen: {}, xp: 0, streak: 0, best: 0, last: '', today: null, cfg: { vel: 0.85, livro: BOOKS[0] ? BOOKS[0].id : '', som: true, vol: 0.5, toque: false, vib: true } }; }
 function clean(o) {
   var f = fresh();
   if (!o || o.v !== 1 || typeof o.prog !== 'object' || !o.prog) return null;
@@ -255,8 +343,14 @@ function clean(o) {
   });
   if (o.dif && typeof o.dif === 'object') Object.keys(o.dif).forEach(function (k) { var n = +o.dif[k]; if (n > 0) f.dif[k] = Math.min(n, 9); });
   f.bk = +o.bk || 0;
+  f.sn = Math.max(0, +o.sn || 0); if (o.seen && typeof o.seen === 'object') Object.keys(o.seen).slice(0, 800).forEach(function (k) { var n = +o.seen[k]; if (n > 0 && k.length < 140) f.seen[k] = n; });
+  var dk = /^\d{4}-\d{1,2}-\d{1,2}$/;
+  f.xp = Math.max(0, +o.xp || 0); f.streak = Math.max(0, +o.streak || 0); f.best = Math.max(0, +o.best || 0); f.last = dk.test(o.last) ? o.last : '';
+  if (o.today && dk.test(o.today.d)) f.today = { d: o.today.d, n: Math.max(0, +o.today.n || 0), xp: Math.max(0, +o.today.xp || 0) };
   if (o.cal && typeof o.cal === 'object') Object.keys(o.cal).forEach(function (t) { var a = [].concat(o.cal[t]).filter(function (x) { return typeof x === 'string' && /^[a-z0-9]{1,24}$/.test(x); }).slice(0, 6); if (a.length && /^[a-z0-9]{1,24}$/.test(t)) f.cal[t] = a; });
-  if (o.cfg) { if (+o.cfg.vel >= 0.4 && +o.cfg.vel <= 1.2) f.cfg.vel = +o.cfg.vel; if (o.cfg.livro && BOOKS.some(function (b) { return b.id === o.cfg.livro; })) f.cfg.livro = o.cfg.livro; }
+  if (o.cfg) { if (+o.cfg.vel >= 0.4 && +o.cfg.vel <= 1.2) f.cfg.vel = +o.cfg.vel; if (o.cfg.livro && BOOKS.some(function (b) { return b.id === o.cfg.livro; })) f.cfg.livro = o.cfg.livro;
+    if (typeof o.cfg.som === 'boolean') f.cfg.som = o.cfg.som; if (typeof o.cfg.toque === 'boolean') f.cfg.toque = o.cfg.toque; if (typeof o.cfg.vib === 'boolean') f.cfg.vib = o.cfg.vib;
+    if (+o.cfg.vol >= 0.1 && +o.cfg.vol <= 1) f.cfg.vol = +o.cfg.vol; }
   return f;
 }
 function loadState() { try { var r = localStorage.getItem(SK); if (r) { var o = clean(JSON.parse(r)); if (o) return o; } } catch (e) { NOSTORE = true; } return fresh(); }
@@ -267,7 +361,7 @@ var RESTORED = 0;
 function save() { S.ts = Date.now(); var t = JSON.stringify(S); try { localStorage.setItem(SK, t); } catch (e) { NOSTORE = true; } idbSet(t); }
 function P(u) { return S.prog[u.id] || (S.prog[u.id] = { steps: {} }); }
 function done(u, s) { return !!(S.prog[u.id] && S.prog[u.id].steps[s]); }
-function mark(u, s) { P(u).steps[s] = 1; save(); }
+function mark(u, s) { var novo = !P(u).steps[s]; P(u).steps[s] = 1; if (novo) gain(30, false); save(); }
 function calCount() { var n = 0; Object.keys(S.cal || {}).forEach(function (t) { n += S.cal[t].length; }); return n; }
 function calAdd(pairs) {
   S.cal = S.cal || {}; var n = 0;
@@ -410,13 +504,14 @@ function dragify(el, o) {
 function inside(el, x, y, pad) { var r = el.getBoundingClientRect(); pad = pad || 0; return x >= r.left - pad && x <= r.right + pad && y >= r.top - pad && y <= r.bottom + pad; }
 
 /* ===== peças de tela ===== */
-var $app = document.getElementById('app'), $back = document.getElementById('back'), $ttl = document.getElementById('ttl'),
+var $app = document.getElementById('app'), $back = document.getElementById('back'), $ttl = document.getElementById('ttl'), $snd = document.getElementById('snd'),
   $tabH = document.getElementById('tabH'), $tabF = document.getElementById('tabF'), $tabP = document.getElementById('tabP');
 function show(title, backHash) {
   $ttl.textContent = title || ''; seq++; quiet();
   document.body.classList.remove('playing'); document.body.classList.toggle('home', title === null);
   $app.style.paddingBottom = '';
   $back.style.visibility = backHash ? 'visible' : 'hidden'; $back.onclick = function () { go(backHash); };
+  if ($snd && S && S.cfg) { sndIcon($snd); $snd.onclick = function () { sndToggle($snd); }; $snd.style.visibility = ''; } else if ($snd) $snd.style.visibility = 'hidden';
   var hs = location.hash; $tabP.classList.toggle('on', hs === '#p'); $tabF.classList.toggle('on', hs === '#f'); $tabH.classList.toggle('on', hs !== '#p' && hs !== '#f');
   var kids = [].concat.apply([], [].slice.call(arguments, 2)).filter(function (k) { return k != null && k !== false; });
   $app.replaceChildren.apply($app, kids); window.scrollTo(0, 0);
@@ -460,17 +555,28 @@ function finish(u, s) { mark(u, s); go('#u/' + enc(u.id)); }
 
 /* ===== início ===== */
 function viewHome() {
-  var b = book(), nu = nextUnit(), kids = [], st = 0, sd = 0, ud = 0;
+  var b = book(), nu = nextUnit(), kids = [], st = 0, sd = 0, ud = 0, t = dayToday(), sk = streakNow();
   b.units.forEach(function (u) { var p = progOf(u); st += p[1]; sd += p[0]; if (p[0] === p[1]) ud++; });
-  kids.push(h('div', { class: 'hero' }, h('div', { class: 'k' }, 'Estudo de inglês · ' + b.nome), h('h1', null, sd ? 'Bom te ver de volta' : 'Vamos começar?'),
-    h('div', { class: 'row2' }, ring(st ? sd / st : 0, { track: 'rgba(255,255,255,.28)', color: '#fff' }),
-      h('div', { class: 't' }, h('b', null, ud + ' de ' + b.units.length + ' unidades concluídas'), sd + ' de ' + st + ' etapas feitas'))));
+  var snd = h('button', { type: 'button', class: 'snd', 'aria-label': 'Som ligado ou desligado', onclick: function () { sndToggle(snd); } }); sndIcon(snd);
+  kids.push(h('div', { class: 'hbar' }, h('div', { class: 'brand' }, h('span', { class: 'logo' }, ico('mic', 18)), 'Falô'),
+    h('div', { class: 'hchips' }, h('span', { class: 'chipx fire', title: 'Dias seguidos' }, ico('flame', 18, true), String(sk)), h('span', { class: 'chipx xp', title: 'Pontos de experiência' }, ico('bolt', 18, true), (S.xp || 0).toLocaleString('pt-BR')), snd)));
+  var m = mascot(88, 'happy'), msg;
+  if (!sd) msg = 'Oi! Eu sou a Tuca. Vamos aprender inglês falando?';
+  else if (t.n >= GOAL) msg = 'Meta de hoje batida! Quer treinar mais um pouco?';
+  else if (sk >= 2) msg = sk + ' dias seguidos! Faltam ' + (GOAL - t.n) + ' exercícios para a meta de hoje.';
+  else msg = 'Bora treinar? Faltam ' + (GOAL - t.n) + ' exercícios para a meta de hoje.';
   if (nu) {
-    var ns = nextStep(nu);
-    kids.push(h('div', { class: 'card cta' }, h('span', { class: 'tag' + (nu.tipo === 'gramatica' ? ' g' : '') }, uLabel(nu)), h('h2', null, nu.titulo),
-      h('p', { class: 'mut' }, 'Próxima etapa: ', h('strong', null, INFO[ns][0])),
-      h('button', { type: 'button', class: 'primary wide', onclick: function () { go(stepHash(nu, ns)); } }, 'Continuar', ico('chevR'))));
-  } else kids.push(h('div', { class: 'card cta' }, h('h2', null, 'Livro concluído'), h('p', null, 'Você terminou todas as unidades. Use o treino de fala e o reforço para não esquecer.')));
+    var ns = nextStep(nu), pr = progOf(nu), pct = Math.round(100 * pr[0] / pr[1]), bar2 = h('i'), lab = h('span', null, '0%');
+    kids.push(h('div', { class: 'hero' }, h('div', { class: 'hrow' }, m, h('div', { class: 'fb' }, msg)),
+      h('div', { class: 'k' }, uLabel(nu) + ' · ' + INFO[ns][0]), h('h2', null, nu.titulo),
+      h('div', { class: 'bar' }, bar2), h('div', { class: 'barlab' }, h('span', null, pr[0] + ' de ' + pr[1] + ' etapas'), lab),
+      h('button', { type: 'button', class: 'primary wide', onclick: function () { sfx('tap'); go(stepHash(nu, ns)); } }, 'Continuar')));
+    setTimeout(function () { countUp(lab, pct, function (v) { var r = Math.round(v); bar2.style.width = r + '%'; return r + '%'; }, .2); }, 60);
+  } else {
+    kids.push(h('div', { class: 'hero' }, h('div', { class: 'hrow' }, m, h('div', { class: 'fb' }, 'Você terminou o livro! Use o treino de fala para não esquecer.')), h('h2', { style: 'margin-top:14px' }, 'Livro concluído')));
+  }
+  kids.push(h('div', { class: 'goal' }, ring(Math.min(1, t.n / GOAL), { label: Math.min(t.n, GOAL) + '/' + GOAL, color: 'var(--ok-s)', track: 'var(--soft)' }),
+    h('div', null, h('h3', null, 'Meta de hoje'), h('p', null, t.n >= GOAL ? 'Batida! Cada exercício extra dá mais pontos.' : 'Faça ' + GOAL + ' exercícios hoje para manter a sequência.'))));
   var nd = Object.keys(S.dif).length;
   kids.push(h('div', { class: 'quick' },
     h('button', { type: 'button', onclick: function () { go('#f'); } }, h('span', { class: 'qi' }, ico('mic')), h('span', null, h('b', null, 'Treino de fala'), h('span', { class: 'small' }, 'Só microfone, 5 minutos'))),
@@ -485,34 +591,36 @@ function viewHome() {
     var sel = h('select', { 'aria-label': 'Livro', onchange: function () { S.cfg.livro = sel.value; save(); viewHome(); } });
     BOOKS.forEach(function (x) { sel.append(h('option', { value: x.id }, x.nome)); }); sel.value = b.id; kids.push(h('div', { style: 'margin-bottom:14px' }, sel));
   }
-  kids.push(h('div', { class: 'sec' }, h('h3', null, 'Trilha do ' + b.nome), h('span', { class: 'small' }, b.units.length + ' unidades')));
-  var path = h('div', { class: 'path' });
-  b.units.forEach(function (u) {
+  kids.push(h('div', { class: 'sec' }, h('h3', null, 'Trilha do ' + b.nome), h('span', { class: 'small' }, ud + ' de ' + b.units.length + ' prontas')));
+  var path = h('div', { class: 'path' }), offs = ['m1', 'm2', 'm3', 'm2'];
+  b.units.forEach(function (u, i) {
     var p = progOf(u), full = p[0] === p[1], isNext = nu && nu.id === u.id, g = u.tipo === 'gramatica';
-    path.append(h('button', { type: 'button', class: 'node' + (full ? ' done' : '') + (isNext ? ' next' : ''), onclick: function () { go('#u/' + enc(u.id)); } },
-      h('span', { class: 'nb' + (g ? ' g' : '') }, full ? ico('check', g ? 16 : 22) : g ? 'G' : String(u.num)),
-      h('span', { class: 'ut' }, h('span', { class: 'k' }, uLabel(u)), h('span', { class: 't' }, u.titulo)),
-      isNext ? h('span', { class: 'pill' }, 'Agora') : full ? null : p[0] ? h('span', { class: 'frac' }, p[0] + '/' + p[1]) : ico('chevR', 18)));
+    path.append(h('button', { type: 'button', class: 'node ' + offs[i % 4] + (Math.floor(i / 4) % 2 ? ' r' : '') + (full ? ' done' : '') + (isNext ? ' next' : ''), onclick: function () { sfx('tap'); go('#u/' + enc(u.id)); } },
+      h('span', { class: 'nb' + (g ? ' g' : '') }, full ? ico('check', g ? 20 : 30) : g ? 'G' : String(u.num)),
+      h('span', { class: 'ut' }, isNext ? h('span', { class: 'pill' }, 'Começar') : null, h('span', { class: 'k' }, uLabel(u)), h('span', { class: 't' }, u.titulo), !isNext && !full && p[0] ? h('span', { class: 'frac' }, p[0] + ' de ' + p[1]) : null)));
   });
   kids.push(path);
   show(null, '', kids);
+  idle(m);
 }
 
 /* ===== unidade ===== */
 function viewUnit(u) {
-  var ns = nextStep(u), p = progOf(u), path = h('div', { class: 'path' });
+  var ns = nextStep(u), p = progOf(u), path = h('div', { class: 'path' }), m = mascot(64, p[0] === p[1] ? 'cheer' : 'happy');
   stepsOf(u).forEach(function (s) {
     var dn = done(u, s), nx = ns === s;
-    path.append(h('button', { type: 'button', class: 'node' + (dn ? ' done' : '') + (nx ? ' next' : ''), onclick: function () { go(stepHash(u, s)); } },
-      h('span', { class: 'nb' }, ico(dn ? 'check' : INFO[s][3])),
+    path.append(h('button', { type: 'button', class: 'ustep' + (dn ? ' done' : '') + (nx ? ' next' : ''), onclick: function () { sfx('tap'); go(stepHash(u, s)); } },
+      h('span', { class: 'nb' }, ico(dn ? 'check' : INFO[s][3], 26)),
       h('span', { class: 'ut' }, h('span', { class: 't' }, INFO[s][0]), h('span', { class: 'd' }, INFO[s][1])),
       nx ? h('span', { class: 'pill' }, 'Próxima') : dn ? null : ico('chevR', 18)));
   });
   show(uLabel(u), '#',
-    h('div', { class: 'card' }, h('span', { class: 'tag' + (u.tipo === 'gramatica' ? ' g' : '') }, uLabel(u)), h('h2', { style: 'margin-top:10px' }, u.titulo),
-      h('p', { class: 'small', style: 'margin:0' }, p[0] + ' de ' + p[1] + ' etapas. Siga na ordem: cada uma prepara a próxima.'), bar(p[0], p[1], p[0] === p[1])),
+    h('div', { class: 'card' }, h('div', { class: 'uhead' }, m, h('div', { style: 'min-width:0' }, h('span', { class: 'tag' + (u.tipo === 'gramatica' ? ' g' : '') }, uLabel(u)), h('h2', { style: 'margin:8px 0 0' }, u.titulo))),
+      h('p', { class: 'small', style: 'margin:12px 0 0' }, p[0] + ' de ' + p[1] + ' etapas. Siga na ordem: cada uma prepara a próxima.'), bar(p[0], p[1], p[0] === p[1])),
     path);
+  idle(m);
 }
+
 function viewStep(u, s) {
   var back = '#u/' + enc(u.id), fn = { intro: stepIntro, palavras: stepList, verbos: stepVerbs, expressoes: stepList, regras: stepRules, frases: stepPhrases, dialogo: stepDialog, revisao: stepReview }[s];
   if (!fn) return go(back);
@@ -532,10 +640,20 @@ function rowBtn(en, pt, extra, exm) {
   return h('button', { type: 'button', class: 'row', onclick: function () { speak(exm || en); } },
     h('span', { class: 'a' }, h('b', null, en + (extra ? '  →  ' + extra : '')), h('span', null, pt), exm ? h('i', null, exm) : null), h('span', { class: 'sp' }, ico('spk')));
 }
+/* rodízio: o que apareceu há mais tempo vem primeiro, então as frases só se repetem depois de passar por todas */
+function freshFirst(a) {
+  var seen = S.seen || {};
+  return shuffle(a).sort(function (x, y) { return (seen[x[0]] || 0) - (seen[y[0]] || 0); });
+}
+function sawIt(it) {
+  S.seen = S.seen || {}; S.sn = (S.sn || 0) + 1; S.seen[it[0]] = S.sn;
+  var ks = Object.keys(S.seen);
+  if (ks.length > 700) { ks.sort(function (x, y) { return S.seen[x] - S.seen[y]; }).slice(0, ks.length - 600).forEach(function (k) { delete S.seen[k]; }); }
+}
 /* monta uma rodada: 'pairs' gasta 4 itens, os outros 1 */
 function buildRound(pool, types, u) {
-  var sh = shuffle(pool), k = 0, qs = [];
-  function next() { var it = sh[k % sh.length]; k++; return it; }
+  var sh = freshFirst(pool), k = 0, qs = [];
+  function next() { var it = sh[k % sh.length]; k++; sawIt(it); return it; }
   if (!sh.length) return qs;
   types.forEach(function (t) {
     if (t === 'pairs') {
@@ -763,7 +881,7 @@ function viewFalar() {
     } else {
       var pool = []; us.forEach(function (u) { pool = pool.concat(sentPool(u)); });
       pool = uniq(pool).filter(function (p) { var n = words(p[0]).length; return n >= 2 && n <= 10; });
-      pick(pool, 8).forEach(function (p) { qs.push({ t: kind, en: p[0], pt: p[1] }); });
+      freshFirst(pool).slice(0, 8).forEach(function (p) { sawIt(p); qs.push({ t: kind, en: p[0], pt: p[1] }); });
     }
     play(qs, { title: 'Treino de fala', back: '#f', again: function () { start(kind); }, livre: true });
   }
@@ -802,6 +920,9 @@ function mkGap(it, u) {
   return { t: 'gap', en: it[0], pt: it[1], ws: ws, ix: ix, pre: m[1], post: m[3], answer: ans, options: shuffle(d.concat([ans.toLowerCase() === 'i' ? 'I' : ans.toLowerCase()])) };
 }
 function mkQ(type, it, u) {
+  var q0 = mkQ0(type, it, u); if (q0) q0.cx = ctxOf(it); return q0;
+}
+function mkQ0(type, it, u) {
   var en = it[0], pt = it[1], n = words(en).length, al = accepted(it);
   if (type === 'tiles' && n < 3) type = 'write';
   if (type === 'spell') { var bw = en.replace(/^to /i, ''); var outras = al.some(function (e) { return e.replace(/^to /i, '').toLowerCase() !== bw.toLowerCase(); }); if (outras || !/^[A-Za-z']{3,12}$/.test(bw)) type = 'auto'; else return { t: 'spell', en: en, pt: pt, answer: bw, prefix: bw !== en ? 'to ' : '', prompt: pt, alts: al }; }
@@ -828,7 +949,7 @@ function optList(c, opts, right, after) {
 }
 QV.choose = function (q, c) {
   var en2 = q.dir === 'en2pt';
-  c.box.append(h('p', { class: 'small' }, en2 ? 'O que significa?' : 'Como se diz em inglês?'), h('p', { class: en2 ? 'en' : 'big' }, q.prompt));
+  c.box.append(h('p', { class: 'small' }, en2 ? 'O que significa?' : 'Como se diz em inglês?'), h('p', { class: en2 ? 'en' : 'big' }, q.prompt), en2 ? document.createDocumentFragment() : ctxChip(q));
   if (en2) { c.box.append(h('div', { style: 'margin:0 0 14px' }, say(q.en))); speak(q.en); }
   optList(c, q.options, q.answer, function (ok) { c.done(ok, ok ? h('div', null, q.en + ' = ' + q.pt) : ['O certo é: ', h('strong', null, q.answer)], q.en); });
 };
@@ -875,7 +996,7 @@ function writeLike(q, c, mode) {
   var chk = h('button', { type: 'button', class: 'primary' }, 'Conferir');
   c.box.append(h('p', { class: 'small' }, listenOnly ? 'Ouça e escreva o que você ouviu:' : (auto ? 'Autocompletar: digite as primeiras letras e toque na palavra certa. ' : '') + (isVerb ? 'Escreva o verbo em inglês (pode ser com ou sem "to"):' : 'Escreva em inglês:')));
   if (listenOnly) c.box.append(h('div', { class: 'actions', style: 'margin:0 0 14px' }, say(q.en, 'Ouvir'), slow(q.en)));
-  else c.box.append(h('p', { class: 'big' }, q.prompt));
+  else c.box.append(h('p', { class: 'big' }, q.prompt), ctxChip(q));
   var liveEl = h('div', { class: 'wm live', 'aria-live': 'polite' }), hintEl = h('div', { class: 'patt', 'aria-live': 'polite' }), sugEl = h('div', { class: 'sug' }), note = h('p', { class: 'livehint' });
   var tw = []; targets.forEach(function (t) { words(t).forEach(function (w) { if (tw.indexOf(w) < 0) tw.push(w); }); });
   var HB = ['Dica: tamanho das palavras', 'Mais uma dica: 1ª letra', 'Mais uma dica: última letra', 'Dica: ouvir a frase', 'Ouvir de novo'];
@@ -978,7 +1099,7 @@ QV.tiles = function (q, c) {
     var mine = placed.map(function (i) { return toks[i]; }).join(' '), ok = sameAny(mine, targetsOf(q)) >= 0;
     c.done(ok, ok ? h('div', null, q.answer) : [h('div', { class: 'ln' }, 'Você montou: ' + mine), h('div', { class: 'ln' }, 'O certo é: ', h('strong', null, q.answer))], q.en);
   };
-  c.box.append(h('p', { class: 'small' }, 'Arraste ou toque nas palavras para montar em inglês:'), h('p', { class: 'big' }, q.prompt), slot, bank, warn,
+  c.box.append(h('p', { class: 'small' }, 'Arraste ou toque nas palavras para montar em inglês:'), h('p', { class: 'big' }, q.prompt), ctxChip(q), slot, bank, warn,
     h('div', { class: 'actions' }, chk, btn('Dica: ouvir', function () { speak(q.en); }, '', 'spk')));
   draw();
 };
@@ -1082,7 +1203,7 @@ QV.spell = function (q, c) {
     if (fin || placed.length) return;
     var ix = order.filter(function (i) { return Lt[i].toLowerCase() === w.charAt(0).toLowerCase(); })[0]; helped = true; press(ix); first.disabled = true;
   });
-  c.box.append(h('p', { class: 'small' }, q.prefix ? 'Monte o VERBO em inglês, letra por letra (sem o "to"):' : 'Monte a palavra em inglês, letra por letra:'), h('p', { class: 'big' }, q.prefix ? q.prompt + '  (verbo)' : q.prompt), slot, bank, warn,
+  c.box.append(h('p', { class: 'small' }, q.prefix ? 'Monte o VERBO em inglês, letra por letra (sem o "to"):' : 'Monte a palavra em inglês, letra por letra:'), h('p', { class: 'big' }, q.prefix ? q.prompt + '  (verbo)' : q.prompt), ctxChip(q), slot, bank, warn,
     h('div', { class: 'actions' }, chk, first, btn('Dica: ouvir', function () { helped = true; speak(q.en); }, '', 'spk'), btn('Limpar', function () { if (fin) return; flip([slot, bank], function () { placed = []; draw(); }); })));
   draw();
 };
@@ -1097,7 +1218,7 @@ function speakLike(q, c, hidden) {
   function toWrite() { c.box.replaceChildren.apply(c.box, c.head); QV.write({ t: 'write', en: q.en, pt: q.pt, answer: q.en, prompt: q.pt, alts: q.alts || [] }, c); }
   function pass(fb) { ended = true; c.done(true, fb, null, tries > 2 || (hidden && hinted)); }
   if (q.ctx) c.box.append(h('button', { type: 'button', class: 'row', style: 'margin-bottom:12px', onclick: function () { speak(q.ctx[1]); } }, h('span', { class: 'a' }, h('span', null, q.ctx[0] + ' diz:'), h('b', null, q.ctx[1])), h('span', { class: 'sp' }, ico('spk'))));
-  if (hidden) c.box.append(h('p', { class: 'small' }, q.verb ? 'Diga o verbo em inglês (com to):' : 'Diga em inglês, sem ler:'), h('p', { class: 'big' }, q.pt), enEl);
+  if (hidden) c.box.append(h('p', { class: 'small' }, q.verb ? 'Diga o verbo em inglês (com to):' : 'Diga em inglês, sem ler:'), h('p', { class: 'big' }, q.pt), ctxChip(q), enEl);
   else c.box.append(h('p', { class: 'small' }, q.ctx ? 'Agora você responde:' : 'Ouça e repita em voz alta:'), enEl, h('p', { class: 'mut' }, q.pt));
   c.box.append(h('div', { class: 'actions', style: 'margin-top:4px' },
     h('button', { type: 'button', onclick: function () { if (hidden) hinted = true; speak(q.en); } }, ico('spk', 20), hidden ? 'Dica: ouvir' : 'Ouvir'),
@@ -1153,11 +1274,11 @@ QV.say = function (q, c) { speakLike(q, c, true); };
 function play(qs, o) {
   qs = qs.filter(Boolean);
   if (!qs.length) { show(o.title || 'Treino', o.back, card(h('p', null, 'Não há perguntas suficientes aqui.'))); return; }
-  var R = { q: qs.map(function (q) { return { q: q, retry: false, soft: false }; }), total: qs.length, first: 0 };
+  var R = { q: qs.map(function (q) { return { q: q, retry: false, soft: false }; }), total: qs.length, first: 0, xp: 0 };
   function draw() {
     if (!R.q.length) return end();
     var cur = R.q[0], q = cur.q, ans = false, tl = TL[q.t] || ['Treino', 'target'];
-    var head = [h('div', { class: 'qhead' }, bar(R.total - R.q.length, R.total), h('span', { class: 'frac' }, (R.total - R.q.length + 1) + '/' + R.total)), h('div', null, h('span', { class: 'chip' }, ico(tl[1], 16), tl[0]))];
+    var head = [h('div', { class: 'qhead' }, bar(R.total - R.q.length, R.total, true), h('span', { class: 'frac' }, (R.total - R.q.length + 1) + '/' + R.total)), h('div', null, h('span', { class: 'chip' }, ico(tl[1], 16), tl[0]))];
     var box = h('div', { class: 'card' }, head);
     var ctx = { box: box, head: head, done: function (ok, fb, sayEn, soft) {
       if (ans) return; ans = true; R.q.shift();
@@ -1166,33 +1287,50 @@ function play(qs, o) {
         if (soft && !cur.soft) { cur.soft = true; cur.retry = true; R.q.push(cur); }
         else { if (!cur.retry) R.first++; hardOk(q.en); }
       }
+      var xp = ok ? (cur.retry || soft ? 4 : 10) : 0;
+      gain(xp, true); R.xp += xp;
       save(); if (sayEn) speak(sayEn);
       var again = !ok || (soft && cur.soft && R.q.indexOf(cur) >= 0);
-      var nb = h('button', { type: 'button', onclick: draw }, R.q.length ? 'Continuar' : 'Ver resultado');
+      var nb = h('button', { type: 'button', class: 'nb2', onclick: function () { sfx('tap'); draw(); } }, R.q.length ? 'Continuar' : 'Ver resultado');
+      var m = mascot(66, ok ? 'cheer' : 'sad');
       var sheet = h('div', { class: 'sheet ' + (ok ? 'ok' : 'bad'), role: 'status' }, h('div', null,
-        h('div', { class: 'st' }, ico(ok ? 'check' : 'x', 20), ok ? (again ? 'Certo, mas vamos repetir' : ['Muito bem!', 'Certo!', 'Isso mesmo!'][Math.floor(Math.random() * 3)]) : 'Ainda não'),
-        fb ? h('div', { class: 'sb' }, fb) : null,
-        again ? h('div', { class: 'small', style: 'margin-top:6px' }, ok ? 'Você precisou de dica ou de várias tentativas. Ela volta no fim.' : 'Essa volta daqui a pouco.') : null, nb));
+        h('div', { class: 'shrow' }, m, h('div', { style: 'flex:1;min-width:0' },
+          h('div', { class: 'st' }, ico(ok ? 'check' : 'x', 18), ok ? (again ? 'Certo, mas vamos repetir' : ['Muito bem!', 'Certo!', 'Isso mesmo!'][Math.floor(Math.random() * 3)]) : 'Ainda não', xp ? h('span', { class: 'xp' }, ico('bolt', 14, true), '+' + xp) : null),
+          fb ? h('div', { class: 'sb' }, fb) : null)),
+        again ? h('div', { class: 'small', style: 'margin-top:8px' }, ok ? 'Você precisou de dica ou de várias tentativas. Ela volta no fim.' : 'Essa volta daqui a pouco.') : null, nb));
       $app.append(sheet);
       $app.style.paddingBottom = (sheet.offsetHeight + 24) + 'px';
+      if (ok) { sfx('ok'); buzz(15); hop(m); } else { sfx('bad'); buzz([30, 40, 30]); wiggle(sheet); }
       setTimeout(function () { try { nb.focus({ preventScroll: true }); } catch (e) {} }, 60);
     } };
     show(o.title || 'Treino', o.back, box); document.body.classList.add('playing'); QV[q.t](q, ctx);
   }
   function end() {
-    var pct = R.first / R.total, ok = !o.livre && pct >= o.thr;
+    var pct = R.first / R.total, ok = !o.livre && pct >= o.thr, good = ok || o.livre;
     if (o.fim) o.fim(ok);
-    show(o.title || 'Treino', o.back, card(h('div', { class: 'center' }, ring(pct, { big: true, color: ok || o.livre ? 'var(--ok)' : 'var(--pri)' }),
-      h('h2', null, o.livre ? 'Treino concluído' : ok ? (o.nota ? 'Rodada concluída' : 'Etapa concluída') : 'Quase lá'),
-      h('p', null, 'Você acertou ' + R.first + ' de ' + R.total + ' de primeira.')),
-      h('div', { class: 'msg ' + (ok || o.livre ? 'ok' : 'info') }, o.livre ? 'O que você errou ficou na lista "O que errei".' : ok ? (o.nota || 'Muito bem! A etapa está marcada como feita.') : 'Para concluir, acerte pelo menos ' + Math.ceil(o.thr * R.total) + ' de primeira. Faça outra rodada.'),
+    var m = mascot(120, good ? 'cheer' : 'think'), xpEl = h('b', null, '+0'), sk = streakNow();
+    var stats = h('div', { class: 'stats' }, h('div', { class: 'stat s1' }, h('small', null, 'Pontos'), xpEl),
+      h('div', { class: 'stat s2' }, h('small', null, 'De primeira'), h('b', null, R.first + '/' + R.total)),
+      h('div', { class: 'stat s3' }, h('small', null, 'Sequência'), h('b', null, ico('flame', 22, true), String(sk))));
+    show(o.title || 'Treino', o.back, card(h('div', { class: 'win' }, m,
+      h('h2', { style: 'margin-top:8px' }, o.livre ? 'Treino concluído' : ok ? (o.nota ? 'Rodada concluída' : 'Etapa concluída') : 'Quase lá'),
+      h('p', { class: 'mut' }, 'Você acertou ' + R.first + ' de ' + R.total + ' de primeira.'), stats),
+      h('div', { class: 'msg ' + (good ? 'ok' : 'info') }, o.livre ? 'O que você errou ficou na lista "O que errei".' : ok ? (o.nota || 'Muito bem! A etapa está marcada como feita.') : 'Para concluir, acerte pelo menos ' + Math.ceil(o.thr * R.total) + ' de primeira. Faça outra rodada.'),
       doneCount() > 0 && (!S.bk || Date.now() - S.bk > 2 * 864e5) ? h('div', { class: 'msg warn' }, h('div', null, 'Faz tempo que você não salva uma cópia do progresso.'), h('div', { class: 'actions' }, btn('Salvar cópia agora', function () { exportar(function () { go(o.back); }); }))) : null,
       h('div', { class: 'actions' }, btn(ok ? 'Voltar para a unidade' : 'Outra rodada', ok ? function () { go(o.back); } : o.again, 'primary'), btn(ok ? 'Outra rodada' : 'Voltar', ok ? o.again : function () { go(o.back); }))));
+    idle(m); countUp(xpEl, R.xp, function (v) { return '+' + Math.round(v); }, .3);
+    if (good) { sfx('win'); buzz([20, 40, 40]); boom({ origin: { y: .3 }, particleCount: 110, spread: 100 }); } else sfx('ok');
   }
   draw();
 }
 
 /* ===== progresso ===== */
+function swRow(label, key) {
+  var b = h('button', { type: 'button', class: 'sw' + (S.cfg[key] ? ' on' : ''), role: 'switch', 'aria-checked': String(!!S.cfg[key]), 'aria-label': label, onclick: function () {
+    S.cfg[key] = !S.cfg[key]; save(); b.classList.toggle('on', S.cfg[key]); b.setAttribute('aria-checked', String(!!S.cfg[key])); if (key === 'som' && S.cfg.som) sfx('ok'); if (key === 'vib' && S.cfg.vib) buzz(30); if (key === 'toque' && S.cfg.toque) { var s0 = S.cfg.som; S.cfg.som = true; sfx('tap'); S.cfg.som = s0; }
+  } });
+  return h('div', { class: 'row2s' }, h('span', null, label), b);
+}
 function viewPerfil() {
   var tot = 0, fin = 0; BOOKS.forEach(function (b) { b.units.forEach(function (u) { var p = progOf(u); tot++; if (p[0] === p[1]) fin++; }); });
   var nd = Object.keys(S.dif).length, info = h('div'), file = h('input', { type: 'file', style: 'display:none', onchange: function () { if (file.files[0]) importar(file.files[0], function (ok) { if (ok) viewPerfil(); }); } });
@@ -1209,7 +1347,8 @@ function viewPerfil() {
   }
   var bk = S.bk ? 'Última cópia salva: ' + new Date(S.bk).toLocaleDateString('pt-BR') + '.' : 'Você ainda não salvou nenhuma cópia.';
   show('Meu progresso', '',
-    h('div', { class: 'card center' }, ring(tot ? fin / tot : 0, { big: true }), h('h2', null, fin + ' de ' + tot + ' unidades concluídas'), h('p', { class: 'small', style: 'margin:0' }, doneCount() + ' etapas feitas no total.')),
+    h('div', { class: 'card center' }, ring(tot ? fin / tot : 0, { big: true, color: 'var(--ok-s)', track: 'var(--soft)' }), h('h2', null, fin + ' de ' + tot + ' unidades concluídas'), h('p', { class: 'small', style: 'margin:0' }, doneCount() + ' etapas feitas no total.')),
+    h('div', { class: 'stats' }, h('div', { class: 'stat s1' }, h('small', null, 'Pontos'), h('b', null, ico('bolt', 22, true), (S.xp || 0).toLocaleString('pt-BR'))), h('div', { class: 'stat s3' }, h('small', null, 'Sequência'), h('b', null, ico('flame', 22, true), String(streakNow()))), h('div', { class: 'stat s2' }, h('small', null, 'Recorde'), h('b', null, String(Math.max(S.best || 0, streakNow()))))),
     card(h('h3', null, 'Salvar e importar'),
       h('p', null, 'O navegador do celular pode apagar os dados sem avisar. O app guarda o progresso duas vezes no navegador, mas só a cópia em arquivo é segura de verdade. Salve uma vez por semana e guarde no Google Drive, no WhatsApp ou num e-mail para você.'),
       h('p', { class: 'small' }, bk), NOSTORE ? h('div', { class: 'msg warn', style: 'margin:0 0 10px' }, 'Este navegador não está guardando nada agora. Salve a cópia ao terminar.') : null,
@@ -1219,10 +1358,14 @@ function viewPerfil() {
       h('p', { class: 'small' }, 'Se o arquivo não abrir no seu celular, use o código: é um texto só, que você manda para si mesmo e cola depois.'),
       code, h('div', { class: 'actions' }, btn('Copiar código', copiar), btn('Importar código', function () { importText(code.value, function (ok) { if (ok) viewPerfil(); }); })), cmsg,
       h('div', { class: 'actions' }, btn('Pedir ao navegador para guardar', persist)), file, info),
+    card(h('h3', null, 'Sons e vibração'), h('p', { class: 'small' }, 'Os sons são curtinhos e baixos. Se preferir silêncio, desligue.'),
+      swRow('Sons de acerto, erro e conclusão', 'som'),
+      h('div', { class: 'row2s' }, h('span', null, 'Volume dos sons'), h('input', { type: 'range', class: 'range', min: '0.1', max: '1', step: '0.05', value: String(S.cfg.vol), 'aria-label': 'Volume dos sons', oninput: function (e) { S.cfg.vol = +e.target.value; }, onchange: function () { save(); sfx('ok'); } })),
+      swRow('Som a cada toque (desligado fica mais calmo)', 'toque'), swRow('Vibração no celular', 'vib')),
     card(h('h3', null, 'Voz e microfone'), h('p', { class: 'small' }, 'Velocidade da voz em inglês:'), vel,
       !('speechSynthesis' in window) ? h('div', { class: 'msg warn' }, 'Este navegador não tem voz. Use o Chrome.') : !voice ? h('div', { class: 'msg warn' }, 'Não achei uma voz em inglês. No Android, instale o "Reconhecimento e síntese de fala" do Google; no Windows, adicione o idioma inglês.') : h('p', { class: 'small', style: 'margin:10px 0 0' }, 'Voz em uso: ' + voice.name + '.'),
       h('p', { class: 'small', style: 'margin:8px 0 0' }, SRC() ? 'Conferência da fala: automática (precisa de internet e do microfone liberado).' : canRecord() ? 'Conferência da fala: por gravação (você compara com o modelo). No Chrome ela é automática.' : 'Conferência da fala: indisponível neste navegador. Use o Chrome.')),
-    card(h('h3', null, 'Calibração do microfone'), h('p', { class: 'small' }, 'O microfone do navegador erra mais a vogal de uma palavra solta (bread vira brad, ham vira him). O app já aceita isso como "quase". Quando ele errar outra coisa e você tiver certeza de que falou certo, toque em "O microfone errou, eu falei certo": o app aprende e passa a aceitar.'), h('p', null, calCount() ? calCount() + ' correção(ões) aprendida(s) neste aparelho.' : 'Nenhuma correção aprendida ainda.'), calCount() ? btn('Apagar as correções', function () { if (confirm('Apagar as correções do microfone?')) { S.cal = {}; save(); viewPerfil(); } }) : null),
+    card(h('h3', null, 'Calibração do microfone'), h('p', { class: 'small' }, 'O microfone do navegador erra mais a vogal de uma palavra solta (bread vira brad, ham vira him). O app já aceita isso. Quando ele errar outra coisa e você tiver certeza de que falou certo, toque em "O microfone errou, eu falei certo": o app aprende e passa a aceitar.'), h('p', null, calCount() ? calCount() + ' correção(ões) aprendida(s) neste aparelho.' : 'Nenhuma correção aprendida ainda.'), calCount() ? btn('Apagar as correções', function () { if (confirm('Apagar as correções do microfone?')) { S.cal = {}; save(); viewPerfil(); } }) : null),
     card(h('h3', null, 'Reforço'), h('p', null, nd ? nd + ' item(ns) que você errou e ainda não acertou de novo.' : 'Nada para reforçar agora.'), nd ? btn('Treinar o que errei', playHard, 'primary') : null),
     card(h('h3', null, 'Zerar tudo'), h('p', { class: 'small' }, 'Apaga o progresso deste aparelho. Salve uma cópia antes.'), btn('Apagar progresso', function () { if (confirm('Apagar TODO o progresso deste aparelho? Isso não dá para desfazer.')) { S = fresh(); save(); go('#'); } })));
 }
@@ -1246,6 +1389,7 @@ function start() {
   save();
   $tabP.onclick = function () { go('#p'); }; $tabF.onclick = function () { go('#f'); }; $tabH.onclick = function () { go('#'); };
   window.addEventListener('hashchange', route);
+  document.addEventListener('click', function (e) { if (S.cfg.toque && S.cfg.som && e.target.closest && e.target.closest('button') && !e.target.closest('.sheet,.opt,.pairs')) sfx('tap'); });
   document.addEventListener('visibilitychange', function () { if (document.hidden) save(); });
   route();
 }
@@ -1278,12 +1422,12 @@ function trava(erro) {
     });
   }
   go1.onclick = enviar; input.addEventListener('keydown', function (e) { if (e.key === 'Enter') enviar(); });
-  show('Estudo de inglês', '', h('div', { class: 'card', style: 'margin-top:24px' }, h('h2', null, 'Acesso protegido'),
+  show('Falô English', '', h('div', { class: 'card', style: 'margin-top:24px' }, h('div', { style: 'display:flex;justify-content:center' }, mascot(96, 'happy')), h('h2', { style: 'text-align:center;margin-top:8px' }, 'Acesso protegido'),
     h('p', { class: 'mut' }, 'O conteúdo do livro é protegido. Digite a senha de acesso. Ela fica guardada neste aparelho, então você só digita uma vez.'), input, go1, msg, erro ? h('div', { class: 'msg warn' }, erro) : null));
 }
 if (window.__CIFRADO && !window.__DADOS) {
   var guardada = null; try { guardada = localStorage.getItem('estudo_k'); } catch (e) {}
   if (guardada) abrir(guardada).catch(function () { trava(); }); else trava();
 } else start();
-if (/[?&]dbg/.test(location.search)) window.__dbg = { accepted: accepted, related: related, variants: variants, ROWS: ROWS, GL: GL, UNITS: UNITS, mkQ: mkQ, ALTG: ALTG, sec: sec, sentPool: sentPool, wordList: wordList, allPool: allPool, play: play, buildRound: buildRound };
+if (/[?&]dbg/.test(location.search)) window.__dbg = { accepted: accepted, related: related, variants: variants, ROWS: ROWS, GL: GL, UNITS: UNITS, mkQ: mkQ, ALTG: ALTG, sec: sec, sentPool: sentPool, wordList: wordList, allPool: allPool, play: play, buildRound: buildRound, setS: function (o) { S = clean(o) || S; save(); route(); }, getS: function () { return S; }, sfx: sfx, tone: tone, SN: SN };
 })();
