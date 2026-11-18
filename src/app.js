@@ -554,6 +554,21 @@ function stepHash(u, s) { return '#u/' + enc(u.id) + '/' + s; }
 function finish(u, s) { mark(u, s); go('#u/' + enc(u.id)); }
 
 /* ===== início ===== */
+/* os divisores de módulo: a linha abre do centro e a etiqueta "pula" quando entram na tela */
+function animDividers(list) {
+  if (!MO || reduced() || !('IntersectionObserver' in window)) return;
+  list.forEach(function (d) { d.classList.add('pre'); });
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return; io.unobserve(e.target);
+      var d = e.target, ls = d.querySelectorAll('.dline');
+      d.classList.remove('pre');
+      MO.animate(ls, { scaleX: [0, 1] }, { duration: .7, ease: [.2, .8, .2, 1] });
+      MO.animate(d.querySelector('.dchip'), { scale: [.6, 1.07, 1], opacity: [0, 1] }, { duration: .6, ease: [.2, .9, .3, 1.2] });
+    });
+  }, { threshold: .5 });
+  list.forEach(function (d) { io.observe(d); });
+}
 function viewHome() {
   var b = book(), nu = nextUnit(), kids = [], st = 0, sd = 0, ud = 0, t = dayToday(), sk = streakNow();
   b.units.forEach(function (u) { var p = progOf(u); st += p[1]; sd += p[0]; if (p[0] === p[1]) ud++; });
@@ -592,16 +607,29 @@ function viewHome() {
     BOOKS.forEach(function (x) { sel.append(h('option', { value: x.id }, x.nome)); }); sel.value = b.id; kids.push(h('div', { style: 'margin-bottom:14px' }, sel));
   }
   kids.push(h('div', { class: 'sec' }, h('h3', null, 'Trilha do ' + b.nome), h('span', { class: 'small' }, ud + ' de ' + b.units.length + ' prontas')));
-  var path = h('div', { class: 'path' }), offs = ['m1', 'm2', 'm3', 'm2'];
-  b.units.forEach(function (u, i) {
-    var p = progOf(u), full = p[0] === p[1], isNext = nu && nu.id === u.id, g = u.tipo === 'gramatica';
-    path.append(h('button', { type: 'button', class: 'node ' + offs[i % 4] + (Math.floor(i / 4) % 2 ? ' r' : '') + (full ? ' done' : '') + (isNext ? ' next' : ''), onclick: function () { sfx('tap'); go('#u/' + enc(u.id)); } },
-      h('span', { class: 'nb' + (g ? ' g' : '') }, full ? ico('check', g ? 20 : 30) : g ? 'G' : String(u.num)),
-      h('span', { class: 'ut' }, isNext ? h('span', { class: 'pill' }, 'Começar') : null, h('span', { class: 'k' }, uLabel(u)), h('span', { class: 't' }, u.titulo), !isNext && !full && p[0] ? h('span', { class: 'frac' }, p[0] + ' de ' + p[1]) : null)));
+  var path = h('div', { class: 'path' }), offs = ['m1', 'm2', 'm3', 'm2'], groups = [], cur = [], dividers = [];
+  b.units.forEach(function (u) { cur.push(u); if (u.tipo !== 'gramatica') { groups.push(cur); cur = []; } });
+  if (cur.length) groups.push(cur);
+  groups.forEach(function (gp) {
+    var last = gp[gp.length - 1], isMod = last.tipo !== 'gramatica', dn = gp.filter(function (u) { var q = progOf(u); return q[0] === q[1]; }).length;
+    var full = dn === gp.length, here = !!nu && gp.some(function (u) { return u.id === nu.id; });
+    var dv = h('div', { class: 'divider' + (full ? ' full' : '') + (here ? ' now' : ''), role: 'separator' },
+      h('span', { class: 'dline l' }),
+      h('span', { class: 'dchip' }, full ? ico('check', 18) : null,
+        h('span', { class: 'dtx' }, h('b', null, isMod ? 'Módulo ' + last.num : 'Gramática'), isMod ? h('span', { class: 'dt' }, last.titulo) : null),
+        h('small', null, dn + '/' + gp.length)),
+      h('span', { class: 'dline r' }));
+    path.append(dv); dividers.push(dv);
+    gp.forEach(function (u, i) {
+      var p = progOf(u), fullu = p[0] === p[1], isNext = nu && nu.id === u.id, g = u.tipo === 'gramatica';
+      path.append(h('button', { type: 'button', class: 'node ' + offs[i % 4] + (Math.floor(i / 4) % 2 ? ' r' : '') + (fullu ? ' done' : '') + (isNext ? ' next' : ''), onclick: function () { sfx('tap'); go('#u/' + enc(u.id)); } },
+        h('span', { class: 'nb' + (g ? ' g' : '') }, fullu ? ico('check', g ? 20 : 30) : g ? 'G' : String(u.num)),
+        h('span', { class: 'ut' }, isNext ? h('span', { class: 'pill' }, 'Começar') : null, h('span', { class: 'k' }, uLabel(u)), h('span', { class: 't' }, u.titulo), !isNext && !fullu && p[0] ? h('span', { class: 'frac' }, p[0] + ' de ' + p[1]) : null)));
+    });
   });
   kids.push(path);
   show(null, '', kids);
-  idle(m);
+  idle(m); animDividers(dividers);
 }
 
 /* ===== unidade ===== */

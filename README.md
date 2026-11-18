@@ -76,7 +76,7 @@ Abre no Chrome do celular ou do computador. Na primeira vez pede a senha de aces
 
 | Tela | O que mostra |
 |---|---|
-| **Início** | A Tuca com a próxima etapa e o botão Continuar, os pontos (XP), a sequência de dias, a meta do dia (10 exercícios), o treino de fala, o reforço do que errei e a trilha em zigue-zague das 46 unidades (gramáticas em amarelo) |
+| **Início** | A Tuca com a próxima etapa e o botão Continuar, os pontos (XP), a sequência de dias, a meta do dia (10 exercícios), o treino de fala, o reforço do que errei e a trilha em zigue-zague das 46 unidades, separada por divisores animados de módulo (gramáticas em amarelo) |
 | **Unidade** | As etapas na ordem (**comece por aqui, palavras, verbos, expressões, regras, frases, conversa, revisão**), com a próxima destacada |
 | **Palavras e verbos** | Uma linha por item com ouvir e falar; o placar de certas, erradas e faltam; e a rodada de treino |
 | **Exercícios** | Falar, falar sem ler, arrastar e montar a frase, completar arrastando, ligar os pares (com linha verde ou vermelha e aviso de erro), escrever (com dica em níveis e autocompletar), autocompletar, montar a palavra letra por letra, ouvir e escrever, escolher e "qual está certa?" |
