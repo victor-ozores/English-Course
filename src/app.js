@@ -77,7 +77,7 @@ function rich(s, tag) {
 
 /* ===== dados ===== */
 var KEYS = { objetivo: 1, porque: 1, historia: 1, dica: 1, cena: 1, gancho: 1, resumo: 1, formula: 1, compare: 1, ex: 1, erro: 1, cuidado: 1, quiz: 1 };
-var BOOKS = [], UNITS = {}, GL = { w: [], s: [], v: [] }, PT = {}, SOFTW = [];
+var BOOKS = [], UNITS = {}, GL = { w: [], s: [], v: [] }, PT = {}, SOFTW = [], ALTG = [], ROWS = [], ROWALT = {}, PTX = {}, ACC = {}, ACCSET = {};
 function parseUnit(book, fname, text) {
   var u = { id: book + ':' + fname.replace(/^\d+-[a-z]-/, ''), file: fname, book: book, titulo: '', tipo: 'modulo', num: 0, notas: {}, secs: {}, lessons: [] };
   var cur = u, cs = null, last = null;
@@ -108,7 +108,10 @@ function loadBooks() {
   var D = window.__DADOS || {};
   Object.keys(D).forEach(function (id) {
     var b = { id: id, nome: D[id].nome, units: [] };
-    Object.keys(D[id].files).sort().forEach(function (f) { var u = parseUnit(id, f, D[id].files[f]); b.units.push(u); UNITS[u.id] = u; });
+    Object.keys(D[id].files).sort().forEach(function (f) {
+      if (f.charAt(0) === '_') { if (f === '_alternativas') parseAlt(D[id].files[f]); return; }
+      var u = parseUnit(id, f, D[id].files[f]); b.units.push(u); UNITS[u.id] = u;
+    });
     BOOKS.push(b);
   });
   Object.keys(UNITS).forEach(function (id) {
@@ -116,6 +119,8 @@ function loadBooks() {
     ['aquecimento', 'palavras', 'verbos', 'expressoes', 'frases', 'perguntas', 'extras', 'resumo', 'apoio'].forEach(function (s) {
       (u.secs[s] || []).forEach(function (p) {
         if (!PT[p[0]]) PT[p[0]] = p[1];
+        var al = ptAlts(p[1], s), rk = p[0] + '' + p[1];
+        if (!ROWALT[rk]) { ROWALT[rk] = al; ROWS.push({ en: p[0], alts: al, par: al.some(function (x) { return x.indexOf('(') >= 0; }) }); al.forEach(function (a) { (PTX[a] = PTX[a] || []).push(ROWS.length - 1); }); }
         (words(p[0]).length >= 3 ? GL.s : GL.w).push([p[0], p[1]]);
         if (s === 'verbos') { var b = p[0].replace(/^to /, ''); if (single(b)) GL.v.push([b, p[1]]); }
         if ((s === 'palavras' || s === 'apoio') && single(p[0].toLowerCase())) SOFTW.push(p[0].toLowerCase());
@@ -123,6 +128,103 @@ function loadBooks() {
     });
   });
   GL.w = uniq(GL.w); GL.s = uniq(GL.s); GL.v = uniq(GL.v);
+}
+
+/* ===== respostas equivalentes (boa noite = good evening OU good night) ===== */
+function escRe(t) { return t.replace(/([.*+?^$|(){}\[\]\\])/g, '\\$1'); }
+function parseAlt(text) {
+  text.split('\n').forEach(function (raw) {
+    var l = raw.trim(); if (!l || l.charAt(0) === '#') return;
+    var whole = l.slice(0, 2) === '= '; if (whole) l = l.slice(2);
+    var ms = l.split(' ; ').map(function (x) { return x.trim(); }).filter(Boolean);
+    if (ms.length > 1) ALTG.push({ whole: whole, re: ms.map(function (m) { var end = m.slice(-1) === '$'; return new RegExp("(^|[^A-Za-z'])(" + escRe(end ? m.slice(0, -1) : m) + ")" + (end ? "(?=\\s*[,.!?;]|\\s*$)" : "(?![A-Za-z'])"), 'i'); }), ms: ms.map(function (m) { return m.slice(-1) === '$' ? m.slice(0, -1) : m; }) });
+  });
+}
+/* "casa, lar" vira ['casa','lar']; vírgula só separa em listas de palavras; parênteses ficam (fazer (criar) != fazer (realizar)) */
+function ptAlts(pt, sc) {
+  var t = String(pt).toLowerCase().replace(/\s+/g, ' ').trim(), parts = [t];
+  if (sc === 'palavras' || sc === 'apoio' || sc === 'verbos') parts = t.split(/\s*[,;]\s*/); else if (sc === 'expressoes') parts = t.split(/\s*;\s*/);
+  return parts.map(function (x) { return x.replace(/[.!…]+$/, '').trim(); }).filter(Boolean);
+}
+function altsOf(it) { return ROWALT[it[0] + '\u0001' + it[1]] || ptAlts(it[1], 'frases'); }
+function variants(en) {
+  var res = [], seen = {}, q = [en], n;
+  seen[en.toLowerCase()] = 1;
+  for (n = 0; n < q.length && res.length < 40; n++) {
+    var cur = q[n];
+    ALTG.forEach(function (g) {
+      var hit = -1, x = null, i;
+      if (g.whole) {
+        var w = cur.replace(/[.!?]+$/, '').toLowerCase();
+        for (i = 0; i < g.ms.length; i++) if (g.ms[i].toLowerCase() === w) { hit = i; x = { index: 0, 1: '', 2: cur.replace(/[.!?]+$/, '') }; break; }
+      } else {
+        for (i = 0; i < g.ms.length; i++) { var m = g.re[i].exec(cur); if (m && (hit < 0 || g.ms[i].length > g.ms[hit].length)) { hit = i; x = m; } }
+      }
+      if (hit < 0) return;
+      g.ms.forEach(function (m2, j) {
+        if (j === hit) return;
+        var before = g.whole ? '' : cur.slice(0, x.index + x[1].length).trim(), cap = !before || /[.!?]$/.test(before), rep = (cap ? m2.charAt(0).toUpperCase() + m2.slice(1) : m2).replace(/^i(?=[' ])/, 'I');
+        var t = g.whole ? rep : cur.slice(0, x.index + x[1].length) + rep + cur.slice(x.index + x[1].length + x[2].length);
+        if (!seen[t.toLowerCase()]) { seen[t.toLowerCase()] = 1; res.push(t); q.push(t); }
+      });
+    });
+  }
+  return res;
+}
+/* todas as respostas em inglês que valem para este [inglês, português] (sem repetir a principal) */
+function accepted(it) {
+  var key = it[0] + '\u0001' + it[1];
+  if (ACC[key]) return ACC[key];
+  var A = altsOf(it), out = [], seen = {};
+  function add(en) { var k = Fala.flat(en, true).join(' '); if (k && !seen[k]) { seen[k] = 1; out.push(en); } }
+  seen[Fala.flat(it[0], true).join(' ')] = 1;
+  (A.length ? PTX[A[0]] || [] : []).forEach(function (ix) {
+    var r = ROWS[ix];
+    if (!A.every(function (a) { return r.alts.indexOf(a) >= 0; })) return;
+    if (r.alts.length === A.length || (A.length === 1 && !r.par)) add(r.en);
+  });
+  [it[0]].concat(out).forEach(function (e) { variants(e).forEach(add); });
+  [it[0]].concat(out).forEach(function (e) { var m = /^to ([A-Za-z]+)$/.exec(e); if (m) add(m[1]); });
+  ACC[key] = out;
+  return out;
+}
+function accSet(it) {
+  var key = it[0] + '\u0001' + it[1];
+  if (!ACCSET[key]) { var o = {}; o[norm(it[0])] = 1; accepted(it).forEach(function (e) { o[norm(e)] = 1; }); ACCSET[key] = o; }
+  return ACCSET[key];
+}
+/* dois itens "querem dizer a mesma coisa"? (não podem aparecer juntos como resposta e distrator) */
+function related(a, b) {
+  if (norm(a[0]) === norm(b[0])) return true;
+  var A = altsOf(a), B = altsOf(b);
+  if (A.some(function (x) { return B.indexOf(x) >= 0; })) return true;
+  return !!accSet(a)[norm(b[0])] || !!accSet(b)[norm(a[0])];
+}
+function targetsOf(q) { return [q.answer].concat(q.alts || []); }
+function sameAny(typed, targets) { for (var i = 0; i < targets.length; i++) if (Fala.sameWritten(typed, targets[i])) return i; return -1; }
+function bestLive(typed, targets) {
+  var best = null, bs = -1e9;
+  targets.forEach(function (t, i) {
+    var r = Fala.live(t, typed), sc = 0;
+    r.marks.forEach(function (m) { sc += m.s === 'ok' ? 1 : m.s === 'bad' ? -2 : 0; });
+    if (r.full) sc += 1000;
+    if (sc > bs + (i ? 0.5 : 0)) { bs = sc; best = r; }
+  });
+  return best;
+}
+/* melhor conferência da fala entre as respostas válidas */
+function bestCheck(q, alts, opt) {
+  var best = null;
+  [q.en].concat(q.alts || []).forEach(function (t) {
+    var r = Fala.check(t, alts, opt);
+    if (!best || (r.ok && !best.ok) || (r.ok === best.ok && (r.level > best.level || (r.level === best.level && r.pct > best.pct)))) { best = r; best.target = t; }
+  });
+  return best;
+}
+function altNote(q) {
+  if (words(q.en).length > 5) return null;
+  var l = (q.alts || []).filter(function (e) { return !(/^to /i.test(q.en) && words(e).length === 1); }).slice(0, 3);
+  return l.length ? h('div', { class: 'ln small' }, 'Também aceito: ', h('strong', null, l.join('  ·  '))) : null;
 }
 function sec(u, n) { return u.secs[n] || []; }
 function sentPool(u) { return uniq([].concat(sec(u, 'aquecimento'), sec(u, 'frases'), sec(u, 'perguntas'), sec(u, 'extras'), sec(u, 'resumo')).map(function (p) { return [p[0], p[1]]; })); }
@@ -436,7 +538,14 @@ function buildRound(pool, types, u) {
   function next() { var it = sh[k % sh.length]; k++; return it; }
   if (!sh.length) return qs;
   types.forEach(function (t) {
-    if (t === 'pairs') { if (sh.length >= 4) { var its = uniq([next(), next(), next(), next()]); if (its.length === 4) { qs.push({ t: 'pairs', items: its }); return; } } t = 'choose-en2pt'; }
+    if (t === 'pairs') {
+      if (sh.length >= 4) {
+        var its = [], tries = 0;
+        while (its.length < 4 && tries < 80) { var cd = next(); tries++; if (!its.some(function (x) { return related(x, cd); })) its.push(cd); }
+        if (its.length === 4) { qs.push({ t: 'pairs', items: its }); return; }
+      }
+      t = 'choose-en2pt';
+    }
     qs.push(mkQ(t, next(), u));
   });
   return qs;
@@ -494,7 +603,7 @@ function stepList(u, s, back) {
   var sb = scoreBar(items.length), c = card(h('p', { class: 'small' }, 'Toque no alto-falante para ouvir e no microfone para falar. Verde = você falou certo. Vermelho = tente de novo.'), sb.el);
   items.forEach(function (p, i) { c.append(speakRow({ en: p[0], pt: p[1], onResult: function (ok) { sb.set(i, ok); } })); });
   function start() {
-    var pool = items.map(function (p) { return [p[0], p[1]]; }), types = ['pairs', 'choose-en2pt', 'say', 'choose-pt2en', 'listen', 'pairs', 'write', 'say', 'choose-en2pt', 'write'];
+    var pool = items.map(function (p) { return [p[0], p[1]]; }), types = ['pairs', 'choose-en2pt', 'say', 'choose-pt2en', 'listen', 'pairs', 'spell', 'say', 'auto', 'write'];
     play(buildRound(pool, types, u), { title: INFO[s][0], back: back, again: start, thr: 0.7, fim: function (ok) { if (ok) mark(u, s); } });
   }
   show(INFO[s][0], back, noteBox(u, s), c, h('button', { type: 'button', class: 'primary wide', onclick: start }, 'Praticar'));
@@ -520,7 +629,7 @@ function stepVerbs(u, s, back) {
   }
   function calado() {
     var pool = vs.map(function (v) { return [v[0], v[1]]; }), sp = vs.map(function (v) { return verbItem(u, v); }).filter(function (i) { return i.sent; });
-    var qs = buildRound(pool, ['pairs', 'choose-pt2en', 'write', 'choose-en2pt', 'write'], u);
+    var qs = buildRound(pool, ['pairs', 'choose-pt2en', 'spell', 'choose-en2pt', 'auto'], u);
     pick(sp, 4).forEach(function (i) { qs.push(mkGap([i.en, i.pt], u)); });
     play(qs, { title: 'Verbos: sem microfone', back: back, again: calado, thr: 0.7, fim: function (ok) { if (ok && !mic) mark(u, s); },
       nota: mic ? 'Esta rodada não conclui a etapa. Verbo só conta quando você fala: use os botões de microfone ou a rodada "Treinar falando".' : '' });
@@ -578,8 +687,8 @@ function stepRules(u, s, back) {
 
 /* frases */
 var MODES = {
-  misto: ['speak', 'tiles', 'say', 'write', 'gap', 'speak', 'listen', 'say', 'tiles', 'write'],
-  falar: ['speak', 'say'], escrever: ['write'], arrastar: ['tiles', 'gap'], ouvir: ['listen']
+  misto: ['speak', 'tiles', 'say', 'write', 'gap', 'speak', 'listen', 'say', 'tiles', 'auto'],
+  falar: ['speak', 'say'], escrever: ['write', 'auto'], arrastar: ['tiles', 'gap'], ouvir: ['listen']
 };
 function stepPhrases(u, s, back) {
   var kids = [noteBox(u, s)], md = sec(u, 'modelo');
@@ -673,7 +782,7 @@ function viewFalar() {
 /* ===== perguntas ===== */
 function distract(it, dir) {
   var pool = words(it[0]).length >= 3 ? GL.s : GL.w, ix = dir === 'en2pt' ? 1 : 0;
-  var c = shuffle(pool.filter(function (p) { return p[0] !== it[0] && p[1] !== it[1]; })), out = [], seen = {};
+  var c = shuffle(pool.filter(function (p) { return p[0] !== it[0] && p[1] !== it[1] && !related(it, p); })), out = [], seen = {};
   seen[it[ix]] = 1;
   c.forEach(function (p) { if (out.length < 3 && !seen[p[ix]]) { seen[p[ix]] = 1; out.push(p[ix]); } });
   return out.length === 3 ? out : null;
@@ -689,24 +798,26 @@ function mkGap(it, u) {
   var m = ws[ix].match(/^([^A-Za-z']*)(.*?)([^A-Za-z']*)$/), ans = m[2], seen = {}, d = [];
   seen[ans.toLowerCase()] = 1;
   shuffle(pool).forEach(function (w) { if (d.length < 3 && !seen[w] && w.length > 1) { seen[w] = 1; d.push(w); } });
-  if (!ans || d.length < 3 || ws.length < 3) return { t: 'write', en: it[0], pt: it[1], answer: it[0], prompt: it[1] };
+  if (!ans || d.length < 3 || ws.length < 3) return { t: 'write', en: it[0], pt: it[1], answer: it[0], prompt: it[1], alts: accepted(it) };
   return { t: 'gap', en: it[0], pt: it[1], ws: ws, ix: ix, pre: m[1], post: m[3], answer: ans, options: shuffle(d.concat([ans.toLowerCase() === 'i' ? 'I' : ans.toLowerCase()])) };
 }
 function mkQ(type, it, u) {
-  var en = it[0], pt = it[1], n = words(en).length;
+  var en = it[0], pt = it[1], n = words(en).length, al = accepted(it);
   if (type === 'tiles' && n < 3) type = 'write';
+  if (type === 'spell') { var bw = en.replace(/^to /i, ''); var outras = al.some(function (e) { return e.replace(/^to /i, '').toLowerCase() !== bw.toLowerCase(); }); if (outras || !/^[A-Za-z']{3,12}$/.test(bw)) type = 'auto'; else return { t: 'spell', en: en, pt: pt, answer: bw, prefix: bw !== en ? 'to ' : '', prompt: pt, alts: al }; }
   if (type === 'gap') return mkGap(it, u);
   if (type.slice(0, 6) === 'choose') {
     var dir = type.slice(7), d = distract(it, dir);
-    if (!d) return { t: 'write', en: en, pt: pt, answer: en, prompt: pt };
+    if (!d) return { t: 'write', en: en, pt: pt, answer: en, prompt: pt, alts: al };
     var ans = dir === 'en2pt' ? pt : en;
     return { t: 'choose', dir: dir, en: en, pt: pt, prompt: dir === 'en2pt' ? en : pt, answer: ans, options: shuffle(d.concat([ans])) };
   }
-  if (type === 'speak' || type === 'say') return { t: type, en: en, pt: pt };
-  return { t: type, en: en, pt: pt, answer: en, prompt: pt };
+  if (type === 'speak') return { t: type, en: en, pt: pt };
+  if (type === 'say') return { t: type, en: en, pt: pt, alts: al };
+  return { t: type, en: en, pt: pt, answer: en, prompt: pt, alts: type === 'listen' ? [] : al };
 }
 var TL = { choose: ['Escolher', 'list'], quiz: ['Escolher', 'list'], fix: ['Certo ou errado', 'target'], write: ['Escrever', 'pencil'], listen: ['Ouvir e escrever', 'spk'],
-  tiles: ['Arrastar', 'move'], gap: ['Completar', 'move'], pairs: ['Ligar os pares', 'grid'], speak: ['Falar', 'mic'], say: ['Falar sem ler', 'mic'] };
+  tiles: ['Arrastar', 'move'], gap: ['Completar', 'move'], pairs: ['Ligar os pares', 'grid'], speak: ['Falar', 'mic'], say: ['Falar sem ler', 'mic'], spell: ['Montar a palavra', 'move'], auto: ['Autocompletar', 'pencil'] };
 var QV = {};
 function lockOpts(box, right) { [].forEach.call(box.querySelectorAll('.opt'), function (x) { x.disabled = true; if (x.textContent === right) x.classList.add('right'); }); }
 function optList(c, opts, right, after) {
@@ -729,36 +840,112 @@ QV.fix = function (q, c) {
   c.box.append(h('p', { class: 'small' }, 'Qual frase está certa?'), h('p', { class: 'big' }, q.pt));
   optList(c, shuffle([q.wrong, q.right]), q.right, function (ok) { c.done(ok, rich(q.why), q.right); });
 };
-function writeLike(q, c, listenOnly) {
+/* ajuda para quem não lembra como se escreve */
+function pattern(ans, lvl) {
+  return ans.split(/\s+/).map(function (w) {
+    var Lt = w.split('');
+    return Lt.map(function (ch, i) {
+      if (!/[A-Za-z]/.test(ch)) return ch;
+      if (lvl >= 3 && Lt.length > 2 && (i === 0 || i === Lt.length - 1)) return ch;
+      if (lvl >= 2 && i === 0) return ch;
+      return '_';
+    }).join(' ');
+  });
+}
+var WORDSET = null;
+function wordSet() {
+  if (!WORDSET) {
+    var o = {};
+    GL.w.concat(GL.v).forEach(function (p) { var w = p[0].toLowerCase(); if (/^[a-z']{2,}$/.test(w)) o[w] = 1; });
+    GL.s.forEach(function (p) { words(p[0]).forEach(function (w) { if (w.length > 1) o[w] = 1; }); });
+    WORDSET = Object.keys(o);
+  }
+  return WORDSET;
+}
+function suggest(prefix, mine) {
+  var p = prefix.toLowerCase().replace(/[^a-z']/g, ''); if (!p) return [];
+  var out = mine.filter(function (w) { return w.indexOf(p) === 0; }).slice(0, 3);
+  shuffle(wordSet().filter(function (w) { return w.indexOf(p) === 0; })).forEach(function (w) { if (out.length < 6 && out.indexOf(w) < 0) out.push(w); });
+  return out.sort();
+}
+/* escrever (modo 'write'), ouvir e escrever ('listen') e autocompletar ('auto') */
+function writeLike(q, c, mode) {
+  var listenOnly = mode === 'listen', auto = mode === 'auto', targets = targetsOf(q), lvl = auto ? 1 : 0, sugOn = auto, helped = false, isVerb = /^to [A-Za-z]+$/i.test(q.answer);
   var input = h('input', { type: 'text', autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', spellcheck: 'false', enterkeyhint: 'done', 'aria-label': 'Escreva em inglês' });
   var chk = h('button', { type: 'button', class: 'primary' }, 'Conferir');
-  c.box.append(h('p', { class: 'small' }, listenOnly ? 'Ouça e escreva o que você ouviu:' : 'Escreva em inglês:'));
+  c.box.append(h('p', { class: 'small' }, listenOnly ? 'Ouça e escreva o que você ouviu:' : (auto ? 'Autocompletar: digite as primeiras letras e toque na palavra certa. ' : '') + (isVerb ? 'Escreva o verbo em inglês (pode ser com ou sem "to"):' : 'Escreva em inglês:')));
   if (listenOnly) c.box.append(h('div', { class: 'actions', style: 'margin:0 0 14px' }, say(q.en, 'Ouvir'), slow(q.en)));
   else c.box.append(h('p', { class: 'big' }, q.prompt));
-  var liveEl = h('div', { class: 'wm live', 'aria-live': 'polite' });
-  c.box.append(input, liveEl, h('p', { class: 'livehint' }, 'Enquanto você digita, a palavra fica verde se estiver certa e vermelha se estiver errada.'), h('div', { class: 'actions' }, chk, listenOnly ? null : btn('Dica: ouvir', function () { speak(q.en); }, '', 'spk')));
+  var liveEl = h('div', { class: 'wm live', 'aria-live': 'polite' }), hintEl = h('div', { class: 'patt', 'aria-live': 'polite' }), sugEl = h('div', { class: 'sug' }), note = h('p', { class: 'livehint' });
+  var tw = []; targets.forEach(function (t) { words(t).forEach(function (w) { if (tw.indexOf(w) < 0) tw.push(w); }); });
+  var HB = ['Dica: tamanho das palavras', 'Mais uma dica: 1ª letra', 'Mais uma dica: última letra', 'Dica: ouvir a frase', 'Ouvir de novo'];
+  var hbtn = btn(HB[lvl], function () {
+    if (lvl >= 3) { speak(q.en); helped = true; lvl = 4; } else { lvl++; if (lvl >= 2) helped = true; }
+    paintHint(); input.focus();
+  });
+  var sbtn = auto ? null : btn('Autocompletar', function () { sugOn = !sugOn; if (sugOn) helped = true; paintHint(); updSug(); input.focus(); }, '', 'pencil');
+  function paintHint() {
+    var t = lvl >= 1 ? pattern(q.answer, Math.min(lvl, 3)) : [];
+    hintEl.replaceChildren.apply(hintEl, t.map(function (w) { return h('span', { class: 'pw' }, w); })); hintEl.style.display = t.length ? '' : 'none';
+    hbtn.textContent = HB[Math.min(lvl, 4)];
+    note.textContent = helped ? 'Com dica, a frase volta no fim da rodada para você treinar de novo.' : 'Enquanto você digita, a palavra fica verde se estiver certa e vermelha se estiver errada.';
+    if (sbtn) sbtn.classList.toggle('on', sugOn);
+  }
+  function updSug() {
+    sugEl.replaceChildren(); sugEl.style.display = sugOn && !input.readOnly ? '' : 'none';
+    if (!sugOn || input.readOnly) return;
+    var m = /(\S*)$/.exec(input.value), pre = m ? m[1] : '';
+    if (!pre) { sugEl.append(h('span', { class: 'small' }, 'Digite a primeira letra da palavra e as sugestões aparecem aqui.')); return; }
+    var list = suggest(pre, tw);
+    if (!list.length) { sugEl.append(h('span', { class: 'small' }, 'Nenhuma palavra conhecida começa com "' + pre + '". Confira as letras.')); return; }
+    list.forEach(function (w) {
+      sugEl.append(h('button', { type: 'button', class: 'chip2', onclick: function () { input.value = input.value.slice(0, input.value.length - pre.length) + w + ' '; input.dispatchEvent(new Event('input')); input.focus(); } }, w));
+    });
+  }
+  c.box.append(input, liveEl, hintEl, sugEl, note, h('div', { class: 'actions' }, chk, listenOnly ? null : hbtn, listenOnly ? null : sbtn));
   input.addEventListener('input', function () {
     if (input.readOnly) return;
-    var r = Fala.live(q.answer, input.value); liveEl.replaceChildren();
+    var r = bestLive(input.value, targets); liveEl.replaceChildren();
     r.marks.forEach(function (m) { liveEl.append(h('span', { class: m.s === 'ok' ? 'y' : m.s === 'bad' ? 'n' : 'p' }, m.w)); });
     input.classList.toggle('good', r.full);
+    updSug();
   });
   function check() {
     if (!words(input.value).length) return;
-    var ok = Fala.sameWritten(input.value, q.answer);
-    input.readOnly = true; chk.disabled = true; input.blur();
-    if (ok) return c.done(true, h('div', null, q.answer), q.en);
-    var a = words(input.value), t = words(q.answer), d = diff(a, t);
+    var k = sameAny(input.value, targets), ok = k >= 0;
+    input.readOnly = true; chk.disabled = true; input.blur(); updSug();
+    var soft = helped && !listenOnly;
+    if (ok) return c.done(true, [h('div', null, k === 0 ? q.answer : [h('span', { class: 'small' }, 'Certo! Também se diz: '), h('strong', null, q.answer)]), k === 0 ? altNote(q) : null], q.en, soft);
+    var a = words(input.value), tt = targets[0], bl = -1;
+    targets.forEach(function (t) { var l = diff(a, words(t)).lcs; if (l > bl) { bl = l; tt = t; } });
+    var t = words(tt), d = diff(a, t);
     var mine = h('div', { class: 'ln' }, 'Você escreveu: ');
     a.forEach(function (w, i) { mine.append(h('span', { style: d.ma[i] ? '' : 'color:var(--bad);text-decoration:line-through;font-weight:700' }, w), ' '); });
     var miss = t.filter(function (w, i) { return !d.mb[i]; });
-    c.done(false, [mine, h('div', { class: 'ln' }, 'O certo é: ', h('strong', null, q.answer)), miss.length ? h('div', { class: 'ln' }, 'Faltou ou mudou: ', h('strong', null, miss.join(', '))) : null, h('div', { class: 'small' }, q.pt)], q.en);
+    c.done(false, [mine, h('div', { class: 'ln' }, 'O certo é: ', h('strong', null, tt)), miss.length ? h('div', { class: 'ln' }, 'Faltou ou mudou: ', h('strong', null, miss.join(', '))) : null, altNote(q), h('div', { class: 'small' }, q.pt)], q.en);
   }
   chk.onclick = check; input.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); check(); } });
+  paintHint(); updSug();
   if (listenOnly) speak(q.en);
 }
-QV.write = function (q, c) { writeLike(q, c, false); };
-QV.listen = function (q, c) { writeLike(q, c, true); };
+QV.write = function (q, c) { writeLike(q, c, 'write'); };
+QV.auto = function (q, c) { writeLike(q, c, 'auto'); };
+QV.listen = function (q, c) { writeLike(q, c, 'listen'); };
+/* animação de deslizar: as peças saem da posição antiga e vão para a nova */
+function flip(boxes, fn) {
+  var first = {};
+  boxes.forEach(function (bx) { [].forEach.call(bx.children, function (k) { if (k.dataset.ix != null) first[k.dataset.ix] = k.getBoundingClientRect(); }); });
+  fn();
+  if (!document.body.animate || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  boxes.forEach(function (bx) {
+    [].forEach.call(bx.children, function (k) {
+      var f = first[k.dataset.ix]; if (!f) return;
+      var l = k.getBoundingClientRect(), dx = f.left - l.left, dy = f.top - l.top;
+      if (Math.abs(dx) + Math.abs(dy) < 2) return;
+      k.animate([{ transform: 'translate(' + dx + 'px,' + dy + 'px)' }, { transform: 'none' }], { duration: 280, easing: 'cubic-bezier(.2,.9,.25,1.12)' });
+    });
+  });
+}
 QV.tiles = function (q, c) {
   var toks = q.answer.split(/\s+/), order = shuffle(toks.map(function (t, i) { return i; })), placed = [], fin = false;
   var slot = h('div', { class: 'tiles slot' }), bank = h('div', { class: 'tiles bank' }), chk = h('button', { type: 'button', class: 'primary' }, 'Conferir'), warn = h('div');
@@ -774,8 +961,8 @@ QV.tiles = function (q, c) {
   function tile(ix, on) {
     var b = h('button', { type: 'button', class: 'tile' + (on ? ' on' : ''), 'data-ix': ix }, toks[ix]);
     dragify(b, {
-      tap: function () { if (fin) return; var w = placed.indexOf(ix); if (w >= 0) placed.splice(w, 1); else placed.push(ix); draw(); },
-      drop: function (x, y) { if (!fin) drop(ix, x, y); },
+      tap: function () { if (fin) return; var w = placed.indexOf(ix); flip([slot, bank], function () { if (w >= 0) placed.splice(w, 1); else placed.push(ix); draw(); }); },
+      drop: function (x, y) { if (!fin) flip([slot, bank], function () { drop(ix, x, y); }); },
       over: function (x, y) { slot.classList.toggle('over', x >= 0 && inside(slot, x, y, 18)); }
     });
     return b;
@@ -788,7 +975,7 @@ QV.tiles = function (q, c) {
   chk.onclick = function () {
     if (placed.length < toks.length) { warn.replaceChildren(h('div', { class: 'msg warn' }, 'Use todas as palavras antes de conferir.')); return; }
     fin = true; chk.disabled = true;
-    var mine = placed.map(function (i) { return toks[i]; }).join(' '), ok = norm(mine) === norm(q.answer);
+    var mine = placed.map(function (i) { return toks[i]; }).join(' '), ok = sameAny(mine, targetsOf(q)) >= 0;
     c.done(ok, ok ? h('div', null, q.answer) : [h('div', { class: 'ln' }, 'Você montou: ' + mine), h('div', { class: 'ln' }, 'O certo é: ', h('strong', null, q.answer))], q.en);
   };
   c.box.append(h('p', { class: 'small' }, 'Arraste ou toque nas palavras para montar em inglês:'), h('p', { class: 'big' }, q.prompt), slot, bank, warn,
@@ -819,29 +1006,85 @@ QV.gap = function (q, c) {
   draw();
 };
 QV.pairs = function (q, c) {
-  var left = shuffle(q.items), right = shuffle(q.items), selL = null, selR = null, miss = 0, hit = 0, wrong = {};
-  var grid = h('div', { class: 'pairs' }), L = [], Rg = [];
-  function clear() { L.concat(Rg).forEach(function (b) { b.classList.remove('sel', 'miss'); }); selL = selR = null; }
+  var left = shuffle(q.items), right = shuffle(q.items), selL = null, selR = null, miss = 0, hit = 0, wrong = {}, busy = false;
+  var grid = h('div', { class: 'pairs' }), L = [], Rg = [], NS = 'http://www.w3.org/2000/svg';
+  var svg = document.createElementNS(NS, 'svg'); svg.setAttribute('class', 'plines'); svg.setAttribute('aria-hidden', 'true');
+  var counter = h('div', { class: 'pcount', 'aria-live': 'polite' });
+  function clear() { L.concat(Rg).forEach(function (b) { b.classList.remove('sel', 'miss'); }); selL = selR = null; busy = false; }
+  function line(bl, br, ok) {
+    var g = grid.getBoundingClientRect(), a = bl.getBoundingClientRect(), b = br.getBoundingClientRect(), ln = document.createElementNS(NS, 'line');
+    var x1 = a.right - g.left, y1 = a.top + a.height / 2 - g.top, x2 = b.left - g.left, y2 = b.top + b.height / 2 - g.top, len = Math.hypot(x2 - x1, y2 - y1);
+    ln.setAttribute('x1', x1); ln.setAttribute('y1', y1); ln.setAttribute('x2', x2); ln.setAttribute('y2', y2); ln.setAttribute('class', 'pl ' + (ok ? 'ok' : 'bad'));
+    ln.style.strokeDasharray = len; ln.style.strokeDashoffset = len; svg.append(ln);
+    ln.getBoundingClientRect();
+    ln.style.transition = 'stroke-dashoffset .3s cubic-bezier(.3,.7,.3,1)'; ln.style.strokeDashoffset = 0;
+    if (!ok) setTimeout(function () { ln.style.transition = 'opacity .3s'; ln.style.opacity = 0; setTimeout(function () { ln.remove(); }, 320); }, 480);
+  }
   function tryMatch() {
     if (selL == null || selR == null) return;
     var a = left[selL], b = right[selR], bl = L[selL], br = Rg[selR];
     if (a[0] === b[0]) {
       bl.classList.remove('sel'); br.classList.remove('sel'); bl.classList.add('hit'); br.classList.add('hit'); bl.disabled = br.disabled = true; hit++; selL = selR = null;
-      if (hit === q.items.length) { Object.keys(wrong).forEach(hardAdd); c.done(miss <= 1, miss ? h('div', null, 'Você errou ' + miss + ' par(es) no caminho.') : null); }
+      line(bl, br, true);
+      if (hit === q.items.length) {
+        Object.keys(wrong).forEach(hardAdd);
+        var bad = q.items.filter(function (i) { return wrong[i[0]]; });
+        setTimeout(function () {
+          c.done(miss === 0, miss ? [h('div', null, 'Você errou ' + miss + (miss === 1 ? ' ligação' : ' ligações') + '. Estas você confundiu:')].concat(bad.map(function (i) { return h('div', { class: 'ln' }, h('strong', null, i[0]), ' = ' + i[1]); })) : null);
+        }, 420);
+      }
     } else {
-      miss++; wrong[a[0]] = 1; bl.classList.add('miss'); br.classList.add('miss'); setTimeout(clear, 450);
+      miss++; wrong[a[0]] = 1; wrong[b[0]] = 1; busy = true;
+      bl.classList.add('miss'); br.classList.add('miss'); line(bl, br, false);
+      
+      counter.replaceChildren(miss === 1 ? 'Atenção: você errou 1 ligação.' : 'Atenção: você errou ' + miss + ' ligações.');
+      setTimeout(clear, 520);
     }
   }
   left.forEach(function (p, i) {
-    var b = h('button', { type: 'button', onclick: function () { if (selL != null) L[selL].classList.remove('sel'); selL = i; b.classList.add('sel'); speak(p[0]); tryMatch(); } }, p[0]);
+    var b = h('button', { type: 'button', onclick: function () { if (busy) return; if (selL != null) L[selL].classList.remove('sel'); selL = i; b.classList.add('sel'); speak(p[0]); tryMatch(); } }, p[0]);
     L.push(b);
   });
   right.forEach(function (p, i) {
-    var b = h('button', { type: 'button', onclick: function () { if (selR != null) Rg[selR].classList.remove('sel'); selR = i; b.classList.add('sel'); tryMatch(); } }, p[1]);
+    var b = h('button', { type: 'button', onclick: function () { if (busy) return; if (selR != null) Rg[selR].classList.remove('sel'); selR = i; b.classList.add('sel'); tryMatch(); } }, p[1]);
     Rg.push(b);
   });
   for (var i = 0; i < left.length; i++) grid.append(L[i], Rg[i]);
-  c.box.append(h('p', { class: 'small' }, 'Toque no inglês e depois na tradução:'), grid);
+  grid.append(svg);
+  c.box.append(h('p', { class: 'small' }, 'Toque no inglês e depois na tradução:'), counter, grid);
+};
+/* montar a palavra letra por letra: cada letra fica verde ou vermelha na hora */
+QV.spell = function (q, c) {
+  var w = q.answer, Lt = w.split(''), order = shuffle(Lt.map(function (_, i) { return i; })), placed = [], fin = false, helped = false;
+  var slot = h('div', { class: 'letters slot' }), bank = h('div', { class: 'letters bank' });
+  var chk = h('button', { type: 'button', class: 'primary', disabled: true }, 'Conferir'), warn = h('div');
+  function tile(ix, on) {
+    var cls = 'tile lt' + (on ? ' on' : '');
+    if (on) { var pos = placed.indexOf(ix); cls += Lt[ix].toLowerCase() === w.charAt(pos).toLowerCase() ? ' okl' : ' badl'; }
+    return h('button', { type: 'button', class: cls, 'data-ix': ix, onclick: function () { if (!fin) press(ix); } }, Lt[ix].toLowerCase());
+  }
+  function draw() {
+    slot.replaceChildren(); bank.replaceChildren(); warn.replaceChildren();
+    placed.forEach(function (ix) { slot.append(tile(ix, true)); });
+    order.forEach(function (ix) { if (placed.indexOf(ix) < 0) bank.append(tile(ix, false)); });
+    chk.disabled = placed.length !== Lt.length;
+  }
+  function press(ix) {
+    var at = placed.indexOf(ix);
+    flip([slot, bank], function () { if (at >= 0) placed.splice(at, 1); else placed.push(ix); draw(); });
+  }
+  chk.onclick = function () {
+    fin = true; chk.disabled = true;
+    var mine = placed.map(function (i) { return Lt[i]; }).join(''), ok = mine.toLowerCase() === w.toLowerCase();
+    c.done(ok, ok ? [h('div', null, q.prefix + w), altNote(q)] : [h('div', { class: 'ln' }, 'Você montou: ' + mine), h('div', { class: 'ln' }, 'O certo é: ', h('strong', null, q.prefix + w)), altNote(q)], q.en, ok && helped);
+  };
+  var first = btn('Dica: 1ª letra', function () {
+    if (fin || placed.length) return;
+    var ix = order.filter(function (i) { return Lt[i].toLowerCase() === w.charAt(0).toLowerCase(); })[0]; helped = true; press(ix); first.disabled = true;
+  });
+  c.box.append(h('p', { class: 'small' }, q.prefix ? 'Monte o VERBO em inglês, letra por letra (sem o "to"):' : 'Monte a palavra em inglês, letra por letra:'), h('p', { class: 'big' }, q.prefix ? q.prompt + '  (verbo)' : q.prompt), slot, bank, warn,
+    h('div', { class: 'actions' }, chk, first, btn('Dica: ouvir', function () { helped = true; speak(q.en); }, '', 'spk'), btn('Limpar', function () { if (fin) return; flip([slot, bank], function () { placed = []; draw(); }); })));
+  draw();
 };
 function marksEl(r) { var e = h('div', { class: 'wm' }); r.marks.forEach(function (m) { e.append(h('span', { class: m.ok ? 'y' : 'n' }, m.w)); }); return e; }
 function speakLike(q, c, hidden) {
@@ -849,9 +1092,9 @@ function speakLike(q, c, hidden) {
   var enEl = h('p', { class: 'en' }, hidden ? '' : q.en), res = h('div'), heard = h('div', { class: 'heard' });
   var mic = h('button', { type: 'button', class: 'mic', 'aria-label': 'Falar' }, ico('mic', 40)), lab = h('div', { class: 'miclab' }, 'Toque e fale');
   function idle(t) { live = false; mic.classList.remove('live'); mic.replaceChildren(ico('mic', 40)); lab.textContent = t || 'Toque e fale de novo'; }
-  function reveal() { if (!shown) { shown = true; hinted = true; enEl.textContent = q.en; } }
+  function reveal(free) { if (!shown) { shown = true; if (!free) hinted = true; enEl.textContent = q.en; } }
   function skip() { return btn('Pular esta', function () { ended = true; c.done(false, ['O certo é: ', h('strong', null, q.en), h('div', { class: 'small' }, q.pt)], q.en); }); }
-  function toWrite() { c.box.replaceChildren.apply(c.box, c.head); QV.write({ t: 'write', en: q.en, pt: q.pt, answer: q.en, prompt: q.pt }, c); }
+  function toWrite() { c.box.replaceChildren.apply(c.box, c.head); QV.write({ t: 'write', en: q.en, pt: q.pt, answer: q.en, prompt: q.pt, alts: q.alts || [] }, c); }
   function pass(fb) { ended = true; c.done(true, fb, null, tries > 2 || (hidden && hinted)); }
   if (q.ctx) c.box.append(h('button', { type: 'button', class: 'row', style: 'margin-bottom:12px', onclick: function () { speak(q.ctx[1]); } }, h('span', { class: 'a' }, h('span', null, q.ctx[0] + ' diz:'), h('b', null, q.ctx[1])), h('span', { class: 'sp' }, ico('spk'))));
   if (hidden) c.box.append(h('p', { class: 'small' }, q.verb ? 'Diga o verbo em inglês (com to):' : 'Diga em inglês, sem ler:'), h('p', { class: 'big' }, q.pt), enEl);
@@ -870,21 +1113,21 @@ function speakLike(q, c, hidden) {
       return;
     }
     tries++;
-    var r = Fala.check(q.en, alts, fopt({ lax: q.lax }));
+    var r = bestCheck(q, alts, fopt({ lax: q.lax }));
     heard.textContent = 'Eu entendi: ' + r.heard;
-    if (r.ok) { reveal(); return pass([marksEl(r), h('div', { class: 'small' }, r.soft.length ? 'O microfone entendeu "' + r.soft[0].heard + '" no lugar de "' + r.soft[0].target + '". Ele confunde a vogal; as consoantes batem, então aceitei.' : r.homo.length ? 'Entendi "' + r.homo[0].heard + '", que tem o mesmo som de "' + r.homo[0].target + '". O microfone não separa as duas; a diferença só aparece na escrita.' : r.level === 2 ? 'Todas as palavras foram entendidas.' : 'Quase perfeito: só uma palavrinha (a, an, the ou to) ficou diferente.')]); }
+    if (r.ok) { reveal(true); return pass([marksEl(r), h('div', { class: 'small' }, r.soft.length ? 'O microfone entendeu "' + r.soft[0].heard + '" no lugar de "' + r.soft[0].target + '". Ele confunde a vogal; as consoantes batem, então aceitei.' : r.homo.length ? 'Entendi "' + r.homo[0].heard + '", que tem o mesmo som de "' + r.homo[0].target + '". O microfone não separa as duas; a diferença só aparece na escrita.' : r.level === 2 ? 'Todas as palavras foram entendidas.' : 'Quase perfeito: só uma palavrinha (a, an, the ou to) ficou diferente.')]); }
     idle();
     if (hidden && tries >= 2) reveal();
     var falt = r.marks.filter(function (m) { return !m.ok; }).length;
     res.replaceChildren(h('div', { class: 'msg bad' }, h('strong', null, 'Ainda não. '),
       shown ? 'Repita com atenção as palavras em vermelho.' : falt + ' palavra(s) não bateram. Tente de novo, ou use a dica para ouvir.', shown ? marksEl(r) : null),
-      h('div', { class: 'actions' }, r.pairs.length ? btn('O microfone errou, eu falei certo', function () { calAdd(r.pairs); reveal(); pass([marksEl(Fala.check(q.en, alts, fopt({ lax: q.lax }))), h('div', { class: 'small' }, 'Calibrado: "' + r.pairs[0][1] + '" agora vale como "' + r.pairs[0][0] + '" neste aparelho.')]); }) : null, tries >= 2 ? skip() : null));
+      h('div', { class: 'actions' }, r.pairs.length ? btn('O microfone errou, eu falei certo', function () { calAdd(r.pairs); reveal(true); pass([marksEl(bestCheck(q, alts, fopt({ lax: q.lax }))), h('div', { class: 'small' }, 'Calibrado: "' + r.pairs[0][1] + '" agora vale como "' + r.pairs[0][0] + '" neste aparelho.')]); }) : null, tries >= 2 ? skip() : null));
   }
   function onRec(url, err) {
     if (ended) return;
     idle('Toque para gravar de novo');
     if (!url) { res.replaceChildren(h('div', { class: 'msg warn' }, err === 'not-allowed' ? 'O navegador bloqueou o microfone. Libere o microfone para este site.' : 'Não consegui gravar. Tente de novo.'), h('div', { class: 'actions' }, btn('Escrever esta frase', toWrite, '', 'pencil'))); return; }
-    tries++; reveal();
+    tries++; reveal(true);
     var au = new Audio(url);
     res.replaceChildren(h('div', { class: 'msg info' }, 'Compare: ouça o modelo e depois a sua voz. Ficou igual?'),
       h('div', { class: 'actions' }, say(q.en, 'Modelo'), btn('Minha voz', function () { quiet(); au.currentTime = 0; au.play(); }, '', 'spk')),
@@ -896,7 +1139,7 @@ function speakLike(q, c, hidden) {
     if (SRC()) { live = true; mic.classList.add('live'); mic.replaceChildren(ico('stop', 40)); lab.textContent = 'Ouvindo... fale agora'; rec = listen(function (t) { heard.textContent = t; }, onSR, [q.en]); }
     else if (canRecord()) { live = true; mic.classList.add('live'); mic.replaceChildren(ico('stop', 40)); lab.textContent = 'Gravando... toque para parar'; rec = record(onRec); }
     else {
-      reveal(); lab.textContent = 'Fale em voz alta';
+      reveal(true); lab.textContent = 'Fale em voz alta';
       res.replaceChildren(h('div', { class: 'msg info' }, 'Este navegador não libera o microfone. Fale em voz alta, compare com o modelo e marque. No Chrome a conferência é automática.'),
         h('div', { class: 'actions' }, btn('Falei igual', function () { pass(h('div', null, q.en)); }, 'primary'), btn('Preciso repetir', function () { speak(q.en, 0.7); })));
     }
@@ -1042,4 +1285,5 @@ if (window.__CIFRADO && !window.__DADOS) {
   var guardada = null; try { guardada = localStorage.getItem('estudo_k'); } catch (e) {}
   if (guardada) abrir(guardada).catch(function () { trava(); }); else trava();
 } else start();
+if (/[?&]dbg/.test(location.search)) window.__dbg = { accepted: accepted, related: related, variants: variants, ROWS: ROWS, GL: GL, UNITS: UNITS, mkQ: mkQ, ALTG: ALTG, sec: sec, sentPool: sentPool, wordList: wordList, allPool: allPool, play: play, buildRound: buildRound };
 })();

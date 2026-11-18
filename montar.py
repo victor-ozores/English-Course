@@ -98,7 +98,7 @@ def main():
             if not f.endswith('.txt'):
                 continue
             t = ler('dados', livro, f).replace('\r\n', '\n')
-            for n, msg in conferir(f, t):
+            for n, msg in ([] if f.startswith('_') else conferir(f, t)):
                 print('  %s/%s linha %d: %s' % (livro, f, n, msg))
                 total_erros += 1
             arqs[f[:-4]] = t
@@ -108,7 +108,7 @@ def main():
     html = pagina('window.__DADOS=' + texto.replace('</', '<\\/') + ';')
     with open(os.path.join(AQUI, 'estudo.html'), 'w', encoding='utf-8', newline='\n') as f:
         f.write(html)
-    unid = sum(len(d['files']) for d in dados.values())
+    unid = sum(1 for d in dados.values() for k in d['files'] if not k.startswith('_'))
     print('estudo.html pronto: %d livro(s), %d unidades, %d KB, %d aviso(s)' % (
         len(dados), unid, len(html.encode('utf-8')) // 1024, total_erros))
     # versão para publicar no GitHub Pages: o conteúdo vai CIFRADO, só a senha abre

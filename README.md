@@ -79,7 +79,7 @@ Abre no Chrome do celular ou do computador. Na primeira vez pede a senha de aces
 | **Início** | Progresso do livro, o botão Continuar, o treino de fala, o reforço do que errei e a trilha das 46 unidades (gramáticas em âmbar) |
 | **Unidade** | As etapas na ordem (**comece por aqui, palavras, verbos, expressões, regras, frases, conversa, revisão**), com a próxima destacada |
 | **Palavras e verbos** | Uma linha por item com ouvir e falar; o placar de certas, erradas e faltam; e a rodada de treino |
-| **Exercícios** | Falar, falar sem ler, arrastar e montar a frase, completar arrastando, ligar os pares, escrever, ouvir e escrever, escolher e "qual está certa?" |
+| **Exercícios** | Falar, falar sem ler, arrastar e montar a frase, completar arrastando, ligar os pares (com linha verde ou vermelha e aviso de erro), escrever (com dica em níveis e autocompletar), autocompletar, montar a palavra letra por letra, ouvir e escrever, escolher e "qual está certa?" |
 | **Falar** | Treino só de microfone, com frases da unidade atual ou de tudo o que já estudei |
 | **Progresso** | Unidades concluídas, salvar e importar (arquivo ou código), velocidade da voz e reforço |
 
@@ -158,6 +158,7 @@ O navegador entende a minha voz e devolve um texto; a comparação com a frase c
 * **Dica ao navegador.** Quando o Chrome aceita uma lista de palavras esperadas, o app avisa qual palavra eu devo falar; se ele recusar, o app ouve sem a dica.
 * **Calibração pessoal.** Se o microfone errar e eu tiver certeza de que falei certo, toco em "O microfone errou, eu falei certo": o app guarda a correção neste aparelho (e na cópia do progresso) e passa a aceitar aquele som.
 * **Dica ou 3 tentativas ou mais:** a frase passa, mas volta no fim da rodada.
+* **Mais de uma resposta certa.** "Boa noite" é *good evening* ou *good night*, e a frase sozinha não diz qual. O app junta tudo o que o livro traduz do mesmo jeito em português, mais os grupos de `_alternativas.txt` (fica só no meu computador, junto do conteúdo) (*thanks* e *thank you*, *movie* e *film*, *I play guitar* e *I play the guitar*) e aceita qualquer um, na escrita, na fala sem ler e no arrastar. Nas perguntas de escolher, dois itens que querem dizer a mesma coisa nunca aparecem juntos.
 * **Escrita:** *do not* vale por *don't* e *15* por *fifteen*, mas a grafia tem de estar certa. Enquanto digito, cada palavra fica verde (certa), vermelha (errada) ou azul (ainda digitando).
 * **Sem o reconhecimento de voz** (navegador sem suporte), o app grava a minha voz e eu comparo com o modelo. Se também não houver microfone, ele pede para eu escrever a frase.
 
@@ -167,7 +168,7 @@ O navegador entende a minha voz e devolve um texto; a comparação com a frase c
 |---|---|---|
 | **A conferência da fala e da escrita ao vivo** | [`testes/fala.test.js`](testes/fala.test.js): frases que têm de passar e frases que não podem passar (*he work*, *can't* no lugar de *can*, verbo errado, falta de *did*, ordem trocada) e os casos em que a vogal duvidosa deve passar (*bread* ouvido como *brad*, *ham* como *him*) | 83 testes, todos passando |
 | **O formato do conteúdo** | `python montar.py` confere cada linha dos 46 arquivos (colunas, tipos de lição, seções) antes de montar | 0 avisos |
-| **As telas e os exercícios** | Rodadas completas dos 10 tipos de exercício num navegador de 375 x 812, em claro e escuro, com um robô que responde certo e errado e um microfone simulado | sem erro no console; as 46 unidades e as 414 telas de etapas abrem sem texto quebrado |
+| **As telas e os exercícios** | Rodadas completas dos 12 tipos de exercício num navegador de 375 x 812, em claro e escuro, com um robô que responde certo e errado e um microfone simulado | sem erro no console; as 46 unidades e as 414 telas de etapas abrem sem texto quebrado |
 | **Salvar e importar** | Salvei o código, apaguei o progresso, importei pelo código e pelo arquivo, tentei um código quebrado e um arquivo que não era do app; apaguei só o `localStorage` e conferi que o espelho do navegador devolve o progresso | todos os caminhos funcionaram; o inválido é recusado com aviso |
 | **A trava com senha** | Abri a versão cifrada com senha errada (recusa) e certa (abre as 46 unidades); conferi que o arquivo publicado não tem nenhuma frase do livro em texto aberto | 0 frases do livro no arquivo cifrado |
 | **As frases e as explicações** | Li as linhas em inglês e as explicações das unidades; rodei checagens automáticas (quiz ambíguo, "errado" que é frase válida, traduções que se contradizem, palavra rara que pode ser erro de digitação, erro comum de gramática em cada frase) | 115 frases do livro corrigidas e mais acentos e termos padronizados numa segunda revisão (13/11/2026) |
@@ -187,7 +188,8 @@ O navegador entende a minha voz e devolve um texto; a comparação com a frase c
 ## 🗂️ Estrutura
 
 ```
-dados/_modelo.txt    o formato de um arquivo de unidade (o conteúdo do livro, em dados/livro1/, fica só no meu computador e não sobe)
+dados/_modelo.txt    o formato de um arquivo de unidade (o conteúdo do livro, em dados/livro1/, fica só no meu computador e não sobe;
+                     lá também fica _alternativas.txt, os grupos de respostas equivalentes)
 src/                 index.html, style.css, app.js (telas e exercícios), fala.js (conferência da fala)
 testes/              fala.test.js
 montar.py            confere o conteúdo e gera estudo.html (local) e docs/index.html (cifrado)

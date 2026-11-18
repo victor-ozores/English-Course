@@ -25,7 +25,13 @@ Duas formas de abrir, sempre no **Chrome** (é nele que a voz e a conferência d
 - Dica para o microfone entender melhor: fale a palavra inteira, sem pressa, com o celular perto e sem barulho; para uma palavra solta, diga-a duas vezes seguidas ("bread, bread") se ele insistir em errar.
 
 ## Exercícios
-Falar, falar sem ler, arrastar para montar a frase, completar arrastando, ligar os pares, escrever, ouvir e escrever, escolher e "qual está certa?".
+Falar, falar sem ler, arrastar para montar a frase, completar arrastando, ligar os pares, escrever, autocompletar, montar a palavra letra por letra, ouvir e escrever, escolher e "qual está certa?".
+
+- **Não lembra como se escreve?** Em "Escrever" toque em **Dica**: 1ª dica = o tamanho de cada palavra, 2ª = a primeira letra, 3ª = a última letra, 4ª = ouvir a frase. Toque em **Autocompletar** para ver sugestões de palavras enquanto digita (toque na palavra para completar). Com a 2ª dica ou o autocompletar, a frase volta no fim da rodada para você treinar de novo.
+- **Autocompletar** (jogo): você digita as primeiras letras e escolhe a palavra certa na lista.
+- **Montar a palavra**: as letras vêm embaralhadas; cada letra que você coloca fica verde (certa) ou vermelha (no lugar errado).
+- **Ligar os pares**: cada ligação vira uma linha verde (certa) ou vermelha (errada) e aparece o aviso "você errou N ligação(ões)". Errou 1 que seja = o jogo volta mais tarde (não fica verde).
+- **Mais de uma resposta certa:** "boa noite" vale *good evening* e *good night*; "obrigado" vale *thanks* e *thank you*; "filme" vale *movie* e *film*. Depois de errar, o app mostra "Também aceito: ...". Sentiu falta de uma variação? Peça para acrescentar uma linha em `dados/livro1/_alternativas.txt`.
 
 ## Salvar o progresso (importante no celular)
 O navegador do celular pode apagar os dados sem avisar. O app guarda o progresso **duas vezes** no navegador, mas a cópia segura é a sua. Na aba **Progresso**:

@@ -54,7 +54,7 @@ main>*:nth-child(2){animation-delay:.04s}main>*:nth-child(3){animation-delay:.08
 .tag{display:inline-block;font-size:11.5px;font-weight:800;padding:4px 10px;border-radius:99px;background:var(--blue-bg);color:var(--blue);letter-spacing:.06em;text-transform:uppercase}
 .tag.g{background:var(--warn-bg);color:var(--warn)}.tag.ok{background:var(--ok-bg);color:var(--ok)}
 .bar{height:8px;border-radius:99px;background:var(--line);overflow:hidden;margin-top:10px}
-.bar i{display:block;height:100%;border-radius:99px;background:var(--pri);transition:width .35s}
+.bar i{display:block;height:100%;border-radius:99px;background:var(--pri);transition:width .55s cubic-bezier(.2,.9,.3,1.15)}
 .bar.ok i{background:var(--ok)}
 select,input[type=text]{font:inherit;color:var(--ink);background:var(--soft);border:2px solid var(--line);border-radius:16px;padding:14px;width:100%;min-width:0}
 input[type=text]{font-size:20px;font-weight:600}
@@ -144,11 +144,11 @@ input[type=text]:focus{border-color:var(--pri);outline:0}
 .gapline{font-size:23px;font-weight:800;line-height:1.7;margin:0 0 14px;letter-spacing:-.01em}
 .blank{display:inline-block;min-width:92px;min-height:42px;vertical-align:middle;border:2px dashed var(--pri);border-radius:12px;padding:0 12px;color:var(--blue);background:var(--blue-bg);text-align:center}
 .blank.over{background:var(--pri);color:#fff}
-.pairs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pairs{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px 36px}
 .pairs button{min-height:56px;padding:10px;font-weight:600;line-height:1.25;border-width:2px;box-shadow:0 2px 0 var(--line)}
 .pairs button.sel{border-color:var(--pri);background:var(--blue-bg);color:var(--blue)}
-.pairs button.hit{border-color:var(--ok);background:var(--ok-bg);color:var(--ok);opacity:.75;box-shadow:none}
-.pairs button.miss{border-color:var(--bad);background:var(--bad-bg);color:var(--bad)}
+.pairs button.hit{border-color:var(--ok);background:var(--ok-bg);color:var(--ok);opacity:.85;box-shadow:none;animation:pop .38s cubic-bezier(.3,1.6,.5,1)}
+.pairs button.miss{border-color:var(--bad);background:var(--bad-bg);color:var(--bad);animation:shake .4s}
 .micwrap{display:flex;flex-direction:column;align-items:center;gap:10px;margin:18px 0 6px}
 .mic{width:96px;height:96px;min-height:96px;padding:0;border-radius:50%;border:0;background:var(--pri);color:#fff;box-shadow:0 5px 0 var(--pri2)}
 .mic:active{box-shadow:0 2px 0 var(--pri2)}
@@ -184,8 +184,8 @@ textarea{font:inherit;color:var(--ink);background:var(--soft);border:2px solid v
 .bub .pt{display:none;color:var(--mut);font-size:15px}.showpt .bub .pt{display:block}
 
 /* resposta (folha de baixo) */
-@keyframes sheet{from{transform:translateY(100%)}to{transform:none}}
-.sheet{position:fixed;left:0;right:0;bottom:0;z-index:20;max-height:72vh;overflow:auto;padding:18px 18px calc(18px + env(safe-area-inset-bottom));border-radius:26px 26px 0 0;box-shadow:0 -8px 30px rgba(0,0,0,.18);animation:sheet .22s ease both}
+@keyframes sheet{0%{transform:translateY(100%)}65%{transform:translateY(-2.5%)}100%{transform:none}}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:20;max-height:72vh;overflow:auto;padding:18px 18px calc(18px + env(safe-area-inset-bottom));border-radius:26px 26px 0 0;box-shadow:0 -8px 30px rgba(0,0,0,.18);animation:sheet .34s cubic-bezier(.2,.8,.2,1) both}
 .sheet>div{max-width:568px;margin:0 auto}
 .sheet.ok{background:var(--ok-bg);color:var(--ok)}.sheet.bad{background:var(--bad-bg);color:var(--bad)}
 .sheet .st{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:800;letter-spacing:-.01em;margin-bottom:6px}
@@ -197,4 +197,23 @@ textarea{font:inherit;color:var(--ink);background:var(--soft);border:2px solid v
 .sheet.ok button{background:var(--ok);box-shadow:0 3px 0 rgba(0,0,0,.25)}.sheet.bad button{background:var(--bad);box-shadow:0 3px 0 rgba(0,0,0,.25)}
 @media (prefers-color-scheme:dark){.sheet button{color:#0b1016}.sheet .st .ico{color:#0b1016}}
 .center{text-align:center}
-@media (prefers-reduced-motion:reduce){main>*,.sheet{animation:none}.mic.live{animation:none}button,.bar i{transition:none}}
+@keyframes pop{0%{transform:scale(1)}45%{transform:scale(1.09)}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-7px)}40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(4px)}}
+@keyframes qin{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
+body.playing main>.card{animation:qin .32s cubic-bezier(.2,.8,.2,1) both}
+.opt.right{animation:pop .4s cubic-bezier(.3,1.6,.5,1)}.opt.wrong{animation:shake .4s}
+.sheet .st .ico{display:inline-flex;animation:pop .5s .12s cubic-bezier(.3,1.6,.5,1) both}
+button:active:not([disabled]){transform:scale(.96)}
+.plines{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:2}
+.pl{fill:none;stroke-width:4;stroke-linecap:round}.pl.ok{stroke:var(--ok)}.pl.bad{stroke:var(--bad)}
+.pcount{margin:0 0 10px;padding:9px 14px;border-radius:14px;font-weight:700;background:var(--warn-bg);color:var(--warn);animation:pop .35s}.pcount:empty{display:none}
+.patt{display:flex;flex-wrap:wrap;gap:6px 20px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:21px;font-weight:700;margin:12px 0 0;padding:12px 14px;border-radius:14px;background:var(--soft);color:var(--ink);line-height:1.5}.patt .pw{white-space:nowrap}
+.sug{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0;align-items:center}
+.chip2{min-height:44px;padding:8px 16px;border-radius:99px;font-weight:700;font-size:17px;background:var(--blue-bg);border-color:var(--pri);color:var(--blue);animation:pop .3s cubic-bezier(.3,1.6,.5,1)}
+button.on{border-color:var(--pri);background:var(--blue-bg);color:var(--blue)}
+.letters{display:flex;flex-wrap:wrap;gap:8px;padding:10px;border-radius:16px;margin:8px 0;min-height:62px;align-content:flex-start}
+.letters.slot{border:2px dashed var(--line);min-height:76px}.letters.bank{background:var(--soft)}
+.tile.lt{min-width:46px;padding:9px 12px;font-size:22px;font-weight:800;text-transform:lowercase}
+.tile.lt.okl{background:var(--ok-bg);border-color:var(--ok);color:var(--ok);box-shadow:0 2px 0 var(--ok)}
+.tile.lt.badl{background:var(--bad-bg);border-color:var(--bad);color:var(--bad);box-shadow:0 2px 0 var(--bad)}
+@media (prefers-reduced-motion:reduce){main>*,.sheet,.opt.right,.opt.wrong,.chip2,.pcount,body.playing main>.card,.pairs button.hit,.pairs button.miss,.sheet .st .ico{animation:none}.mic.live{animation:none}button,.bar i{transition:none}}
