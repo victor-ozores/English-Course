@@ -10,10 +10,12 @@ Duas formas de abrir, sempre no **Chrome** (é nele que a voz e a conferência d
 1. Toque em **Continuar**.
 2. Cada unidade segue a ordem: **Comece por aqui > Palavras > Verbos > Expressões > Regras (o porquê) > Frases > Conversa > Revisão final**.
 3. As unidades "Gramática" (do, does, did, will...) aparecem antes do módulo que precisa delas.
-4. Para concluir uma etapa de treino: **70% certas de primeira**. O que você erra volta na rodada e vai para "O que errei".
+4. Saiu no meio de um treino (ou a internet caiu)? Ao voltar em **Praticar**, o app pergunta se você quer **continuar de onde parou** ou começar do zero.
+5. Para concluir uma etapa de treino: **70% certas de primeira**. O que você erra volta na rodada e vai para "O que errei".
 
 ## Falar (o centro do app)
 - **Palavras, verbos e expressões**: cada linha tem o alto-falante (ouvir) e o microfone (falar). Verde = você falou certo; vermelho = tente de novo. Verbos: todos verdes = etapa concluída.
+- **O que você já falou fica guardado.** Palavras, verbos e expressões que ficaram verdes continuam verdes quando você volta (mesmo no dia seguinte): dá para fazer metade agora e o resto depois. O botão "Recomeçar esta lista" limpa tudo.
 - **Verbos**: o app pede e toca **só o verbo** ("to talk"), nunca a frase de exemplo (ela aparece escrita, só para ler). O "to" do começo pode faltar; o verbo não.
 - Aba **Falar**: repetir vendo a frase, falar sem ler (português para inglês) ou só verbos.
 - Toda palavra importante precisa sair, na ordem. "He work" não passa por "He works". Só um artigo (a, an, the) pode faltar. "Don't" = "do not"; "15" = "fifteen".

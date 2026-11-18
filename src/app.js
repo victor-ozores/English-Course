@@ -350,8 +350,8 @@ function verbItem(u, v) {
 
 /* ===== estado e salvamento ===== */
 var SK = 'estudo_v1', NOSTORE = false, S;
-function fresh() { return { v: 1, prog: {}, dif: {}, cal: {}, bk: 0, sn: 0, seen: {}, xp: 0, streak: 0, best: 0, last: '', today: null, cfg: { vel: 0.85, livro: BOOKS[0] ? BOOKS[0].id : '', som: true, vol: 0.5, toque: false, vib: true, tema: '' } }; }
-function clean(o) {
+function fresh() { return { v: 1, prog: {}, dif: {}, cal: {}, bk: 0, sn: 0, seen: {}, said: {}, round: null, xp: 0, streak: 0, best: 0, last: '', today: null, cfg: { vel: 0.85, livro: BOOKS[0] ? BOOKS[0].id : '', som: true, vol: 0.5, toque: false, vib: true, tema: '' } }; }
+function clean(o, local) {
   var f = fresh();
   if (!o || o.v !== 1 || typeof o.prog !== 'object' || !o.prog) return null;
   Object.keys(o.prog).forEach(function (k) {
@@ -361,6 +361,19 @@ function clean(o) {
   });
   if (o.dif && typeof o.dif === 'object') Object.keys(o.dif).forEach(function (k) { var n = +o.dif[k]; if (n > 0) f.dif[k] = Math.min(n, 9); });
   f.bk = +o.bk || 0;
+  if (o.said && typeof o.said === 'object') {
+    var cnt = 0;
+    Object.keys(o.said).slice(0, 300).forEach(function (k) {
+      var v = o.said[k], t = {}; if (!v || typeof v !== 'object' || k.length > 90) return;
+      Object.keys(v).slice(0, 300).forEach(function (w) { if (v[w] && w.length < 90 && cnt < 5000) { t[w] = 1; cnt++; } });
+      if (Object.keys(t).length) f.said[k] = t;
+    });
+  }
+  if (local && o.round && typeof o.round === 'object' && typeof o.round.rid === 'string' && Array.isArray(o.round.q) && o.round.q.length && o.round.q.length <= 40) {
+    var okT = ['choose', 'quiz', 'fix', 'write', 'auto', 'listen', 'spell', 'tiles', 'gap', 'pairs', 'speak', 'say'];
+    var qq = o.round.q.filter(function (c) { return c && c.q && okT.indexOf(c.q.t) >= 0; });
+    if (qq.length === o.round.q.length) f.round = { rid: o.round.rid.slice(0, 80), ts: +o.round.ts || 0, total: Math.max(1, +o.round.total || qq.length), first: Math.max(0, +o.round.first || 0), xp: Math.max(0, +o.round.xp || 0), q: qq.map(function (c) { return { q: c.q, retry: !!c.retry, soft: !!c.soft }; }) };
+  }
   f.sn = Math.max(0, +o.sn || 0); if (o.seen && typeof o.seen === 'object') Object.keys(o.seen).slice(0, 800).forEach(function (k) { var n = +o.seen[k]; if (n > 0 && k.length < 140) f.seen[k] = n; });
   var dk = /^\d{4}-\d{1,2}-\d{1,2}$/;
   f.xp = Math.max(0, +o.xp || 0); f.streak = Math.max(0, +o.streak || 0); f.best = Math.max(0, +o.best || 0); f.last = dk.test(o.last) ? o.last : '';
@@ -372,7 +385,7 @@ function clean(o) {
     if (+o.cfg.vol >= 0.1 && +o.cfg.vol <= 1) f.cfg.vol = +o.cfg.vol; }
   return f;
 }
-function loadState() { try { var r = localStorage.getItem(SK); if (r) { var o = clean(JSON.parse(r)); if (o) return o; } } catch (e) { NOSTORE = true; } return fresh(); }
+function loadState() { try { var r = localStorage.getItem(SK); if (r) { var o = clean(JSON.parse(r), true); if (o) return o; } } catch (e) { NOSTORE = true; } return fresh(); }
 function idbOpen(cb) { try { var r = indexedDB.open('estudo_ingles', 1); r.onupgradeneeded = function () { r.result.createObjectStore('kv'); }; r.onsuccess = function () { cb(r.result); }; r.onerror = function () { cb(null); }; } catch (e) { cb(null); } }
 function idbSet(txt) { idbOpen(function (db) { if (!db) return; try { db.transaction('kv', 'readwrite').objectStore('kv').put(txt, 'save'); } catch (e) {} }); }
 function idbGet(cb) { idbOpen(function (db) { if (!db) return cb(null); try { var q = db.transaction('kv').objectStore('kv').get('save'); q.onsuccess = function () { cb(q.result || null); }; q.onerror = function () { cb(null); }; } catch (e) { cb(null); } }); }
@@ -395,7 +408,7 @@ function hardAdd(en) { if (en) { S.dif[en] = Math.min((S.dif[en] || 0) + 1, 9); 
 function hardOk(en) { if (en && S.dif[en]) { S.dif[en]--; if (S.dif[en] <= 0) delete S.dif[en]; } }
 function doneCount() { var n = 0; Object.keys(S.prog).forEach(function (k) { n += Object.keys(S.prog[k].steps).length; }); return n; }
 function stamp() { var d = new Date(); function z(n) { return (n < 10 ? '0' : '') + n; } return d.getFullYear() + '-' + z(d.getMonth() + 1) + '-' + z(d.getDate()); }
-function snapshot() { var o = JSON.parse(JSON.stringify(S)); o.app = 'estudo-ingles'; o.exportedAt = new Date().toISOString(); return JSON.stringify(o, null, 1); }
+function snapshot() { var o = JSON.parse(JSON.stringify(S)); delete o.round; o.app = 'estudo-ingles'; o.exportedAt = new Date().toISOString(); return JSON.stringify(o, null, 1); }
 function saved(cb) { S.bk = Date.now(); save(); if (cb) cb(); }
 function baixar(cb) {
   var blob = new Blob([snapshot()], { type: 'application/json' });
@@ -718,6 +731,10 @@ function buildRound(pool, types, u) {
   return qs;
 }
 /* linha com ouvir + falar: fica verde (acertou) ou vermelha (errou) */
+/* palavras e verbos que a pessoa já falou certo (ficam verdes mesmo se ela sair e voltar depois) */
+function saidHas(sid, en) { return !!(S.said && S.said[sid] && S.said[sid][en]); }
+function saidAdd(sid, en) { S.said = S.said || {}; (S.said[sid] = S.said[sid] || {})[en] = 1; save(); }
+function saidCount(sid) { return S.said && S.said[sid] ? Object.keys(S.said[sid]).length : 0; }
 function speakRow(o) {
   var row = h('div', { class: 'srow' }), info = h('div', { class: 'a' }), msg = h('em', null), live = false, rec = null;
   var target = o.target || o.en.replace(/,.*$/, '').trim(), said = o.seq || [target];
@@ -727,7 +744,7 @@ function speakRow(o) {
   function hear() { var tok = ++seq; speakSeq(said, 0, tok); }
   var ear = h('button', { type: 'button', class: 'bt', 'aria-label': 'Ouvir ' + o.en, onclick: hear }, ico('spk', 22));
   var mic = h('button', { type: 'button', class: 'bt mic', 'aria-label': 'Falar ' + o.en }, ico('mic', 22));
-  function setState(ok, text) { row.classList.toggle('ok', ok === true); row.classList.toggle('bad', ok === false); msg.textContent = text || ''; if (o.onResult) o.onResult(ok); }
+  function setState(ok, text) { row.classList.toggle('ok', ok === true); row.classList.toggle('bad', ok === false); msg.textContent = text || ''; if (ok === true && o.sid) saidAdd(o.sid, o.en); if (o.onResult) o.onResult(ok); }
   function idle() { live = false; mic.classList.remove('live'); mic.replaceChildren(ico('mic', 22)); }
   mic.onclick = function () {
     if (live) { if (rec) rec.stop(); return; }
@@ -757,6 +774,7 @@ function speakRow(o) {
     } else msg.textContent = 'Este navegador não confere sua fala. Use o Chrome.';
   };
   row.append(info, ear, mic);
+  if (o.sid && saidHas(o.sid, o.en)) { row.classList.add('ok'); msg.textContent = 'Você já falou esta antes. Toque no microfone para repetir.'; if (o.onResult) o.onResult(true); }
   return row;
 }
 function scoreBar(total) {
@@ -768,10 +786,12 @@ function scoreBar(total) {
 function stepList(u, s, back) {
   var items = s === 'palavras' ? wordList(u) : sec(u, s);
   var sb = scoreBar(items.length), c = card(h('p', { class: 'small' }, 'Toque no alto-falante para ouvir e no microfone para falar. Verde = você falou certo. Vermelho = tente de novo.'), sb.el);
-  items.forEach(function (p, i) { c.append(speakRow({ en: p[0], pt: p[1], onResult: function (ok) { sb.set(i, ok); } })); });
+  var sid = u.id + ':' + s;
+  items.forEach(function (p, i) { c.append(speakRow({ sid: sid, en: p[0], pt: p[1], onResult: function (ok) { sb.set(i, ok); } })); });
+  if (saidCount(sid)) c.append(h('div', { class: 'actions' }, btn('Recomeçar esta lista', function () { if (confirm('Limpar o que você já falou nesta lista e começar de novo?')) { delete S.said[sid]; save(); stepList(u, s, back); } })));
   function start() {
     var pool = items.map(function (p) { return [p[0], p[1]]; }), types = ['pairs', 'choose-en2pt', 'say', 'choose-pt2en', 'listen', 'pairs', 'spell', 'say', 'auto', 'write'];
-    play(buildRound(pool, types, u), { title: INFO[s][0], back: back, again: start, thr: 0.7, fim: function (ok) { if (ok) mark(u, s); } });
+    play(buildRound(pool, types, u), { rid: u.id + ':' + s, title: INFO[s][0], back: back, again: start, thr: 0.7, fim: function (ok) { if (ok) mark(u, s); } });
   }
   show(INFO[s][0], back, noteBox(u, s), c, h('button', { type: 'button', class: 'primary wide', onclick: start }, 'Praticar'));
 }
@@ -783,22 +803,25 @@ function stepVerbs(u, s, back) {
     if (past) rows.push({ en: past, pt: 'passado de ' + v[0], target: past, soft: false });
   });
   var sb = scoreBar(rows.length), c = card(h('p', { class: 'small' }, 'Aprenda falando o verbo, não a frase. Toque no alto-falante, ouça só o verbo e fale o verbo no microfone. Todos verdes = etapa concluída.'), sb.el), msg = h('div');
+  var vsid = u.id + ':verbos';
   rows.forEach(function (r, i) {
+    r.sid = vsid;
     r.onResult = function (ok) { var t = sb.set(i, ok); if (ok && t[0] === rows.length) { mark(u, s); msg.replaceChildren(h('div', { class: 'msg ok' }, 'Você falou todos os verbos certo. Etapa concluída!')); } };
     c.append(speakRow(r));
   });
+  if (saidCount(vsid)) c.append(h('div', { class: 'actions' }, btn('Recomeçar esta lista', function () { if (confirm('Limpar o que você já falou nesta lista e começar de novo?')) { delete S.said[vsid]; save(); stepVerbs(u, s, back); } })));
   function falar() {
     var pick4 = pick(vs, 4), qs = [], pastQ = pick4.filter(function (v) { return v[2] && v[2] !== v[0].replace(/^to /, ''); }).slice(0, 2);
     pick4.forEach(function (v) { qs.push({ t: 'speak', en: v[0], pt: v[1], lax: ['to'], verb: true }); });
     shuffle(pick4).forEach(function (v) { qs.push({ t: 'say', en: v[0], pt: v[1], lax: ['to'], verb: true }); });
     pastQ.forEach(function (v) { qs.push({ t: 'say', en: v[2], pt: 'passado de ' + v[0] + ' (' + v[1] + ')', verb: true }); });
-    play(qs, { title: 'Verbos: falar', back: back, again: falar, thr: 0.7, fim: function (ok) { if (ok) mark(u, s); } });
+    play(qs, { rid: u.id + ':vfalar', title: 'Verbos: falar', back: back, again: falar, thr: 0.7, fim: function (ok) { if (ok) mark(u, s); } });
   }
   function calado() {
     var pool = vs.map(function (v) { return [v[0], v[1]]; }), sp = vs.map(function (v) { return verbItem(u, v); }).filter(function (i) { return i.sent; });
     var qs = buildRound(pool, ['pairs', 'choose-pt2en', 'spell', 'choose-en2pt', 'auto'], u);
     pick(sp, 4).forEach(function (i) { qs.push(mkGap([i.en, i.pt], u)); });
-    play(qs, { title: 'Verbos: sem microfone', back: back, again: calado, thr: 0.7, fim: function (ok) { if (ok && !mic) mark(u, s); },
+    play(qs, { rid: u.id + ':vcalado', title: 'Verbos: sem microfone', back: back, again: calado, thr: 0.7, fim: function (ok) { if (ok && !mic) mark(u, s); },
       nota: mic ? 'Esta rodada não conclui a etapa. Verbo só conta quando você fala: use os botões de microfone ou a rodada "Treinar falando".' : '' });
   }
   show(INFO.verbos[0], back, noteBox(u, s), c, msg,
@@ -866,7 +889,7 @@ function stepPhrases(u, s, back) {
   }
   function start(mode) {
     var t = MODES[mode], types = []; for (var i = 0; i < 10; i++) types.push(t[i % t.length]);
-    play(buildRound(sentPool(u), types, u), { title: INFO.frases[0], back: back, again: function () { start(mode); }, thr: 0.7, fim: function (ok) { if (ok) mark(u, s); } });
+    play(buildRound(sentPool(u), types, u), { rid: u.id + ':frases:' + mode, title: INFO.frases[0], back: back, again: function () { start(mode); }, thr: 0.7, fim: function (ok) { if (ok) mark(u, s); } });
   }
   function tile(mode, ic, a, b) { return h('button', { type: 'button', onclick: function () { start(mode); } }, h('span', { class: 'qi' }, ico(ic)), h('span', null, h('b', null, a), h('span', { class: 'small' }, b))); }
   kids.push(h('button', { type: 'button', class: 'primary wide', style: 'margin-bottom:14px', onclick: function () { start('misto'); } }, 'Treino misto (recomendado)'));
@@ -888,7 +911,7 @@ function stepDialog(u, s, back) {
   function start() {
     var qs = [];
     lines.forEach(function (r, i) { if (me(r[0])) qs.push({ t: 'speak', en: r[1], pt: r[2], ctx: i > 0 ? lines[i - 1] : null }); });
-    play(qs, { title: 'Sua parte na conversa', back: back, again: start, thr: 0.5, ordem: true, fim: function (ok) { if (ok) mark(u, s); } });
+    play(qs, { rid: u.id + ':dialogo', title: 'Sua parte na conversa', back: back, again: start, thr: 0.5, ordem: true, fim: function (ok) { if (ok) mark(u, s); } });
   }
   var mine = lines.some(function (r) { return me(r[0]); });
   show(INFO.dialogo[0], back, noteBox(u, s), c,
@@ -906,14 +929,14 @@ function stepReview(u, s, back) {
   var qs = pick(qz, 2).concat(pick(fx, 2)), sp = sentPool(u);
   qs = qs.concat(buildRound(sp.length ? sp : allPool(u), ['say', 'tiles', 'speak', 'write', 'gap', 'listen', 'say'], u));
   qs = qs.concat(buildRound(allPool(u), ['choose-pt2en'], u));
-  play(shuffle(qs), { title: INFO.revisao[0], back: back, again: function () { stepReview(u, s, back); }, thr: 0.7, fim: function (ok) { if (ok) mark(u, s); } });
+  play(shuffle(qs), { rid: u.id + ':revisao', title: INFO.revisao[0], back: back, again: function () { stepReview(u, s, back); }, thr: 0.7, fim: function (ok) { if (ok) mark(u, s); } });
 }
 function playHard() {
   var ens = Object.keys(S.dif).sort(function (a, b) { return S.dif[b] - S.dif[a]; }).filter(function (e) { return PT[e]; }).slice(0, 10);
   var types = ['say', 'write', 'tiles', 'choose-pt2en'];
   var qs = ens.map(function (e, i) { return mkQ(types[i % 4], [e, PT[e]]); });
   if (!qs.length) { go('#'); return; }
-  play(qs, { title: 'O que errei', back: '#', again: playHard, livre: true });
+  play(qs, { rid: 'duro', title: 'O que errei', back: '#', again: playHard, livre: true });
 }
 
 /* ===== aba Falar ===== */
@@ -947,37 +970,54 @@ function viewFalar() {
 }
 
 /* ===== perguntas ===== */
-function distract(it, dir) {
+function distract(it, dir, loose) {
   var pool = words(it[0]).length >= 3 ? GL.s : GL.w, ix = dir === 'en2pt' ? 1 : 0;
-  var c = shuffle(pool.filter(function (p) { return p[0] !== it[0] && p[1] !== it[1] && !related(it, p); })), out = [], seen = {};
+  var c = shuffle(pool.filter(function (p) { return p[0] !== it[0] && p[1] !== it[1] && (loose || !related(it, p)); })), out = [], seen = {};
   seen[it[ix]] = 1;
   c.forEach(function (p) { if (out.length < 3 && !seen[p[ix]]) { seen[p[ix]] = 1; out.push(p[ix]); } });
   return out.length === 3 ? out : null;
 }
+/* palavras curtinhas da gramática: só viram lacuna na unidade que as ensina */
+var TINY = /^(i|a|an|to|at|in|on|he|we|it|us|my|as|is|am|do|me)$/i;
+var FUNC = /^(i|you|he|she|it|we|they|a|an|the|to|do|does|did|be|is|am|are|was|were|my|your|his|her|its|our|their|and|or|but|of|in|on|at|for|with|from|not|no|yes|me|him|us|them|this|that|can|will|would|if|so|too|very|don't|doesn't|didn't|can't|won't|isn't|aren't|wasn't|weren't|i'm|i'll|i'd|it's|let's)$/i;
+var GFAM = { 'g-prep-lugar': ['at', 'in', 'on', 'to'], 'g-prep-tempo': ['at', 'in', 'on'], 'g-prep-fixas': ['to', 'at', 'for', 'of', 'about', 'in', 'from', 'with'],
+  'g-to-be': ['am', 'is', 'are'], 'g-artigos': ['a', 'an', 'the'], 'g-does-doesnt': ['do', 'does', "don't", "doesn't"], 'g-presente-do-dont': ['do', "don't"], 'g-can': ['can', "can't"] };
 function mkGap(it, u) {
-  var ws = it[0].split(/\s+/), low = function (w) { return w.toLowerCase().replace(/[^a-z']/g, ''); };
+  var ws = it[0].split(/\s+/), low = function (w) { return w.toLowerCase().replace(/[^a-z']/g, ''); }, i, cand = [], pool = [], d = [], seen = {};
+  var fam = u && GFAM[u.id.replace(/^[^:]*:/, '')];
   var verbs = (u ? sec(u, 'verbos') : []).map(function (v) { return v[0].replace(/^to /, '').toLowerCase(); }).filter(single);
   var vocab = (u ? wordList(u) : []).map(function (v) { return v[0].toLowerCase(); }).filter(single);
-  var ix = -1, pool = [], i;
-  for (i = 0; i < ws.length && ix < 0; i++) if (verbs.indexOf(low(ws[i])) >= 0) { ix = i; pool = verbs.concat(GL.v.map(function (p) { return p[0].toLowerCase(); })); }
-  for (i = ws.length - 1; i >= 0 && ix < 0; i--) if (vocab.indexOf(low(ws[i])) >= 0) { ix = i; pool = vocab.concat(GL.w.map(function (p) { return p[0].toLowerCase(); }).filter(single)); }
-  if (ix < 0) { var best = 0; ws.forEach(function (w, k) { if (low(w).length > best) { best = low(w).length; ix = k; } }); pool = GL.w.map(function (p) { return p[0].toLowerCase(); }).filter(single); }
-  var m = ws[ix].match(/^([^A-Za-z']*)(.*?)([^A-Za-z']*)$/), ans = m[2], seen = {}, d = [];
+  if (fam) { for (i = 0; i < ws.length; i++) if (fam.indexOf(low(ws[i])) >= 0) cand.push(i); if (cand.length) pool = fam; }
+  if (!cand.length) {
+    var pref = [];
+    for (i = 0; i < ws.length; i++) { var wd = low(ws[i]); if (wd.length < 3 || FUNC.test(wd)) continue; cand.push(i); if (verbs.indexOf(wd) >= 0 || vocab.indexOf(wd) >= 0) pref.push(i); }
+    if (pref.length) cand = pref;
+    if (cand.length) {
+      var w0 = low(ws[cand[0]]);
+      var isV = verbs.indexOf(w0) >= 0 || GL.v.some(function (p) { return p[0].toLowerCase() === w0; });
+      pool = (isV ? verbs.concat(GL.v.map(function (p) { return p[0].toLowerCase(); })) : vocab.concat(GL.w.map(function (p) { return p[0].toLowerCase(); }).filter(single)))
+        .filter(function (w) { return w.length > 2 && !FUNC.test(w); });
+    }
+  }
+  if (!cand.length || ws.length < 3) return { t: 'write', en: it[0], pt: it[1], answer: it[0], prompt: it[1], alts: accepted(it) };
+  var ix = cand[Math.floor(Math.random() * cand.length)], m = ws[ix].match(/^([^A-Za-z']*)(.*?)([^A-Za-z']*)$/), ans = m[2];
   seen[ans.toLowerCase()] = 1;
-  shuffle(pool).forEach(function (w) { if (d.length < 3 && !seen[w] && w.length > 1) { seen[w] = 1; d.push(w); } });
-  if (!ans || d.length < 3 || ws.length < 3) return { t: 'write', en: it[0], pt: it[1], answer: it[0], prompt: it[1], alts: accepted(it) };
-  return { t: 'gap', en: it[0], pt: it[1], ws: ws, ix: ix, pre: m[1], post: m[3], answer: ans, options: shuffle(d.concat([ans.toLowerCase() === 'i' ? 'I' : ans.toLowerCase()])) };
+  shuffle(pool).forEach(function (w) { if (d.length < (fam ? Math.min(3, fam.length - 1) : 3) && !seen[w] && w.length > 0) { seen[w] = 1; d.push(w); } });
+  if (!ans || d.length < (fam ? 1 : 2)) return { t: 'write', en: it[0], pt: it[1], answer: it[0], prompt: it[1], alts: accepted(it) };
+  return { t: 'gap', en: it[0], pt: it[1], ws: ws, ix: ix, pre: m[1], post: m[3], answer: ans, options: shuffle(d.concat([ans.toLowerCase()])) };
 }
 function mkQ(type, it, u) {
   var q0 = mkQ0(type, it, u); if (q0) q0.cx = ctxOf(it); return q0;
 }
 function mkQ0(type, it, u) {
   var en = it[0], pt = it[1], n = words(en).length, al = accepted(it);
+  /* palavrinha solta (I, a, to, he...) ou item com vírgula não serve para digitar, falar ou montar: vira escolha */
+  if (/^(write|auto|spell|say|speak|listen)$/.test(type) && ((n === 1 && TINY.test(en)) || /[,;]/.test(en))) type = Math.random() < 0.5 ? 'choose-pt2en' : 'choose-en2pt';
   if (type === 'tiles' && n < 3) type = 'write';
   if (type === 'spell') { var bw = en.replace(/^to /i, ''); var outras = al.some(function (e) { return e.replace(/^to /i, '').toLowerCase() !== bw.toLowerCase(); }); if (outras || !/^[A-Za-z']{3,12}$/.test(bw)) type = 'auto'; else return { t: 'spell', en: en, pt: pt, answer: bw, prefix: bw !== en ? 'to ' : '', prompt: pt, alts: al }; }
   if (type === 'gap') return mkGap(it, u);
   if (type.slice(0, 6) === 'choose') {
-    var dir = type.slice(7), d = distract(it, dir);
+    var dir = type.slice(7), d = distract(it, dir) || (TINY.test(en) ? distract(it, dir, true) : null);
     if (!d) return { t: 'write', en: en, pt: pt, answer: en, prompt: pt, alts: al };
     var ans = dir === 'en2pt' ? pt : en;
     return { t: 'choose', dir: dir, en: en, pt: pt, prompt: dir === 'en2pt' ? en : pt, answer: ans, options: shuffle(d.concat([ans])) };
@@ -1324,7 +1364,26 @@ QV.say = function (q, c) { speakLike(q, c, true); };
 function play(qs, o) {
   qs = qs.filter(Boolean);
   if (!qs.length) { show(o.title || 'Treino', o.back, card(h('p', null, 'Não há perguntas suficientes aqui.'))); return; }
-  var R = { q: qs.map(function (q) { return { q: q, retry: false, soft: false }; }), total: qs.length, first: 0, xp: 0 };
+  var sv = o.rid && S.round && S.round.rid === o.rid && Date.now() - S.round.ts < 7 * 864e5 && S.round.q.length ? S.round : null;
+  if (sv) return askResume(sv, qs, o);
+  if (o.rid && S.round && S.round.rid === o.rid) { S.round = null; save(); }
+  play2(qs, o, null);
+}
+/* a pessoa saiu no meio da rodada (ou a internet caiu): pergunta se quer continuar de onde parou */
+function askResume(sv, qs, o) {
+  var m = mascot(96, 'think'), n = sv.total - sv.q.length + 1;
+  show(o.title || 'Treino', o.back, card(h('div', { class: 'win' }, m, h('h2', { style: 'margin-top:8px' }, 'Você parou no meio'),
+    h('p', { class: 'mut' }, 'Você estava na pergunta ' + n + ' de ' + sv.total + '. Quer continuar de onde parou?')),
+    h('div', { class: 'actions' }, btn('Continuar de onde parei', function () { play2(null, o, sv); }, 'primary'), btn('Começar do zero', function () { S.round = null; save(); play2(qs, o, null); }))));
+  idle(m);
+}
+function play2(qs, o, sv) {
+  var R = sv ? { q: sv.q.map(function (c) { return { q: c.q, retry: !!c.retry, soft: !!c.soft }; }), total: sv.total, first: sv.first, xp: sv.xp }
+    : { q: qs.map(function (q) { return { q: q, retry: false, soft: false }; }), total: qs.length, first: 0, xp: 0 };
+  function keep() {
+    if (!o.rid) return;
+    S.round = R.q.length ? { rid: o.rid, ts: Date.now(), total: R.total, first: R.first, xp: R.xp, q: R.q.map(function (c) { return { q: c.q, retry: c.retry, soft: c.soft }; }) } : null;
+  }
   function draw() {
     if (!R.q.length) return end();
     var cur = R.q[0], q = cur.q, ans = false, tl = TL[q.t] || ['Treino', 'target'];
@@ -1339,7 +1398,7 @@ function play(qs, o) {
       }
       var xp = ok ? (cur.retry || soft ? 4 : 10) : 0;
       gain(xp, true); R.xp += xp;
-      save(); if (sayEn) speak(sayEn);
+      keep(); save(); if (sayEn) speak(sayEn);
       var again = !ok || (soft && cur.soft && R.q.indexOf(cur) >= 0);
       var nb = h('button', { type: 'button', class: 'nb2', onclick: function () { sfx('tap'); draw(); } }, R.q.length ? 'Continuar' : 'Ver resultado');
       var m = mascot(66, ok ? 'cheer' : 'sad');
@@ -1353,11 +1412,13 @@ function play(qs, o) {
       if (ok) { sfx('ok'); buzz(15); hop(m); } else { sfx('bad'); buzz([30, 40, 30]); wiggle(sheet); }
       setTimeout(function () { try { nb.focus({ preventScroll: true }); } catch (e) {} }, 60);
     } };
-    show(o.title || 'Treino', o.back, box); document.body.classList.add('playing'); QV[q.t](q, ctx);
+    show(o.title || 'Treino', o.back, box); document.body.classList.add('playing');
+    try { QV[q.t](q, ctx); } catch (e) { R.q.shift(); keep(); save(); draw(); }
   }
   function end() {
     var pct = R.first / R.total, ok = !o.livre && pct >= o.thr, good = ok || o.livre;
     if (o.fim) o.fim(ok);
+    if (o.rid && S.round && S.round.rid === o.rid) { S.round = null; save(); }
     var m = mascot(120, good ? 'cheer' : 'think'), xpEl = h('b', null, '+0'), sk = streakNow();
     var stats = h('div', { class: 'stats' }, h('div', { class: 'stat s1' }, h('small', null, 'Pontos'), xpEl),
       h('div', { class: 'stat s2' }, h('small', null, 'De primeira'), h('b', null, R.first + '/' + R.total)),
@@ -1437,7 +1498,7 @@ function start() {
   if (!BOOKS.length) { $app.textContent = 'Nenhum livro encontrado na pasta dados.'; return; }
   S = loadState(); applyTema();
   try { if (navigator.storage && navigator.storage.persist) navigator.storage.persist(); } catch (e) {}
-  if (doneCount() === 0) { idbGet(function (t) { try { var o = t && clean(JSON.parse(t)), n = 0; if (o) { Object.keys(o.prog).forEach(function (k) { n += Object.keys(o.prog[k].steps).length; }); if (n > 0) { S = o; RESTORED = n; save(); route(); } } } catch (e) {} }); }
+  if (doneCount() === 0) { idbGet(function (t) { try { var o = t && clean(JSON.parse(t), true), n = 0; if (o) { Object.keys(o.prog).forEach(function (k) { n += Object.keys(o.prog[k].steps).length; }); if (n > 0) { S = o; RESTORED = n; save(); route(); } } } catch (e) {} }); }
   save();
   $tabP.onclick = function () { go('#p'); }; $tabF.onclick = function () { go('#f'); }; $tabH.onclick = function () { go('#'); };
   window.addEventListener('hashchange', route);

@@ -139,6 +139,8 @@ flowchart TD
 ## 📚 De Onde Vem o Conteúdo
 
 * **O livro.** *Hey, Ho, Let's Go!* Book 1: palavras, verbos, expressões, frases e conversas dos 25 módulos.
+* **Guarda o que já falei.** As palavras e os verbos que ficaram verdes continuam verdes quando volto, então posso fazer metade da lista hoje e o resto depois.
+* **Continua de onde parou.** Se a pessoa sai no meio de uma rodada (ou a internet cai), o app guarda a posição e, ao voltar, oferece continuar de onde parou.
 * **Muitas frases, sem repetir.** São cerca de 2.800 frases no total (uns 80 por módulo e uns 38 por gramática), todas com vocabulário já ensinado. Um rodízio faz as rodadas passarem por todas as frases antes de repetir alguma.
 * **O porquê das regras.** As explicações, os exemplos e as pegadinhas das 46 unidades foram escritas para eu entender de verdade, em português simples. As 21 gramáticas vêm antes do módulo que usa cada uma: do/don't, plural, at/in/on/to (lugar), at/in/on (tempo), have to, artigos (a, an, the ou nada), to be, he/she/it, make/do/take/get/have/go, does, would like, preposições fixas (listen to, good at...), can, present continuous, did, was/were, passado irregular, if, going to, will e used to.
 * **O que o livro não explica e eu acrescentei.** Quando usar **at, in, on e to** (at the store, go to the store, at home), as preposições de tempo, quando usar **a, an, the ou nada**, o plural e as palavras que mudam por inteiro (child, children), os pares de verbos que o português chama tudo de "fazer", e as preposições que andam sempre juntas (listen **to**, good **at**).
